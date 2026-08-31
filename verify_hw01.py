@@ -1,5 +1,3 @@
-"""Self-check for the repository deliverables; writes verification.json."""
-
 from __future__ import annotations
 
 import json

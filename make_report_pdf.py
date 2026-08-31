@@ -1,9 +1,3 @@
-"""Create the required report.pdf using only the Python standard library.
-
-The generated report is intentionally text-first. Real screenshots and measured
-outputs must be added to report.md before the final PDF is generated.
-"""
-
 from __future__ import annotations
 
 import re

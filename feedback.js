@@ -4,13 +4,11 @@ const noticeForm = document.getElementById("noticeForm");
 const submissionList = document.getElementById("submissionList");
 const statusMessage = document.getElementById("status");
 
-// Closure: the private count survives between successful submissions.
 const submissionCounter = (() => {
   let count = 0;
   return () => ++count;
 })();
 
-// Arrow-function validation required by the assignment.
 const validateNotice = () => {
   const description = document.getElementById("noticeDescription").value.trim();
   const termsAccepted = document.getElementById("terms").checked;
@@ -37,17 +35,14 @@ noticeForm.addEventListener("submit", (event) => {
   const notice = Object.fromEntries(formData.entries());
   notice.terms = document.getElementById("terms").checked;
 
-  // JSON conversion, parsing, and console output.
   const jsonString = JSON.stringify(notice);
   console.log("Notice JSON string:", jsonString);
   const parsedNotice = JSON.parse(jsonString);
 
-  // Object destructuring extracts the primary field and submitter email.
   const { productName, submitterEmail } = parsedNotice;
   console.log("Product name:", productName);
   console.log("Submitter email:", submitterEmail);
 
-  // Spread creates a new object with the required timestamp field.
   const updatedNotice = {
     ...parsedNotice,
     submissionDate: new Date().toISOString()

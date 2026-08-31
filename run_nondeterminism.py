@@ -1,5 +1,3 @@
-"""Run the required 20-at-0.7 and 20-at-0.0 experiment."""
-
 from __future__ import annotations
 
 import argparse

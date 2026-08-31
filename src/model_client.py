@@ -1,8 +1,3 @@
-"""Small, reusable Ollama adapter with per-turn token accounting.
-
-All model calls in this homework go through :class:`ModelClient`.
-"""
-
 from __future__ import annotations
 
 import json
@@ -15,8 +10,6 @@ from typing import Any, Iterable, Mapping
 
 @dataclass(frozen=True)
 class ModelResponse:
-    """Normalized response returned by the adapter."""
-
     text: str
     input_tokens: int
     output_tokens: int
@@ -25,8 +18,6 @@ class ModelResponse:
 
 
 class ModelClient:
-    """Stable interface over Ollama's local ``/api/chat`` endpoint."""
-
     def __init__(
         self,
         model: str | None = None,
@@ -50,7 +41,6 @@ class ModelClient:
         temperature: float | None = None,
         response_format: str | Mapping[str, Any] | None = None,
     ) -> ModelResponse:
-        """Complete a chat turn and print its token accounting."""
         payload: dict[str, Any] = {
             "model": self.model,
             "messages": [dict(message) for message in messages],
@@ -94,7 +84,6 @@ class ModelClient:
         return ModelResponse(text, input_tokens, output_tokens, total_tokens, raw)
 
     def stats(self, history: Iterable[Mapping[str, str]]) -> dict[str, int]:
-        """Return cumulative stats without changing the supplied history."""
         serialized_history = json.dumps(list(history), ensure_ascii=False, separators=(",", ":"))
         return {
             "turn_count": self.turn_count,
@@ -104,7 +93,6 @@ class ModelClient:
         }
 
     def print_cumulative_stats(self) -> None:
-        """Print the required exit summary."""
         print(
             "[cumulative] "
             f"input={self.input_tokens} output={self.output_tokens} turns={self.turn_count}"

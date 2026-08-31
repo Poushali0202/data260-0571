@@ -1,9 +1,3 @@
-"""Planner -> Reviewer -> Finalizer demo for the assigned grocery-notice domain.
-
-The domain is supplied as input; no domain vocabulary is embedded in the agent
-logic. Ollama is used for every normal run.
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -25,7 +19,6 @@ STOP_WORDS = {
 
 
 def strip_code_and_md(value: Any) -> str:
-    """Remove common formatting artifacts from an LLM response."""
     text = str(value or "")
     text = re.sub(r"```(?:json)?", "", text, flags=re.IGNORECASE)
     text = text.replace("```", "").replace("`", "")
@@ -33,7 +26,6 @@ def strip_code_and_md(value: Any) -> str:
 
 
 def extract_json_block(text: str) -> str:
-    """Extract the first balanced JSON object from possibly noisy text."""
     cleaned = strip_code_and_md(text)
     start = cleaned.find("{")
     if start < 0:
@@ -62,7 +54,6 @@ def words(text: str) -> list[str]:
 
 
 def phrase_candidates(title: str, content: str, max_count: int = 12) -> list[str]:
-    """Rank multi-word phrases and useful unigrams found in the input only."""
     source_words = [word for word in words(f"{title} {content}") if word not in STOP_WORDS]
     candidates: list[tuple[str, int, int]] = []
     for size in (3, 2):
@@ -86,7 +77,6 @@ def phrase_candidates(title: str, content: str, max_count: int = 12) -> list[str
 
 
 def fallback_summary(title: str, content: str) -> str:
-    """Create a concise input-derived summary if a model response is malformed."""
     sentence = " ".join(f"{title} {content}".split())
     summary_words = sentence.rstrip(".!?").split()[:25]
     return (" ".join(summary_words).rstrip(".!?") + ".") if summary_words else "A submitted item requires review."
@@ -108,7 +98,6 @@ def normalize_tags(value: Any, title: str, content: str) -> list[str]:
 
 
 def coerce_reply(raw: Any, title: str, content: str) -> dict[str, Any]:
-    """Coerce arbitrary output to the assignment's strict JSON shape."""
     obj = raw if isinstance(raw, dict) else {}
     data = obj.get("data") if isinstance(obj.get("data"), dict) else obj
     summary = strip_code_and_md(data.get("summary", "")) if isinstance(data, dict) else ""

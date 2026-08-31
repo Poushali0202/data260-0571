@@ -1,5 +1,3 @@
-"""Five-turn command-line conversation using the reusable model adapter."""
-
 from __future__ import annotations
 
 import argparse
@@ -23,7 +21,7 @@ def main() -> int:
     parser.add_argument("--model", default="qwen3:8b")
     parser.add_argument("--base-url", default="http://localhost:11434")
     parser.add_argument("--agent-file", default="AGENT.md")
-    parser.add_argument("--demo", action="store_true", help="Run the required five-turn conversation.")
+    parser.add_argument("--demo", action="store_true", help="run five sample turns")
     args = parser.parse_args()
 
     agent_instructions = Path(args.agent_file).read_text(encoding="utf-8")
