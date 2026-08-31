@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -40,7 +41,7 @@ def main() -> int:
     ]
     result = {
         "homework": "DATA-260 HW1",
-        "verified_at_utc": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(),
+        "verified_at_utc": datetime.now(timezone.utc).isoformat(),
         "passed": all(item["passed"] for item in checks),
         "checks": checks,
     }

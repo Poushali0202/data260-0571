@@ -1,3 +1,1 @@
-# Python 3.11/3.12 runtime for the Ollama agent work.
-# The implementation uses Ollama's HTTP API through Python's standard library.
-pytest>=8.0
+# No third-party Python packages are required; Ollama is accessed through its HTTP API.
