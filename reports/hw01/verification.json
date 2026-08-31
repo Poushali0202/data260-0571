@@ -1,0 +1,107 @@
+{
+  "homework": "DATA-260 HW1",
+  "verified_at_utc": "2026-08-31T17:04:17.422235+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "configuration",
+      "passed": true,
+      "details": "SID4=0571 PORT_BASE=8571 DOMAIN_ID=3"
+    },
+    {
+      "check": "html_title",
+      "passed": true,
+      "details": "HW1-Poushali title present"
+    },
+    {
+      "check": "domain_heading",
+      "passed": true,
+      "details": "assigned domain heading present"
+    },
+    {
+      "check": "autofocus",
+      "passed": true,
+      "details": "primary field autofocus present"
+    },
+    {
+      "check": "required_form_controls",
+      "passed": true,
+      "details": "required primary, secondary, email, content, category, and terms controls"
+    },
+    {
+      "check": "four_categories",
+      "passed": true,
+      "details": "four domain options plus one disabled placeholder"
+    },
+    {
+      "check": "script_link",
+      "passed": true,
+      "details": "JavaScript linked at end of document"
+    },
+    {
+      "check": "length_validation",
+      "passed": true,
+      "details": "content length validation present"
+    },
+    {
+      "check": "terms_validation",
+      "passed": true,
+      "details": "terms validation present"
+    },
+    {
+      "check": "json_conversion",
+      "passed": true,
+      "details": "JSON conversion present"
+    },
+    {
+      "check": "destructuring",
+      "passed": true,
+      "details": "object destructuring present"
+    },
+    {
+      "check": "spread_date",
+      "passed": true,
+      "details": "spread and submissionDate present"
+    },
+    {
+      "check": "closure",
+      "passed": true,
+      "details": "submission counter closure present"
+    },
+    {
+      "check": "schema",
+      "passed": true,
+      "details": "domain schema present before implementation"
+    },
+    {
+      "check": "agents",
+      "passed": true,
+      "details": "Planner/Reviewer/Finalizer implementation present"
+    },
+    {
+      "check": "adapter",
+      "passed": true,
+      "details": "reusable model adapter present"
+    },
+    {
+      "check": "client_demo",
+      "passed": true,
+      "details": "five-turn client present"
+    },
+    {
+      "check": "agent_instructions",
+      "passed": true,
+      "details": "strict bullet-only instructions present"
+    },
+    {
+      "check": "experiment_case",
+      "passed": true,
+      "details": "fixed experiment input present"
+    },
+    {
+      "check": "docker",
+      "passed": true,
+      "details": "Dockerfile present"
+    }
+  ]
+}

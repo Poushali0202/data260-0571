@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HW1-Poushali</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, system-ui, sans-serif; }
+    body { margin: 0; background: #eef5f2; color: #17342b; }
+    main { max-width: 760px; margin: 3rem auto; padding: 0 1rem; }
+    h1 { margin-bottom: .35rem; color: #0d5c47; }
+    .intro { margin-top: 0; color: #49645b; }
+    form { display: grid; gap: 1rem; padding: 1.5rem; background: white;
+      border: 1px solid #c9ddd5; border-radius: 14px; box-shadow: 0 8px 25px #17342b12; }
+    label { font-weight: 700; }
+    input, textarea, select { width: 100%; box-sizing: border-box; margin-top: .35rem;
+      padding: .75rem; border: 1px solid #9bbcaf; border-radius: 8px; font: inherit; }
+    textarea { min-height: 8rem; resize: vertical; }
+    .terms { display: flex; gap: .55rem; align-items: center; font-weight: 500; }
+    .terms input { width: auto; margin: 0; }
+    button { border: 0; border-radius: 8px; padding: .8rem 1rem; color: white;
+      background: #0d6b51; font: inherit; font-weight: 700; cursor: pointer; }
+    button:hover { background: #084d3b; }
+    #status { min-height: 1.5rem; color: #0d6b51; }
+    #submissionList { padding-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Grocery Supply and Recall Notices</h1>
+    <p class="intro">Submit a grocery supply or food-recall notice for review.</p>
+
+    <form id="noticeForm">
+      <label for="productName">Product name
+        <input id="productName" name="productName" type="text"
+          placeholder="e.g., Organic spinach, 5 oz bag" required autofocus>
+      </label>
+
+      <label for="noticeSource">Source or manufacturer
+        <input id="noticeSource" name="noticeSource" type="text"
+          placeholder="e.g., Acme Foods or FDA recall bulletin" required>
+      </label>
+
+      <label for="submitterEmail">Submitter email
+        <input id="submitterEmail" name="submitterEmail" type="email"
+          placeholder="you@example.com" required>
+      </label>
+
+      <label for="noticeDescription">Notice description
+        <textarea id="noticeDescription" name="noticeDescription"
+          placeholder="Describe the supply disruption or recall, affected lots, dates, and recommended action (at least 26 characters)." required></textarea>
+      </label>
+
+      <label for="noticeCategory">Category
+        <select id="noticeCategory" name="noticeCategory" required>
+          <option value="" selected disabled>Select a notice category</option>
+          <option value="recall">Product recall</option>
+          <option value="shortage">Supply shortage</option>
+          <option value="contamination">Contamination warning</option>
+          <option value="distribution">Distribution update</option>
+        </select>
+      </label>
+
+      <label class="terms">
+        <input id="terms" name="terms" type="checkbox" required>
+        I agree to the terms and conditions.
+      </label>
+
+      <button type="submit">Submit grocery notice</button>
+      <output id="status" aria-live="polite"></output>
+    </form>
+
+    <h2>Submitted notices</h2>
+    <ul id="submissionList"></ul>
+  </main>
+  <script src="feedback.js"></script>
+</body>
+</html>

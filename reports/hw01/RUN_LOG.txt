@@ -1,0 +1,13 @@
+DATA-260 HW1 run log
+Student: Poushali
+SID4: 0571
+Domain: Grocery supply and recall notices
+
+2026-08-31T10:04:17-07:00 | python verify_hw01.py | PASS (all 20 self-checks)
+2026-08-31T10:03:22-07:00 | python make_report_pdf.py | PASS (report.pdf written)
+2026-08-31T10:05:47-07:00 | python -m compileall -q . | PASS
+2026-08-31T10:03:00-07:00 | docker build -t data260-hw1-0571 . | BLOCKED:
+ERROR: error during connect: Head "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/_ping":
+open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+AWS CLI and Ollama were not installed at implementation time; no agent, ECS, or
+browser screenshot results are claimed until those commands are run for real.

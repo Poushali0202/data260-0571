@@ -1,0 +1,9 @@
+services:
+  grocery-notices:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: data260-hw1-0571:latest
+    ports:
+      - "8571:80"
+    restart: unless-stopped

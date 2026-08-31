@@ -1,0 +1,187 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R 8 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 2391 >>
+stream
+BT
+/F1 10 Tf
+50 750 Td
+13 TL
+(DATA-260 Homework 1 - Poushali) Tj T*
+() Tj T*
+(Configuration) Tj T*
+() Tj T*
+(- SID4: 0571) Tj T*
+(- PORT_BASE: 8571) Tj T*
+(- PREFIX: s0571) Tj T*
+(- SEED: 571) Tj T*
+(- VERIFY_SEED: 260571) Tj T*
+(- DOMAIN_ID: 3) Tj T*
+(- Assigned domain: Grocery supply and recall notices) Tj T*
+(- Hardware: Intel Core i5-1135G7, 15.8 GB RAM, Intel Iris Xe Graphics,) Tj T*
+(  Windows 11 Home Single Language) Tj T*
+(- Python: 3.12.10) Tj T*
+(- Local model: qwen3:8b through Ollama) Tj T*
+(- Tagged commit hash: fill in after the final hw1 tag is created) Tj T*
+() Tj T*
+(Part 1 - HTML, JavaScript, and deployment) Tj T*
+() Tj T*
+(DOMAIN_SCHEMA.md defines the GroceryNotice entity before the page) Tj T*
+(implementation. index.html is titled HW1-Poushali and uses the largest) Tj T*
+(heading for the assigned domain. Its form has required product, source,) Tj T*
+(submitter email, description, category, and terms controls. The product field) Tj T*
+(has a descriptive placeholder and autofocus. The category has four domain) Tj T*
+(values and the button says ?Submit grocery notice.?) Tj T*
+() Tj T*
+(feedback.js uses an arrow function to reject descriptions of 25 or fewer) Tj T*
+(characters and to reject an unchecked terms box. Successful data is stringified) Tj T*
+(and parsed as JSON; destructuring extracts productName and submitterEmail;) Tj T*
+(the spread operator adds an ISO submissionDate; and a closure counts) Tj T*
+(successful submissions.) Tj T*
+() Tj T*
+(Local Docker command:) Tj T*
+() Tj T*
+(```text) Tj T*
+(docker build -t data260-hw1-0571 .) Tj T*
+(docker run --rm -d --name data260-hw1-0571 -p 8571:80 data260-hw1-0571) Tj T*
+(```) Tj T*
+() Tj T*
+(Local screenshot: insert a real screenshot of http://localhost:8571 here.) Tj T*
+() Tj T*
+(The ECS deployment is defined by ecs-task-definition.json and) Tj T*
+(deploy_ecs.ps1. It uses one Fargate task, port 80, public IP enabled, and an) Tj T*
+(HTTP security-group rule. Public-IP screenshot: **insert a real screenshot) Tj T*
+(after AWS credentials are configured and the service reaches RUNNING.**) Tj T*
+() Tj T*
+(Part 2 - Agentic AI) Tj T*
+() Tj T*
+(agents_demo.py sends the supplied title and content through Planner,) Tj T*
+(Reviewer, and Finalizer agents. The adapter requests JSON and the coercion layer) Tj T*
+(enforces exactly three tags and a summary of at most 25 words. No grocery) Tj T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 2446 >>
+stream
+BT
+/F1 10 Tf
+50 750 Td
+13 TL
+(keywords are hardcoded into tag selection; candidates are derived from the) Tj T*
+(input text.) Tj T*
+() Tj T*
+(Exact command:) Tj T*
+() Tj T*
+(```text) Tj T*
+(python agents_demo.py --title "Frozen berries recalled after possible contamination" --content) Tj T*
+("A retailer is removing frozen mixed berries from selected lots after a supplier reported) Tj T*
+(possible contamination. Customers should check lot codes, stop using affected packages, and) Tj T*
+(contact the store for a refund." --email "poushali@example.com" --model qwen3:8b --temperature) Tj T*
+(0.0 --output reports/hw01/raw/agent_demo.json) Tj T*
+(```) Tj T*
+() Tj T*
+(Q1 final tags: fill in from the Finalizer output.) Tj T*
+() Tj T*
+(Q2 final summary: **fill in from the Finalizer output; it must be no more than) Tj T*
+(25 words.**) Tj T*
+() Tj T*
+(Q3 Reviewer changed anything: **fill in yes/no from the Planner and Reviewer) Tj T*
+(outputs.** The comparison must be based on the actual run.) Tj T*
+() Tj T*
+(Planner proposes input-derived tags and a summary. Reviewer checks relevance,) Tj T*
+(generic wording, and the word limit. Finalizer uses the transcript to publish) Tj T*
+(the strict final object.) Tj T*
+() Tj T*
+(Part 3 - Non-determinism) Tj T*
+() Tj T*
+(The fixed case is saved in cases/nondeterminism_input.json and is unchanged) Tj T*
+(for all runs. The required command is:) Tj T*
+() Tj T*
+(```text) Tj T*
+(python run_nondeterminism.py --model qwen3:8b --runs-per-temperature 20) Tj T*
+(```) Tj T*
+() Tj T*
+(The command writes 20 temperature-0.7 and 20 temperature-0.0 results to) Tj T*
+(raw/nondeterminism_runs.json, including tags and latency. **Insert the) Tj T*
+(measured metrics from METRICS.md here after the run.**) Tj T*
+() Tj T*
+(Two users with identical input may see different tags or summaries at) Tj T*
+(temperature 0.7. This is acceptable for exploratory topic discovery, but not) Tj T*
+(for recall, safety, compliance, or other decisions that must be reproducible.) Tj T*
+() Tj T*
+(Part 4 - Model client and token accounting) Tj T*
+() Tj T*
+(src/model_client.py is the sole Ollama call path and exposes) Tj T*
+(complete\(messages, tools=None\). Each response prints input, output, and total) Tj T*
+(tokens; exit prints cumulative input/output tokens and turn count. hw1_client.py) Tj T*
+(loads AGENT.md, which requires strict bullet-only review output.) Tj T*
+() Tj T*
+(Exact five-turn command:) Tj T*
+() Tj T*
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 986 >>
+stream
+BT
+/F1 10 Tf
+50 750 Td
+13 TL
+(```text) Tj T*
+(python hw1_client.py --demo --model qwen3:8b) Tj T*
+(```) Tj T*
+() Tj T*
+(Insert the real /stats outputs after turns 3 and 5 from the console capture.) Tj T*
+() Tj T*
+(Prior conversation context is resent because Ollama chat completion is) Tj T*
+(stateless between HTTP requests; the model needs earlier messages to answer) Tj T*
+(follow-ups. A system prompt establishes behavior and constraints, while a user) Tj T*
+(message supplies a request or data. Input tokens grow because the serialized) Tj T*
+(history is included in each new request. The model context window and any) Tj T*
+(application truncation or summarization eventually limit growth.) Tj T*
+() Tj T*
+(Verification and reproducibility) Tj T*
+() Tj T*
+(Run python verify_hw01.py; it writes verification.json. The report must be) Tj T*
+(updated with real screenshots, agent output, metrics, /stats captures, and the) Tj T*
+(final tagged commit hash before submission.) Tj T*
+ET
+endstream
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000133 00000 n 
+0000000203 00000 n 
+0000000329 00000 n 
+0000002772 00000 n 
+0000002898 00000 n 
+0000005396 00000 n 
+0000005522 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+6559
+%%EOF
