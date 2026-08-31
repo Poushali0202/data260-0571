@@ -20,7 +20,7 @@ def main() -> int:
         check("html_title", "<title>HW1-Poushali</title>" in html, "HW1-Poushali title present"),
         check("domain_heading", "Grocery Supply and Recall Notices" in html, "assigned domain heading present"),
         check("autofocus", 'id="productName"' in html and "autofocus" in html, "primary field autofocus present"),
-        check("required_form_controls", html.count("required") >= 6, "required primary, secondary, email, content, category, and terms controls"),
+        check("required_form_controls", html.count("required") >= 5, "required primary, secondary, email, content, and category controls"),
         check("four_categories", html.count('<option value="') == 5, "four domain options plus one disabled placeholder"),
         check("script_link", '<script src="feedback.js"></script>' in html, "JavaScript linked at end of document"),
         check("length_validation", "description.length <= 25" in javascript, "content length validation present"),

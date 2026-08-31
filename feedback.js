@@ -4,6 +4,7 @@ const noticeForm = document.getElementById("noticeForm");
 const submissionList = document.getElementById("submissionList");
 const statusMessage = document.getElementById("status");
 
+// Keep the count private between submissions.
 const submissionCounter = (() => {
   let count = 0;
   return () => ++count;
@@ -35,6 +36,7 @@ noticeForm.addEventListener("submit", (event) => {
   const notice = Object.fromEntries(formData.entries());
   notice.terms = document.getElementById("terms").checked;
 
+  // Convert the form to JSON, then parse it back into an object.
   const jsonString = JSON.stringify(notice);
   console.log("Notice JSON string:", jsonString);
   const parsedNotice = JSON.parse(jsonString);
@@ -43,6 +45,7 @@ noticeForm.addEventListener("submit", (event) => {
   console.log("Product name:", productName);
   console.log("Submitter email:", submitterEmail);
 
+  // Make a new object instead of changing parsedNotice.
   const updatedNotice = {
     ...parsedNotice,
     submissionDate: new Date().toISOString()

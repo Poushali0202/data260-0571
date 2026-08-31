@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import socket
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
@@ -23,12 +24,14 @@ class ModelClient:
         model: str | None = None,
         base_url: str | None = None,
         temperature: float = 0.0,
-        num_ctx: int = 4096,
+        num_ctx: int = 2048,
+        num_predict: int = 128,
     ) -> None:
         self.model = model or os.getenv("OLLAMA_MODEL", "qwen3:8b")
         self.base_url = (base_url or os.getenv("OLLAMA_URL", "http://localhost:11434")).rstrip("/")
         self.temperature = temperature
         self.num_ctx = num_ctx
+        self.num_predict = num_predict
         self.turn_count = 0
         self.input_tokens = 0
         self.output_tokens = 0
@@ -45,10 +48,13 @@ class ModelClient:
             "model": self.model,
             "messages": [dict(message) for message in messages],
             "stream": False,
+            "think": False,
             "options": {
                 "temperature": self.temperature if temperature is None else temperature,
                 "num_ctx": self.num_ctx,
+                "num_predict": self.num_predict,
             },
+            "keep_alive": "5m",
         }
         if tools:
             payload["tools"] = tools
@@ -62,11 +68,13 @@ class ModelClient:
             method="POST",
         )
         try:
-            with urllib.request.urlopen(request, timeout=300) as response:
+            timeout = float(os.getenv("OLLAMA_TIMEOUT", "180"))
+            with urllib.request.urlopen(request, timeout=timeout) as response:
                 raw = json.loads(response.read().decode("utf-8"))
-        except urllib.error.URLError as error:
+        except (urllib.error.URLError, socket.timeout, TimeoutError) as error:
             raise RuntimeError(
-                f"Could not reach Ollama at {self.base_url}. Start Ollama and pull {self.model!r}."
+                f"Ollama did not finish the {self.model!r} request in time. "
+                "Try a smaller model or increase OLLAMA_TIMEOUT."
             ) from error
 
         input_tokens = int(raw.get("prompt_eval_count", 0) or 0)

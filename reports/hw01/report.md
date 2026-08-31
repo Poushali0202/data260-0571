@@ -37,12 +37,15 @@ docker build -t data260-hw1-0571 .
 docker run --rm -d --name data260-hw1-0571 -p 8571:80 data260-hw1-0571
 ```
 
-Local screenshot: **insert a real screenshot of `http://localhost:8571` here.**
+Local screenshot (`screenshots/local-console.png`): the form at `http://localhost:8571` with the browser console after a valid submit.
+
+![Local Docker app and console](screenshots/local-console.png)
 
 The ECS deployment is defined by `ecs-task-definition.json` and
 `deploy_ecs.ps1`. It uses one Fargate task, port 80, public IP enabled, and an
-HTTP security-group rule. Public-IP screenshot: **insert a real screenshot
-after AWS credentials are configured and the service reaches RUNNING.**
+HTTP security-group rule. Public IP: `http://98.84.7.49`
+
+![ECS public IP](screenshots/ecs-public-ip.png)
 
 ## Part 2 — Agentic AI
 
@@ -58,13 +61,23 @@ Exact command:
 python agents_demo.py --title "Frozen berries recalled after possible contamination" --content "A retailer is removing frozen mixed berries from selected lots after a supplier reported possible contamination. Customers should check lot codes, stop using affected packages, and contact the store for a refund." --email "poushali@example.com" --model qwen3:8b --temperature 0.0 --output reports/hw01/raw/agent_demo.json
 ```
 
-Q1 final tags: **fill in from the Finalizer output.**
+Planner, Reviewer, Finalizer, and Publish JSON screenshots:
 
-Q2 final summary: **fill in from the Finalizer output; it must be no more than
-25 words.**
+![Agent demo 1](screenshots/agents-demo1.png)
+![Agent demo 2](screenshots/agents-demo2.png)
+![Agent demo 3](screenshots/agents-demo3.png)
+![Agent demo 4](screenshots/agents-demo4.png)
+![Agent demo 5](screenshots/agents-demo5.png)
+![Agent demo 6](screenshots/agents-demo6.png)
+![Agent demo 7](screenshots/agents-demo7.png)
+![Agent demo 8](screenshots/agents-demo8.png)
+![Agent demo 9](screenshots/agents-demo9.png)
 
-Q3 Reviewer changed anything: **fill in yes/no from the Planner and Reviewer
-outputs.** The comparison must be based on the actual run.
+Q1 final tags: **food safety, product recall, consumer protection**
+
+Q2 final summary: **Frozen berries are recalled due to possible contamination; customers should check lot codes and contact the store for a refund.**
+
+Q3 Reviewer changed anything: **No. The Reviewer did not change the Planner’s tags or summary.**
 
 Planner proposes input-derived tags and a summary. Reviewer checks relevance,
 generic wording, and the word limit. Finalizer uses the transcript to publish
@@ -80,8 +93,14 @@ python run_nondeterminism.py --model qwen3:8b --runs-per-temperature 20
 ```
 
 The command writes 20 temperature-0.7 and 20 temperature-0.0 results to
-`raw/nondeterminism_runs.json`, including tags and latency. **Insert the
-measured metrics from `METRICS.md` here after the run.**
+`raw/nondeterminism_runs.json`, including tags and latency.
+
+| Metric | Temp 0.7 | Temp 0.0 |
+|---|---|---|
+| Distinct tag sets | 6 | 1 |
+| Tags in all 20 runs | none | food safety, product recall, consumer protection |
+| Tags in exactly 1 run | consumer advisory, contamination recall, customer recall action, frozen berries recall | none |
+| Latency p50 / p95 / p99 (ms) | 79930 / 97093 / 98471 | 85534 / 93497 / 93591 |
 
 Two users with identical input may see different tags or summaries at
 temperature 0.7. This is acceptable for exploratory topic discovery, but not
@@ -100,7 +119,27 @@ Exact five-turn command:
 python hw1_client.py --demo --model qwen3:8b
 ```
 
-Insert the real `/stats` outputs after turns 3 and 5 from the console capture.
+![Part 4 client stats](screenshots/client-stats.png)
+
+Stats after turn 3:
+
+```text
+turn_count: 3
+cumulative_input_tokens: 518
+cumulative_output_tokens: 147
+serialized_conversation_history_length: 1363
+```
+
+Stats after turn 5:
+
+```text
+turn_count: 5
+cumulative_input_tokens: 1140
+cumulative_output_tokens: 211
+serialized_conversation_history_length: 1975
+```
+
+Exit totals: input=1140 output=211 turns=5. Responses followed AGENT.md bullet-only review.
 
 Prior conversation context is resent because Ollama chat completion is
 stateless between HTTP requests; the model needs earlier messages to answer

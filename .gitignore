@@ -2,4 +2,4 @@
 __pycache__/
 *.py[cod]
 ecs-task-definition.rendered.json
-reports/hw01/screenshots/*.png
+ecs-trust.json
