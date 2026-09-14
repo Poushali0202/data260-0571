@@ -12,25 +12,29 @@
    screenshots, and did the GitHub tag, the collaborator check, and the Canvas
    submission.
 
-2. One AI-produced output that was unsuitable: the first set of "after submit"
-   screenshots for Part 2. The browser restored the scroll position after the
-   redirect, so the images showed the middle of the page and not the updated
-   list that the screenshots were supposed to prove. Separately, I verified the
-   text of the Pydantic validation errors myself, because that text is what
-   gets sent back to the Planner on a retry.
+2. One AI-produced output that was wrong: the first version of `verify_hw02.py`
+   crashed on its very first check. Its `request()` helper parsed every
+   response body as JSON, but `GET /` returns the HTML page, so the script
+   raised `JSONDecodeError` before any check was recorded and never wrote
+   `verification.json`. Separately, I verified the text of the Pydantic
+   validation errors myself, because that text is what gets sent back to the
+   Planner on a retry, and the first "after submit" screenshots had to be
+   retaken because they were captured scrolled to the middle of the page.
 
-3. I found the screenshot problem by opening the PNG files: the table header
-   was cut off and the new record was only half visible. For the validator I
-   ran hand-made bad replies through `PlannerOutput` (four tags, a
-   two-character tag, a 30-word summary, and a JSON string cut off mid-way) and
-   read the messages before the 30-run experiment was started.
+3. I found the crash by running the smoke test on the tagged commit, which is
+   exactly what the script is for; the traceback pointed at the `json.loads`
+   call inside `request()`. For the validator I ran hand-made bad replies
+   through `PlannerOutput` (four tags, a two-character tag, a 30-word summary,
+   and a JSON string cut off mid-way) and read the messages before the 30-run
+   experiment was started.
 
-4. The screenshot script now scrolls to the top of the page after each redirect
-   and only then captures the viewport, so the list with the changed record is
-   what appears in the report. For the validator, Pydantic's default
-   `str(error)` is several lines long and ends with a documentation URL; the
-   graph uses a small `describe()` helper that turns each problem into one
-   `field: message` line (for example `tags: List should have at most 3 items
-   after validation, not 4`). That works because the Planner prompt quotes only
-   this last message, so the model gets a short and specific reason and the raw
-   JSON files stay readable.
+4. `request()` now returns the raw text unless the `Content-Type` header says
+   JSON, so the home page check passes and the API checks still get parsed
+   objects. It works because FastAPI sets `text/html` for `FileResponse` and
+   `application/json` for the API routes, which is the property the test
+   should rely on. For the validator, Pydantic's default `str(error)` is
+   several lines long and ends with a documentation URL; the graph uses a small
+   `describe()` helper that turns each problem into one `field: message` line
+   (for example `tags: List should have at most 3 items after validation,
+   not 4`), so the Planner gets a short and specific reason and the raw JSON
+   files stay readable.

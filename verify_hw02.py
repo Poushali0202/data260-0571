@@ -50,6 +50,8 @@ def request(method: str, path: str, body: dict | None = None) -> tuple[int, obje
     try:
         with urllib.request.urlopen(req, timeout=10) as response:
             raw = response.read().decode("utf-8")
+            if "json" not in response.headers.get("Content-Type", ""):
+                return response.status, raw
             return response.status, (json.loads(raw) if raw else None)
     except urllib.error.HTTPError as error:
         return error.code, None
