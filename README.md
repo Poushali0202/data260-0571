@@ -1,4 +1,4 @@
-# DATA-260 Homework 1
+# DATA-260 Homework 1 and 2
 
 ## Personal configuration
 
@@ -15,7 +15,7 @@
 | Python | 3.12 |
 | Local model | `qwen3:8b` through Ollama (required for agent runs) |
 | Hardware | Intel Core i5-1135G7, 15.8 GB RAM, Intel Iris Xe Graphics, Windows 11 Home Single Language |
-| Tagged commit | Fill in the `hw1` tag hash after the final commit |
+| Tagged commits | `hw1` (HW1), `hw2` (HW2) |
 
 ## Part 1: local web application
 
@@ -26,7 +26,7 @@
 
 Compose alternative: `docker compose up --build`, then visit <http://localhost:8571>.
 
-## Part 2: Planner → Reviewer → Finalizer
+## Part 2: Planner, Reviewer, Finalizer
 
 Install the Python dependencies (the adapter itself uses only the standard library):
 
@@ -101,3 +101,19 @@ python verify_hw01.py
 The command writes `reports/hw01/verification.json`. The report PDF must be
 regenerated after replacing the environment-specific screenshot and metrics
 placeholders, then committed and tagged as `hw1`.
+
+## Homework 2
+
+HW2 adds a FastAPI backend (`app.py`) on PORT_BASE 8571 for the grocery notice
+list, a LangGraph supervisor graph (`agent_graph.py`) that replaces the
+sequential Planner/Reviewer script, the schema and turn-ceiling experiments
+(`run_graph_experiment.py`), and a smoke test (`verify_hw02.py`).
+
+```powershell
+python -m pip install -r requirements.txt
+python app.py
+python agent_graph.py --title "..." --content "..."
+python verify_hw02.py
+```
+
+Full run instructions, experiment commands, and results are in `reports/hw02/`.

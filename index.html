@@ -3,15 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HW1-Poushali</title>
+  <title>Grocery Supply and Recall Notices</title>
   <style>
     :root { color-scheme: light; font-family: Inter, system-ui, sans-serif; }
     body { margin: 0; background: #eef5f2; color: #17342b; }
-    main { max-width: 760px; margin: 3rem auto; padding: 0 1rem; }
+    main { max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
     h1 { margin-bottom: .35rem; color: #0d5c47; }
     .intro { margin-top: 0; color: #49645b; }
-    form { display: grid; gap: 1rem; padding: 1.5rem; background: white;
+    section { margin-top: 1.75rem; }
+    form { display: grid; gap: 1rem; padding: 1.25rem; background: white;
       border: 1px solid #c9ddd5; border-radius: 14px; box-shadow: 0 8px 25px #17342b12; }
+    .search { grid-template-columns: 1fr auto; align-items: end; }
     label { font-weight: 700; }
     input, textarea, select { width: 100%; box-sizing: border-box; margin-top: .35rem;
       padding: .75rem; border: 1px solid #9bbcaf; border-radius: 8px; font: inherit; }
@@ -21,57 +23,111 @@
     button { border: 0; border-radius: 8px; padding: .8rem 1rem; color: white;
       background: #0d6b51; font: inherit; font-weight: 700; cursor: pointer; }
     button:hover { background: #084d3b; }
-    #status { min-height: 1.5rem; color: #0d6b51; }
-    #submissionList { padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; background: white;
+      border: 1px solid #c9ddd5; border-radius: 14px; overflow: hidden; }
+    th, td { padding: .65rem .6rem; text-align: left; border-bottom: 1px solid #c9ddd5;
+      overflow-wrap: anywhere; }
+    th { background: #0d6b51; color: white; }
+    td:first-child { width: 2.5rem; }
+    #listStatus, #message { margin: .75rem 0; padding: .75rem 1rem; border-radius: 8px; }
+    #listStatus:empty, #message:empty { display: none; }
+    .loading { background: #fff8e1; color: #7a5a00; }
+    .empty { background: #e8f0ff; color: #1f3d7a; }
+    .error, #message { background: #fde8e8; color: #8b1a1a; }
+    @media (max-width: 480px) {
+      main { margin: 1rem auto; padding: 0 .75rem; }
+      h1 { font-size: 1.5rem; }
+      form { padding: 1rem; }
+      .search { grid-template-columns: 1fr; }
+      button { width: 100%; }
+    }
   </style>
 </head>
 <body>
   <main>
     <h1>Grocery Supply and Recall Notices</h1>
     <p class="intro">Submit a grocery supply or food-recall notice for review.</p>
+    <p id="message" aria-live="polite"></p>
 
-    <form id="noticeForm">
-      <label for="productName">Product name
-        <input id="productName" name="productName" type="text"
-          placeholder="e.g., Organic spinach, 5 oz bag" required autofocus>
-      </label>
+    <section>
+      <h2>Notices</h2>
+      <form id="searchForm" class="search">
+        <label for="searchText">Search by product or source
+          <input id="searchText" type="search" placeholder="e.g., spinach or FDA">
+        </label>
+        <button type="submit">Search</button>
+      </form>
+      <p id="listStatus" aria-live="polite"></p>
+      <table id="noticeTable" hidden>
+        <thead>
+          <tr><th>ID</th><th>Product name</th><th>Source or manufacturer</th></tr>
+        </thead>
+        <tbody id="noticeRows"></tbody>
+      </table>
+    </section>
 
-      <label for="noticeSource">Source or manufacturer
-        <input id="noticeSource" name="noticeSource" type="text"
-          placeholder="e.g., Acme Foods or FDA recall bulletin" required>
-      </label>
+    <section>
+      <h2>Add a notice</h2>
+      <form id="noticeForm">
+        <label for="productName">Product name
+          <input id="productName" name="productName" type="text"
+            placeholder="e.g., Organic spinach, 5 oz bag" required autofocus>
+        </label>
 
-      <label for="submitterEmail">Submitter email
-        <input id="submitterEmail" name="submitterEmail" type="email"
-          placeholder="you@example.com" required>
-      </label>
+        <label for="noticeSource">Source or manufacturer
+          <input id="noticeSource" name="noticeSource" type="text"
+            placeholder="e.g., Acme Foods or FDA recall bulletin" required>
+        </label>
 
-      <label for="noticeDescription">Notice description
-        <textarea id="noticeDescription" name="noticeDescription"
-          placeholder="Describe the supply disruption or recall, affected lots, dates, and recommended action (at least 26 characters)." required></textarea>
-      </label>
+        <label for="submitterEmail">Submitter email
+          <input id="submitterEmail" name="submitterEmail" type="email"
+            placeholder="you@example.com" required>
+        </label>
 
-      <label for="noticeCategory">Category
-        <select id="noticeCategory" name="noticeCategory" required>
-          <option value="" selected disabled>Select a notice category</option>
-          <option value="recall">Product recall</option>
-          <option value="shortage">Supply shortage</option>
-          <option value="contamination">Contamination warning</option>
-          <option value="distribution">Distribution update</option>
-        </select>
-      </label>
+        <label for="noticeDescription">Notice description
+          <textarea id="noticeDescription" name="noticeDescription"
+            placeholder="Describe the supply disruption or recall, affected lots, dates, and recommended action (at least 26 characters)." required></textarea>
+        </label>
 
-      <label class="terms">
-        <input id="terms" name="terms" type="checkbox">
-        I agree to the terms and conditions.
-      </label>
+        <label for="noticeCategory">Category
+          <select id="noticeCategory" name="noticeCategory" required>
+            <option value="" selected disabled>Select a notice category</option>
+            <option value="recall">Product recall</option>
+            <option value="shortage">Supply shortage</option>
+            <option value="contamination">Contamination warning</option>
+            <option value="distribution">Distribution update</option>
+          </select>
+        </label>
 
-      <button type="submit">Submit grocery notice</button>
-      <output id="status" aria-live="polite"></output>
-    </form>
+        <label class="terms">
+          <input id="terms" name="terms" type="checkbox">
+          I agree to the terms and conditions.
+        </label>
 
-    <h2>Submitted notices</h2>
-    <ul id="submissionList"></ul>
+        <button type="submit">Submit grocery notice</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Update notice 1</h2>
+      <form id="updateForm">
+        <label for="updateProduct">New product name
+          <input id="updateProduct" type="text" placeholder="e.g., Romaine lettuce hearts" required>
+        </label>
+        <label for="updateSource">New source or manufacturer
+          <input id="updateSource" type="text" placeholder="e.g., CDC outbreak notice" required>
+        </label>
+        <button type="submit">Update notice 1</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>Delete the newest notice</h2>
+      <form id="deleteForm">
+        <p>Removes the notice with the highest ID.</p>
+        <button type="submit">Delete highest ID</button>
+      </form>
+    </section>
   </main>
   <script src="feedback.js"></script>
 </body>

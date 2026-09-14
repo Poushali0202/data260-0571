@@ -1,0 +1,406 @@
+[
+  {
+    "run": 1,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety alert"
+    ],
+    "summary": "A regional grocery chain removed romaine lettuce from shelves due to an E. coli link, advising customers to discard purchased items and seek refunds.",
+    "latency_ms": 17167,
+    "timestamp_utc": "2026-09-14T18:30:55Z"
+  },
+  {
+    "run": 2,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety alert"
+    ],
+    "summary": "A regional grocery chain recalls romaine lettuce linked to E. coli after illnesses reported, urging customers to discard purchased items and seek refunds.",
+    "latency_ms": 17326,
+    "timestamp_utc": "2026-09-14T18:31:12Z"
+  },
+  {
+    "run": 3,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "romaine lettuce",
+      "e. coli warning",
+      "product recall"
+    ],
+    "summary": "A regional grocery chain recalls romaine lettuce linked to E. coli after illnesses reported, urging customers to discard and refund.",
+    "latency_ms": 18381,
+    "timestamp_utc": "2026-09-14T18:31:31Z"
+  },
+  {
+    "run": 4,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety warning"
+    ],
+    "summary": "A regional grocery chain removed romaine lettuce due to E. coli linked to a farm, urging shoppers to discard purchases and seek refunds.",
+    "latency_ms": 20154,
+    "timestamp_utc": "2026-09-14T18:31:51Z"
+  },
+  {
+    "run": 5,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "romaine lettuce",
+      "E. coli outbreak",
+      "grocery recall"
+    ],
+    "summary": "A regional grocery chain recalled romaine lettuce linked to E. coli after illnesses were reported, urging customers to return products for refunds.",
+    "latency_ms": 19811,
+    "timestamp_utc": "2026-09-14T18:32:11Z"
+  },
+  {
+    "run": 6,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "grocery safety"
+    ],
+    "summary": "A regional grocery chain removes romaine lettuce due to E. coli linked to illnesses, advising shoppers to discard and refund purchases.",
+    "latency_ms": 18306,
+    "timestamp_utc": "2026-09-14T18:32:29Z"
+  },
+  {
+    "run": 7,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "grocery safety"
+    ],
+    "summary": "A regional grocery chain recalled romaine lettuce linked to E. coli after illnesses were reported, urging customers to return purchases for refunds.",
+    "latency_ms": 14865,
+    "timestamp_utc": "2026-09-14T18:32:44Z"
+  },
+  {
+    "run": 8,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli recall",
+      "romaine lettuce",
+      "food safety"
+    ],
+    "summary": "A grocery chain removes romaine lettuce due to E. coli link, urging customers to discard purchases and seek refunds.",
+    "latency_ms": 17601,
+    "timestamp_utc": "2026-09-14T18:33:01Z"
+  },
+  {
+    "run": 9,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "ceiling",
+    "classification": "Hit turn ceiling",
+    "validation_failures": 1,
+    "validation_errors": [
+      "summary: Value error, summary has 26 words, the limit is 25"
+    ],
+    "planner_calls": 2,
+    "reviewer_calls": 0,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "grocery safety"
+    ],
+    "summary": "Romaine lettuce is recalled due to E. coli linked to illnesses, affecting shoppers who bought it between May 3 and May 9.",
+    "latency_ms": 28140,
+    "timestamp_utc": "2026-09-14T18:33:30Z"
+  },
+  {
+    "run": 10,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety warning"
+    ],
+    "summary": "A regional grocery chain recalls romaine lettuce linked to E. coli after illnesses, urging customers to return products for refunds.",
+    "latency_ms": 17008,
+    "timestamp_utc": "2026-09-14T18:33:47Z"
+  },
+  {
+    "run": 11,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety alert"
+    ],
+    "summary": "A regional grocery chain removed romaine lettuce from shelves due to an E. coli link, urging customers to discard purchased items and seek refunds.",
+    "latency_ms": 17698,
+    "timestamp_utc": "2026-09-14T18:34:04Z"
+  },
+  {
+    "run": 12,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety alert"
+    ],
+    "summary": "A regional grocery chain recalls romaine lettuce linked to E. coli after illnesses reported, urging customers to discard and refund purchases.",
+    "latency_ms": 17686,
+    "timestamp_utc": "2026-09-14T18:34:22Z"
+  },
+  {
+    "run": 13,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety warning"
+    ],
+    "summary": "A regional grocery chain removed romaine lettuce from shelves after linking illnesses to a farm, urging shoppers to discard and refund purchased items.",
+    "latency_ms": 18250,
+    "timestamp_utc": "2026-09-14T18:34:40Z"
+  },
+  {
+    "run": 14,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "ceiling",
+    "classification": "Hit turn ceiling",
+    "validation_failures": 1,
+    "validation_errors": [
+      "summary: Value error, summary has 27 words, the limit is 25"
+    ],
+    "planner_calls": 2,
+    "reviewer_calls": 0,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "grocery safety"
+    ],
+    "summary": "A regional grocery chain removes romaine lettuce after E. coli linked to illnesses, urging customers to discard and refund.",
+    "latency_ms": 23107,
+    "timestamp_utc": "2026-09-14T18:35:03Z"
+  },
+  {
+    "run": 15,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety alert"
+    ],
+    "summary": "A regional grocery chain recalls romaine lettuce linked to E. coli after illnesses reported, urging customers to return products for refunds.",
+    "latency_ms": 16013,
+    "timestamp_utc": "2026-09-14T18:35:19Z"
+  },
+  {
+    "run": 16,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety alert"
+    ],
+    "summary": "A regional grocery chain removes romaine lettuce due to E. coli linked to illnesses, urging customers to discard purchases and seek refunds.",
+    "latency_ms": 14973,
+    "timestamp_utc": "2026-09-14T18:35:34Z"
+  },
+  {
+    "run": 17,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety alert"
+    ],
+    "summary": "A regional grocery chain recalled romaine lettuce linked to E. coli after illnesses were traced to a single farm.",
+    "latency_ms": 14059,
+    "timestamp_utc": "2026-09-14T18:35:48Z"
+  },
+  {
+    "run": 18,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "grocery safety"
+    ],
+    "summary": "A regional grocery chain recalls romaine lettuce linked to E. coli after illnesses reported, urging customers to discard and refund purchases.",
+    "latency_ms": 15719,
+    "timestamp_utc": "2026-09-14T18:36:04Z"
+  },
+  {
+    "run": 19,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "grocery safety"
+    ],
+    "summary": "A regional grocery chain recalled romaine lettuce linked to E. coli after illnesses, urging customers to discard and refund purchases.",
+    "latency_ms": 14617,
+    "timestamp_utc": "2026-09-14T18:36:19Z"
+  },
+  {
+    "run": 20,
+    "max_turns": 2,
+    "temperature": 0.7,
+    "outcome": "done",
+    "classification": "Valid first attempt",
+    "validation_failures": 0,
+    "validation_errors": [],
+    "planner_calls": 1,
+    "reviewer_calls": 1,
+    "turn_count": 3,
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety alert"
+    ],
+    "summary": "A regional grocery chain recalls romaine lettuce linked to E. coli after illnesses reported, urging customers to discard and refund purchases.",
+    "latency_ms": 16838,
+    "timestamp_utc": "2026-09-14T18:36:36Z"
+  }
+]

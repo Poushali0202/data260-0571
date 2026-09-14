@@ -1,0 +1,106 @@
+[
+  {
+    "run": 1,
+    "max_turns": 6,
+    "temperature": 0.7,
+    "outcome": "ceiling",
+    "classification": "Hit turn ceiling",
+    "validation_failures": 2,
+    "validation_errors": [
+      "output: Invalid JSON: EOF while parsing a string at line 1 column 295",
+      "output: Invalid JSON: EOF while parsing a string at line 1 column 219"
+    ],
+    "planner_calls": 4,
+    "reviewer_calls": 2,
+    "turn_count": 7,
+    "tags": [],
+    "summary": "",
+    "latency_ms": 191989,
+    "timestamp_utc": "2026-09-14T18:02:51Z"
+  },
+  {
+    "run": 2,
+    "max_turns": 6,
+    "temperature": 0.7,
+    "outcome": "ceiling",
+    "classification": "Hit turn ceiling",
+    "validation_failures": 1,
+    "validation_errors": [
+      "output: Invalid JSON: EOF while parsing a string at line 1 column 219"
+    ],
+    "planner_calls": 4,
+    "reviewer_calls": 2,
+    "turn_count": 7,
+    "tags": [
+      "Peanut Butter Recall",
+      "14 Products Affected",
+      "Lot Codes Listed"
+    ],
+    "summary": "Peanut butter recall covers 14 products with full lot codes 2201-2214 listed for refund.",
+    "latency_ms": 131137,
+    "timestamp_utc": "2026-09-14T18:45:46Z"
+  },
+  {
+    "run": 3,
+    "max_turns": 6,
+    "temperature": 0.7,
+    "outcome": "ceiling",
+    "classification": "Hit turn ceiling",
+    "validation_failures": 1,
+    "validation_errors": [
+      "output: Invalid JSON: EOF while parsing a string at line 1 column 219"
+    ],
+    "planner_calls": 4,
+    "reviewer_calls": 2,
+    "turn_count": 7,
+    "tags": [
+      "Creamy 16 oz",
+      "Crunchy 16 oz",
+      "Honey Roasted 16 oz"
+    ],
+    "summary": "Peanut butter recall covers 14 products with lot codes 2201-2214; customers must return affected items for refund.",
+    "latency_ms": 93296,
+    "timestamp_utc": "2026-09-14T18:47:20Z"
+  },
+  {
+    "run": 4,
+    "max_turns": 6,
+    "temperature": 0.7,
+    "outcome": "ceiling",
+    "classification": "Hit turn ceiling",
+    "validation_failures": 2,
+    "validation_errors": [
+      "output: Invalid JSON: EOF while parsing a string at line 1 column 219",
+      "output: Invalid JSON: EOF while parsing a string at line 1 column 221"
+    ],
+    "planner_calls": 4,
+    "reviewer_calls": 2,
+    "turn_count": 7,
+    "tags": [],
+    "summary": "",
+    "latency_ms": 121530,
+    "timestamp_utc": "2026-09-14T18:49:33Z"
+  },
+  {
+    "run": 5,
+    "max_turns": 6,
+    "temperature": 0.7,
+    "outcome": "ceiling",
+    "classification": "Hit turn ceiling",
+    "validation_failures": 1,
+    "validation_errors": [
+      "output: Invalid JSON: EOF while parsing a string at line 1 column 221"
+    ],
+    "planner_calls": 4,
+    "reviewer_calls": 2,
+    "turn_count": 7,
+    "tags": [
+      "Peanut Butter Recall",
+      "14 Products Listed",
+      "Lot Codes 2201-2214"
+    ],
+    "summary": "Peanut butter recall covers 14 products with lot codes 2201-2214. Customers should return all listed items for a refund.",
+    "latency_ms": 102899,
+    "timestamp_utc": "2026-09-14T18:51:16Z"
+  }
+]

@@ -1,0 +1,265 @@
+DATA-260 HW2 run log
+Student: Poushali Purkayastha (SID4 0571, domain: grocery supply and recall notices)
+Machine: Intel Core i5-1135G7, 15.8 GB RAM, Windows 11 Home, CPU-only; model qwen3:8b via Ollama 0.33.2
+Timestamps ending in -07:00 are local time; timestamps ending in Z are UTC (printed by the scripts).
+
+=== Part 3: graph run (python agent_graph.py --title ... --content ...) ===
+start 2026-09-14T10:53:34-07:00
+--- NODE: Supervisor (turn 1, ceiling 6) ---
+Router: no valid proposal, sending to planner
+[supervisor] {"turn_count": 1}
+--- NODE: Planner ---
+[tokens] turn=1 input=175 output=51 total=226
+[planner] {"planner_proposal": {"tags": ["E. coli outbreak", "romaine lettuce recall", "food safety alert"], "summary": "A regional grocery chain recalls romaine lettuce linked to E. coli after illnesses reported, urging shoppers to return products for refunds."}, "reviewer_feedback": {}}
+--- NODE: Supervisor (turn 2, ceiling 6) ---
+Router: proposal not reviewed yet, sending to reviewer
+[supervisor] {"turn_count": 2}
+--- NODE: Reviewer ---
+[tokens] turn=2 input=216 output=6 total=222
+[reviewer] {"reviewer_feedback": {"issues": []}}
+--- NODE: Supervisor (turn 3, ceiling 6) ---
+Router: reviewer approved the proposal, finishing
+[supervisor] {"turn_count": 3}
+
+--- Final result ---
+{
+  "title": "Romaine lettuce pulled from shelves after E. coli warning",
+  "email": "poushali@example.com",
+  "content": "A regional grocery chain has removed bagged romaine lettuce from all stores after a state health department linked several illnesses to a single farm. Shoppers who bought romaine between May 3 and May 9 should throw it away and can bring the receipt to any store for a full refund.",
+  "outcome": "done",
+  "planner_proposal": {
+    "tags": [
+      "E. coli outbreak",
+      "romaine lettuce recall",
+      "food safety alert"
+    ],
+    "summary": "A regional grocery chain recalls romaine lettuce linked to E. coli after illnesses reported, urging shoppers to return products for refunds."
+  },
+  "reviewer_feedback": {
+    "issues": []
+  },
+  "turn_count": 3,
+  "max_turns": 6,
+  "planner_calls": 1,
+  "reviewer_calls": 1,
+  "validation_failures": 0,
+  "validation_errors": [],
+  "latency_ms": 34229,
+  "input_tokens": 391,
+  "output_tokens": 57
+}
+exit=0 end 2026-09-14T10:54:10-07:00
+
+=== Part 3: correction loop test (python agent_graph.py ... --force-issue --max-turns 4) ===
+start 2026-09-14T10:54:10-07:00
+--- NODE: Supervisor (turn 1, ceiling 4) ---
+Router: no valid proposal, sending to planner
+[supervisor] {"turn_count": 1}
+--- NODE: Planner ---
+[tokens] turn=1 input=175 output=51 total=226
+[planner] {"planner_proposal": {"tags": ["E. coli outbreak", "romaine lettuce recall", "food safety alert"], "summary": "A regional grocery chain recalls romaine lettuce linked to E. coli after illnesses, urging customers to discard purchases and seek refunds."}, "reviewer_feedback": {}}
+--- NODE: Supervisor (turn 2, ceiling 4) ---
+Router: proposal not reviewed yet, sending to reviewer
+[supervisor] {"turn_count": 2}
+--- NODE: Reviewer ---
+[reviewer] {"reviewer_feedback": {"issues": ["Forced issue to exercise the correction loop."]}}
+--- NODE: Supervisor (turn 3, ceiling 4) ---
+Router: reviewer found issues, sending back to planner
+[supervisor] {"turn_count": 3}
+--- NODE: Planner ---
+[tokens] turn=2 input=253 output=47 total=300
+[planner] {"planner_proposal": {"tags": ["E. coli outbreak", "romaine recall", "food safety"], "summary": "A regional grocery chain recalls romaine lettuce tied to E. coli, advising customers to discard it and get refunds."}, "reviewer_feedback": {}}
+--- NODE: Supervisor (turn 4, ceiling 4) ---
+Router: proposal not reviewed yet, sending to reviewer
+[supervisor] {"turn_count": 4}
+--- NODE: Reviewer ---
+[reviewer] {"reviewer_feedback": {"issues": ["Forced issue to exercise the correction loop."]}}
+--- NODE: Supervisor (turn 5, ceiling 4) ---
+Router: turn ceiling reached, giving up
+[supervisor] {"turn_count": 5}
+
+--- Final result ---
+{
+  "title": "Romaine lettuce pulled from shelves after E. coli warning",
+  "email": "poushali@example.com",
+  "content": "A regional grocery chain has removed bagged romaine lettuce from all stores after a state health department linked several illnesses to a single farm. Shoppers who bought romaine between May 3 and May 9 should throw it away and can bring the receipt to any store for a full refund.",
+  "outcome": "ceiling",
+  "planner_proposal": {
+    "tags": [
+      "E. coli outbreak",
+      "romaine recall",
+      "food safety"
+    ],
+    "summary": "A regional grocery chain recalls romaine lettuce tied to E. coli, advising customers to discard it and get refunds."
+  },
+  "reviewer_feedback": {
+    "issues": [
+      "Forced issue to exercise the correction loop."
+    ]
+  },
+  "turn_count": 5,
+  "max_turns": 4,
+  "planner_calls": 2,
+  "reviewer_calls": 2,
+  "validation_failures": 0,
+  "validation_errors": [],
+  "latency_ms": 31697,
+  "input_tokens": 428,
+  "output_tokens": 98
+}
+exit=0 end 2026-09-14T10:54:44-07:00
+
+=== Part 4: experiment chain (one run of run_graph_experiment.py per block, full node output kept in the scratch logs) ===
+2026-09-14T10:59:38-07:00 START adversarial probe (1 run, ceiling 6)
+2026-09-14T11:02:52-07:00 END adversarial probe exit=0
+2026-09-14T11:02:52-07:00 START schema validation (30 runs, ceiling 6)
+2026-09-14T11:21:54-07:00 RESUME schema validation (30 runs, ceiling 6)
+2026-09-14T11:29:27-07:00 END schema validation exit=0
+2026-09-14T11:30:33-07:00 START ceiling 2 (20 runs)
+2026-09-14T11:36:36-07:00 END ceiling 2 exit=0
+2026-09-14T11:36:45-07:00 START ceiling 10 (20 runs)
+2026-09-14T11:43:02-07:00 END ceiling 10 exit=0
+2026-09-14T11:43:32-07:00 START adversarial runs 2-3 of 5 (ceiling 6)
+2026-09-14T11:47:20-07:00 END adversarial runs 2-3 exit=0
+2026-09-14T11:47:28-07:00 START adversarial runs 4-5 of 5 (ceiling 6)
+2026-09-14T11:51:16-07:00 END adversarial runs 4-5 exit=0
+
+--- adversarial probe, run 1 of 5 (ceiling 6) ---
+2026-09-14T18:02:51Z run=1 outcome='Hit turn ceiling' turns=7 latency_ms=191989
+Summary for reports\hw02\raw\adversarial_runs.json: 1 runs, turn ceiling 6, temperature 0.7
+Outcome                  Count   Mean latency (ms)
+Valid first attempt          0                   0
+Valid after 1 retry          0                   0
+Valid after 2+ retries       0                   0
+Hit turn ceiling             1              191989
+completion rate: 0/1
+mean latency over all runs: 191989 ms
+
+--- 4.3 schema validation, 30 runs (ceiling 6, temperature 0.7) ---
+2026-09-14T18:03:27Z run=1 outcome='Valid first attempt' turns=3 latency_ms=33865
+2026-09-14T18:03:47Z run=2 outcome='Valid first attempt' turns=3 latency_ms=20223
+2026-09-14T18:04:07Z run=3 outcome='Valid first attempt' turns=3 latency_ms=19903
+2026-09-14T18:04:27Z run=4 outcome='Valid first attempt' turns=3 latency_ms=19608
+2026-09-14T18:04:48Z run=5 outcome='Valid first attempt' turns=3 latency_ms=21543
+2026-09-14T18:05:08Z run=6 outcome='Valid first attempt' turns=3 latency_ms=19749
+2026-09-14T18:05:29Z run=7 outcome='Valid first attempt' turns=3 latency_ms=21070
+2026-09-14T18:05:48Z run=8 outcome='Valid first attempt' turns=3 latency_ms=18825
+2026-09-14T18:06:06Z run=9 outcome='Valid first attempt' turns=3 latency_ms=17577
+2026-09-14T18:06:23Z run=10 outcome='Valid first attempt' turns=3 latency_ms=17490
+2026-09-14T18:06:40Z run=11 outcome='Valid first attempt' turns=3 latency_ms=16969
+reports\hw02\raw\schema_validation_runs.json already holds 11 runs, continuing from run 12
+2026-09-14T18:23:31Z run=12 outcome='Valid first attempt' turns=3 latency_ms=90653
+2026-09-14T18:23:51Z run=13 outcome='Valid first attempt' turns=3 latency_ms=19800
+2026-09-14T18:24:09Z run=14 outcome='Valid first attempt' turns=3 latency_ms=18475
+2026-09-14T18:24:26Z run=15 outcome='Valid first attempt' turns=3 latency_ms=17155
+2026-09-14T18:24:42Z run=16 outcome='Valid first attempt' turns=3 latency_ms=15493
+2026-09-14T18:25:00Z run=17 outcome='Valid first attempt' turns=3 latency_ms=18085
+2026-09-14T18:25:18Z run=18 outcome='Valid first attempt' turns=3 latency_ms=18118
+2026-09-14T18:25:36Z run=19 outcome='Valid first attempt' turns=3 latency_ms=17713
+2026-09-14T18:26:10Z run=20 outcome='Valid after 1 retry' turns=4 latency_ms=34659
+2026-09-14T18:26:30Z run=21 outcome='Valid first attempt' turns=3 latency_ms=19328
+2026-09-14T18:26:46Z run=22 outcome='Valid first attempt' turns=3 latency_ms=16593
+2026-09-14T18:27:04Z run=23 outcome='Valid first attempt' turns=3 latency_ms=17150
+2026-09-14T18:27:20Z run=24 outcome='Valid first attempt' turns=3 latency_ms=16387
+2026-09-14T18:27:41Z run=25 outcome='Valid first attempt' turns=3 latency_ms=20755
+2026-09-14T18:28:16Z run=26 outcome='Valid after 1 retry' turns=4 latency_ms=34958
+2026-09-14T18:28:37Z run=27 outcome='Valid first attempt' turns=3 latency_ms=21493
+2026-09-14T18:28:53Z run=28 outcome='Valid first attempt' turns=3 latency_ms=16207
+2026-09-14T18:29:10Z run=29 outcome='Valid first attempt' turns=3 latency_ms=16635
+2026-09-14T18:29:26Z run=30 outcome='Valid first attempt' turns=3 latency_ms=15897
+Summary for reports\hw02\raw\schema_validation_runs.json: 30 runs, turn ceiling 6, temperature 0.7
+Outcome                  Count   Mean latency (ms)
+Valid first attempt         28               21527
+Valid after 1 retry          2               34808
+Valid after 2+ retries       0                   0
+Hit turn ceiling             0                   0
+completion rate: 30/30
+mean latency over all runs: 22413 ms
+
+--- 4.4 turn ceiling 2, 20 runs ---
+2026-09-14T18:30:55Z run=1 outcome='Valid first attempt' turns=3 latency_ms=17167
+2026-09-14T18:31:12Z run=2 outcome='Valid first attempt' turns=3 latency_ms=17326
+2026-09-14T18:31:31Z run=3 outcome='Valid first attempt' turns=3 latency_ms=18381
+2026-09-14T18:31:51Z run=4 outcome='Valid first attempt' turns=3 latency_ms=20154
+2026-09-14T18:32:11Z run=5 outcome='Valid first attempt' turns=3 latency_ms=19811
+2026-09-14T18:32:29Z run=6 outcome='Valid first attempt' turns=3 latency_ms=18306
+2026-09-14T18:32:44Z run=7 outcome='Valid first attempt' turns=3 latency_ms=14865
+2026-09-14T18:33:01Z run=8 outcome='Valid first attempt' turns=3 latency_ms=17601
+2026-09-14T18:33:30Z run=9 outcome='Hit turn ceiling' turns=3 latency_ms=28140
+2026-09-14T18:33:47Z run=10 outcome='Valid first attempt' turns=3 latency_ms=17008
+2026-09-14T18:34:04Z run=11 outcome='Valid first attempt' turns=3 latency_ms=17698
+2026-09-14T18:34:22Z run=12 outcome='Valid first attempt' turns=3 latency_ms=17686
+2026-09-14T18:34:40Z run=13 outcome='Valid first attempt' turns=3 latency_ms=18250
+2026-09-14T18:35:03Z run=14 outcome='Hit turn ceiling' turns=3 latency_ms=23107
+2026-09-14T18:35:19Z run=15 outcome='Valid first attempt' turns=3 latency_ms=16013
+2026-09-14T18:35:34Z run=16 outcome='Valid first attempt' turns=3 latency_ms=14973
+2026-09-14T18:35:48Z run=17 outcome='Valid first attempt' turns=3 latency_ms=14059
+2026-09-14T18:36:04Z run=18 outcome='Valid first attempt' turns=3 latency_ms=15719
+2026-09-14T18:36:19Z run=19 outcome='Valid first attempt' turns=3 latency_ms=14617
+2026-09-14T18:36:36Z run=20 outcome='Valid first attempt' turns=3 latency_ms=16838
+Summary for reports\hw02\raw\ceiling_2_runs.json: 20 runs, turn ceiling 2, temperature 0.7
+Outcome                  Count   Mean latency (ms)
+Valid first attempt         18               17026
+Valid after 1 retry          0                   0
+Valid after 2+ retries       0                   0
+Hit turn ceiling             2               25624
+completion rate: 18/20
+mean latency over all runs: 17886 ms
+
+--- 4.4 turn ceiling 10, 20 runs ---
+2026-09-14T18:37:06Z run=1 outcome='Valid first attempt' turns=3 latency_ms=16174
+2026-09-14T18:37:22Z run=2 outcome='Valid first attempt' turns=3 latency_ms=15476
+2026-09-14T18:37:38Z run=3 outcome='Valid first attempt' turns=3 latency_ms=16343
+2026-09-14T18:37:54Z run=4 outcome='Valid first attempt' turns=3 latency_ms=16270
+2026-09-14T18:38:09Z run=5 outcome='Valid first attempt' turns=3 latency_ms=15123
+2026-09-14T18:38:38Z run=6 outcome='Valid after 1 retry' turns=4 latency_ms=28398
+2026-09-14T18:38:56Z run=7 outcome='Valid first attempt' turns=3 latency_ms=17659
+2026-09-14T18:39:11Z run=8 outcome='Valid first attempt' turns=3 latency_ms=15717
+2026-09-14T18:39:27Z run=9 outcome='Valid first attempt' turns=3 latency_ms=15497
+2026-09-14T18:39:42Z run=10 outcome='Valid first attempt' turns=3 latency_ms=15514
+2026-09-14T18:40:10Z run=11 outcome='Valid after 1 retry' turns=4 latency_ms=28022
+2026-09-14T18:40:27Z run=12 outcome='Valid first attempt' turns=3 latency_ms=16359
+2026-09-14T18:40:55Z run=13 outcome='Valid after 1 retry' turns=4 latency_ms=28717
+2026-09-14T18:41:12Z run=14 outcome='Valid first attempt' turns=3 latency_ms=16734
+2026-09-14T18:41:27Z run=15 outcome='Valid first attempt' turns=3 latency_ms=15183
+2026-09-14T18:41:44Z run=16 outcome='Valid first attempt' turns=3 latency_ms=16333
+2026-09-14T18:41:59Z run=17 outcome='Valid first attempt' turns=3 latency_ms=14983
+2026-09-14T18:42:28Z run=18 outcome='Valid after 1 retry' turns=4 latency_ms=29563
+2026-09-14T18:42:46Z run=19 outcome='Valid first attempt' turns=3 latency_ms=17401
+2026-09-14T18:43:02Z run=20 outcome='Valid first attempt' turns=3 latency_ms=16495
+Summary for reports\hw02\raw\ceiling_10_runs.json: 20 runs, turn ceiling 10, temperature 0.7
+Outcome                  Count   Mean latency (ms)
+Valid first attempt         16               16079
+Valid after 1 retry          4               28675
+Valid after 2+ retries       0                   0
+Hit turn ceiling             0                   0
+completion rate: 20/20
+mean latency over all runs: 18598 ms
+
+--- 4.5 adversarial, runs 2 to 5 (ceiling 6) ---
+
+reports\hw02\raw\adversarial_runs.json already holds 1 runs, continuing from run 2
+2026-09-14T18:45:46Z run=2 outcome='Hit turn ceiling' turns=7 latency_ms=131137
+2026-09-14T18:47:20Z run=3 outcome='Hit turn ceiling' turns=7 latency_ms=93296
+Summary for reports\hw02\raw\adversarial_runs.json: 3 runs, turn ceiling 6, temperature 0.7
+Outcome                  Count   Mean latency (ms)
+Valid first attempt          0                   0
+Valid after 1 retry          0                   0
+Valid after 2+ retries       0                   0
+Hit turn ceiling             3              138807
+completion rate: 0/3
+mean latency over all runs: 138807 ms
+reports\hw02\raw\adversarial_runs.json already holds 3 runs, continuing from run 4
+2026-09-14T18:49:33Z run=4 outcome='Hit turn ceiling' turns=7 latency_ms=121530
+2026-09-14T18:51:16Z run=5 outcome='Hit turn ceiling' turns=7 latency_ms=102899
+Summary for reports\hw02\raw\adversarial_runs.json: 5 runs, turn ceiling 6, temperature 0.7
+Outcome                  Count   Mean latency (ms)
+Valid first attempt          0                   0
+Valid after 1 retry          0                   0
+Valid after 2+ retries       0                   0
+Hit turn ceiling             5              128170
+completion rate: 0/5
+mean latency over all runs: 128170 ms
+
+=== verify_hw02.py ===
+(not run yet)
