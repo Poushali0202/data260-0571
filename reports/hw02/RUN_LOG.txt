@@ -262,7 +262,7 @@ completion rate: 0/5
 mean latency over all runs: 128170 ms
 
 === verify_hw02.py ===
-start 2026-09-14T11:53:45-07:00
+start 2026-09-14T12:51:59-07:00
 PASS backend_responds_on_port_base: GET / on port 8571 returned 200
 PASS list_notices: GET /api/notices returned 200 with 3 records
 PASS add_notice: POST /api/notices returned 201
@@ -273,7 +273,7 @@ PASS delete_highest_id: DELETE returned 204, id 4 removed
 PASS graph_finishes: exit code 0
 PASS graph_reviewer_approved: outcome=done turns=3
 PASS exactly_three_tags: tags=['E. coli outbreak', 'romaine lettuce recall', 'food safety alert']
-PASS summary_at_most_25_words: 21 words
+PASS summary_at_most_25_words: 24 words
 PASS report_files_present: all files present
 wrote C:\Users\Poushali\Documents\DATA-260\Homework1_AWS_Docker_export\reports\hw02\verification.json (passed=True)
-exit=0 end 2026-09-14T11:54:50-07:00
+exit=0 end 2026-09-14T12:53:26-07:00
