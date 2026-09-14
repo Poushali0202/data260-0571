@@ -14,7 +14,7 @@
 | Local model | qwen3:8b through Ollama 0.33.2 (thinking off, num_ctx 2048, num_predict 128), same adapter as HW1 |
 | Software | Python 3.12.10, langgraph 1.1.10, pydantic 2.13.3, fastapi 0.141.1, uvicorn 0.46.0 |
 | Repository | https://github.com/Poushali0202/data260-0571 (collaborators Sbnikitha and supriyaselvanganesan) |
-| Tagged commit | `hw2` = TBD_COMMIT_HASH |
+| Tagged commit | `hw2` = d2c72f77a14537804a9a312e5393ed38a0267ff7 |
 
 The HW1 code is extended in place: `index.html` and `feedback.js` are the HW1 page, `src/model_client.py` is the HW1 adapter (unchanged), and the new files are `app.py` (FastAPI), `agent_graph.py` (LangGraph), `run_graph_experiment.py`, `verify_hw02.py`, and `make_report_pdf.py hw02`. Everything for this homework is in `reports/hw02/`: `RUN_LOG.txt`, `raw/`, `METRICS.md`, `AI_USE.md`, `README.md` (run instructions), `verification.json`, `cases/`, and `screenshots/`.
 
@@ -647,7 +647,19 @@ One fix: give the Reviewer the same output rule as the Planner (exactly three ta
 `python verify_hw02.py` starts the app on 8571 if needed, exercises list, add, update, search, and delete, runs the graph once on the frozen input at temperature 0 with a 900 second limit, checks that the result has exactly three tags of 3 to 30 characters and a summary of at most 25 words, checks that the report files exist, and writes `reports/hw02/verification.json` with the homework number, SID4, commit hash, model settings, SEED, VERIFY_SEED, and a pass/fail entry per check.
 
 ```text
-TBD_VERIFY_OUTPUT
+PASS backend_responds_on_port_base: GET / on port 8571 returned 200
+PASS list_notices: GET /api/notices returned 200 with 3 records
+PASS add_notice: POST /api/notices returned 201
+PASS list_grows_after_add: 3 records before, 4 after
+PASS update_notice_1: PUT /api/notices/1 returned 200
+PASS search_by_secondary_field: search returned ids [1]
+PASS delete_highest_id: DELETE returned 204, id 4 removed
+PASS graph_finishes: exit code 0
+PASS graph_reviewer_approved: outcome=done turns=3
+PASS exactly_three_tags: tags=['E. coli outbreak', 'romaine lettuce recall', 'food safety alert']
+PASS summary_at_most_25_words: 21 words
+PASS report_files_present: all files present
+wrote C:\Users\Poushali\Documents\DATA-260\Homework1_AWS_Docker_export\reports\hw02\verification.json (passed=True)
 ```
 
 ![verify_hw02 output](screenshots/verify-hw02.png)

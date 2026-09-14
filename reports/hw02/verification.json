@@ -1,0 +1,78 @@
+{
+  "homework": "DATA-260 HW2",
+  "sid4": "0571",
+  "commit_hash": "d2c72f77a14537804a9a312e5393ed38a0267ff7",
+  "tag": "hw2",
+  "model": "qwen3:8b",
+  "configuration": {
+    "port_base": 8571,
+    "smoke_test_temperature": 0.0,
+    "turn_ceiling": 6
+  },
+  "seed": 571,
+  "verify_seed": 260571,
+  "verified_at_utc": "2026-09-14T18:54:50.100569+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "backend_responds_on_port_base",
+      "passed": true,
+      "details": "GET / on port 8571 returned 200"
+    },
+    {
+      "check": "list_notices",
+      "passed": true,
+      "details": "GET /api/notices returned 200 with 3 records"
+    },
+    {
+      "check": "add_notice",
+      "passed": true,
+      "details": "POST /api/notices returned 201"
+    },
+    {
+      "check": "list_grows_after_add",
+      "passed": true,
+      "details": "3 records before, 4 after"
+    },
+    {
+      "check": "update_notice_1",
+      "passed": true,
+      "details": "PUT /api/notices/1 returned 200"
+    },
+    {
+      "check": "search_by_secondary_field",
+      "passed": true,
+      "details": "search returned ids [1]"
+    },
+    {
+      "check": "delete_highest_id",
+      "passed": true,
+      "details": "DELETE returned 204, id 4 removed"
+    },
+    {
+      "check": "graph_finishes",
+      "passed": true,
+      "details": "exit code 0"
+    },
+    {
+      "check": "graph_reviewer_approved",
+      "passed": true,
+      "details": "outcome=done turns=3"
+    },
+    {
+      "check": "exactly_three_tags",
+      "passed": true,
+      "details": "tags=['E. coli outbreak', 'romaine lettuce recall', 'food safety alert']"
+    },
+    {
+      "check": "summary_at_most_25_words",
+      "passed": true,
+      "details": "21 words"
+    },
+    {
+      "check": "report_files_present",
+      "passed": true,
+      "details": "all files present"
+    }
+  ]
+}
