@@ -14,7 +14,7 @@
 | Local model | qwen3:8b through Ollama 0.33.2 (thinking off, num_ctx 2048, num_predict 128), same adapter as HW1 |
 | Software | Python 3.12.10, langgraph 1.1.10, pydantic 2.13.3, fastapi 0.141.1, uvicorn 0.46.0 |
 | Repository | https://github.com/Poushali0202/data260-0571 (collaborators Sbnikitha and supriyaselvanganesan) |
-| Tagged commit | `hw2` = 7373783f3532341296f19815c42b95c60e9aa001 |
+| Tagged commit | `hw2` = 5dfa8eea3076cae96ee9c1e086b81fa9723cf00b |
 
 The HW1 code is extended in place: `index.html` and `feedback.js` are the HW1 page, `src/model_client.py` is the HW1 adapter (unchanged), and the new files are `app.py` (FastAPI), `agent_graph.py` (LangGraph), `run_graph_experiment.py`, `verify_hw02.py`, and `make_report_pdf.py hw02`. Everything for this homework is in `reports/hw02/`: `RUN_LOG.txt`, `raw/`, `METRICS.md`, `AI_USE.md`, `README.md` (run instructions), `verification.json`, `cases/`, and `screenshots/`.
 
