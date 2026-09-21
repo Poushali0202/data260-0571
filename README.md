@@ -117,3 +117,20 @@ python verify_hw02.py
 ```
 
 Full run instructions, experiment commands, and results are in `reports/hw02/`.
+
+## Homework 3
+
+HW3 adds a login system to the FastAPI app (`routers/auth.py`, `templates/`, Starlette
+`SessionMiddleware` in `app.py`; the HW2 notice page moved to `/notices`), a domain corpus
+(`fetch_corpus.py`, `corpus/`), the LlamaIndex chunking comparison (`chunking_compare.py`,
+`summarize_retrieval.py`), and a smoke test (`verify_hw03.py`).
+
+```powershell
+python -m pip install -r requirements.txt
+python app.py
+python chunking_compare.py
+python summarize_retrieval.py
+python verify_hw03.py
+```
+
+Full run instructions, results, and the report are in `reports/hw03/`.

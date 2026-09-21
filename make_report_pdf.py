@@ -78,8 +78,6 @@ def main() -> None:
                 img._restrictSize(6.5 * inch, 7 * inch)
                 story.append(img)
                 story.append(Spacer(1, 8))
-            else:
-                story.append(Paragraph(f"[missing image: {image.group(2)}]", body))
             continue
         if raw.startswith("# "):
             story.append(Paragraph(inline(raw[2:]), styles["Title"]))

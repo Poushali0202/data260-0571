@@ -1,0 +1,20 @@
+{
+  "token": {
+    "chunks": 557,
+    "avg_chunk_len": 865.9,
+    "chunking_s": 0.87,
+    "index_build_s": 22.07
+  },
+  "semantic": {
+    "chunks": 157,
+    "avg_chunk_len": 2471.9,
+    "chunking_s": 67.1,
+    "index_build_s": 7.33
+  },
+  "sentence_window": {
+    "chunks": 2618,
+    "avg_chunk_len": 148.2,
+    "chunking_s": 0.23,
+    "index_build_s": 33.2
+  }
+}

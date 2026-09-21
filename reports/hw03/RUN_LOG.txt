@@ -1,0 +1,337 @@
+DATA-260 HW3 run log
+Student: Poushali Purkayastha (SID4 0571, domain: grocery supply and recall notices)
+Machine: Intel Core i5-1135G7, 15.8 GB RAM, Windows 11 Home, CPU only; embeddings from sentence-transformers/all-MiniLM-L6-v2
+Timestamps ending in -07:00 are local time. The first two sections have no timestamps of their own; the file times of their outputs are given instead.
+
+=== Corpus download (python fetch_corpus.py), corpus files written at 00:10 to 00:11 local time on 2026-09-21 ===
+  54940 bytes  wikipedia_product_recall.txt
+  33890 bytes  wikipedia_fda_food_safety_modernization_act.txt
+  11984 bytes  wikipedia_food_safety_and_inspection_service.txt
+   8135 bytes  wikipedia_peanut_corporation_of_america.txt
+   5418 bytes  wikipedia_2008_canadian_listeriosis_outbreak.txt
+   8985 bytes  wikipedia_2006_spinach_e_coli_outbreak.txt
+  16539 bytes  wikipedia_2011_germany_e_coli_outbreak.txt
+  27557 bytes  wikipedia_2022_infant_formula_shortage.txt
+   7844 bytes  wikipedia_global_supply_chain_crisis.txt
+   7890 bytes  wikipedia_cold_chain.txt
+   9310 bytes  wikipedia_traceability.txt
+  16900 bytes  wikipedia_food_distribution.txt
+  23954 bytes  wikipedia_grocery_store.txt
+   1369 bytes  fda_recalls_background_and_definitions.txt
+   6251 bytes  fda_101_product_recalls.txt
+   3782 bytes  fda_food_recalls_what_you_need_to_know.txt
+  37566 bytes  fda_fsma_food_traceability_rule.txt
+  14165 bytes  fda_fsma_preventive_controls_human_food.txt
+   8645 bytes  usda_ers_food_service_market_segments.txt
+  19297 bytes  ecfr_21_cfr_part_7_subpart_c_recalls.txt
+  69543 bytes  openfda_food_enforcement_reports.txt
+21 files, 393964 bytes total, manifest written to C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw03\CORPUS_MANIFEST.json
+
+=== Part 2 warm-up: Tiny Shakespeare, first 100 KB (python chunking_compare.py --warmup), raw/warmup_* written at 00:16:35 on 2026-09-21 ===
+1 documents, 100000 characters, k=5
+=== Technique: token | 174 chunks, avg 714.4 chars, chunking 0.2 s, index build 5.0 s ===
+--- token | warmup: Why do the citizens want to kill Caius Marcius?
+query embedding: dim=384 first8=[0.0009, 0.0291, -0.032, -0.0314, -0.0114, -0.0144, 0.0789, -0.0146]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.5275      0.5275        666 deserves death.  BRUTUS: Or let us stand to our authority, Or let us lose it. We do here pronounce, Upon the part o' the people, in whose power We were elected 
+    2       0.4949      0.4949        658 Junius Brutus, Sicinius Velutus, and I know not--'Sdeath! The rabble should have first unroof'd the city, Ere so prevail'd with me: it will in time Win upon pow
+    3       0.4838      0.4838        813 were wholesome, we might guess they relieved us humanely; but they think we are too dear: the leanness that afflicts us, the object of our misery, is as an inve
+    4       0.4796      0.4796        672 be it known, As to us, to all the world, that Caius Marcius Wears this war's garland: in token of the which, My noble steed, known to the camp, I give him, With
+    5       0.4707      0.4707        705 this point charge him home, that he affects Tyrannical power: if he evade us there, Enforce him with his envy to the people, And that the spoil got on the Antia
+retrieval latency: 6.18 ms
+=== Technique: semantic | 59 chunks, avg 1694.9 chars, chunking 23.5 s, index build 2.9 s ===
+--- semantic | warmup: Why do the citizens want to kill Caius Marcius?
+query embedding: dim=384 first8=[0.0009, 0.0291, -0.032, -0.0314, -0.0114, -0.0144, 0.0789, -0.0146]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.5070      0.5070       8512 MARCIUS: Go, get you home, you fragments!  Messenger: Where's Caius Marcius?  MARCIUS: Here: what's the matter?  Messenger: The news is, sir, the Volsces are in
+    2       0.4623      0.4623       2344 Citizens: To the rock, to the rock with him!  SICINIUS: Peace! We need not put new matter to his charge: What you have seen him do and heard him speak, Beating 
+    3       0.4451      0.4451       1103 no more! As for my country I have shed my blood, Not fearing outward force, so shall my lungs Coin words till their decay against those measles, Which we disdai
+    4       0.4389      0.4389        873 MARCIUS: Thanks. What's the matter, you dissentious rogues, That, rubbing the poor itch of your opinion, Make yourselves scabs?  First Citizen: We have ever you
+    5       0.4371      0.4371       1198 All: To the pot, I warrant him.  LARTIUS: What is become of Marcius?  All: Slain, sir, doubtless.  First Soldier: Following the fliers at the very heels, With t
+retrieval latency: 2.28 ms
+=== Technique: sentence_window | 1156 chunks, avg 86.5 chars, chunking 0.1 s, index build 15.6 s ===
+--- sentence_window | warmup: Why do the citizens want to kill Caius Marcius?
+query embedding: dim=384 first8=[0.0009, 0.0291, -0.032, -0.0314, -0.0114, -0.0144, 0.0789, -0.0146]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                       preview
+    1       0.7100      0.7100         76                                  First Citizen: First, you know Caius Marcius is chief enemy to the people.  
+    2       0.6639      0.6639         69                                         Second Citizen: Would you proceed especially against Caius Marcius?  
+    3       0.6468      0.6468         35                                                                           Messenger: Where's Caius Marcius?  
+    4       0.5498      0.5498         32                                                                              MARCIUS: How lies their battle? 
+    5       0.5319      0.5319        109 If we and Caius Marcius chance to meet, 'Tis sworn between us we shall ever strike Till one can do no more.  
+retrieval latency: 30.43 ms
+wrote C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw03\raw\warmup_retrieval_results.jsonl and C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw03\raw\warmup_chunk_stats.json
+
+=== Part 1 session checks with curl (server started with IDLE_TIMEOUT_SECONDS=20) ===
+$ date
+2026-09-21T00:21:53-07:00
+
+$ curl -i -s -X POST -d "username=inspector&password=wrong" http://127.0.0.1:8571/login | head -6
+HTTP/1.1 401 Unauthorized
+date: Mon, 21 Sep 2026 07:21:53 GMT
+server: uvicorn
+content-length: 1939
+content-type: text/html; charset=utf-8
+
+
+$ curl -i -s -X POST -d "username=inspector&password=recall2026" http://127.0.0.1:8571/login
+HTTP/1.1 302 Found
+date: Mon, 21 Sep 2026 07:21:53 GMT
+server: uvicorn
+content-length: 0
+location: /dashboard
+vary: Cookie
+set-cookie: session=eyJpZCI6ICIzOTk0NjYzNWFlZmFlNTVjZDRhOTFjNjlhMjQwZjQ4NyIsICJ1c2VyIjogeyJ1c2VybmFtZSI6ICJpbnNwZWN0b3IiLCAibmFtZSI6ICJQb3VzaGFsaSJ9LCAibGFzdF9zZWVuIjogMTc4OTk3NTMxNC4wMzE4MDc3fQ==.arDbEg.dWcM-22byFEEfxg5ChwM0WBfS0Q; path=/; Max-Age=20; httponly; samesite=lax; secure
+
+$ curl -i -s -b "$COOKIE" http://127.0.0.1:8571/dashboard | head -8
+HTTP/1.1 200 OK
+date: Mon, 21 Sep 2026 07:21:53 GMT
+server: uvicorn
+content-length: 1625
+content-type: text/html; charset=utf-8
+vary: Cookie
+set-cookie: session=eyJpZCI6ICIzOTk0NjYzNWFlZmFlNTVjZDRhOTFjNjlhMjQwZjQ4NyIsICJ1c2VyIjogeyJ1c2VybmFtZSI6ICJpbnNwZWN0b3IiLCAibmFtZSI6ICJQb3VzaGFsaSJ9LCAibGFzdF9zZWVuIjogMTc4OTk3NTMxNC4yMTE4NTI4fQ==.arDbEg.iWA0Nrqn0LmiP6IDVJNKsp15kUY; path=/; Max-Age=20; httponly; samesite=lax; secure
+
+
+$ curl -i -s http://127.0.0.1:8571/dashboard   (no cookie)
+HTTP/1.1 302 Found
+date: Mon, 21 Sep 2026 07:21:53 GMT
+server: uvicorn
+content-length: 0
+location: /login
+vary: Cookie
+
+
+$ curl -i -s -b "$COOKIE" http://127.0.0.1:8571/logout
+HTTP/1.1 302 Found
+date: Mon, 21 Sep 2026 07:21:53 GMT
+server: uvicorn
+content-length: 0
+location: /
+vary: Cookie
+set-cookie: session=null; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; httponly; samesite=lax; secure
+
+
+$ curl -i -s -b "$COOKIE" http://127.0.0.1:8571/dashboard   (same cookie replayed after logout)
+HTTP/1.1 302 Found
+date: Mon, 21 Sep 2026 07:21:53 GMT
+server: uvicorn
+content-length: 0
+location: /login
+vary: Cookie
+set-cookie: session=null; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT; httponly; samesite=lax; secure
+
+
+$ RESP=$(curl -i -s -X POST -d "username=inspector&password=recall2026" http://127.0.0.1:8571/login)   (log in again; server started with IDLE_TIMEOUT_SECONDS=20)
+$ date; curl -i -s -b "$COOKIE" http://127.0.0.1:8571/dashboard | head -1
+2026-09-21T00:21:54-07:00
+HTTP/1.1 200 OK
+$ sleep 22
+$ date; curl -i -s -b "$COOKIE" http://127.0.0.1:8571/dashboard   (same cookie after 22 s idle)
+2026-09-21T00:22:16-07:00
+HTTP/1.1 302 Found
+date: Mon, 21 Sep 2026 07:22:16 GMT
+server: uvicorn
+content-length: 0
+location: /login
+vary: Cookie
+
+
+=== Part 2 graded run: 21 corpus files, five questions, k=5 (python chunking_compare.py) ===
+start 2026-09-21T00:27:52-07:00
+$ python chunking_compare.py
+21 documents, 388095 characters, k=5
+=== Technique: token | 557 chunks, avg 865.9 chars, chunking 0.9 s, index build 22.1 s ===
+--- token | q1_listeriosis_plant: Which Maple Leaf Foods facility was the source of the 2008 listeriosis outbreak in Canada?
+query embedding: dim=384 first8=[-0.0228, -0.0423, 0.0178, 0.0237, 0.0409, 0.0177, -0.0467, 0.0291]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.8777      0.8777        937 The 2008 Canadian listeriosis outbreak was a widespread outbreak of listeriosis in Canada linked to cold cuts from a Maple Leaf Foods plant in Toronto , Ontario
+    2       0.7000      0.7000        973 packaging. The outbreak was first noticed in July 2008 when regular surveillance detected an increase in cases reported. Federal inspectors usually spent less t
+    3       0.6667      0.6667        988 Words cannot begin to express our sadness for their pain."  Officials from Maple Leaf believe that the outbreak originated sometime in July 2008 on line 8 or li
+    4       0.5470      0.5470        656 initiated: 20260717, report date: 20260819 Product quantity: 2,434 cases Distribution: Domestic: AL, AR, CT, FL, GA, IA, IL, IN, KS, KY, LA, MA, MD, MI, MO, MS,
+    5       0.5357      0.5357        689 (Mechanicsville, MD) Product: Clover Hill Dairy LLP, Pepper Jack Cheese Varieties (Jalapeno Cheddar, Pepper Jack, Sizzlin Colby with Habanero Peppers). Sold in 
+retrieval latency: 16.25 ms
+--- token | q2_ecoli_sprouts: What was identified as the likely source of the 2011 E. coli O104:H4 outbreak in Germany?
+query embedding: dim=384 first8=[0.011, 0.0367, -0.0129, 0.057, 0.0586, 0.0652, -0.0644, 0.0391]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.7582      0.7582        892 But on 10 June, the head of the Robert Koch Institute confirmed the sprouts were the source of the outbreak, and people who ate the sprouts were nine times more
+    2       0.7388      0.7388        899 A novel strain of Escherichia coli O104:H4 bacteria caused a serious outbreak of foodborne illness focused in northern Germany in May through June 2011. The ill
+    3       0.7215      0.7215        893 Spanish Secretary of State for European Affairs Diego López Garrido said, "you can't attribute the origin of this sickness to Spain."  On Tuesday 31 May, lab te
+    4       0.7029      0.7029        995 imported from Egypt were likely the source of the outbreak.  In all, 3,950 people were affected and 53 died, 51 of whom were in Germany. 800 people suffered hem
+    5       0.6912      0.6912        809 years before the outbreak (2006 to 2010) Germany experienced an average of 218 cases of EHEC gastroenteritis and 13 cases of hemolytic–uremic syndrome each year
+retrieval latency: 19.56 ms
+--- token | q3_formula_plant: Which infant formula plant shut down in February 2022 and what bacterium was found there?
+query embedding: dim=384 first8=[-0.068, 0.011, -0.0501, 0.0286, 0.0593, 0.0438, -0.1193, 0.0878]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.6724      0.6724        922 By November 2021, 11% of popular brands were out of stock.  Recall and plant shutdown  The problem was exacerbated when Abbott Labs , one of three major formula
+    2       0.5455      0.5455        966 by Reckitt ), Gerber , and PBM Holdings (owned by Perrigo ) – were cited for operational issues similar to those reported at the Abbott plant, and in some cases
+    3       0.5421      0.5421       1028 and found that the samples were not closely related to strains collected in the Sturgis plant, or to each other. In a press release, Abbott cited the CDC report
+    4       0.5381      0.5381       1027 formula due to short bowel syndrome were hospitalized. They had been eating EleCare, an Abbott product manufactured in the shut-down Sturgis plant. In South Car
+    5       0.5291      0.5291        922 In 2022, the United States experienced a severe shortage of infant formula as a result of the 2021–2022 global supply chain crisis compounded by a large scale p
+retrieval latency: 23.84 ms
+--- token | q4_recall_classes: What is the difference between a Class I, Class II and Class III recall?
+query embedding: dim=384 first8=[-0.0588, -0.0601, -0.0611, -0.0322, 0.0088, -0.0173, 0.0098, 0.0057]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.5988      0.5988       1052 Recalls are actions taken by a firm to remove a product from the market. Recalls may be conducted on a firm's own initiative, by FDA request, or by FDA order un
+    2       0.5668      0.5668        989 the consequences (immediate or long-range) of occurrence of the hazard.  (b) On the basis of this determination, the Food and Drug Administration will assign th
+    3       0.4931      0.4931        937 A recall communication can be accomplished by telegrams, mailgrams, or first class letters conspicuously marked, preferably in bold red type, on the letter and 
+    4       0.4738      0.4738        527 Class II Status: Ongoing Recall initiated: 20260811, report date: 20260902 Product quantity: 10,403 units Distribution: Domestic: AK, AL, AR, AZ, CA, CO, CT, DC
+    5       0.4406      0.4406       1025 the consumer or user.  (iv) Degree to which the product remains unused in the market-place.  (v) Continued availability of essential products.  (2) The Food and
+retrieval latency: 28.73 ms
+--- token | q5_traceability_deadline: What is the compliance date for the FDA Food Traceability Rule?
+query embedding: dim=384 first8=[-0.05, -0.0272, -0.0422, 0.0347, 0.0445, -0.0034, -0.0477, -0.001]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.7767      0.7767        940 Food Traceability Final Rule requires entities to share information with other entities in their supply chain, the most effective and efficient way to implement
+    2       0.7257      0.7257       1048 The new requirements identified in the final rule will allow for faster identification and rapid removal of potentially contaminated food from the market, resul
+    3       0.7145      0.7145        951 compliance.  This meeting was part of a series of engagements being held in accordance with a directive from Congress in the  Continuing Appropriations, Agricul
+    4       0.7123      0.7123        890 Foundation held a virtual public meeting to hear insights on the Food Traceability Rule from both FDA leadership and other experts from across food industry sec
+    5       0.7000      0.7000        306 Safety Rule and the Food Traceability Rule Risk-ranking Model Results Tool Tracking and Tracing of Food Discussion Paper: Identifying Additional Flexibilities f
+retrieval latency: 19.39 ms
+=== Technique: semantic | 157 chunks, avg 2471.9 chars, chunking 67.1 s, index build 7.3 s ===
+--- semantic | q1_listeriosis_plant: Which Maple Leaf Foods facility was the source of the 2008 listeriosis outbreak in Canada?
+query embedding: dim=384 first8=[-0.0228, -0.0423, 0.0178, 0.0237, 0.0409, 0.0177, -0.0467, 0.0291]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.8778      0.8778       1507 The 2008 Canadian listeriosis outbreak was a widespread outbreak of listeriosis in Canada linked to cold cuts from a Maple Leaf Foods plant in Toronto , Ontario
+    2       0.6458      0.6458        275 Words cannot begin to express our sadness for their pain."  Officials from Maple Leaf believe that the outbreak originated sometime in July 2008 on line 8 or li
+    3       0.5355      0.5355       3602 About 80 workers were involved in the cleanup, with additional outside experts and microbiologists supervising the operation. They used peroxyacetic acid , quat
+    4       0.5234      0.5234       1022 0840961, 14374 E Hwy 21, Byran, TX  77808.    Keep Refrigerated at or Below 45-Degrees F. Reason for recall: Possible Salmonella Enteritidis Classification: Cla
+    5       0.5126      0.5126        549 The 2006 North American E. coli outbreak was an Escherichia coli O157:H7 outbreak from prepackaged spinach reported in 27 U.S. states and the Canadian province 
+retrieval latency: 7.61 ms
+--- semantic | q2_ecoli_sprouts: What was identified as the likely source of the 2011 E. coli O104:H4 outbreak in Germany?
+query embedding: dim=384 first8=[0.011, 0.0367, -0.0129, 0.057, 0.0586, 0.0652, -0.0644, 0.0391]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.7316      0.7316       1595 A novel strain of Escherichia coli O104:H4 bacteria caused a serious outbreak of foodborne illness focused in northern Germany in May through June 2011. The ill
+    2       0.6826      0.6826       2819 Essentially all affected people had been in Germany or France shortly before becoming ill.  Initially, German officials made incorrect statements on the likely 
+    3       0.6210      0.6210       5214 Confirmed cases are listed below according to their location when diagnosed.  Source investigation  The investigation into the cause of the outbreak officially 
+    4       0.6065      0.6065         55                                                                                                          The initial reports of the outbreak came from the U.S. 
+    5       0.6012      0.6012        549 The 2006 North American E. coli outbreak was an Escherichia coli O157:H7 outbreak from prepackaged spinach reported in 27 U.S. states and the Canadian province 
+retrieval latency: 6.16 ms
+--- semantic | q3_formula_plant: Which infant formula plant shut down in February 2022 and what bacterium was found there?
+query embedding: dim=384 first8=[-0.068, 0.011, -0.0501, 0.0286, 0.0593, 0.0438, -0.1193, 0.0878]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.6494      0.6494       3266 Effects of the shortage were also felt in Canada.  Causes  Supply chain issues  The initial cause of the formula shortage was COVID-19 -related supply chain iss
+    2       0.5306      0.5306       4282 7790 was passed with a partisan vote of 232-192, with twelve Republicans voting to pass the bill.  On May 22, the first flight of Operation Fly Formula arrived 
+    3       0.5280      0.5280       1113 In 2022, the United States experienced a severe shortage of infant formula as a result of the 2021–2022 global supply chain crisis compounded by a large scale p
+    4       0.4835      0.4835       1931 A hospital in Atlanta also reported treating infants affected by the shortage.  Bot usage  There were reports of people using Internet bots to continuously sear
+    5       0.4653      0.4653       1108 While the U.S. Food and Drug Administration (FDA) determined that the formula containing these beetles posed no immediate health risk, there was a possibility t
+retrieval latency: 5.71 ms
+--- semantic | q4_recall_classes: What is the difference between a Class I, Class II and Class III recall?
+query embedding: dim=384 first8=[-0.0588, -0.0601, -0.0611, -0.0322, 0.0088, -0.0173, 0.0098, 0.0057]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.6086      0.6086        838 Recalls are actions taken by a firm to remove a product from the market. Recalls may be conducted on a firm's own initiative, by FDA request, or by FDA order un
+    2       0.5130      0.5130       1406 Any conclusion shall be supported as completely as possible by scientific documentation and/or statements that the conclusion is the opinion of the individual(s
+    3       0.4075      0.4075        558 19, 2000]  § 7.41 Health hazard evaluation and recall classification.  (a) An evaluation of the health hazard presented by a product being recalled or considere
+    4       0.3915      0.3915       3391 (v) Continued availability of essential products.  (2) The Food and Drug Administration will review the adequacy of a proposed recall strategy developed by a re
+    5       0.3763      0.3763       2053 Subpart C—Recalls (Including Product Corrections)—Guidance on Policy, Procedures, and Industry Responsibilities  Source: 43 FR 26218, June 16, 1978, unless othe
+retrieval latency: 5.24 ms
+--- semantic | q5_traceability_deadline: What is the compliance date for the FDA Food Traceability Rule?
+query embedding: dim=384 first8=[-0.05, -0.0272, -0.0422, 0.0347, 0.0445, -0.0034, -0.0477, -0.001]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.6765      0.6765       2400 Federal Register Notice Docket Folder  FDA-2011-N-0920  provides the full text of the Rule Questions & Answers Fact Sheet Generally, domestic and foreign food f
+    2       0.6491      0.6491       4525 What  Critical Tracking Events (CTEs)  do you conduct? What  Key Data Elements (KDEs)  do you already maintain? What additional KDEs do you need to maintain to 
+    3       0.6375      0.6375       9827 The exemptions are listed in § 1.1305 of the final rule.    A tool is available to help stakeholders determine whether an exemption may apply to their situation
+    4       0.6095      0.6095       1926 The agency estimated that it would require at least 1,000 more inspectors and $1.4 billion over the following five years, with uncertainty that Congress would a
+    5       0.6024      0.6024       3709 What's New The FDA held a public meeting on June 15, 2026, to give the public an opportunity to share information on continued implementation of the Food Tracea
+retrieval latency: 7.34 ms
+=== Technique: sentence_window | 2618 chunks, avg 148.2 chars, chunking 0.2 s, index build 33.2 s ===
+--- sentence_window | q1_listeriosis_plant: Which Maple Leaf Foods facility was the source of the 2008 listeriosis outbreak in Canada?
+query embedding: dim=384 first8=[-0.0228, -0.0423, 0.0178, 0.0237, 0.0409, 0.0177, -0.0467, 0.0291]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.8798      0.8798        163 The 2008 Canadian listeriosis outbreak was a widespread outbreak of listeriosis in Canada linked to cold cuts from a Maple Leaf Foods plant in Toronto , Ontario
+    2       0.7264      0.7264        116                                             August: Maple Leaf Foods voluntarily recalled a number of meat and deli products after an outbreak of listeriosis . 
+    3       0.7262      0.7262        107                                                      The outbreak originated from lines 8 and 9 of the Maple Leaf Foods Bartor Road facility (Establishment No. 
+    4       0.6206      0.6206        133                            Officials from Maple Leaf believe that the outbreak originated sometime in July 2008 on line 8 or line 9 of the North York facility. 
+    5       0.5482      0.5482         70                                                                                           November: Kenny's farmhouse 4 cheeses were recalled due to listeria.  
+retrieval latency: 62.58 ms
+--- sentence_window | q2_ecoli_sprouts: What was identified as the likely source of the 2011 E. coli O104:H4 outbreak in Germany?
+query embedding: dim=384 first8=[0.011, 0.0367, -0.0129, 0.057, 0.0586, 0.0652, -0.0644, 0.0391]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.8702      0.8702        153        A novel strain of Escherichia coli O104:H4 bacteria caused a serious outbreak of foodborne illness focused in northern Germany in May through June 2011. 
+    2       0.8170      0.8170        266 A joint risk-assessment by EFSA / ECDC , issued 29 June 2011, made a connection between the German outbreak and a HUS outbreak in the Bordeaux area of France, f
+    3       0.7096      0.7096        189 Cause  The outbreak was caused by a strain of E. coli of the serotype O104:H4, that was unusual for having characteristics of both enteroaggregative E. coli and
+    4       0.7072      0.7072        224 On 4 June, German and EU officials had allegedly been examining data that indicated an open catering event at a restaurant in Lübeck , Germany, was a possible s
+    5       0.6964      0.6964        198 The most substantial outbreak outside of Germany was in Bordeaux, France where 15 cases of EHEC gastroenteritis were associated with the same strain of E. coli 
+retrieval latency: 71.87 ms
+--- sentence_window | q3_formula_plant: Which infant formula plant shut down in February 2022 and what bacterium was found there?
+query embedding: dim=384 first8=[-0.068, 0.011, -0.0501, 0.0286, 0.0593, 0.0438, -0.1193, 0.0878]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.6535      0.6535        369 Recall and plant shutdown  The problem was exacerbated when Abbott Labs , one of three major formula producers in the United States, shut down production at its
+    2       0.5654      0.5654        284 In 2022, the United States experienced a severe shortage of infant formula as a result of the 2021–2022 global supply chain crisis compounded by a large scale p
+    3       0.5626      0.5626         98                                                               The bacterium which sickened the infants, Cronobacter sakazakii , was found at the Sturgis plant. 
+    4       0.5356      0.5356        207 On June 10, the FDA stated that it was investigating reports that nine children died after consuming infant formula produced in the Sturgis plant, seven more th
+    5       0.5306      0.5306        385 An investigation by ABC News of FDA inspection reports dating back five years found that in that time, three other major formula manufacturers – Mead Johnson (o
+retrieval latency: 76.67 ms
+--- sentence_window | q4_recall_classes: What is the difference between a Class I, Class II and Class III recall?
+query embedding: dim=384 first8=[-0.0588, -0.0601, -0.0611, -0.0322, 0.0088, -0.0173, 0.0098, 0.0057]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.7091      0.7091        259 (b) On the basis of this determination, the Food and Drug Administration will assign the recall a classification, i.e., Class I, Class II, or Class III, to indi
+    2       0.6336      0.6336        326 Classification: Class III Status: Ongoing Recall initiated: 20260715, report date: 20260826 Product quantity: 21,400 units (total) Distribution: AK, AL, AR, AZ,
+    3       0.6336      0.6336        326 Classification: Class III Status: Ongoing Recall initiated: 20260715, report date: 20260826 Product quantity: 21,400 units (total) Distribution: AK, AL, AR, AZ,
+    4       0.6336      0.6336        326 Classification: Class III Status: Ongoing Recall initiated: 20260715, report date: 20260826 Product quantity: 21,400 units (total) Distribution: AK, AL, AR, AZ,
+    5       0.6152      0.6152        251 Classification: Class III Status: Ongoing Recall initiated: 20260728, report date: 20260819 Product quantity: 80 cases Distribution: Product is sold to independ
+retrieval latency: 73.03 ms
+--- sentence_window | q5_traceability_deadline: What is the compliance date for the FDA Food Traceability Rule?
+query embedding: dim=384 first8=[-0.05, -0.0272, -0.0422, 0.0347, 0.0445, -0.0034, -0.0477, -0.001]
+query vector shape (384,), stacked doc vectors shape (5, 384)
+ rank  store_score  cosine_sim  chunk_len                                                                                                                                                          preview
+    1       0.8054      0.8054        148             The original compliance date for all persons subject to the recordkeeping requirements of the Food Traceability Rule was Tuesday, January 20, 2026. 
+    2       0.7845      0.7845        251 (October 7, 2024)  Contact Us  If you have questions on the Food Traceability Rule, please submit your inquiry via FDA’s Food and Cosmetics Information Center (
+    3       0.7840      0.7840        288 Compliance Date Because the Food Traceability Final Rule requires entities to share information with other entities in their supply chain, the most effective an
+    4       0.7191      0.7191        231 Subsequently, the  Continuing Appropriations, Agriculture, Legislative Branch, Military Construction and Veterans Affairs, and Extensions Act of 2026  directed 
+    5       0.6994      0.6994        516 Exemptions to the Food Traceability Rule Exenciones a la Norma de trazabilidad de alimentos  Modified Requirements, Exemptions, and Waivers  Modified Requiremen
+retrieval latency: 72.00 ms
+wrote C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw03\raw\retrieval_results.jsonl and C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw03\raw\chunk_stats.json
+end 2026-09-21T00:30:21-07:00
+
+=== Summary tables recomputed from raw/ (python summarize_retrieval.py) ===
+## Summary over 5 questions, k=5
+
+| Technique | Chunks | Avg chunk length (chars) | Top-1 cosine | Mean@5 cosine | Recall@5 | Mean retrieval latency (ms) |
+|---|---|---|---|---|---|---|
+| token | 557 | 865.9 | 0.7368 | 0.6388 | 1.0 | 21.55 |
+| semantic | 157 | 2471.9 | 0.7088 | 0.5787 | 1.0 | 6.41 |
+| sentence_window | 2618 | 148.2 | 0.7836 | 0.6867 | 0.8 | 71.23 |
+
+## Per question
+
+| Question | Technique | Top-1 cosine | Mean@5 | Answer found at rank | Expected source in top-k | Latency (ms) |
+|---|---|---|---|---|---|---|
+| q1_listeriosis_plant | token | 0.8777 | 0.6654 | 1 | yes | 16.25 |
+| q2_ecoli_sprouts | token | 0.7582 | 0.7225 | 1 | yes | 19.56 |
+| q3_formula_plant | token | 0.6724 | 0.5654 | 1 | yes | 23.84 |
+| q4_recall_classes | token | 0.5988 | 0.5146 | 1 | yes | 28.73 |
+| q5_traceability_deadline | token | 0.7767 | 0.7258 | 1 | yes | 19.39 |
+| q1_listeriosis_plant | semantic | 0.8778 | 0.619 | 1 | yes | 7.61 |
+| q2_ecoli_sprouts | semantic | 0.7316 | 0.6486 | 1 | yes | 6.16 |
+| q3_formula_plant | semantic | 0.6494 | 0.5314 | 1 | yes | 5.71 |
+| q4_recall_classes | semantic | 0.6086 | 0.4594 | 1 | yes | 5.24 |
+| q5_traceability_deadline | semantic | 0.6765 | 0.635 | 2 | yes | 7.34 |
+| q1_listeriosis_plant | sentence_window | 0.8798 | 0.7002 | 1 | yes | 62.58 |
+| q2_ecoli_sprouts | sentence_window | 0.8702 | 0.7601 | 1 | yes | 71.87 |
+| q3_formula_plant | sentence_window | 0.6535 | 0.5695 | 1 | yes | 76.67 |
+| q4_recall_classes | sentence_window | 0.7091 | 0.645 | none | no | 73.03 |
+| q5_traceability_deadline | sentence_window | 0.8054 | 0.7585 | 1 | yes | 72.0 |
+
+## Rank-1 chunks that do not contain the answer
+
+| question_id | technique | cosine_sim | source_file | preview |
+|---|---|---|---|---|
+| q5_traceability_deadline | semantic | 0.6765 | fda_fsma_preventive_controls_human_food.txt | Federal Register Notice Docket Folder  FDA-2011-N-0920  provides the full text of the Rule Questions & Answers Fact Sheet Generally, domestic and foreign food f |
+| q4_recall_classes | sentence_window | 0.7091 | ecfr_21_cfr_part_7_subpart_c_recalls.txt | (b) On the basis of this determination, the Food and Drug Administration will assign the recall a classification, i.e., Class I, Class II, or Class III, to indi |
+
