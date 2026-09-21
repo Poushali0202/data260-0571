@@ -1,0 +1,34 @@
+# Five domain questions for the HW3 retrieval comparison (DOMAIN_ID 3: grocery supply and recall notices).
+# Written and committed before chunking_compare.py was run on the corpus.
+# answer_keywords are the strings a retrieved chunk must contain to count as holding the answer.
+questions:
+  - id: q1_listeriosis_plant
+    question: Which Maple Leaf Foods facility was the source of the 2008 listeriosis outbreak in Canada?
+    expected_answer: The Bartor Road facility in Toronto (production lines 8 and 9, establishment 97B). The outbreak had 57 confirmed cases and 23 deaths.
+    expected_source: wikipedia_2008_canadian_listeriosis_outbreak.txt
+    single_source: true
+    answer_keywords: ["Bartor Road"]
+  - id: q2_ecoli_sprouts
+    question: What was identified as the likely source of the 2011 E. coli O104:H4 outbreak in Germany?
+    expected_answer: Organic sprouts from a farm in Bienenbuettel, Lower Saxony, grown from fenugreek seeds imported from Egypt.
+    expected_source: wikipedia_2011_germany_e_coli_outbreak.txt
+    single_source: true
+    answer_keywords: ["fenugreek"]
+  - id: q3_formula_plant
+    question: Which infant formula plant shut down in February 2022 and what bacterium was found there?
+    expected_answer: Abbott's Sturgis, Michigan plant, its largest, closed after an FDA recall; Cronobacter sakazakii was found at the plant. Abbott makes about 40 percent of US formula, so the closure deepened the shortage.
+    expected_source: wikipedia_2022_infant_formula_shortage.txt
+    single_source: true
+    answer_keywords: ["Sturgis"]
+  - id: q4_recall_classes
+    question: What is the difference between a Class I, Class II and Class III recall?
+    expected_answer: Class I means a reasonable probability that the product will cause serious adverse health consequences or death; Class II means it may cause temporary or medically reversible harm and serious consequences are remote; Class III means it is not likely to cause adverse health consequences.
+    expected_source: fda_recalls_background_and_definitions.txt
+    single_source: false
+    answer_keywords: ["Class I", "Class II", "Class III"]
+  - id: q5_traceability_deadline
+    question: What is the compliance date for the FDA Food Traceability Rule?
+    expected_answer: The original compliance date was January 20, 2026. FDA proposed a 30 month extension to July 20, 2028 and Congress directed FDA not to enforce the rule before that date.
+    expected_source: fda_fsma_food_traceability_rule.txt
+    single_source: true
+    answer_keywords: ["January 20, 2026"]
