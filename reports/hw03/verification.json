@@ -1,0 +1,103 @@
+{
+  "homework": "DATA-260 HW3",
+  "sid4": "0571",
+  "commit_hash": "86892f0b7f5ee62e12b05dd15fa613f632148b48",
+  "tag": "hw3",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "configuration": {
+    "port_base": 8571,
+    "idle_timeout_seconds_in_test": 5,
+    "top_k": 5
+  },
+  "seed": 571,
+  "verify_seed": 260571,
+  "verified_at_utc": "2026-09-21T07:34:24.836230+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "home_page_shows_login_link",
+      "passed": true,
+      "details": "GET / returned 200"
+    },
+    {
+      "check": "invalid_login_shows_alert",
+      "passed": true,
+      "details": "POST /login with a wrong password returned 401"
+    },
+    {
+      "check": "login_redirects_to_dashboard",
+      "passed": true,
+      "details": "returned 302, Location=/dashboard"
+    },
+    {
+      "check": "session_cookie_has_three_flags",
+      "passed": true,
+      "details": "path=/; Max-Age=5; httponly; samesite=lax; secure"
+    },
+    {
+      "check": "dashboard_with_session",
+      "passed": true,
+      "details": "returned 200"
+    },
+    {
+      "check": "dashboard_without_session_redirects",
+      "passed": true,
+      "details": "returned 302, Location=/login"
+    },
+    {
+      "check": "logout_redirects_home",
+      "passed": true,
+      "details": "returned 302"
+    },
+    {
+      "check": "logged_out_cookie_rejected",
+      "passed": true,
+      "details": "old cookie on /dashboard returned 302"
+    },
+    {
+      "check": "idle_session_expires",
+      "passed": true,
+      "details": "after 6 s idle /dashboard returned 302"
+    },
+    {
+      "check": "corpus_at_least_200_kb",
+      "passed": true,
+      "details": "21 files, 393964 bytes"
+    },
+    {
+      "check": "corpus_hashes_match_manifest",
+      "passed": true,
+      "details": "all hashes match"
+    },
+    {
+      "check": "five_questions_with_expected_answers",
+      "passed": true,
+      "details": "5 questions"
+    },
+    {
+      "check": "at_least_two_single_source_questions",
+      "passed": true,
+      "details": "single-source: ['q1_listeriosis_plant', 'q2_ecoli_sprouts', 'q3_formula_plant', 'q5_traceability_deadline']"
+    },
+    {
+      "check": "raw_results_cover_three_techniques",
+      "passed": true,
+      "details": "75 rows"
+    },
+    {
+      "check": "raw_rows_have_required_fields",
+      "passed": true,
+      "details": "store_score, cosine_sim, chunk_len, latency_ms, preview"
+    },
+    {
+      "check": "summary_script_recomputes_tables",
+      "passed": true,
+      "details": "exit code 0"
+    },
+    {
+      "check": "report_files_present",
+      "passed": true,
+      "details": "all files present"
+    }
+  ]
+}

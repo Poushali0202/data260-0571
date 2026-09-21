@@ -335,3 +335,26 @@ end 2026-09-21T00:30:21-07:00
 | q5_traceability_deadline | semantic | 0.6765 | fda_fsma_preventive_controls_human_food.txt | Federal Register Notice Docket Folder  FDA-2011-N-0920  provides the full text of the Rule Questions & Answers Fact Sheet Generally, domestic and foreign food f |
 | q4_recall_classes | sentence_window | 0.7091 | ecfr_21_cfr_part_7_subpart_c_recalls.txt | (b) On the basis of this determination, the Food and Drug Administration will assign the recall a classification, i.e., Class I, Class II, or Class III, to indi |
 
+=== Verification on the tagged commit (python verify_hw03.py) ===
+$ date
+2026-09-21T00:34:15-07:00
+$ python verify_hw03.py
+PASS home_page_shows_login_link: GET / returned 200
+PASS invalid_login_shows_alert: POST /login with a wrong password returned 401
+PASS login_redirects_to_dashboard: returned 302, Location=/dashboard
+PASS session_cookie_has_three_flags: path=/; Max-Age=5; httponly; samesite=lax; secure
+PASS dashboard_with_session: returned 200
+PASS dashboard_without_session_redirects: returned 302, Location=/login
+PASS logout_redirects_home: returned 302
+PASS logged_out_cookie_rejected: old cookie on /dashboard returned 302
+PASS idle_session_expires: after 6 s idle /dashboard returned 302
+PASS corpus_at_least_200_kb: 21 files, 393964 bytes
+PASS corpus_hashes_match_manifest: all hashes match
+PASS five_questions_with_expected_answers: 5 questions
+PASS at_least_two_single_source_questions: single-source: ['q1_listeriosis_plant', 'q2_ecoli_sprouts', 'q3_formula_plant', 'q5_traceability_deadline']
+PASS raw_results_cover_three_techniques: 75 rows
+PASS raw_rows_have_required_fields: store_score, cosine_sim, chunk_len, latency_ms, preview
+PASS summary_script_recomputes_tables: exit code 0
+PASS report_files_present: all files present
+wrote C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw03\verification.json (passed=True)
+exit code 0
