@@ -1,0 +1,51 @@
+Traceability is the capability to trace something. In some cases, it is interpreted as the ability to verify the history, location, or application of an item by means of documented recorded identification.
+
+Other common definitions include the capability (and implementation) of keeping track of a given set or type of information to a given degree, or the ability to chronologically interrelate uniquely identifiable entities in a way that is verifiable.
+
+Traceability is applicable to measurement, supply chain, software development, healthcare and security.
+
+Measurement
+
+The term measurement traceability or metrological traceability is used to refer to an unbroken chain of comparisons relating an instrument 's measurements to a known standard . Calibration to a traceable standard can be used to determine an instrument's bias, precision , and accuracy . It may also be used to show a chain of custody —from current interpretation of evidence to the actual evidence in a legal context, or history of handling of any information.
+
+In many countries, national standards for weights and measures are maintained by a National Metrological Institute (NMI) which provides the highest level of standards for the calibration / measurement traceability infrastructure in that country. Examples of government agencies include the National Physical Laboratory, UK (NPL) the National Institute of Standards and Technology (NIST) in the USA, the Physikalisch-Technische Bundesanstalt (PTB) in Germany, the Instituto Nazionale di Ricerca Metrologica (INRiM) in Italy, and the National Research Council of Canada (NRC). As defined by NIST, "Traceability of measurement requires the establishment of an unbroken chain of comparisons to stated references each with a stated uncertainty."
+
+A clock providing traceable time is traceable to a time standard such as Coordinated Universal Time or International Atomic Time . The Global Positioning System is a source of traceable time.
+
+Food processing
+
+In food processing ( meat processing , fresh produce processing), the term traceability refers to the recording through means of barcodes or RFID tags and other tracking media, all movement of product and steps within the production process. One of the key reasons this is such a critical point is in instances where an issue of contamination arises, and a recall is required. Where traceability has been closely adhered to, it is possible to identify, by precise date/time and exact location which goods must be recalled, and which are safe, potentially saving millions of dollars in the recall process. Traceability within the food processing industry is also utilised to identify key high production and quality areas of a business, versus those of low return, and where points in the production process may be improved.
+
+In food processing software , traceability systems imply the use of a unique piece of data (e.g., order date/time or a serialized sequence number, generally through the use of a barcode / RFID ) which can be traced through the entire production flow, linking all sections of the business, including suppliers and future sales through the supply chain. Messages and files at any point in the system can then be audited for correctness and completeness, using the traceability software to find the particular transaction and/or product within the supply chain.
+
+In food systems , ISO 22005, as part of the ISO 22000 family of standards , has been developed to define the principles for food traceability and specifies the basic requirements for the design and implementation of a feed and food traceability system. It can be applied by an organization operating at any step in the feed and food chain.
+
+The European Union 's General Food Law came into force in 2002, making traceability compulsory for food and feed operators and requiring those businesses to implement traceability systems. The EU introduced its Trade Control and Expert System, or TRACES , in April 2004. The system provides a central database to track movement of animals within the EU and from third countries.
+
+Australia has its National Livestock Identification System to keep track of livestock from birth to slaughterhouse.
+
+India has started taking initiatives for setting up traceability systems at Government and Corporate levels. Grapenet, an initiative by Agriculture and Processed Food Products Export Development Authority (APEDA), Ministry of Commerce, Government of India is an example in this direction. GrapeNet is an internet based traceability software system for monitoring fresh grapes exported from India to the European Union. GrapeNet is a first of its kind initiative in India that has put in place an end-to-end system for monitoring pesticide residue, achieve product standardization and facilitate tracing back from pallets to the farm of the Indian grower, through the various stages of sampling, testing, certification and packing. Grapenet won the National Award (Gold), in the winners announced for the best e-Governance initiatives undertaken in India in 2007.
+
+The Directorate Generate Foreign Trade (DGFT), Government of India, through its notification dated 04.02.2009 relating to Amendment in Foreign Trade Policy (RE2008)has mandated that Export to the European Union is permitted subject to registration with APEDA, thereby making Grapenet mandatory for all exports of fresh grapes from India to Europe.
+
+Uruguay has also designed a system called "Traceability & Electronic Information System of the Beef Industry".
+
+Traceability in food supply can also refer to practices employed by individual companies, including Ritual and Amway 's Nutrilite . In the case of Nutrilite's supplements, ingredients are documented and tested throughout farming, processing, and manufacturing to ensure traceability at each stage of production.
+
+Systems and software development
+
+In systems and software development , the term traceability (or requirements traceability ) refers to the ability to link product requirements back to stakeholders' rationales and forward to corresponding design artifacts, code, and test cases . Traceability supports numerous software engineering activities such as change impact analysis , compliance verification or traceback of code, regression test selection, and requirements validation. It is usually accomplished in the form of a matrix created for the verification and validation of the project. Unfortunately, the practice of constructing and maintaining a requirements trace matrix (RTM) can be very arduous and over time the traces tend to erode into an inaccurate state unless date/time stamped. Alternate automated approaches for generating traces using information retrieval methods have been developed.
+
+The IEEE defines traceability as "(1)The degree to which a relationship can be established between two or more products of the development process, especially products having a predecessor, successor or master-subordinate relationship to one another. For example, the degree to which the requirements and design of a given software component match. See also: consistency. " and "(2) The degree to which each element in a software development product establishes its reason for existing; for example, the degree to which each element in a bubble chart references the requirement that it satisfies."
+
+In transaction processing software, traceability implies use of a unique piece of data (e.g., order date/time or a serialized sequence number) which can be traced through the entire software flow of all relevant application programs. Messages and files at any point in the system can then be audited for correctness and completeness, using the traceability key to find the particular transaction. This is also sometimes referred to as the transaction footprint.
+
+Health care
+
+Patient safety during healthcare service plays an important role in preventing delayed recovery or even mortality, by increasing and improving the quality of life of citizens, and is considered an indicator of the quality status of health services Maintaining patient safety is a complex task and involves factors inherent to the environment and human actions. New technologies facilitate the traceability tools of patients and medications. This is particularly relevant for drugs that are considered high risk and cost.
+
+The World Health Organization has recognized the importance of traceability for medical products of human origin (MPHO) and urged member states "to encourage the implementation of globally consistent coding systems to facilitate national and international traceability".
+
+Security and crime-fighting
+
+To prevent theft, and assist in locating stolen objects, goods may be marked indelibly or undetectably so that they may be determined to be stolen, and in some cases identified. For example, it is sometimes arranged that stolen banknotes are marked with indelible dye to show that they are stolen; they can be identified by their unique serial numbers. Announcing that cash machines were fitted with sprayers of SmartWater , an invisible gel detectable for years, to mark thieves and their clothing when breaking into or tampering with the machine was found in a 2016 pilot scheme to reduce theft by 90%.

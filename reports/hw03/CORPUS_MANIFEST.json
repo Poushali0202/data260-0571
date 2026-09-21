@@ -1,0 +1,149 @@
+[
+  {
+    "file": "wikipedia_product_recall.txt",
+    "bytes": 54940,
+    "sha256": "3bb592624d35856784cc31bfa8b1faec00fded9ceab39174a51d7c474859c866",
+    "source_url": "https://en.wikipedia.org/wiki/Product_recall",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_fda_food_safety_modernization_act.txt",
+    "bytes": 33890,
+    "sha256": "1b8cb4b608bb5689a4d06322b70457162bcbae597501c883652636cf82778d18",
+    "source_url": "https://en.wikipedia.org/wiki/FDA_Food_Safety_Modernization_Act",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_food_safety_and_inspection_service.txt",
+    "bytes": 11984,
+    "sha256": "516e218dea4d88c6b2d10c15e740c917bc05c8879cac726d3d186f7128bf7db9",
+    "source_url": "https://en.wikipedia.org/wiki/Food_Safety_and_Inspection_Service",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_peanut_corporation_of_america.txt",
+    "bytes": 8135,
+    "sha256": "72e85d5b63b9eb525b64f31ce644071902ab5de09fac07378e491d5c17f44f70",
+    "source_url": "https://en.wikipedia.org/wiki/Peanut_Corporation_of_America",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_2008_canadian_listeriosis_outbreak.txt",
+    "bytes": 5418,
+    "sha256": "d3f7af6c89e00434824be966c3d184299484ffc38f35122a225e84542c8ead82",
+    "source_url": "https://en.wikipedia.org/wiki/2008_Canadian_listeriosis_outbreak",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_2006_spinach_e_coli_outbreak.txt",
+    "bytes": 8985,
+    "sha256": "d5bb1fb04ea36ae03c440de493b04917d05f4f7f086275423847379cd728675e",
+    "source_url": "https://en.wikipedia.org/wiki/2006_North_American_E._coli_outbreak_in_spinach",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_2011_germany_e_coli_outbreak.txt",
+    "bytes": 16539,
+    "sha256": "37c7467e79055778dd656a8982e65788f422967fa83ea8a2357eacb89e294116",
+    "source_url": "https://en.wikipedia.org/wiki/2011_Germany_E._coli_O104:H4_outbreak",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_2022_infant_formula_shortage.txt",
+    "bytes": 27557,
+    "sha256": "9b45ccd6cbde1364cbca832ed3e100dcf84cf6db840eb13bfdd2181480b6fb1a",
+    "source_url": "https://en.wikipedia.org/wiki/2022_United_States_infant_formula_shortage",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_global_supply_chain_crisis.txt",
+    "bytes": 7844,
+    "sha256": "f9271a8e9105cb497c9c2b0a22d5803d849e9418e1216d9df41d2cb3bc5e2bb8",
+    "source_url": "https://en.wikipedia.org/wiki/2021-2023_global_supply_chain_crisis",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_cold_chain.txt",
+    "bytes": 7890,
+    "sha256": "e355ef4783e48ff3c1cebfb47b3f481d29ec41b471276a01949e5ea43b8526bd",
+    "source_url": "https://en.wikipedia.org/wiki/Cold_chain",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_traceability.txt",
+    "bytes": 9310,
+    "sha256": "329827cbec9ff30f285430fd4bcfc0034d2a49df0808dee7b99a92d147ebeb81",
+    "source_url": "https://en.wikipedia.org/wiki/Traceability",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_food_distribution.txt",
+    "bytes": 16900,
+    "sha256": "75ad9ee90b619ef295a3674d76623598e6895a3359b078dff6e3c60f622754ce",
+    "source_url": "https://en.wikipedia.org/wiki/Food_distribution",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "wikipedia_grocery_store.txt",
+    "bytes": 23954,
+    "sha256": "0f45a4749179f9cc8e54986181b9d206fc7450e0591d3db3360cadaa5c225dd1",
+    "source_url": "https://en.wikipedia.org/wiki/Grocery_store",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "fda_recalls_background_and_definitions.txt",
+    "bytes": 1369,
+    "sha256": "007467614b40b935e76a457ca3a4f951bb1535c6cd9523533b70ddeb7f9bfe38",
+    "source_url": "https://www.fda.gov/safety/industry-guidance-recalls/recalls-background-and-definitions",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "fda_101_product_recalls.txt",
+    "bytes": 6251,
+    "sha256": "d8ebe560bc57ee40ef97e914b6c42548515038a3fe41dfcc1cfb9cf2a442dbd9",
+    "source_url": "https://www.fda.gov/consumers/consumer-updates/fda-101-product-recalls",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "fda_food_recalls_what_you_need_to_know.txt",
+    "bytes": 3782,
+    "sha256": "413b4b97343dc38a8488817a99bcdc98f2f83c91421e49e2ba499f7f84450dba",
+    "source_url": "https://www.fda.gov/food/buy-store-serve-safe-food/food-recalls-what-you-need-know",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "fda_fsma_food_traceability_rule.txt",
+    "bytes": 37566,
+    "sha256": "b104d375067f3f1850da2ae643f9b11747b991303c0ec6d6afa59c04fa7dfef9",
+    "source_url": "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-requirements-additional-traceability-records-certain-foods",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "fda_fsma_preventive_controls_human_food.txt",
+    "bytes": 14165,
+    "sha256": "dbd0ca42a23a3b8a5242c01521c8ed5c1dae1578e2e5843bc7ec3551114e5f1b",
+    "source_url": "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-preventive-controls-human-food",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "usda_ers_food_service_market_segments.txt",
+    "bytes": 8645,
+    "sha256": "dcaa7390dbcbd6d3307b823237bbd452e918a335d3e8e97438b2cf15488398ce",
+    "source_url": "https://www.ers.usda.gov/topics/food-markets-prices/food-service-industry/market-segments",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "ecfr_21_cfr_part_7_subpart_c_recalls.txt",
+    "bytes": 19297,
+    "sha256": "395a6cf7ee7f262d7eae064fffdb55974f0f54bc71a99267c32e70916ebc1d53",
+    "source_url": "https://www.ecfr.gov/api/versioner/v1/full/2026-09-01/title-21.xml?part=7&subpart=C",
+    "accessed": "2026-09-21"
+  },
+  {
+    "file": "openfda_food_enforcement_reports.txt",
+    "bytes": 69543,
+    "sha256": "e1f480479f83b1cc4952f335aec7eb9d61e5d30b86f652466ca48941c91377a7",
+    "source_url": "https://api.fda.gov/food/enforcement.json?search=report_date%3A%5B20250101+TO+20261231%5D&sort=report_date%3Adesc&limit=100",
+    "accessed": "2026-09-21"
+  }
+]

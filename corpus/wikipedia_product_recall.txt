@@ -1,0 +1,566 @@
+A product recall is a request from a manufacturer to return a product after the discovery of safety issues or product defects that might endanger the consumer or put the maker or seller at risk of legal action. Product recalls are one of a number of corrective actions that can be taken for products that are deemed to be unsafe, and can seriously injure or kill a person.
+
+The recall is an effort to limit ruination of the corporate image and limit liability for corporate negligence , which can cause significant legal costs. It can be difficult, if not impossible, to determine how costly can be releasing to the consumer a product that could endanger someone's life and the economic loss resulting from unwanted publicity. Recalls are costly. Costs include having to handle the recalled product, replacing it and possibly being held financially responsible for the consequences of the recalled product.
+
+A country's consumer protection laws may include specific requirements in regard to product recalls. Such regulations may include how much of the cost the maker will have to bear, situations in which a recall is compulsory (usually because the risk is big enough), or penalties for failure to recall. The firm may also initiate a recall voluntarily, perhaps subject to the same regulations as if the recall were compulsory.
+
+Some standards for product recall is the British Standards Institute 's PAS 7100:2022 standard, Supporting Better Product Recalls , aims to help businesses plan in advance for conducting a product recall.
+
+General steps to a product recall
+
+The steps involved in a product recall vary by country and by industry, but generally follow a similar sequence. Businesses begin by investigating the problem, identifying the affected products, batches, and their distribution within the supply chain . Authorities may be notified early in the process. A risk assessment is then carried out to determine whether a recall is necessary, and whether it should be limited to a trade-level recall—in which products are withdrawn from wholesalers, distributors, or retailers—or extended to a consumer-level recall, which applies when products have already been sold to the public and requires direct consumer notification. Trade-level recalls are typically associated with quality or labelling issues, while consumer-level recalls usually involve safety hazards such as contamination or undeclared allergens.
+
+If a recall proceeds, businesses usually place affected stock on hold and inform distributors, retailers, and consumers as appropriate. Consumer-level recalls are often publicized through government websites, company websites, social media, press releases, and point-of-sale notices, and in some cases consumers are contacted directly. Consumers are generally asked to return the affected product for a refund, replacement, or modification. Retailers and distributors report the quantities returned, enabling the recalling business to reconcile these with production figures and determine whether further product remains in circulation.
+
+Once the recall is complete, businesses typically conduct an internal review to assess the effectiveness of the recall, identify any unreturned product, and put in place measures to reduce the risk of similar incidents in the future. Legal requirements for consumer compensation, notification procedures, and the degree of government involvement vary by jurisdiction.
+
+Some standards for product recall is the British Standards Institute 's PAS 7100:2022 standard, Supporting Better Product Recalls , aims to help businesses plan in advance for conducting a product recall.
+
+Recalls by industry
+
+Automotive recalls
+
+In general, the number of recalls has been increasing – with an exception during the economic crisis of 2009–2010 – due to time, cost and market pressure. Per year, global automotive warranties are estimated as US$40 billion, 3–5% loss in sales.
+
+Low-priced production often leads to minor quality, and outsourcing leads to a shift of knowledge concerning techniques and processes. This way, technical failures are more likely to occur due to communication problems between the different parties engaged in the supply chain and missing definitions for technical interfaces. Despite the increasing number of recalls, a Mojo Motors study found only .005 percent of customers ask about recalls when contacting dealerships. Since 1966, 390 million motor vehicles have been recalled in the USA. 29 million cars were recalled in 2018. That number is down from its peak of 50 million in 2016, but on average, recalls are on the rise. More cars have been recalled between 2015 and 2020 than between 2003 and 2014.
+
+According to National Highway Safety Traffic Administration data, there were approximately 31,269,261 vehicles recalled in 2025. Ford Motor Company issued more recall orders than any other automaker throughout the year. Overall, there were approximately 11% fewer recalled vehicles in 2025 than in 2024 (35,020,507).
+
+Some of the largest automotive recalls include 1.12 million cars recalled by Toyota in December 2022. The recall included various models of Avalon, Camry, Corolla, RAV4, Lexus ES series, RX350 Highlander, and Sienna Hybrid, due to a fault in the Occupant Classification System (OCS) sensors that could cause the airbags not to deploy as designed.
+
+Manufacturers have to notify the owner when there is a recall notice, but in the case of a second, third or fourth owner of the car, the company may be sending the notice to a previous one.
+
+Food recalls
+
+Over 3000 food products were recalled in the US in 2016 according to the US Food and Drug Administration Enforcement reports. Individual recall events caused by contamination from foreign bodies (physical contamination from metal, glass, plastic, wood etc.) has increased by 76% in 2016 compared with 2015. This increase in 2016 is even more marked when looking at the number of products recalled (as opposed to recall event) due to foreign body contamination. In 2016 there were 422 products recalled due to foreign body contamination, whilst in 2015 there were 108; almost a 300% increase.
+
+Every year, there are several pet food and treat recalls due to spoiled or tainted ingredients. Perhaps the most known was in 2007. The 2007 pet food recalls involved the massive recall of many brands of cat and dog foods beginning in March 2007. The recalls came in response to reports of renal failure in pets consuming mostly wet pet foods made with wheat gluten from a single Chinese company, beginning in February 2007. The recall began voluntarily with the Canadian company Menu Foods on March 16, 2007, when a company test showed sickness and death in some of the test animals. Overall, several major companies have recalled 150 different brands of food comprising more than 5,000 separate pet food products. The FDA and USDA investigation found the food to be intentionally contaminated with the chemical melamine .
+
+However pet food recalls are not rare at all. The 2007 recall stands out and is well known because of the sheer size, scope, and number of animals affected. But pet food recalls occur on a regular basis. For instance, on September 12, 2008, Mars Petcare US announced a voluntary recall of all dry pet food products produced at its plant in Everson, Pennsylvania , citing potential contamination with salmonella .
+
+On July 23, 2018, Pepperidge Farm announced that the Flavor Blasted Xtra Cheddar Goldfish crackers were being recalled due to possible salmonella contamination in the whey powder used on them. This recall also affected the Flavor Blasted Sour Cream and Onion, Whole Grain Xtra Cheddar, and Xtra Cheddar and Pretzel varieties.
+
+Also, more snack products were recalled for various safety reasons. Mondelēz Global LLC recalled all Ritz Crackers products that are containing whey after traces of salmonella were detected on the whey powder. The recall includes Ritz cheese cracker sandwiches and mixed cookie and cracker variety packs. Flower Foods recalled all of their Swiss Rolls products sold under the H-E-B , Food Lion , Mrs. Freshley's , Baker's Treat, Market Square, and Great Value brands due to contamination of salmonella. John Derst's Old Fashioned Bread was also affected by the recall. Pinnacle Foods, Inc. issued a recall on all Hungry Man BBQ boneless chicken wing products due to salmonella being detected in the whey powder of the ranch dressing.
+
+Produce recall
+
+Beginning November 3, 2019, Mann Packing Co., Inc. and all associated vegetable produces were recalled due to the potential of Listeria monocytogenes. This included Wegmans veggie power blend, Meijer vegetable trays, Ghnw, LLC mushroom stirfry blend, Russ Davis, and Tahar veggie and ranch cups including cauliflower.
+
+With the earliest recall being July 31, 2020, food products associated with onions from Thomson International, Inc. were recalled due to the risk of salmonella. This included many companies associated closely with produce and vegetables: Progressive Produce LLC, Spokane Produce, Inc., Hello Fresh, Emerald Fruit & Produce Inc., etc. The last recall associated with Thomson International, Inc. was August 19, 2020. Another onion induced recall was on October 20, 2021, when ProSource Produce LLC had a company announcement, soon followed by Keeler Family Farms as well. Onion meal kits and onions themselves of ProSource Produce LLC, Pier-C Produce Inc., Potandon Produce LLC, HelloFresh, and EveryPlate were recalled due to the risk of salmonella.
+
+On November 9, 2023 as well as later dates of November 16th and the 22nd, Sofia Produce LLC dba TruFresh issued a company announcement, with Crown Jewels Produce following suit November 22, 2023. Pacific Trellis Fruit dba Delcinea did the same on November 24, 2023. The recall was regarding food products associated with cantaloupe due to a risk of salmonella. The recalls started November 14, 2023, and included companies such as: Vinyard Fruit and Vegetable Company, CF Dallas, LLC, Bix Produce, Kwik Trip, GHGA, LLC, and TGD Cuts, LLC.
+
+Broadcast industry
+
+On September 10, 2020, the frequencies of ABS-CBN Channel 2 , alongside its digital channels such as Yey! , Asianovela Channel , and Movie Central , as well as terrestrial operations of cable channels such as Cine Mo! , TeleRadyo Serbisyo , Jeepney TV , Myx , and Knowledge Channel on ABS-CBN TV Plus, and other pertinent local TV and radio stations, were recalled by the Philippine National Telecommunications Commission citing the absence of a valid, legislative franchise. The provisional authorities and certificates of public convenience granted to ABS-CBN were also taken away by the said government agency.
+
+Highlights of major product recalls (1959-present)
+
+1959
+
+USA: 1959-60 Cadillacs .
+
+1973
+
+USA: March: Canned mushrooms. Resulted in the Great Michigan Pizza Funeral .
+
+UK: August: The Triumph Toledo , Triumph 1500 and Triumph Dolomite were the subject of the UK's largest vehicle recall to date. The recall affected 103,000   cars and involved the replacement of a front radius strut in the front suspension assembly, addressing a risk that the component might break and render the car impossible to steer. The manufacturers stated they had replicated the alleged defect by driving the car into a solid kerb at between 10–15   mph (16–24   km/h) . Despite undertaking the recall, they insisted that the condition could only "arise through misuse".
+
+USA: August: The Little Wonder TV antenna was recalled by the CPSC . It was one of the earliest recalls of an electronic device. The product connected the antenna terminals on the back of the TV directly to the AC mains.
+
+1978
+
+USA: June 9: The Ford Motor Company recalled 1.5   million Ford Pintos , the largest recall in automotive history at that time, to install a modification to reduce the risk of fire.
+
+1982
+
+USA: October: Tylenol Scare of 1982
+
+USA: late 1982: McDonald's recalled 10   million Playmobil Happy Meal toys due to the risk of choking hazards.
+
+1986
+
+USA: 1986 Excedrin Tampering. A few bottles of Excedrin were poisoned with cyanide . Two people died, and one recovered in the hospital. A woman named Stella Nickell was charged with product tampering, attempted murder and murder. She was sentenced to 90   years in prison. Bristol-Myers subsequently recalled all Excedrin capsules nationwide.
+
+1994
+
+Worldwide: Intel recalled the original Pentium processors due to the Pentium FDIV bug .
+
+USA: October: Over 500,000   Santa Barney Pom-Pom plush toys recalled due to choking and fire hazard.
+
+1999
+
+Worldwide: Audi recalled the original Audi TT Mk1 both Coupé and Roadster due to crashes and related fatalities that occurred at speeds in excess of 110   mph (180   km/h) , during abrupt lane changes or sharp turns.
+
+2000
+
+USA: Burger King organized a recall of 25   million plastic container toys resembling Poké Balls as they presented a suffocation hazard.
+
+USA: January 14: S. C. Johnson & Son issued a recall on their allergen spray product AllerCare at the request of the U.S. Environmental Protection Agency , after reports of asthma attacks and related medical incidents associated with the product.
+
+Taco shells manufactured for Taco Bell recalled
+
+USA: May: Ford Motor Company 's handling of the recall of the 6.5   million 15-inch Firestone tires fitted to the Ford Explorer SUV soon culminated in the resignation of Ford's CEO at the time, Jacques Nasser . (See Firestone and Ford tire controversy .)
+
+2001
+
+USA: March 5: McDonald's recalled 234,000 of the Scooter Bug Happy Meal toys distributed between November 2000 to February 2001, due to the risk of choking hazards.
+
+Worldwide: (August 8) Bayer Pharmaceuticals pulled the cholesterol drug Baycol from the market after 31 deaths were linked to the drug in the United States, as well as the risk of rhabdomyolysis , a condition that is known to cause muscle destruction.
+
+2003
+
+Australia: April: The recall of a variety of goods manufactured by Pan Pharmaceuticals as a result of failures in quality assurance and standards. The company was soon put under receivership .
+
+2004
+
+USA: February 16: General Motors recalled several 1998–2000 Buick LeSabre , Park Avenue , and Pontiac Bonneville models, as well as 1998–1999 Oldsmobile 88 , 2000 Chevrolet Impala and Chevrolet Monte Carlo models equipped with 3800 (L36) engines. The fuel pressure regulators in these vehicles, made by Delphi Technologies , had a higher rate of fuel leaks that entered the intake manifold, posing a fire hazard.
+
+USA: July 8: About 150   million pieces of jewelry obtained from vending machines were recalled due to the risk of lead poisoning .
+
+Worldwide: September 30: Merck voluntarily withdraws the COX-2 inhibitor drug Vioxx from the market after several studies linked it to heart attacks and other adverse effects.
+
+2005
+
+United Kingdom and Canada: February: Potentially carcinogenic Sudan I food colouring was found in over 400 products containing Worcestershire sauce and had to be recalled.
+
+April 7: Pfizer withdraws Bextra from the market at the recommendation of the Food and Drug Administration due to serious cardiovascular risks, as well as serious skin reactions associated with the drug.
+
+Worldwide: June: Engine stalls linked to faulty wirings on 6.0L Powerstroke Diesel engines have caused hundreds of thousands of 2004–2005 Ford Super Duty , Excursion , and Econoline models to be recalled.
+
+Worldwide: June 17: The Guidant Corporation recalled over 50,000   defibrillators due to the risk of device malfunctions as a result of an electrical flaw. Prior to the recall, it was reported that several models failed 45 times and caused at least 2 deaths through the end of May.
+
+2006
+
+March: About 300,000 Reebok heart-shaped charm bracelets were recalled after a child died from lead poisoning after swallowing a piece from one of the charms.
+
+Ireland and United Kingdom (24 June): Cadbury-Schweppes announced that there had been a salmonella scare surrounding its products, causing millions of chocolate bars from stores across Ireland and the UK to be recalled.
+
+Sony notebook computer batteries recall:
+ Worldwide: August: Dell recalls over four million notebook computer batteries, after several instances where the batteries, made by Sony , overheated or caught fire. Most of the defective notebooks were sold in the US, however, some one million faulty batteries could be found elsewhere in the world. 
+ August: Following Dell's battery recall, Apple Computer also recalls 1.8 million notebook computer batteries manufactured by Sony. Similar to Dell, most of the notebooks were sold in the United States. However, some 700,000   units could be found overseas. 
+ September: Matsushita (Panasonic) recalls 6,000   batteries. 
+ September: Toshiba recalls 340,000   batteries. 
+ September: IBM / Lenovo recalls 500,000   batteries. 
+ October: Hitachi recalls 16,000   batteries. 
+ October: Fujitsu recalls 338,000   batteries. 
+ October: Sharp recalls 28,000   batteries. 
+ November: Casio recalls more than 20,000   batteries.
+
+Worldwide: August: Dell recalls over four million notebook computer batteries, after several instances where the batteries, made by Sony , overheated or caught fire. Most of the defective notebooks were sold in the US, however, some one million faulty batteries could be found elsewhere in the world.
+
+August: Following Dell's battery recall, Apple Computer also recalls 1.8 million notebook computer batteries manufactured by Sony. Similar to Dell, most of the notebooks were sold in the United States. However, some 700,000   units could be found overseas.
+
+September: Matsushita (Panasonic) recalls 6,000   batteries.
+
+September: Toshiba recalls 340,000   batteries.
+
+September: IBM / Lenovo recalls 500,000   batteries.
+
+October: Hitachi recalls 16,000   batteries.
+
+October: Fujitsu recalls 338,000   batteries.
+
+October: Sharp recalls 28,000   batteries.
+
+November: Casio recalls more than 20,000   batteries.
+
+December: Nintendo said it would voluntarily replace 3.2   million straps attached to the controllers of its new Wii game consoles, and recalled about 200,000   AC adapters for its DS and DS Lite handheld game machines. The Wii strap failures are a global problem.
+
+2007
+
+Worldwide: February: Lenovo and Sanyo recall 200,000   batteries.
+
+North America: March: Menu Foods and several other companies issue numerous pet food recalls .
+
+USA/Japan: March: In cooperation with the U.S. Consumer Product Safety Commission (CPSC), Casio Inc. voluntarily recalled about 12,000 units of its CTK-710 electronic musical keyboard due to an overheating hazard that posed a fire risk. Casio received five reports of keyboards overheating, including two incidents that resulted in fire.
+
+Japan: March: Casio recalls about 12,000   units of the electronic keyboards with the problems being overheated, causing a fire hazard. The information was revised in 2009 by the U.S. Consumer Product Safety Commission (CPSC) after recalling about 20,000 batteries from their old keyboards last year.
+
+USA: April: Nestlé voluntarily recalled its "Caramel KitKat Chunky" bars and "KitKat Cookie Dough Chocolate" bars due to some bits of hard plastic being found in the chocolate.
+
+USA: June: Foreign Tire Sales Inc. recalls tires imported from Hangzhou Zhongce Rubber Co., of Hangzhou, China . The tires were not made to safety standards to prevent tread separation, a problem that led to the nation's largest tire recall in 2000 by Ford Motor Company . Foreign Tire Sales Inc. , was unable to comply with the recall due to its limited resources. Further, Hangzhou Zhongce Rubber doesn't have accountability for a recall since the company is based solely in China and sells in the US through third-party re-sellers.
+
+Worldwide: June: The Thomas and Friends Wooden Railway toys were recalled due to risks of lead poisoning from the paint used on the train cars and locomotives included in the toys. An additional recall was also conducted in September 2007.
+
+USA: July 13: Gerber recalled Organic Rice Cereal and Organic Oatmeal Cereal after a Tampa, Florida parent, Richard Andree, found approximately 30   hard chunks, some of which were a half inch long in the product.
+
+Worldwide: August 14: Nokia recalled 46   million BL-5C batteries after a primary investigation which revealed faulty manufactured batteries by Matsushita Electric Corporation which could explode after short circuit.
+
+USA: October: ground beef from the Topps Meat Company of Elizabeth, New Jersey was recalled. As of 2007 , this was the second-largest beef recall in United States history.
+
+Worldwide: September: Honda Motor Company issued a recall of 182,756 2006–2007 Honda Civic sedans and coupes for wheel bearings
+
+Worldwide: October: Alltrade Tools recalled over 800,000   power tool chargers.
+
+USA: October: Several U.S. pharmaceutical companies voluntarily recalled several infant cough and cold medicines due to possible overdosing dangers .
+
+Worldwide: November: A popular children's toy, Bindeez (also known as Aqua Dots in the United States), was recalled when it was discovered that 1,4-butanediol had been substituted for 1,5-Pentanediol in the bead manufacturing process. The human body metabolises the substance to form the anesthetic GHB .
+
+USA: November: Children's snow and sand castle kits by Paricon, sold exclusively at L.L.Bean , were recalled due to sharp edges.
+
+Worldwide: November: About 175,000 Curious George 12-inch plush dolls with plastic faces were recalled by Marvel Toys due to the risk of lead exposure and poisoning .
+
+Year-long: Mattel undertook a series of product recalls involving toys. See also Fisher-Price (2010, below): Fisher-Price has been a wholly owned subsidiary of Mattel since 1993.
+
+2008
+
+February: The USDA recalled 143   million pounds of processed frozen beef (the largest beef recall in US history) from the Westland/Hallmark processor in Southern California due to cattle not being inspected before slaughter. There was little chance of any illness in the cattle.
+
+April: Malt-O-Meal voluntarily recalls its Puffed Rice and Puffed Wheat cold cereal products due to salmonella contamination.
+
+1 April: Malaysia's first nationwide automotive recall was announced due to defects in the Proton Savvy 's rear wheel bearing .
+
+August: Maple Leaf Foods voluntarily recalled a number of meat and deli products after an outbreak of listeriosis . Four elderly people have died as a result. Affected restaurants include McDonald's and Mr. Sub .
+
+September: 440,000 Sony VAIO type T TZ series due to excessive heat production, produced in May 2007 - July 2008 had to be recalled.
+
+2009
+
+January: Peanut Corporation of America recalled its bulk peanut butter and peanut paste products for salmonella contamination. Because of the myriad of consumer items PCA's bulk products went into, the Food and Drug Administration eventually recalled 3913 different products from at least 361 companies - one of the most extensive food recalls in US history. On February 13, 2009, Peanut Corporation of America filed for Chapter 7 liquidation following the massive extensive peanut butter recall. In 2014, The United States Department of Justice criminally indicted Parnell and his family for committing at least 70 counts of felony wire and mail fraud after being unanimously found guilty of those charges by a federal grand jury. In September 2015, Stewart Parnell, who was the CEO of PCA at the time of the 2009 peanut butter recall, pleaded guilty to 70 felony charges of wire fraud and mail fraud. He was sentenced to 28 years in prison for mishandling the peanut butter recall in 2009 and for the felony wire fraud and mail fraud charges.
+
+March: Setton Pistachio of Terra Bella, California recalled its entire 2008 crop of pistachios due to salmonella contamination.
+
+June: 300,000   packages of Nestlé 's Toll House cookie dough are recalled due to possible E. coli contamination that made several consumers sick, when the dough was eaten raw.
+
+October: Some Acer Aspire laptops were recalled for overheating problems.
+
+December: Virtually every Roman blind and roller shade on the market—around 50 million sets—were recalled because the cords pose a strangulation hazard to children.
+
+2010
+
+January: Toyota recalls several million vehicles because of faulty throttle pedals that may cause runaway acceleration and faulty software that may cause braking to be delayed.
+
+USA: March: - Carter's, Inc. recalls infant clothing and zippers due to Choking Hazard
+
+USA: 23 July: - Yayakd, Inc. recalls infant clothing and zippers due to Choking Hazard
+
+May: Johnson & Johnson recalls 43   over-the-counter children's medicines made by McNeil Consumer Healthcare , a subsidiary of Johnson & Johnson, on April 30, 2010.
+
+June: Maytag recalls about 1.7   million dishwashers, including Maytag, Jenn-Air, Magic Chef, and several other brands due to the electrical failure and fire hazards.
+
+June: Ikea recalled 3.36   million "roller" and "roman" shades due to strangulation hazards.
+
+June: McDonald's recalled the Shrek Forever After drinking glasses due to risks of cadmium poisoning from the glass' paint.
+
+June: Kellogg issued a voluntary recall of select packages of Kellogg's Corn Pops, Honey Smacks, Froot Loops and Apple Jacks cereals due to "an uncharacteristic waxy-like taste and smell" caused by an unnamed substance in the package liners. The taste of the contaminated boxes was described as "stale, metal, and soap-like" by consumers.
+
+July: Perdue Farms recalls over 90,000   pounds of chicken nuggets after bits of blue plastic were found in the nuggets.
+
+August: 228 million eggs are voluntarily recalled by Wright County Egg of Galt, Iowa due to a potential salmonella contamination.
+
+September: Fisher-Price recalls 10   million products, including enough toys to merit this as the largest toy recall in history.
+
+September 23: Similac : Abbott Laboratories issued a voluntary recall of up to 5   million containers of Similac infant formula after finding beetles in the formula. ISSUE: Possibility of the presence of a small common beetle in the product. While the U.S. Food and Drug Administration (FDA) determined that the formula containing these beetles posed no immediate health risk, there was a possibility that infants who consumed the formula could experience symptoms of gastrointestinal discomfort and refusal to eat as a result of small insect parts irritating the GI tract. The voluntary recall affected milk- and soy-based formulas distributed in the United States, Puerto Rico, Guam, and some Caribbean nations. At least 12 of the recalled products were provided to families through the federal government's Women, Infants, and Children (WIC) health and nutrition program. The FDA reassured caregivers and families whose babies may have consumed these products that drinking the formula will not cause long-term health problems.
+
+2011
+
+January: Nature's Promise Giant Food of Landover, Md. issued a voluntary recall of several Nature's Promise organic bagged salad items due to the potential for listeria contamination. there was a report of a pregnant woman in her 20s being rushed to the hospital after eating tainted salad. No deaths reported.
+
+February: U.S. Consumer Product Safety Commission issued a recall 20,000 of Sniglar Cribs, distributed by IKEA Home Furnishings due to the detach and collapse of the Mattress, creating a risk of entrapment and suffocation to a child in the crib.
+
+February: Honda Motor Company issued a voluntary safety recall of 700,000   cars due to the failure. The spring was placed improperly in a small box inside the engine, so that, in some cases, the problem could cause the engine to stall. No crashes or injuries have been reported related to this defect.
+
+February: Study on Medical device recall by Dr. Diana Zuckerman and Paul Brown of the National Research Center for Women and Families , and Dr. Steven Nissen of the Cleveland Clinic , published in the Archives of Internal Medicine, showed that most medical devices recalled in the last five years for “serious health problems or death” had been previously approved by the U.S. Food and Drug Administration (FDA) using the less stringent, and cheaper, 501(k) process.
+
+March: Toyota Motor Corp issued a recall about 22,000   sport utility vehicles and pickup trucks over tire-deflation monitoring systems that could cause failure. No such crashes or injuries were reported.
+
+March: Dairy Crest recalled one batch of its Frijj Thick and Fresh Strawberry milkshake due to low levels of listeria.
+
+May: Nestlé Philippines recalled two batches of Maggi beef and chicken noodles after it was reported that it was contaminated with salmonella.
+
+June 28, 2011: McNeil Consumer Healthcare, a division of McNEIL-PPC, Inc., recalled at the retail level one product lot (60,912   bottles) of Tylenol, Extra Strength Caplets, 225-count bottles, manufactured in February 2009 and distributed in the U.S. McNeil took this action following a small number of reports of musty, moldy, or other odor. The uncharacteristic smell has been linked to the presence of trace amounts of a chemical known as 2,4,6-Tribromoanisole (TBA). Tylenol, Extra Strength Caplets, 225-count Lot # ABA619 with UPC Code 300450444271.
+
+August: National Beef recalled about 60,424   pounds of ground beef products contaminated with Escherichia coli O157:H7 (the most well-known of the enteropathogenic strains).
+
+November: Apple Inc. announced a recall of all first generation iPod Nanos sold between September 2005 and December 2006 due to the battery overheating and posing a fire risk.
+
+December: Tyson Fresh Meats (part of Tyson Foods ) recalled 40,000 pounds (18,000   kg) of ground beef in sixteen states. A sample of the 80/20 Ground Beef Chuck produced on 24 October tested positive for Escherichia coli at the company's Nebraska plant.
+
+December: Tech For Kids recalled snow bikes due to the risk of a fall hazard.
+
+2012
+
+March: Imported Frescolina brand ricotta salata cheese was recalled after at least three of fourteen people sickened by it (diagnosed between Mar. 28 and Aug. 30 in 11   states) died.
+
+September: Trader Joe's and SunLand peanut butter products were recalled due to a salmonella scare.
+
+October: New England Compounding Center recalled all its products. Contaminated medications caused meningitis outbreak .
+
+November: Kenny's farmhouse 4 cheeses were recalled due to listeria.
+
+November: Nestlé 's Nesquik powder was recalled due to salmonella risk.
+
+2013
+
+USA: February: Kellogg's recalls about 36,000 boxes of Special K Red Berries cereal due to glass fragments.
+
+USA: March: Toys "R" Us recalls Bell cycling helmets due to faulty strap buckles that could pose a head injury risk in an accident
+
+USA: March: Honda recalls 183,000   vehicles due to concerns that they could brake unexpectedly due to a fault in their electronic stability control systems. A further 381,000 vehicles in the US and worldwide were recalled later in the year due to the same issue.
+
+USA: July: Big Lots recalled Christmas tree lights due to fire hazard.
+
+Worldwide: August: Sleepharmony recalls pink beds due to lead levels in their paint exceeding limits under US consumer law.
+
+Worldwide: September: Pillsbury Company recalled Cinnamon Rolls due to plastic pieces in the cinnamon rolls.
+
+October: Kids II, Inc. recalled 400,000 Baby Einstein Musical Motion Activity Jumpers due to the risk of an impact hazard.
+
+October: Hachette Book Group recalled 70,000   children's books due to the risk of choking and laceration hazards.
+
+Worldwide: December: - Michelin recalls 1.2   million tires fitted as original equipment to the Ford E-Series and other Ford trucks and sedans due to reports of the tire treads separating from the belt causing damage to the vehicles
+
+2014
+
+February: General Motors recalled over a dozen vehicles due to faulty ignition switches.
+
+April: IKEA recalled 255,000 children's bed canopies due to the risk of strangulation hazards.
+
+April: Walmart recalled 174,000 My Sweet Love Cuddle Care baby dolls due to the risk of a burn hazard.
+
+April: Playtex recalled 305,000 infant carriers due to the risk of a fall hazard.
+
+May: Office Depot recalled 1.4 million office chairs due to the risk of a fall hazard.
+
+November: McDonald's recalled 2.3 million Hello Kitty birthday-themed plastic figure Happy Meal toys holding a pink heart-shaped lollipop including a red plastic toy whistle that was due to the risk of a choking hazard.
+
+November 13: Panasonic recalls 300,000 batteries.
+
+December: Graco recalled 4.7 million strollers due to the risk of a laceration and amputation hazard.
+
+December: Toys "R" Us recalled 19,000 Koala children's sandals with butterfly wings due to the risk of a choking hazard.
+
+2015
+
+On May 19, 2015, Takata announces the recall of 34 million air-bags, which is one of the largest auto defects of all time.
+
+In May 2015, Lee's Sandwiches recalled 441,000 pounds (200,000   kg) of beef, pork, and chicken produced at its Garden Grove, California , facility, due to an investigation by the federal Food Safety and Inspection Service into meat that was falsely stamped with another facility's inspection mark.
+
+3 June: the Beats Pill XL speaker has been recalled due to fire hazard.
+
+Summer: Apple Inc. recalled over 500,000 iMac computers due to an issue where the computer crashes and wipes the hard drive.
+
+November: Hotpoint and Indesit began alerting customers who had purchased a tumble dryer between 2004 and 2015 because of the risk of fluff and lint building up around the heating element and presenting a severe fire hazard. A fire occurred in London in August 2016 caused by a tumble dryer which was awaiting inspection after recall. The UK government established a Working Group on Product Recalls and Safety after this event, aiming to "improve product safety and recalls to avoid similar events occurring in future".
+
+2016
+
+23 February: Mars Incorporated recalled chocolate from 55 different countries, after a German customer found plastic in a Snickers bar in February.
+
+April: CRF Frozen Foods recalled over 400 frozen food products due to listeria outbreak that sickened 8 people.
+
+April: Pilgrim's Pride recalled more than 4.5 million pounds of fully cooked chicken products due to contamination of wood, metal, plastic, and rubber.
+
+May 27: Maruti Suzuki recalled 75,419 units of the Baleno hatchback (petrol and diesel) to upgrade its airbag controller software of which 17,231 units are exports.
+
+May 31: General Mills recalled flour that sickened people with pathogenic E. coli , eventually reaching 45 million pounds, begins.
+
+June: SunOpta recalled dozens of products based on sunflower seeds due to Listeria concerns.
+
+July 6: IKEA recalled all their chocolate candy products due to undeclared allergen contamination. Samples analyzed were found to contain undeclared milk, almond, and hazelnut.
+
+July 15: ConAgra recalls 200,000 pounds (91,000   kg) of frozen P. F. Chang's meals due to metal fragments.
+
+August: McDonald's recalled over 30 million of the Happy Meal Fitness Activity Tracker bands due to risks of skin irritation and burns.
+
+September 2: Samsung recalled 2.5 million Galaxy Note 7 phones due to batteries catching fire or exploding during charging, just after 2 weeks of sale.
+
+September 9: General Motors recalled over 4 million vehicles (brands such as Buick , Chevrolet , GMC and Cadillac ) after an air bag software defect kills one person and injures three people.
+
+September 11: Nissan recalled 134,000 Maxima and Murano vehicles due to fire hazard.
+
+September 18: Koffee Kup Bakery recalled 99,000 bread products after consumers reported that there are some clear plastic pieces in some products.
+
+September 19–20: Kellogg's recalled voluntarily 10,000 cases of Nutri-Grain Whole Wheat Waffles due to listeria concerns.
+
+September 21: Blue Bell Creameries recalled all of their Cookie Dough ice cream products after two flavors of the Cookie Dough ice cream were contaminated with traces of Listeria leading to the deaths of three people and hospitalization of two other people.
+
+October 10: Kraft Heinz recalled the Lunchables Ham and Cheese Stackers products due to misbranding and undeclared allergens .
+
+October 10: Mars, Incorporated recalled Cesar Classics filet mignon dog food after a customer found small plastic pieces in the product.
+
+October 11: Samsung stopped production of the problematic Galaxy Note 7 devices for nine months and have recalled the supposedly "safe" devices because they were still catching fire or exploding
+
+November 19: Taylor Farms recalled 57 varieties of hummus produced under the Sabra brand name due to Listeria concerns.
+
+December 2: Valley Milk Products of Strasburg, Virginia recalled all its products after armed US Marshals seized over 4 million pounds of dry milk and buttermilk powder adulterated with Salmonella Meleagridis. Valley Milk had resisted the FDA's request to do a voluntary recall.
+
+2017
+
+January 16: Ford South Africa and the country's National Consumer Commission (NCC) announced a safety recall affecting 4,556 Ford Kuga vehicles, following a series of fires.
+
+June 22: Mazda North American Operations and the National Highway Traffic Safety Administration (NHTSA) issued a recall for 227,814 Mazda 3s and Mazda 6s after finding problems with their parking brake calipers .
+
+November: About 37.8 million fire extinguishers were recalled by Kidde due to failure to discharge.
+
+2018
+
+February 5: IKEA recalled all of their IKEA brand marshmallow candy (GODIS PÅSKKYCKLING) due to possible bacteria contamination from mice infestation. All customers were advised to return them to the nearest IKEA store or discard them immediately.
+
+July 11: IKEA recalled their IKEA brand (LURVIG) pet water dispensers due to a suffocation hazard to pets. Customers were advised to discontinue use and return the pet water dispensers to the nearest IKEA store.
+
+July 21: Kellogg's recalled boxes of Honey Smacks due to 73   cases of salmonella . Kellogg Company and Food and Drug Administration (FDA) had a voluntary recall on the cereals and its boxes.
+
+July 24: Cadillac issued a recall on all Cadillac CT6 vehicles that were manufactured between September 4, 2015, and September 21, 2017, due to an excess adhesive interfering with the lower LATCH child restraint anchors. Owners of affected vehicles were recommended to install child restraints with the seat belts until the recall is repaired from the lower LATCH child restraint anchors.
+
+October 14: PepsiCo had recalled the Tropicana Trop50 Multi-Vitamin juice containers and its drink. The company previously recalled Pepsi 16.9-ounce bottles due to a parts failure in the manufacturing process. And in the UK, they have recalled Doritos Chili Heatwave crisps because they contain undisclosed milk. American supermarket chains Whole Foods , Walmart , ShopRite and Trader Joe's asked PepsiCo about the recall on the Trop50 bottles.
+
+North America: December 10, 2018: Both Danone and Hiland Dairy brands are recalling products for allergy alerts. Danone North America is recalling its Light & Fit Greek Crunch S'mores flavor, and Hiland Dairy is recalling its half-gallon Whole Chocolate Milk, both for an allergy alert.
+
+2019
+
+April 23: Flying Tiger Copenhagen recalled some wooden train carts because the steam dome on the toy train's engine car can come loose, causing a choking hazard.
+
+July 8: Disney Store recalls all Forky 11 inch plushies because the googly eyes could detach, causing a choking hazard, 15 days after Toy Story 4 came out.
+
+September 16: General Mills announced it will recall all 5   lb bags of Gold Medal Unbleached All Purpose Flour with a better if used by date of September 6, 2020. Consumers were reminded that flour is not a 'ready to eat' ingredient. Guidance from Food and Drug Administration (FDA) and Centers for Disease Control (CDC) continues to warn that consumers should refrain from consuming any raw products made with flour.
+
+Worldwide: December 13: Ford Motor Company recalls all the Super Duty 2017-2019 models ' Super-Crew Pick-ups due to fire concerns.
+
+United Kingdom and Ireland, 18 December: Whirlpool announced a second recall for Hotpoint and Indesit as certain washing machines manufactured between 2014 and 2018 because of a faulty door lock which can overheat and create a risk of fire.
+
+December 30: Shortly before New Year's Eve, Central Valley Meat Co. recalls ground beef products due to possible Salmonella Dublin contamination.
+
+2020
+
+UK: January 26: Cow & Gate and Tesco are recalling 15 types of baby food jars as a "precautionary measure" amid concerns some may have been tampered with.
+
+USA: July 9: 4E Brands North America, based out of San Antonio, issued a major recall on all of its hand sanitizers across the country that were sold under the Blumen and Assured brands due to containing methanol, which was an alcohol that can be deadly to humans if absorbed throughout the skin. Most, if not all, of these bottles were sold at Walmart, Costco, and BJ's Wholesale Club stores nationwide, mostly in the Northeast. Cases of blindness, hospitalizations, and deaths occurred after adults and children drank the products, which lead to many lawsuits. On February 23, 2022, 4E Brands filed for Chapter 11 bankruptcy and shut down all operations permanently, nearly two years after the recall, citing the number of lawsuits it got during the recall.
+
+USA: July 23: Target recalls Manhattan Teether toy due to risks of Choking hazard. ISSUE: U.S. Consumer Product Safety Commission is asking the people who bought the item to keep the toy away from children and return it to any Target store for a full refund.
+
+Europe: September: Sesame seeds contamination by ethylene oxide.
+
+Philippines: September 10: The Philippine National Telecommunications Commission issued an order to recall frequencies and-channels assigned to ABS-CBN , citing the absence of the latter's valid, legislative franchise .
+
+Canada: October: Certain lots of Cottonelle -branded flushable wipes were recalled due to being contaminated with Pluralibacter gergoviae .
+
+Worldwide: McDonald's and Disney announced the recall of all Mickey & Minnie's Runaway Railway toys due to a QR code error, bringing generic toys instead and removing tickets to Walt Disney World .
+
+2021
+
+USA: January 4: Target recalls 181,000 Cat and Jack children's swimsuits due to the snaps breaking causing a choking hazard.
+
+USA: January: 700,000 Hot Pockets were recalled due to bits of glass and plastic being reported in the pockets.
+
+USA: April: U.S. officials recall and suspend the use of the Johnson & Johnson coronavirus vaccine due to blood clots being reported in women who received the vaccine.
+
+USA: April 10: The Food and Drug Administration stated that Hostess announced a recall on all of its Sno Balls treats after the treats tested positive for an unknown undeclared allergen.
+
+USA: April 14: The FDA issued a recall on all of Trader Joe's Restaurant Style White Corn Tortilla Chips due to possible contamination of undeclared dairy. The contaminated chips were produced by Snak King . The recalled chips were removed from the market after it was discovered that the chips were contaminated with undeclared dairy.
+
+Worldwide: May: Hyundai Motor Company recalled the Elantra , Kona , and Veloster models with a 2.0-liter engine to address a potential issue with the piston rings. The concern is that the problem could lead to increased oil consumption, progressing to a knocking sound, and the engine seizing and stalling.
+
+USA: July: Johnson & Johnson issued a major recall on its Aveeno and Neutrogena sunscreens after independent testing had found that they were contaminated with benzene, a cancer-causing chemical that could also develop leukemia and other blood disorders is exposed to it, according to the National Cancer Institute . Some CVS Health sunscreens were also recalled for the same reason.
+
+USA: July: various branded muffin names from the Give and Go Prepared Foods Corporation that were sold at various retailers including Walmart, 7-Eleven, Sam's Club, BJ's Wholesale Club, and Stop & Shop, were recalled for possible listeria contamination.
+
+Germany: September: The KBA ordered a recall of about 200,000 Volkswagen T6.1 transporters, multivans, caravelles and California campervans that were built between 2019 and 2021. German authorities said that penetrating water at temperatures below freezing point could impair the door locking mechanism, making it appear as though the doors were locked, creating a risk that they could open unexpectedly while driving.
+
+USA: October: Walmart recalls The Better Homes & Gardens Lavender & Chamomile Essential Oil Infused Aromatherapy Room Spray with Gemstones, after a product sample tested positive for Burkholderia pseudomallei , a deadly bacterial infection resulting in 2 deaths.
+
+USA: November 16: several flavors of Country Time, Tang, Arizona Tea, and Kool-Aid powders were recalled due to the possibility of them containing metal or glass in them. The products were sold at many retailers, including Walmart, Sam's Club, Costco, and Target.
+
+Worldwide: December 3: Honda Motor Company issued a major recall of 789,000 SUVs and pickup trucks because the hood could open by itself while the car was in motion, heightening the risk of an accident. It covers certain 2019 Passports , 2016 through 2019 Pilots and 2017 through 2020 Ridgeline pickups.
+
+USA: December 10: The Coca-Cola Company recalled Minute Maid products due to the potential presence of foreign matter, specifically metal bolts or washers.
+
+USA: December 21: P&G  Co. issued a voluntary recall of a variety of aerosol haircare products, after benzene , a cancer-causing chemical, was detected in some stores. The affected products include dry shampoos and dry conditioners from Pantene , Aussie and Herbal Essences, produced in the U.S.
+
+USA: December 27: Dole plc recalls its packaged salad processed in the company's Bessemer City, North Carolina and Yuma, Arizona production facilities due to possible listeria monocytogenes contamination.
+
+2022
+
+Indonesia: March: Panasonic storage water heaters (DH-15HCMRW, DH-30HCMRW, DH-30HCDRW) are recalled due to safety issues, namely an electric shock that lead to the death of a family in Pulo Gadung , East Jakarta , whilst using the hot shower.
+
+Canada, USA: April: Kinder brand chocolate products were recalled due to possible Salmonella contamination.
+
+Canada, USA: May: Jif Peanut Butter products were recalled following the discovery of possible Salmonella contamination .
+
+Canada, USA: May: Raspberries recalled due to Norovirus (unspecified as to precise date and brand information)
+
+Canada, USA: May: It was announced on May 30 that HEB and FreshKampo strawberries recalled due to hepatitis A .
+
+USA: May: FDA recalled Avanos Medical 's Cortrak 2 Enteral Access System based on reports of 60 injuries and 23 patient deaths due to nasoenteric or nasogastric tube misplacements.
+
+USA: June: Costco recalled 400,000 solar powered umbrellas after the lithium-ion batteries would overheat and ignite.
+
+USA: August: the Huffy Corporation issued a recall for thousands of its Blue's Clues & You! ride-on toys after multiple children were injured while using the toy. All of the units affected by the recall were sold at Walmart stores nationwide.
+
+2023
+
+USA: February 1: Conagra Brands issued a major recall of nearly 2.6 million pounds of canned meat and poultry due to a packaging defect that may cause the food to get contaminated.
+
+USA: February 9: Colgate-Palmolive issued a recall of nearly 5 million bottles of Fabuloso multi-purpose cleaner due to a risk of bacterial growth.
+
+USA: February 20: 300,000 bottles of Starbucks bottled Frappuccinos were recalled due to possibly containing pieces of glass in them.
+
+USA: March 10: More than 3.2 million units of Calico Critters toys were recalled after two children died from choking on the baby bottle and pacifier accessories, posing a serious choking hazard for other small children that may choke and die from the product.
+
+USA: March 18: Strawberry products that were sold at Costco, ALDI, Trader Joe's, KeHE, Vital Choice Seafood, and PCC Community Markets stores were recalled due to hepatitis A.
+
+USA: March 24: More than 3,000 pounds of boneless beef chuck products that were distributed to several states were recalled due to possible contamination of E. coli.
+
+USA: March 28: Honda issued a major recall of more than 330,000 vehicles due to a mirror issue with the cars, with the National Highway Traffic Safety Administration stating that the vehicles did not comply with rear visibility requirements.
+
+USA: March 30: Jeep recalled over 57,000 of its Jeep Wranglers over an unnecessary part that could cause a fuel leak and a fire to the product.
+
+USA: March 30: Carhartt recalled more than 32,000 pairs of its pants because they posed a trip hazard to the person who would wear the pants. The units were sold at Dick's Sporting Goods stores nationwide and online from July 2022 through November 2022.
+
+USA: March 31: Tesla issued a major recall of its electric Semi trucks because the parking brake may not engage when applied by the driver, which may cause car accidents.
+
+USA: March 31: Unilever issued a recall for over 800,000 units of Laundress fabric conditioner over a carcinogen hazard.
+
+USA: April 1: Jetson issued a recall of tens of thousands of its electric Jetson Rogue hoverboards after the deaths of two girls by a fire that was likely sparked by the lithium-ion battery pack.
+
+USA: April 1: Salmon that was sold in Florida Publix stores was recalled over Listeria concerns.
+
+USA: August 6: Frito-Lay recalls 7,000 Doritos bags over soy, wheat allergen problems.
+
+USA: September 15: Wisconsin -based Green Bay Dressed Beef has recalled over 58,000 ground beef products in several states over concerns of E. coli contamination .
+
+USA: September 27: South Korean automakers Kia and Hyundai announce the recall of 3.4 million vehicles in the US over fire risks.
+
+2024
+
+Canada: March 7: CFIA announced a recall of Prana Spicy Peas & Favas due to the presence undeclared peanut posing a serious threat to those with peanut allergies .
+
+USA: April 3: Korean business LG recalls Solar Systems Batteries on RESU, LG Chem and Solax products due to battery overheating, thus posing fire risks and potential death.
+
+USA: July 25: South Korean automaker Kia announces the recall of approximately 462,869 2020-2024 MY Telluride vehicles due to a potential fire risk.
+
+China: September: BYD Auto recalls nearly 97,000 Dolphin and Yuan Plus electric vehicles manufactured in China between November 2022 and December 2023 due to a manufacturing defect related to the steering control unit, which could pose fire risks.
+
+2025
+
+USA: May 14: Ford recalls 1,076,138 vehicles for defective backup cameras. This recall order included Bronco , F-150 , Edge , Escape , F-250, F-350, F-450, F-550, F-600, Expedition , Transit , Mach-E , Ranger , Mustang , Lincoln Nautilus , Navigator , and Corsair models.
+
+USA: September 4: Ford recalls 1,456,417 vehicles for defective backup cameras. This recall order included Lincoln MKC , Mustang, F-350 SD, F-250 SD, F-450 SD, Lincoln Navigator, Expedition, Edge, Transit Connect , F-550 SD, Transit, Econoline, and Ranger models.
+
+USA: October 13: Ford recalls 1,448,655 vehicles for defective backup cameras. This recall order included Flex , Explorer , Lincoln MKT, Lincoln MKZ , C-Max , Escape, Taurus , Fusion , Fiesta , and Mustang models.
+
+China: October 17: BYD Auto recalls both 44,535 of BYD Tang manufactured between March 2015 and July 2017 and 71,248 of BYD Yuan Pro manufactured between February 2021 and August 2022, due to design defects and safety risks related to batteries.
+
+USA: November 4: Stellantis North America recalls 320,065 Jeep plug-in hybrid SUVs sold in the USA due to a potential fire risk. The recalled cars are 2020-2025 Jeep Wrangler 4xe and 2022-2026 Jeep Grand Cherokee 4xe.
+
+USA: November 7: Honda Motor Company recalls 406,290 of its Civic vehicles manufactured between 2016 and 2021, due to a manufacturing flaw which could cause aluminum alloy wheels to detach.
+
+USA: December 18: Ford issues NHTSA recall 25V888000. This recall affected 35 2021-2022 Bronco units with defective rearview cameras. This recall order is noteworthy because it is the 153rd recall order issued by Ford in 2025, setting an annual record for the most recalls issued by an automaker in a calendar year. Previously, the most recalls made in a single year was 77 (General Motors, 2014).
+
+2026
+
+Worldwide: January 9: NAN Optipro, NANKID Optipro infant formulas were recalled due to contamination with cereulide , a heat-resistant toxin produced by the Bacillus cereus bacteria.
+
+Poland: February 15: Action recalls Stretch Squad strechable toys due to asbestos being found in the toys.
+
+USA: February 20: Ford recalls 4,381,878 vehicles of the following models: F-150, F-250, F-350 SD, F-450 SD, F-550 SD, Maverick, Ranger, F-600 SD, Lincoln Navigator, Expedition, and E-Transit. Affected vehicles potentially had a defective integrated trailer module that could cause loss of brake power or lights on a trailer when towed.
+
+USA: April 14: Ford recalls 1,392,935 vehicles, specifically 2015-2017 F-150 models. Affected vehicles could unexpectedly downshift into second gear due to a loss of signal between the transmission range sensor and the powertrain control module.
+
+USA: May 12: American autonomous driving technology company Waymo recalls 3,800 robotaxis over risks that they could enter flooded areas. This comes following a recent flood incident in San Antonio , Texas on April 20, 2026.
+
+USA: July 17: Taylor Farms recalls their iceburg lettuce , traced through a farm in Mexico , amidst an cyclosporiasis outbreak , which is caused by cyclospora cayetanensis .
+
+China: August, all vehicles with electrically operated door handles that may become unintuitive to open when the battery is non-functional, including all Tesla Inc. vehicles.
+
+USA: August 18: Dreyer's Grand Ice Cream recalls select flavors of Outshine Fruit Bars due to possible glass contamination.

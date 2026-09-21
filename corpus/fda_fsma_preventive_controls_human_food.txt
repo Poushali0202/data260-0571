@@ -1,0 +1,159 @@
+Federal Register Notice
+Docket Folder 
+FDA-2011-N-0920
+ provides the full text of the Rule
+Questions & Answers
+Fact Sheet
+Generally, domestic and foreign food facilities that are required to register with section 415 of the Food, Drug, & Cosmetic Act must comply with the requirements for risk-based preventive controls mandated by the FDA Food Safety Modernization Act (FSMA) as well as the modernized Current Good Manufacturing Practices (CGMPs) of this rule (unless an exemption applies).  It is important to note that applicability of the CGMPs is not dependent upon whether a facility is required to register.
+This rule, which became final in September 2015, requires food facilities to have a food safety plan in place that includes an analysis of hazards and risk-based preventive controls to minimize or prevent the identified hazards.
+Compliance dates are staggered, based on the size of the business, with separate dates for the requirements of the supply chain program. Training, education, and technical assistance are available for those covered by this rule.
+
+Upcoming Compliance Dates
+
+September 18, 2017: 
+Small businesses (businesses with fewer than 500 full-time equivalent employees)
+September 17, 2018: 
+Very small businesses (businesses averaging less than $1 million per year (adjusted for inflation) in annual sales of human food plus the market value of human food manufactured, processed, packed, or held without sale)
+September 17, 2018: 
+Facilities subject to the Pasteurized Milk Ordinance (for their Grade “A” milk and milk products; compliance date was extended to allow time for changes to the PMO to incorporate the requirements of this preventive controls rule)
+*All other businesses (also known as “large” businesses) were required to be in compliance on September 19, 2016.
+* FDA will soon release a web page listing all FSMA compliance dates.
+And the compliance dates for some facilities and activities have been extended. Check the 
+extensions and clarifications page
+ for the most recent information.
+See also 
+Clarification of Compliance Date for Grade “A” Milk and Milk Products Covered by NCIMS under the PMO
+ and 
+What to Expect Now that the First Big FSMA Compliance Dates Are Here
+. 
+
+Key Requirements
+
+UPDATES TO THE CURRENT GOOD MANUFACTURING PRACTICES (CGMPs)
+Some provisions that used to be nonbinding, such as education and training, are now binding.
+Management is required to ensure that all employees who manufacture, process, pack or hold food are qualified to perform their assigned duties.
+Such employees must have the necessary combination of education, training, and/or experience necessary to manufacture, process, pack, or hold food that is clean and safe. Individuals must receive training in the principles of food hygiene and food safety, including the importance of employee health and hygiene as appropriate to the food, the facility and the individual's assigned duties.
+The FDA’s longstanding position that CGMPs address allergen cross-contact is now explicit in the regulatory text.
+CGMPs also now include a provision for holding and distribution of human food by-products that are used for animal food.
+FOOD SAFETY PLAN
+In general, you are a covered facility if you are required to register with FDA under section 415 of the Federal Food, Drug, and Cosmetic (FD&C) Act. Covered facilities are required to have and implement a written food safety plan that includes:
+Hazard analysis:
+ The first step is hazard identification, which must consider known or reasonably foreseeable biological, chemical, and physical hazards. These hazards could be present because they occur naturally, are unintentionally introduced, or are intentionally introduced for economic gain (if they affect the safety of the food).
+If the hazard analysis reveals one or more hazards that require a preventive control, the facility must have and implement written preventive controls for the identified hazards.
+Preventive controls
+: Facilities have the flexibility to tailor preventive controls to address hazards that occur in the products they manufacture. The preventive controls, which must be written, must be implemented to ensure that any hazards requiring a preventive control will be significantly minimized or prevented and help ensure that the food is not adulterated. The rule includes the following preventive controls: 
+Process controls 
+include
+
+procedures that ensure the control parameters are met. Process controls can include operations such as cooking, refrigerating, and acidifying foods.  They must include parameters and values (e.g., critical limits), as appropriate to the nature of the applicable control and its role in the facility’s food safety system.   
+Food allergen controls 
+are written procedures the facility must have and implement to control allergen cross-contact and ensure allergens are appropriately listed on the labels of packaged food products.
+Sanitation controls 
+are procedures, practices, and processes to ensure that the facility is maintained in a sanitary condition to minimize or prevent hazards such as environmental pathogens, hazards from employees handling food, and food allergen hazards.  
+Other Controls
+ are controls that are not described above but are necessary to ensure that a hazard requiring a preventive control will be significantly minimized or prevented. 
+Oversight and management of preventive controls: 
+Once a facility has identified a preventive control for a hazard, the facility must make sure that the controls are being met.
+Monitoring
+: These procedures are designed to provide assurance that preventive controls are consistently performed. Monitoring is conducted as appropriate to the preventive control. For example, monitoring of a heat process to kill pathogens would include recording temperature values. Monitoring must be documented.
+Corrections
+: These are steps taken, in a timely manner, to identify and correct a minor, isolated problem that occurs during food production.
+Corrective actions
+: These include actions to identify and correct a problem implementing a preventive control, reduce the likelihood the problem will recur, evaluate affected food for safety, and prevent that food from entering commerce if you cannot ensure that the affected food is not adulterated.  Corrective actions must be documented with records.
+Verification
+: These activities are required to ensure that preventive controls are consistently implemented and effective in minimizing hazards. Examples of verification activities include scientifically validating process preventive controls to ensure that the control measure is capable of effectively controlling an identified hazard and calibrating (or checking the accuracy of) process monitoring and verification instruments such as thermometers. Verification activities also include reviewing records to ensure that monitoring and corrective actions (if necessary) are being conducted. Verification activities must be documented.
+Product testing and environmental monitoring are also possible verification activities, required as appropriate to the food, facility, nature of the preventive control, and the role of that control in the facility’s food safety system. Environmental monitoring is required if the contamination of a ready-to-eat food with an environmental pathogen is a hazard the facility identified as requiring a preventive control.
+Supply chain program: 
+Manufacturers must have and implement a risk-based supply chain program if the hazard analysis identifies a hazard that (1) requires a preventive control and (2) the control will be applied in the facility’s supply chain.
+Facilities do not need to have a supply-chain program if they control the hazard in their own facility, or if a subsequent entity (such as another processor) will control the hazard, and the facility follows applicable requirements. 
+Manufacturers are responsible for ensuring that raw materials and other ingredients requiring a supply-chain-applied control are received only from approved suppliers, or on a temporary basis from unapproved suppliers whose materials are subject to verification activities before being accepted for use. (Suppliers are approved by the facility after the facility considers several factors, such as a hazard analysis of the food, the entity that will be controlling that hazard, and supplier performance.)
+Another entity in the supply chain, such as a broker or distributor, can conduct supplier verification activities, but the receiving facility must review and assess that entity’s documentation that they verified the supplier’s control of the hazard.
+Recall plan: 
+If the hazard analysis identifies a hazard requiring a preventive control, the facility must have a written recall plan that describes the procedures to perform a recall of the product. The recall plan must include procedures to notify consignees, to notify the public when necessary, to conduct effectiveness checks and to appropriately dispose of recalled product. 
+
+Assistance for Industry
+
+GUIDANCES
+FDA has developed guidance documents (listed in box at right) on subjects that include:
+Hazard analysis and preventive controls - Draft Guidance for Industry
+Control of 
+Listeria monocytogenes
+ in Ready-To-Eat Foods - Draft Guidance for Industry
+Small Entity Compliance Guide
+ that explains the actions a small or very small business must take to comply with the rule.
+TECHNICAL ASSISTANCE NETWORK
+The 
+Technical Assistance Network (TAN)
+ is a central source of information for questions related to the FSMA rules, programs, and implementation strategies.
+Common FSMA Questions
+FOOD SAFETY PREVENTIVE CONTROLS ALLIANCE
+The Food Safety Preventive Controls Alliance (FSPCA) is a broad-based public private alliance consisting of key industry, academic, and government stakeholders whose mission is to support safe food production by developing a nationwide core curriculum, training, and outreach programs to assist companies producing human and animal food in complying with the preventive controls regulations. 
+https://www.ifsh.iit.edu/fspca
+ See 
+FDA’s FSMA Training Strategy
+ for more information on the Alliances and their role in helping industry understand the FSMA-based regulations.
+FOOD SAFETY PLAN BUILDER
+The 
+Food Safety Plan Builder
+ (FSPB) is a free software application, developed by FDA, that businesses can download from the FDA’s website to guide them, step-by-step, through the creation of a food safety plan, as required by FSMA.
+Download the Food Safety Plan Builder
+View the training videos
+ADDITIONAL RESOURCES
+Food Safety Plan Builder
+FSMA Inflation Adjusted Cut Offs
+What to Do if You're Covered by Both PC and FSVP Rules
+ (PDF: 304KB) 
+Small Business Exemptions and Modified Requirements
+ (PDF: 128KB)
+FSMA Training
+Qualified Facility Attestation
+Supplier Evaluation Resources
+Third-Party Audit Standards and FSMA Supplier Verification Requirements
+Accredited Third-Party Certification Program Voluntary Audit Templates
+Food Safety Preventive Controls Alliance
+
+Meetings and Webinars
+
+Webinar: Preventive Controls Hazard Analysis and Risk-Based Draft Guidance
+Preventive Controls for Human and Animal Food Final Rules Public Meeting
+  [ARCHIVED]
+Webinar Series
+ [ARCHIVED]
+
+Related Guidance
+
+Draft Guidance for Industry: Hazard Analysis and Risk-Based Preventive Controls for Human Food
+Draft Guidance for Industry: Establishing Sanitation Programs for Low-Moisture Ready-to-Eat Human Foods and Taking Corrective Actions Following a Pathogen Contamination Event
+Guidance for Industry: Current Good Manufacturing Practice and Preventive Controls, Foreign Supplier Verification Programs, Intentional Adulteration, and Produce Safety Regulations: Enforcement Policy Regarding Certain Provisions
+Guidance for Industry: Determination of Status as a Qualified Facility
+Guidance for Industry: Temporary Policy Regarding Preventive Controls and FSVP Food Supplier Verification Onsite Audit Requirements Due to COVID-19
+
+Guidance for Industry: Determining the Number of Employees for Purposes of the “Small Business” Definition in Parts 117 and 507
+Guidance for Industry: Guide to Minimize Biological Hazards in Ready-to-Eat Fresh-Cut Produce
+Guidance for Industry: Supply-Chain Program Requirements and Co-Manufacturer Supplier Approval and Verification for Human Food and Animal Food
+Draft Guidance for Industry: Application of the “Solely Engaged” Exemptions in Parts 117 and 507
+Guidance for Industry: What You Need to Know About the FDA Regulation: Current Good Manufacturing Practice, Hazard Analysis, and Risk-Based Preventive Controls for Human Food; Small Entity Compliance Guide
+Draft Guidance for Industry: Describing a Hazard That Needs Control in Documents Accompanying the Food, as Required by Four Rules Implementing FSMA
+Draft Guidance for Industry: Classification of Activities as Harvesting, Packing, Holding, or Manufacturing/Processing for Farms and Facilities
+Guidance for Industry: Policy Regarding Certain Entities Subject to the Current Good Manufacturing Practice and Preventive Controls, Produce Safety, and/or Foreign Supplier Verification Programs
+
+Supporting Material
+
+Regulatory Impact Analysis
+Qualitative Risk Assessment:Risk of Activity/Food Combinations for Activities (Outside the Farm Definition) Conducted in a Facility Co-Located on a Farm (PDF: 651KB)
+
+Qualitative Risk Assessment: Risk of Activity/Food Combinations for Activities (Outside the Farm Definition) Conducted in a Facility Co-Located on a Farm: Response to Public Comments (PDF: 110KB)
+
+Additional Information
+
+Background on FSMA
+5 Steps Toward Working with FDA on Human and Animal Food Guidance Documents
+Case Study: Food Safety Guidelines for Cantaloupes
+Constituent Update - 
+FDA Continues Enforcement Discretion Policy Relevant to Certain Co-Manufacturers under FSMA
+ (November 2019)
+
+Contact Us
+
+How to Contact FDA about FSMA
+ (Technical Assistance Network)

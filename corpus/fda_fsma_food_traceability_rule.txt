@@ -1,0 +1,869 @@
+What's New
+The FDA held a public meeting on June 15, 2026, to give the public an opportunity to share information on continued implementation of the Food Traceability Rule and areas of remaining concern, specifically as they relate to lot-level tracking and flexibilities for compliance. View the 
+meeting recording
+. 
+To promote deeper understanding and more productive engagements with stakeholders on potential flexibilities the FDA has also released the following materials: 
+Discussion Paper: Identifying Additional Flexibilities for Satisfying the Food Traceability Rule’s Lot-Level Tracking Requirement 
+Report on FDA Traceability Readiness Tabletop Exercises
+Additional Frequently Asked Questions on the Rule
+
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ |
+
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Federal Register Notice
+Docket No. FDA-2014-N-0053
+eCFR Subpart S - Additional Traceability Records for Certain Foods
+Food Traceability Rule At-A-Glance
+The FDA final rule on Requirements for Additional Traceability Records for Certain Foods (Food Traceability Final Rule) establishes traceability recordkeeping requirements, beyond those in existing regulations, for persons who manufacture, process, pack, or hold foods included on the Food Traceability List (FTL). The final rule is a key component of FDA’s New Era of Smarter Food Safety Blueprint and implements Section 204(d) of the FDA Food Safety Modernization Act (FSMA). The new requirements identified in the final rule will allow for faster identification and rapid removal of potentially contaminated food from the market, resulting in fewer foodborne illnesses and/or deaths. 
+At the core of this rule is a requirement that persons subject to the rule who manufacture, process, pack, or hold foods on the FTL, maintain records containing 
+Key Data Elements (KDEs)
+ associated with specific 
+Critical Tracking Events (CTEs)
+; and provide information to the FDA within 24 hours or within some reasonable time to which the FDA has agreed. 
+The final rule aligns with current industry best practices and covers domestic, as well as foreign firms producing food for U.S. consumption, along the entire food supply chain in the farm-to-table continuum.
+Compliance Date
+Because the Food Traceability Final Rule requires entities to share information with other entities in their supply chain, the most effective and efficient way to implement the rule is to have all persons subject to the requirements come into compliance by the same date. The original compliance date for all persons subject to the recordkeeping requirements of the Food Traceability Rule was Tuesday, January 20, 2026. The FDA 
+proposed
+ to extend the compliance date for the rule by 30 months to July 20, 2028. Subsequently, the 
+Continuing Appropriations, Agriculture, Legislative Branch, Military Construction and Veterans Affairs, and Extensions Act of 2026
+ directed FDA not to enforce the Food Traceability Rule prior to that same date. FDA intends to comply with this Congressional directive.
+
+Getting Started with the Food Traceability Rule
+
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+If you are uncertain about whether the Food Traceability Rule applies to your business or food, or if you know the rule applies and you’re not sure what do to next, the 
+Getting Started
+ links below will help. You may already be fulfilling some of the rule’s requirements such as Critical Tracking Events (CTEs), maintaining Key Data Elements (KDEs), and a traceability plan.
+Do you manufacture, process, pack or hold a food on the 
+Food Traceability List
+?
+Do 
+any exemptions apply
+ to your situation?
+What 
+Critical Tracking Events (CTEs)
+ do you conduct?
+What 
+Key Data Elements (KDEs)
+ do you already maintain? What additional KDEs do you need to maintain to comply with the final rule?
+Develop your 
+traceability plan
+.
+Talk with your supply chain partners.
+How can you work together to meet the requirements of the rule? It is helpful to understand your recordkeeping systems and those of your partners in the supply chain so you can determine the best way to communicate traceability information and discuss potential solutions.
+The compliance date is 
+January 20, 2026
+. Start working on this today!
+
+Food Traceability List (FTL)
+
+Section 204 of the 
+FDA Food Safety Modernization Act (FSMA)
+ requires the FDA to designate foods for which additional recordkeeping requirements are appropriate and necessary to protect public health. Additional recordkeeping requirements are outlined in the 
+Food Traceability Final Rule
+ and are intended to allow for faster identification and rapid removal of potentially contaminated food from the market, resulting in fewer foodborne illnesses and/or deaths.
+The Food Traceability List (FTL) identifies the foods for which the additional traceability records are required. The additional recordkeeping requirements apply to the foods specifically listed on the FTL, and to foods that contain listed foods as ingredients, provided that the listed food that is used as an ingredient remains in the same form (e.g., fresh) in which it appears on the list.
+For additional information about the FTL, view the 
+Food Traceability List
+
+Key Features
+
+1. Critical Tracking Events (CTE) 
+(§ 1.1325 through 1.1350)  
+The final rule identifies Critical Tracking Events (CTEs) for which records containing Key Data Elements (KDEs) will be required. The KDEs required will vary depending on the CTE that is being performed. 
+The Critical Tracking Events in the final rule are harvesting; cooling (before initial packing); initial packing of a raw agricultural commodity other than a food obtained from a fishing vessel; first land-based receiving of a food obtained from a fishing vessel; shipping; receiving; and transformation of the food.
+Below is a brief description of each CTE. For a detailed description of the KDEs that would be required for each CTE, see 
+Critical Tracking Events and Key Data Elements
+. You can also see how the final rule applies in three different supply chain examples below, including the KDEs and CTEs that would be associated with each commodity. 
+Harvesting
+Harvesting
+ applies to farms and farm mixed-type facilities and means activities that are traditionally performed on farms for the purpose of removing raw agriculture commodities (RACs) from the place they are grown or raised and preparing them for use as food. 
+Cooling
+Cooling
+ means active temperature reduction of a raw agricultural commodity (RAC) using hydrocooling, icing (except icing of seafood), forced air cooling, vacuum cooling, or a similar process.
+Initial Packing
+Initial Packing
+ means packing a raw agricultural commodity (RAC), other than a food obtained from a fishing vessel, for the first time. 
+First Land-Based Receiver
+First Land-based Receiver
+ is the person taking possession of a food for the first time on land directly from a fishing vessel.
+
+Shipping
+Shipping
+ is an event in a food’s supply chain in which a food is arranged for transport (e.g., by truck or ship) from one location to another location. Shipping does 
+not
+ include the sale or shipment of a food directly to a consumer or the donation of surplus food. Shipping does include sending an intracompany shipment of food from one location at a particular street address of a firm to another location at a different street address of the firm.
+Receiving
+Receiving
+ is an event in a food’s supply chain in which a food is received by someone other than a consumer after being transported (e.g., by truck or ship) from another location. Receiving includes receipt of an intracompany shipment of food from one location at a particular street address of a firm to another location of the firm at a different street address.
+
+Transformation
+Transformation
+ is an event in a food’s supply chain that involves manufacturing/processing or changing a food (e.g., by commingling, repacking, or relabeling) or its packaging or packing, when the output is a food on the Food Traceability List (FTL). Transformation does not include the initial packing of a food or activities preceding that event (e.g., harvesting, cooling).
+2. Traceability Lot Code
+Traceability lot code
+ (TLC) means a descriptor, often alphanumeric, used to uniquely identify a traceability lot within the records of the firm that assigned the traceability lot code.  
+You must assign a traceability lot code to a food on the Food Traceability List (FTL) when you do any of the following: initially pack a raw agricultural commodity (RAC) other than a food obtained from a fishing vessel; perform the first land-based receiving of a food obtained from a fishing vessel; or transform a food. If you receive an FTL food from an entity that is exempt from the final rule, you must assign a TLC if one has not already been assigned (unless you are a retail food establishment or restaurant). Otherwise, you must not establish a new TLC when you conduct other activities (e.g., shipping) for a food on the Food Traceability List. 
+Once a food has been assigned a TLC, the records required at each Critical Tracking Event (CTE) must include that TLC. All of the Key Data Elements (KDEs), including the TLC, must be linked to the relevant traceability lot.
+3. Traceability Plan (
+§ 1.1315) 
+If you are subject to the requirements of the final rule, you must establish and maintain a traceability plan containing the following information: 
+A description of the procedures you use to maintain the records you are required to keep under this rule, including the format and location of these records.
+A description of the procedures you use to identify foods on the Food Traceability List that you manufacture, process, pack, or hold;
+A description of how you assign traceability lot codes to foods on the Food Traceability List, if applicable;
+A statement identifying a point of contact for questions regarding your traceability plan and records; and
+If you grow or raise a food on the Food Traceability List (other than eggs), a farm map showing the areas in which you grow or raise such foods.
+The farm map must show the location and name of each field (or other growing area) in which you grow a food on the Food Traceability List, including geographic coordinates and any other information needed to identify the location of each field or growing area.
+For aquaculture farms, the farm map instead must show the location and name of each container (e.g., pond, pool, tank, cage) in which you raise seafood on the Food Traceability List, including geographic coordinates and any other information needed to identify the location of each container.
+4. 
+Additional Requirements (§ 1.1455)
+The final rule also requires that:
+Records must be maintained as original paper or electronic records, or true copies; they all must be legible and stored to prevent deterioration or loss. Electronic records may include valid, working electronic links to the information required to be maintained under the rule.
+All records required under this rule, along with any information required to understand the records, must be made available to the FDA within 24 hours after a request is made (or within a reasonable time to which the FDA has agreed). 
+Unless exempt from this requirement, an electronic sortable spreadsheet containing relevant traceability information must be provided to the FDA within 24 hours of a request (or within some reasonable time to which the FDA has agreed) when necessary to assist the FDA during an outbreak, recall, or other threat to public health.
+
+Full and Partial Exemptions
+
+The final rule identifies certain exemptions and partial exemptions from the requirements of the final rule. The exemptions are listed in § 1.1305 of the final rule.  
+
+A tool is available to help stakeholders determine whether an exemption may apply to their situation. Users identify a topic area and then answer a series of yes or no questions. 
+Exemptions to the Food Traceability Rule
+Exenciones a la Norma de trazabilidad de alimentos
+
+Modified Requirements, Exemptions, and Waivers
+
+Modified Requirements and Exemptions
+ (§§ 1.1360 – 1.1400)
+FDA will modify the requirements of the rule applicable to a food or type of entity, or exempt a food or type of entity from the requirements of the rule, when we determine that application of the requirements that would otherwise apply to t
+he food or type of entity
+ is not necessary to protect the public health.
+FDA will consider modifying the requirements of the rule applicable to a food or type of entity, or exempting a food or type of entity from the requirements of the rule, on our own initiative or in response to a citizen petition submitted under 
+21 CFR § 10.30
+ by any interested party.
+If, FDA, on our own initiative, determines that adopting modified requirements or granting an exemption from the requirements for a food or type of entity is appropriate, we will publish a notice in the Federal Register setting forth the proposed modified requirements or exemption and the reasons for the proposal. The notice will establish a public docket so that interested persons may submit written comments on the proposal.
+If FDA receives a petition requesting modified requirement or an exemption, FDA will publish a notice in the Federal Register requesting information and views on the submitted petition.
+Following the public comment period, if FDA decides to grant the petition in whole or in part, we will publish a notice in the Federal Register setting forth any modified requirements or exemptions and the reasons for them.
+If we deny the petition (including a partial denial), our written response to the petitioner will explain the reasons for the denial.
+If FDA proposed the modified requirements or exemption on our own initiative, then following the public comment period we will publish a notice in the Federal Register stating whether we are adopting modified requirements or granting an exemption, and the reasons for our decision.
+Any modified requirements that FDA adopts or exemption that we grant will become effective on the date that notice of the modified requirements or exemption is published in the Federal Register, unless otherwise stated in the notice.
+We will make readily accessible to the public, and periodically update, a list of petitions requesting modified requirements or exemptions, including the status of each petition (for example, pending, granted, or denied).
+Additional information about modified requirements or exemptions is available in 
+21 CFR § 1.1360
+.
+Federal Register Notice
+Notice of Exemption: Requirements for Additional Traceability Records for Certain Foods; Notice of Exemption for Cottage Cheese Regulated by the National
+Waivers
+ (§§ 1.1405 – 1.1450)
+FDA will waive one or more requirements of the rule for 
+an individual entity or a type of entity
+ when we determine that:
+Application of the requirements would result in an economic hardship for an individual entity or a type of entity, due to the unique circumstances of the individual entity or type of entity; 
+The waiver will not significantly impair our ability to rapidly and effectively identify recipients of a food to prevent or mitigate a foodborne illness outbreak or to address credible threats of serious adverse health consequences or death; and 
+The waiver will not otherwise be contrary to the public interest. 
+FDA will consider whether to waive a requirement of the rule on our own initiative or in response to the following:
+A written request for a waiver for an individual entity, which can be submitted to 
+FSMA204Traceability@fda.hhs.gov
+; or 
+A citizen petition requesting a waiver for a type of entity submitted under 
+21 CFR § 10.30
+ by any person subject to the requirements of the rule.
+If FDA, on our own initiative, determines that a waiver of one or more requirements for an individual entity or type of entity is appropriate, we will publish a notice in the Federal Register setting forth the proposed waiver and reasons for the waiver. The notice will establish a public docket so that interested persons may submit written comments on the proposal.
+If FDA receives a petition requesting a waiver for a type of entity, we will publish a notice in the Federal Register requesting information and views on the submitted petition. 
+Following the public comment period, we will respond to the petitioner in writing as follows:
+If we grant the petition either in whole or in part, we will publish a notice in the Federal Register setting forth any requirements we have waived and the reasons for the waiver.
+If we deny the petition (including a partial denial), our written response to the petitioner will explain the reasons for the denial.
+If FDA proposed the waiver on our own initiative, then following the public comment period we will publish a notice in the Federal Register stating whether we are granting the waiver (in whole or in part), and the reasons for our decision.
+Any waiver for a type of entity that FDA grants will become effective on the date that notice of the waiver is published in the Federal Register, unless otherwise stated in the notice.
+Waiver requests for individual entities will not lead to publication of a notice in the Federal Register. After considering the information submitted in a request for a waiver for an individual entity, we will respond in writing to the person that submitted the waiver request stating whether we are granting the waiver (in whole or in part) and the reasons for the decision. Any waiver for an individual entity that FDA grants will become effective on the date we issue our response to the waiver request, unless otherwise stated in the response.
+We will make readily accessible to the public, and periodically update, a list of petitions requesting waivers for types of entities, including the status of each petition (for example, pending, granted, or denied).
+Additional information about waivers is available in 
+21 CFR § 1.1405
+.
+
+Critical Tracking Events and Key Data Elements
+
+The Food Traceability Rule requires persons who manufacture, process, pack, or hold foods on the Food Traceability List (FTL) to maintain and provide to their supply chain partners with key data elements (KDEs) for certain critical tracking events (CTEs) in the food’s supply chain. This framework forms the foundation for effective and efficient tracing and clearly communicates the information that FDA needs to perform such tracing. 
+The information that firms must keep and send forward under the rule varies depending on the type of supply chain activities they perform with respect to an FTL food, from harvesting or production of the food through processing, distribution, and receipt at retail or other point of service. Central to the proposed requirements is the assignment, recording, and sharing of traceability lot codes (TLCs) for FTL foods, as well as linking these TLCs to other information identifying the foods as they move through the supply chain.
+KDEs required for each CTE performed
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+
+Supply Chain Examples
+
+The Food Traceability Rule requires persons who manufacture, process, pack, or hold foods on the Food Traceability List (FTL) to maintain and provide to their supply chain partners specific information – called 
+Key Data Elements
+ (KDEs) – for certain 
+Critical Tracking Events
+ (CTEs) in the food’s supply chain. This framework forms the foundation for effective and efficient tracing of food.
+The following examples show the Key Data Elements required for the Critical Tracking Events in three example supply chains – fresh cucumbers, tuna steaks, and soft cheese.
+Produce Supply Chain Example
+Video Presentation
+Transcript
+ |
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+  | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+
+Slides
+
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Seafood Supply Chain Example
+Video Presentation
+Transcript
+
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+  | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+
+Slides
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Cheese Supply Chain Example
+Video Presentation
+Transcript
+
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+  | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+
+Slides
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Deli Salad Example
+Slides
+Sprouts Example
+Slides
+Additional Supply Chain Examples 
+Aquacultured tilapia, Canned tomatoes,
+
+Canned salmon, Imported mangos, Shell eggs, Fresh produce meant for meal kits 
+Slides
+
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Added August 6, 2025
+Shell eggs, Frozen produce, Fresh-cut produce, Farm-packed produce, Food hubs, Peanut butter crackers, Dual jurisdiction facilities
+Slides
+
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+
+Traceability Lot Code
+
+Visit the 
+Traceability Lot Code
+ webpage to learn more.
+
+Traceability Plan
+
+The purpose of these documents are to help entities establish a traceability plan as required in § 1.1315 of the Food Traceability Rule. These examples incorporate the information that is required by FDA’s Food Traceability Rule and are just two examples of how a traceability plan can be established. There is no specific format required for the traceability plan, but the information in the traceability plan must meet the requirements as described in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+Traceability Plan Example for Farms
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Traceability Plan Example for Restaurants
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Traceability Plan Example for Sprouters
+Traceability Plan Example for Food Processors
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese) 
+| 
+Français (French)
+Traceability Plan Example for Distribution Centers
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Traceability Plan Example for Seafood Processing Facilities
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Traceability Plan Example for Aquaculture Farms
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+
+Electronic Sortable Spreadsheet
+
+This electronic sortable spreadsheet template can be used to fulfill data submission requests for FDA in accordance with the Food Traceability Rule as outlined in 21 CFR Part 1 Subpart S. 
+This template is presented for illustrative purposes. You are not required to use this specific electronic sortable spreadsheet template to comply with the rule.
+Each tab represents a critical tracking event (CTE) and contains all of the corresponding key data elements (KDEs) for that CTE. Within each tab, each column header represents a required KDE and has a hyperlink to the corresponding provision for your reference. You can also refer to 21 CFR 1.1310 for any definitions related to the rule. For convenience, the definitions are listed on an accompanying tab with hyperlinks to the corresponding provisions. The template includes a tab for each CTE listed in the Food Traceability Rule, but you do not have to complete every tab when fulfilling a data request for FDA. The relevant tab(s) should be completed based on the CTE(s) you perform related to the data request provided by FDA. 
+Some of the KDEs within the rule contain multiple pieces of data. Within this template, all of these KDEs have been separated into multiple columns. For example, the location description KDE spans multiple columns to individually capture all of the information required under that KDE. Refer to 21 CFR 1.1310 for the definitions for location description and product description, which detail the multiple pieces of data for each.
+Electronic Sortable Spreadsheet in Excel (1.9MB)
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Electronic Sortable Spreadsheet in PDF (804KB)
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+An additional version of the electronic sortable spreadsheet template is provided here containing sample data to demonstrate how entities might populate the template. The data was created to be representative of actual supply chain data without resembling specific firms, products, or transactions.
+Electronic Sortable Spreadsheet with Sample Data in Excel (1.9MB)
+Electronic Sortable Spreadsheet with Sample Data in PDF (560KB)
+
+Guidance for Industry
+
+Questions and Answers About Requirements for Additional Traceability Records for Certain Foods Draft Guidance for Industry
+Small Entity Compliance Guide: Requirements for Additional Traceability Records for Certain Foods: What You Need to Know About the FDA Regulation
+
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+
+Industry Training
+
+The Food Safety Preventive Controls Alliance, in collaboration with FDA, developed the FSPCA Food Traceability Rule (FTR) - Training for the Food Industry Course. Visit the 
+FSPCA course page
+ for more information and to register for a course.
+
+Frequently Asked Questions about the Food Traceability Final Rule
+
+Visit 
+Frequently Asked Questions: FSMA Food Traceability Rule
+ to learn more about the Food Traceability Final Rule.
+
+Stakeholder Calls, Webinars, and Meetings
+
+FDA Public Meeting - Challenges and Solutions in Lot-Level Food Traceability (June 15, 2026) 
+The FDA hosted a 
+virtual public meeting
+ to give the public an opportunity to share information on implementation of the Food Traceability Rule and areas of remaining concern, specifically as they relate to lot-level tracking and flexibilities for compliance. 
+This meeting was part of a series of engagements being held in accordance with a directive from Congress in the 
+Continuing Appropriations, Agriculture, Legislative Branch, Military Construction and Veterans Affairs, and Extensions Act of 2026
+. 
+Stakeholder Call
+ (November 15, 2022) 
+Webinar on the Food Traceability Final Rule
+ (December 7, 2022) 
+The Reagan-Udall Foundation hosted three roundtable discussions in 2024 with industry representatives. These discussions provided an opportunity for cross-sector dialogue on key challenges and strategies to support the implementation of the Food Traceability Rule. A 
+summary of the roundtable discussions
+ is available on the Reagan-Udall Foundation website.
+The Reagan-Udall Foundation held a virtual public meeting to hear insights on the Food Traceability Rule from both FDA leadership and other experts from across food industry sectors. A 
+recording of the meeting
+ is available on the Reagan-Udall Foundation website." (October 7, 2024)
+
+Contact Us
+
+If you have questions on the Food Traceability Rule, please submit your inquiry via FDA’s Food and Cosmetics Information Center (FCIC) via the following web link: 
+Get Assistance from the FDA Human Foods Program (HFP)
+.
+To request a meeting or participation in a speaking engagement, please fill out the applicable form below and send it to 
+FSMA204Traceability@fda.hhs.gov
+.
+Food Traceability Meeting Request Form
+Food Traceability Speaker Request Form
+
+Translations
+
+FSMA Final Rule on Requirements for Additional Traceability Records for Certain Foods
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Codifed Parts of the FSMA Final Rule on Requirements for Additional Traceability Records for Certain Foods
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Getting Started with the Food Traceability Rule
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+Small Entity Compliance Guide: Requirements for Additional Traceability Records for Certain Foods: What You Need to Know About the FDA Regulation
+
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+Traceability Lot Code
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Food Traceability List 
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Critical Tracking Events and Key Data Elements
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+  | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Produce Supply Chain Example -Transcript
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+  | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+
+Seafood Supply Chain Example - Transcript
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+  | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+
+Cheese Supply Chain Example - Transcript
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+  | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+
+Produce Supply Chain Example - Slides
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Seafood Supply Chain Example - Slides
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Cheese Supply Chain Example - Slides
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Additional Supply Chain Examples
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+FAQs on the FSMA Final Rule on Food Traceability
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+FDA Announces the Final Rule for Food Traceability Under FSMA - Constituent Update
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Retail Food Establishments (RFEs) and Restaurants: What Records Do I Need to Keep for the Food Traceability Rule?
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+Retail Food Establishments (RFEs) and Restaurants: What You Need to Know About the Food Traceability Rule
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+Retail Food Establishments (RFEs) and Restaurants: What You Need to Know About Establishing and Maintaining a Traceability Plan for the Food Traceability Rule
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+What you need to know about the Food Traceability Rule: Coverage and Exemptions for Produce Farms
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+What you need to know about the Food Traceability Rule: Recordkeeping Information for Produce Farms
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+Exemptions to the Food Traceability Rule
+Español (Spanish)
+
+Traceability Plan Example for Farms
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Traceability Plan Example for Restaurants
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+Electronic Sortable Spreadsheet in Excel
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Electronic Sortable Spreadsheet in PDF
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Food Traceability Rule At-A-Glance
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | Tiếng 
+Việt (Vietnamese)
+ | 
+Français (French)
+Traceability Plan Example for Food Processors
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese) 
+| 
+Français (French)
+Traceability Plan Example for Distribution Centers
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Traceability Plan Example for Seafood Processing Facilities
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Traceability Plan Example for Aquaculture Farms
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+Additional Supply Chain Examples
+Shell eggs, Frozen produce, Fresh-cut produce, Farm-packed produce, Food hubs, Peanut butter crackers, Dual jurisdiction facilities
+Español (Spanish)
+ | 
+Bahasa Indonesia
+ | 
+中文 (Chinese, Simplified)
+ | 
+แบบไทย (Thai)
+ | 
+Tiếng Việt (Vietnamese)
+ | 
+Français (French)
+
+Additional Information
+
+Food Traceability List
+Requirements for Additional Traceability Records for Certain Foods (Final Rule) Regulatory Impact Analysis
+Retail Food Establishments (RFEs) and Restaurants: What Records Do I Need to Keep for the Food Traceability Rule?
+ (
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+)
+Retail Food Establishments (RFEs) and Restaurants: What You Need to Know About the Food Traceability Rule
+ (
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+)
+Retail Food Establishments (RFEs) and Restaurants: What You Need to Know About Establishing and Maintaining a Traceability Plan for the Food Traceability Rule
+ (
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+)
+What you need to know about the Food Traceability Rule: Coverage and Exemptions for Produce Farms
+ (
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+)
+What you need to know about the Food Traceability Rule: Recordkeeping Information for Produce Farms
+ (
+Español (Spanish)
+ | 
+中文 (Chinese, Simplified)
+ | 
+Tiếng Việt (Vietnamese)
+)
+Exemptions Relevant to Produce Farms Under the Produce Safety Rule and the Food Traceability Rule
+Risk-ranking Model Results Tool
+Tracking and Tracing of Food
+Discussion Paper: Identifying Additional Flexibilities for Satisfying the Food Traceability Rule’s Lot-Level Tracking Requirement
+FDA Traceability Readiness Tabletop Exercises Final Report
+ (PDF, 214KB)

@@ -3,3 +3,4 @@ __pycache__/
 *.py[cod]
 ecs-task-definition.rendered.json
 ecs-trust.json
+corpus_warmup/

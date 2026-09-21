@@ -1,0 +1,61 @@
+The 2006 North American E. coli outbreak was an Escherichia coli O157:H7 outbreak from prepackaged spinach reported in 27 U.S. states and the Canadian province of Ontario. The outbreak cases spanned from August 30 to October 6, and its origin was traced back to a farm in San Benito County, California. At least 276 consumer illnesses and 3 deaths were attributed to the outbreak.
+
+History
+
+In September 2006, there was an outbreak of foodborne illness caused by Escherichia coli ( E. coli ) bacteria found in prepackaged spinach in 26 U.S. states. The initial reports of the outbreak came from the U.S. Food and Drug Administration   (FDA) and the Centers for Disease Control and Prevention   (CDC).
+
+By October 6, 2006, 199 people had been infected, including three people who died and 31 who developed a type of kidney failure called hemolytic–uremic syndrome after eating spinach contaminated with E. coli O157:H7 , a potentially deadly bacterium that causes bloody diarrhea and dehydration. This strain is more potent than in any other food poisoning scares. Federal health officials said half of those reported sick have been hospitalized, compared to 25 to 30 percent in past outbreaks.
+
+The FDA called for bagged fresh spinach to be removed from shelves and warned people not to eat any fresh spinach or fresh spinach-containing products. The Canadian Food Inspection Agency advised consumers not to eat fresh spinach from the U.S., including bagged, loose in bulk or in salad blends.
+
+Cause
+
+The outbreak was traced to prepackaged spinach —sold as conventional produce—grown on a 50-acre (20   ha) farm in San Benito County, California. Investigators with the CDC initially speculated that the dangerous strain of bacteria, E. coli O157:H7 , originated from irrigation water contaminated with cattle feces or from grazing deer .
+
+A follow-up report by the CDC and a joint report by the California Department of Health Services (CDHS) and the U.S. FDA concluded that the probable source of the outbreak was Paicines Ranch, an Angus cattle ranch that had leased land to spinach grower Mission Organics. The report found 26 samples of E. coli "indistinguishable from the outbreak strain" in water and cattle manure on the San Benito County ranch, some within a mile from the tainted spinach fields. Although officials could not definitively say how the spinach became contaminated, both reports named the presence of wild pigs on the ranch and the proximity of surface waterways to irrigation wells as "potential environmental risk factors." The reports also noted that flaws in the spinach producer's transportation and processing systems could have further spread contamination. Paicines Ranch is not under investigation for its alleged role in the outbreak.
+
+Soon after the reports were released, California's farm industry announced it would adopt "good agricultural practices" to reduce the risk of E. coli contamination for leafy green vegetables.
+
+Two companies in California voluntarily recalled spinach and spinach-containing products: Natural Selection Foods LLC, based in San Juan Bautista , and River Ranch Fresh Foods. Natural Selection brands include Natural Selection Foods, Pride of San Juan, Earthbound Farm , Bellissima, Dole , Rave Spinach, Emeril, Sysco, O Organic, Fresh Point, River Ranch, Superior, Nature's Basket, Pro-Mark, Compliments, Trader Joe's , Jansal Valley, Cheney Brothers, D'Arrigo Brothers , Green Harvest, Mann, Mills Family Farm, Premium Fresh, Snoboy, The Farmer's Market, Tanimura & Antle , President's Choice, Cross Valley, and Riverside Farms. Affected brands from River Ranch include Hy-Vee , Farmer's Market, and Fresh and Easy. Later, a third company, RLB Food Distributors, issued multiple East Coast states recalls of spinach-containing salad products for possible E. coli contamination. Natural Selection Foods announced on September 18, 2006, that its organic produce had been cleared of contamination by an independent agency, but did not lift the recalls on any of its organic brands. On September 22, Earthbound Farm announced that the FDA and the CDHS confirmed that its organic spinach had not been contaminated with E. coli .
+
+Impact
+
+The outbreak consisted of 26 states and provinces, with at least 200 reported cases. Three deaths were confirmed: an elderly woman in Wisconsin , a two-year-old in Idaho , and an elderly woman in Nebraska . The death of an elderly woman in Maryland was investigated, but DNA fingerprinting was not possible to confirm the death as a result of the outbreak. Spinach has also been distributed to Canada and Mexico ; one case has been reported in Canada. At the time of the outbreak, there were over 400 produce-related outbreaks in North America since 1990.
+
+The areas reported to be affected are:
+
+Economic impact
+
+In California, where three-quarters of all domestically grown spinach are harvested, farmers could face up to $74 million in losses due to the E. coli outbreak. In 2005, the spinach crop in California was valued at $258.3 million, and each acre lost amounts to a roughly $3,500 loss for the farmer.
+
+Online help
+
+The PulseNet system , developed by state and federal partners, led by CDC and coordinated by the Association of Public Health Laboratories (APHL), deteced clusters of infection in two states, Oregon and Wisconsin, which initiated investigations in each state. The first cluster was detected on Friday, September 8, in one state, and the second cluster emerged in the second state on Wednesday, September 13, by which time PulseNet had also identified potential associated cases in other states.
+
+The OutbreakNet, a group of state public health officers who investigate foodborne infection outbreaks, shared information with CDC that indicated that Oregon and Wisconsin were considering the same hypothesis: fresh spinach was the possible vehicle of infection. The group tracked and updated the increasing case count and exposure information. During a multistate call on Thursday, September 14, the group noted that the data strongly suggested fresh spinach was a likely source. Within 24 hours of the outbreak, the data indicated that the outbreak was probably ongoing.
+
+CDC made communication to the public a priority by developing press releases, coordinating with FDA on press documents, conducting interviews with major media, and sending out notices on September 14 to the public health community via the Health Alert Network (HAN) and the Epidemic Information Exchange (Epi-X). By the next morning, the news media warned the U.S. population not to eat bagged spinach, with remarkable coverage.
+
+Timeline
+
+September
+
+The Centers for Disease Control issued an official Health Alert , the highest category of alert message, on September 14 and started to investigate the E. coli outbreak. The FDA warned consumers about an E. coli outbreak tied to fresh spinach bags. The FDA reported that they received complaints from 19 states in the United States. The FDA advised consumers not to eat bagged fresh spinach. Three days later, their updated warning said not to eat fresh spinach or fresh spinach-containing products. The United States also expanded the warning to avoid all fresh spinach. Wisconsin Governor Jim Doyle formally requested federal aid on September 15. His office said the CDC will help assess the causes and the magnitude of the outbreak in his state.
+
+On September 18, Illinois and Nebraska reported their first cases of E. coli infection due to spinach, bringing the total number of affected states to 21. Ohio public health officials investigated a two-year-old's death that may also be linked. The number of people sickened by the E. coli laced spinach reached 111.
+
+On September 19, it was reported that there may be a link to a further death in Ohio and irrigation water is being investigated as a possible source.
+
+This is the 9th outbreak traced to the Salinas Valley in California and the 25th leafy green E. coli outbreak ( spinach or lettuce) in the United States since 1993.
+
+On September 20, the CDC announced that the genetic fingerprint, a PFGE pattern, of E. coli O157 isolated from an opened package of Dole baby spinach packed by Natural Selection in the refrigerator of an ill New Mexico resident matched that of the outbreak strain.
+
+On September 25, consumer advocates and lawmakers began urging tougher rules for fields and processing plants.
+
+On September 29, the FDA downgraded the warning, reducing it to a warning against specific brands packaged on specific dates instead of fresh spinach.
+
+October
+
+On October 5, 2006, the FBI launched a criminal investigation into the matter.
+
+On October 26, 2006, some of the largest grocery chains, including Vons , Albertsons , Ralphs , and others, sent a letter to the farmer's associations, giving them six weeks to come up with a plan to prevent problems like the E. coli outbreak from happening again.
