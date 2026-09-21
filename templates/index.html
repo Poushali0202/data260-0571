@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <h1 class="card-title h3">Grocery supply and recall notices</h1>
+        <p class="card-text">Track product recalls, contamination reports and supply shortages reported by grocery suppliers and regulators.</p>
+        {% if user %}
+          <p class="card-text">You are logged in as <strong>{{ user.name }}</strong>.</p>
+          <a class="btn btn-success" href="/dashboard">Go to dashboard</a>
+          <a class="btn btn-outline-danger" href="/logout">Log out</a>
+        {% else %}
+          <p class="card-text">Log in to open the notice dashboard.</p>
+          <a class="btn btn-success" href="/login">Log in</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

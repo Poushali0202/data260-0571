@@ -53,7 +53,7 @@ const sendAndGoHome = async (url, method, body) => {
       const error = await response.json().catch(() => ({}));
       throw new Error(typeof error.detail === "string" ? error.detail : `server responded with ${response.status}`);
     }
-    window.location.href = "/";
+    window.location.href = "/notices";
   } catch (error) {
     message.textContent = `Request failed: ${error.message}`;
   }

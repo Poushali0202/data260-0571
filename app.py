@@ -1,14 +1,26 @@
+import os
 from pathlib import Path
 
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
+from starlette.middleware.sessions import SessionMiddleware
+
+from routers.auth import IDLE_TIMEOUT, router as auth_router
 
 PORT_BASE = 8571
 ROOT = Path(__file__).resolve().parent
 
 app = FastAPI(title="Grocery supply and recall notices")
+app.add_middleware(
+    SessionMiddleware,
+    secret_key=os.getenv("SECRET_KEY", "replace-me-s0571"),
+    max_age=IDLE_TIMEOUT,
+    same_site="lax",
+    https_only=True,
+)
+app.include_router(auth_router)
 
 
 class NoticeCreate(BaseModel):
@@ -56,8 +68,8 @@ notices = [
 ]
 
 
-@app.get("/")
-def home():
+@app.get("/notices")
+def notice_page():
     return FileResponse(ROOT / "index.html")
 
 

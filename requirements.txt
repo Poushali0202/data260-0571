@@ -3,3 +3,16 @@ uvicorn==0.46.0
 pydantic==2.13.3
 langgraph==1.1.10
 reportlab==5.0.1
+jinja2==3.1.6
+python-multipart==0.0.27
+itsdangerous==2.2.0
+llama-index==0.14.24
+llama-index-embeddings-huggingface==0.8.0
+sentence-transformers==6.0.1
+faiss-cpu==1.15.0
+numpy==2.4.4
+pandas==3.0.2
+pyyaml==6.0.3
+requests==2.33.1
+beautifulsoup4==4.14.3
+lxml==6.1.0

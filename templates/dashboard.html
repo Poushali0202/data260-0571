@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <h1 class="card-title h3">Welcome, {{ user.name }}</h1>
+        <p class="card-text">You are signed in as <strong>{{ user.username }}</strong>. The notice list from the earlier homeworks is one click away.</p>
+        <a class="btn btn-success" href="/notices">Open the notice list</a>
+        <a class="btn btn-outline-danger" href="/logout">Log out</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
