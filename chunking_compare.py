@@ -1,5 +1,7 @@
 import argparse
 import json
+import re
+import sys
 import time
 from pathlib import Path
 
@@ -60,7 +62,7 @@ def cosine(a, b):
 
 
 def contains_all(text, keywords):
-    return all(keyword.lower() in text.lower() for keyword in keywords)
+    return all(re.search(r"(?<!\w)" + re.escape(keyword) + r"(?!\w)", text, re.IGNORECASE) for keyword in keywords)
 
 
 def retrieve(technique, index, embed_model, question, k):
@@ -104,6 +106,7 @@ def main():
     parser.add_argument("--warmup", action="store_true", help="run on the first 100 KB of Tiny Shakespeare instead of the corpus")
     parser.add_argument("--k", type=int, default=5)
     args = parser.parse_args()
+    sys.stdout.reconfigure(encoding="utf-8")
 
     embed_model = HuggingFaceEmbedding(model_name=EMBED_MODEL)
     Settings.embed_model = embed_model

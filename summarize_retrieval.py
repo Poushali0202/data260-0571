@@ -43,16 +43,16 @@ def main():
         detail.append({
             "Question": question_id,
             "Technique": technique,
-            "Top-1 cosine": group["cosine_sim"].max(),
+            "Top-1 cosine": round(group["cosine_sim"].max(), 4),
             f"Mean@{k}": round(group["cosine_sim"].mean(), 4),
             "Answer found at rank": int(hits["rank"].min()) if len(hits) else "none",
             "Expected source in top-k": "yes" if group["source_hit"].any() else "no",
-            "Latency (ms)": group["latency_ms"].iloc[0],
+            "Latency (ms)": round(group["latency_ms"].iloc[0], 2),
         })
     print("\n## Per question\n")
     print(markdown(pd.DataFrame(detail)))
 
-    misses = rows[(rows["rank"] == 1) & (~rows["contains_answer"])]
+    misses = rows[(rows["rank"] == 1) & (~rows["contains_answer"])].round({"cosine_sim": 4})
     print("\n## Rank-1 chunks that do not contain the answer\n")
     print(markdown(misses[["question_id", "technique", "cosine_sim", "source_file", "preview"]]))
 

@@ -25,7 +25,7 @@ questions:
     expected_answer: Class I means a reasonable probability that the product will cause serious adverse health consequences or death; Class II means it may cause temporary or medically reversible harm and serious consequences are remote; Class III means it is not likely to cause adverse health consequences.
     expected_source: fda_recalls_background_and_definitions.txt
     single_source: false
-    answer_keywords: ["Class I", "Class II", "Class III"]
+    answer_keywords: ["serious adverse health consequences", "medically reversible"]
   - id: q5_traceability_deadline
     question: What is the compliance date for the FDA Food Traceability Rule?
     expected_answer: The original compliance date was January 20, 2026. FDA proposed a 30 month extension to July 20, 2028 and Congress directed FDA not to enforce the rule before that date.
