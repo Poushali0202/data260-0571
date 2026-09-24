@@ -1,0 +1,143 @@
+{
+  "homework": "DATA-260 HW4",
+  "sid4": "0571",
+  "commit_hash": "90386b46b4d22cb886f68805eb1ed9794bddf36d",
+  "tag": "hw4",
+  "model": {
+    "llm": "qwen3:8b through Ollama",
+    "embeddings": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "configuration": {
+    "port_base": 8571,
+    "database_url": "mysql+pymysql://root:***@127.0.0.1:3307/s0571_rel",
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "top_k": 3
+  },
+  "seed": 571,
+  "verify_seed": 260571,
+  "verified_at_utc": "2026-09-24T01:44:56.495186+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "backend_responds_on_port_base",
+      "passed": true,
+      "details": "GET /health on port 8571 returned 200"
+    },
+    {
+      "check": "list_requires_login",
+      "passed": true,
+      "details": "GET /api/notices without a cookie returned 401"
+    },
+    {
+      "check": "wrong_password_rejected",
+      "passed": true,
+      "details": "POST /auth/login with a wrong password returned 401"
+    },
+    {
+      "check": "login_sets_httponly_cookie",
+      "passed": true,
+      "details": "HttpOnly; Max-Age=1800; Path=/; SameSite=lax"
+    },
+    {
+      "check": "cookie_is_opaque_token",
+      "passed": true,
+      "details": "64 hex characters, no user data"
+    },
+    {
+      "check": "session_token_stored_in_mysql",
+      "passed": true,
+      "details": "sessions row found with user_id and expiry"
+    },
+    {
+      "check": "me_returns_logged_in_user",
+      "passed": true,
+      "details": "GET /auth/me returned 200"
+    },
+    {
+      "check": "create_record",
+      "passed": true,
+      "details": "POST returned 201, id=5002"
+    },
+    {
+      "check": "read_record_by_id",
+      "passed": true,
+      "details": "GET /api/notices/5002 returned 200"
+    },
+    {
+      "check": "update_record",
+      "passed": true,
+      "details": "PUT returned 200"
+    },
+    {
+      "check": "list_returns_records",
+      "passed": true,
+      "details": "5001 records, test record present"
+    },
+    {
+      "check": "naive_and_fixed_lists_return_data",
+      "passed": true,
+      "details": "10 notices with a lots field from each version"
+    },
+    {
+      "check": "naive_runs_n_plus_one_queries",
+      "passed": true,
+      "details": "naive sql_queries=11 for page_size 10"
+    },
+    {
+      "check": "fixed_runs_fewer_queries",
+      "passed": true,
+      "details": "fixed sql_queries=2"
+    },
+    {
+      "check": "both_versions_return_same_records",
+      "passed": true,
+      "details": "same ids, fields and lots"
+    },
+    {
+      "check": "delete_record",
+      "passed": true,
+      "details": "DELETE returned 204, GET afterwards returned 404"
+    },
+    {
+      "check": "logout_invalidates_session",
+      "passed": true,
+      "details": "logout returned 200, old cookie on /auth/me returned 401"
+    },
+    {
+      "check": "raw_has_180_measured_requests",
+      "passed": true,
+      "details": "180 rows over 6 page size and version pairs"
+    },
+    {
+      "check": "raw_query_counts_match_n_plus_one",
+      "passed": true,
+      "details": "naive = page_size + 1, fixed = 2 on every row"
+    },
+    {
+      "check": "fixed_faster_at_every_page_size",
+      "passed": true,
+      "details": "naive p50 > fixed p50 for page sizes 10, 50, 200: [True, True, True]"
+    },
+    {
+      "check": "rag_six_questions_three_configs",
+      "passed": true,
+      "details": "18 comparison rows"
+    },
+    {
+      "check": "rag_k_sweep_present",
+      "passed": true,
+      "details": "sweep k values [1, 3, 5]"
+    },
+    {
+      "check": "rag_refuses_q5_q6_in_context_config",
+      "passed": true,
+      "details": "Q5 and Q6 refused: [True, True]"
+    },
+    {
+      "check": "report_files_present",
+      "passed": true,
+      "details": "all files present"
+    }
+  ]
+}

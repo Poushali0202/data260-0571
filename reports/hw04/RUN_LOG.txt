@@ -388,3 +388,36 @@ wrote rag_comparison.md, rag_k_sweep.md, rag_evaluation.md
 
 [exited with code 0]
 
+=== Verification (python verify_hw04.py) on the tagged commit hw4 = 90386b46b4d22cb886f68805eb1ed9794bddf36d, app already running on 8571 ===
+$ date
+2026-09-23T18:44:54-07:00
+$ python verify_hw04.py
+PASS backend_responds_on_port_base: GET /health on port 8571 returned 200
+PASS list_requires_login: GET /api/notices without a cookie returned 401
+PASS wrong_password_rejected: POST /auth/login with a wrong password returned 401
+PASS login_sets_httponly_cookie: HttpOnly; Max-Age=1800; Path=/; SameSite=lax
+PASS cookie_is_opaque_token: 64 hex characters, no user data
+PASS session_token_stored_in_mysql: sessions row found with user_id and expiry
+PASS me_returns_logged_in_user: GET /auth/me returned 200
+PASS create_record: POST returned 201, id=5002
+PASS read_record_by_id: GET /api/notices/5002 returned 200
+PASS update_record: PUT returned 200
+PASS list_returns_records: 5001 records, test record present
+PASS naive_and_fixed_lists_return_data: 10 notices with a lots field from each version
+PASS naive_runs_n_plus_one_queries: naive sql_queries=11 for page_size 10
+PASS fixed_runs_fewer_queries: fixed sql_queries=2
+PASS both_versions_return_same_records: same ids, fields and lots
+PASS delete_record: DELETE returned 204, GET afterwards returned 404
+PASS logout_invalidates_session: logout returned 200, old cookie on /auth/me returned 401
+PASS raw_has_180_measured_requests: 180 rows over 6 page size and version pairs
+PASS raw_query_counts_match_n_plus_one: naive = page_size + 1, fixed = 2 on every row
+PASS fixed_faster_at_every_page_size: naive p50 > fixed p50 for page sizes 10, 50, 200: [True, True, True]
+PASS rag_six_questions_three_configs: 18 comparison rows
+PASS rag_k_sweep_present: sweep k values [1, 3, 5]
+PASS rag_refuses_q5_q6_in_context_config: Q5 and Q6 refused: [True, True]
+PASS report_files_present: all files present
+wrote C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw04\verification.json (passed=True)
+exit code 0
+$ date
+2026-09-23T18:44:56-07:00
+
