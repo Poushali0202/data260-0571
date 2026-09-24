@@ -1,4 +1,4 @@
-# DATA-260 Homework 1 and 2
+# DATA-260 Homework 1 to 4
 
 ## Personal configuration
 
@@ -15,7 +15,7 @@
 | Python | 3.12 |
 | Local model | `qwen3:8b` through Ollama (required for agent runs) |
 | Hardware | Intel Core i5-1135G7, 15.8 GB RAM, Intel Iris Xe Graphics, Windows 11 Home Single Language |
-| Tagged commits | `hw1` (HW1), `hw2` (HW2) |
+| Tagged commits | `hw1` (HW1), `hw2` (HW2), `hw3` (HW3), `hw4` (HW4) |
 
 ## Part 1: local web application
 
@@ -134,3 +134,25 @@ python verify_hw03.py
 ```
 
 Full run instructions, results, and the report are in `reports/hw03/`.
+
+## Homework 4
+
+HW4 moves the notice data to MySQL with SQLAlchemy (`database.py`, `models.py`, `schemas.py`,
+`routers/notices.py`), replaces the signed-cookie session with a `sessions` table and an opaque
+HTTP-only cookie (`routers/auth.py`, login by email and password), adds the React client in
+`frontend/`, the seed script and migrations for the N+1 experiment (`seed_data.py`,
+`migrations/`, `measure_n_plus_one.py`), the RAG question answering script (`rag.py`) and a
+smoke test (`verify_hw04.py`).
+
+```powershell
+python -m pip install -r requirements.txt
+copy .env.example .env
+python seed_data.py
+python app.py
+cd frontend; npm install; npm run dev
+python measure_n_plus_one.py
+python rag.py
+python verify_hw04.py
+```
+
+Full run instructions, results, and the report are in `reports/hw04/`.

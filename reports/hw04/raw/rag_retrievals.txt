@@ -1,0 +1,75 @@
+--- Q1 config B k=3: top-3 retrieved chunks ---
+  1. score=0.8481  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=501  The 2008 Canadian listeriosis outbreak was a widespread outbreak of listeriosis in Canada linked to cold cuts from a Maple Leaf Foods plant 
+  2. score=0.8144  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=502  Listeriosis is an infection caused by the bacterium Listeria monocytogenes . The outbreak originated from lines 8 and 9 of the Maple Leaf Fo
+  3. score=0.6580  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=507  Officials from Maple Leaf believe that the outbreak originated sometime in July 2008 on line 8 or line 9 of the North York facility. Regardl
+
+--- Q1 config C k=3: top-3 retrieved chunks ---
+  1. score=0.8481  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=501  The 2008 Canadian listeriosis outbreak was a widespread outbreak of listeriosis in Canada linked to cold cuts from a Maple Leaf Foods plant 
+  2. score=0.8144  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=502  Listeriosis is an infection caused by the bacterium Listeria monocytogenes . The outbreak originated from lines 8 and 9 of the Maple Leaf Fo
+  3. score=0.6580  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=507  Officials from Maple Leaf believe that the outbreak originated sometime in July 2008 on line 8 or line 9 of the North York facility. Regardl
+
+--- Q2 config B k=3: top-3 retrieved chunks ---
+  1. score=0.7282  source=fda_fsma_food_traceability_rule.txt  chunk_id=153  in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+  2. score=0.7088  source=fda_fsma_food_traceability_rule.txt  chunk_id=95  Getting Started with the Food Traceability Rule
+  3. score=0.7071  source=fda_fsma_food_traceability_rule.txt  chunk_id=94  proposed to extend the compliance date for the rule by 30 months to July 20, 2028. Subsequently, the Continuing Appropriations, Agriculture,
+
+--- Q2 config C k=3: top-3 retrieved chunks ---
+  1. score=0.7282  source=fda_fsma_food_traceability_rule.txt  chunk_id=153  in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+  2. score=0.7088  source=fda_fsma_food_traceability_rule.txt  chunk_id=95  Getting Started with the Food Traceability Rule
+  3. score=0.7071  source=fda_fsma_food_traceability_rule.txt  chunk_id=94  proposed to extend the compliance date for the rule by 30 months to July 20, 2028. Subsequently, the Continuing Appropriations, Agriculture,
+
+--- Q3 config B k=3: top-3 retrieved chunks ---
+  1. score=0.6841  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=979  "costing us huge $$$$$." In a June 2008 email exchange, Parnell complained to a worker after being notified that Salmonella had been found i
+  2. score=0.6499  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=972  analysis and laboratory testing by state officials in Minnesota and Connecticut , the Food and Drug Administration (FDA) and the CDC confirm
+  3. score=0.6366  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=964  In late 2008 and early 2009, as a result of the Salmonella contamination event, nine people died and at least 714 people fell ill from food 
+
+--- Q3 config C k=3: top-3 retrieved chunks ---
+  1. score=0.6841  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=979  "costing us huge $$$$$." In a June 2008 email exchange, Parnell complained to a worker after being notified that Salmonella had been found i
+  2. score=0.6499  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=972  analysis and laboratory testing by state officials in Minnesota and Connecticut , the Food and Drug Administration (FDA) and the CDC confirm
+  3. score=0.6366  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=964  In late 2008 and early 2009, as a result of the Salmonella contamination event, nine people died and at least 714 people fell ill from food 
+
+--- Q4 config B k=3: top-3 retrieved chunks ---
+  1. score=0.7633  source=wikipedia_2011_germany_e_coli_outbreak.txt  chunk_id=528  Outbreak Cases
+  2. score=0.6633  source=wikipedia_2006_spinach_e_coli_outbreak.txt  chunk_id=493  spinach was a likely source. Within 24 hours of the outbreak, the data indicated that the outbreak was probably ongoing.
+  3. score=0.5863  source=wikipedia_2011_germany_e_coli_outbreak.txt  chunk_id=533  Most or all victims were believed to have become infected in Germany or France. Confirmed cases are listed below according to their location
+
+--- Q4 config C k=3: top-3 retrieved chunks ---
+  1. score=0.7633  source=wikipedia_2011_germany_e_coli_outbreak.txt  chunk_id=528  Outbreak Cases
+  2. score=0.6633  source=wikipedia_2006_spinach_e_coli_outbreak.txt  chunk_id=493  spinach was a likely source. Within 24 hours of the outbreak, the data indicated that the outbreak was probably ongoing.
+  3. score=0.5863  source=wikipedia_2011_germany_e_coli_outbreak.txt  chunk_id=533  Most or all victims were believed to have become infected in Germany or France. Confirmed cases are listed below according to their location
+
+--- Q5 config B k=3: top-3 retrieved chunks ---
+  1. score=0.7445  source=ecfr_21_cfr_part_7_subpart_c_recalls.txt  chunk_id=50  will be issued by the appropriate Food and Drug Administration district office to the recalling firm.
+  2. score=0.7027  source=fda_food_recalls_what_you_need_to_know.txt  chunk_id=75  Food recalls are removals of foods from the market that are in violation of the US Food and Drug Administration’s (FDA) regulations. FDA reg
+  3. score=0.6933  source=ecfr_21_cfr_part_7_subpart_c_recalls.txt  chunk_id=21  (v) Level E—No effectiveness checks. [43 FR 26218, June 16, 1978, as amended at 46 FR 8455, Jan. 27, 1981; 59 FR 14363, Mar. 28, 1994; 68 FR
+
+--- Q5 config C k=3: top-3 retrieved chunks ---
+  1. score=0.7445  source=ecfr_21_cfr_part_7_subpart_c_recalls.txt  chunk_id=50  will be issued by the appropriate Food and Drug Administration district office to the recalling firm.
+  2. score=0.7027  source=fda_food_recalls_what_you_need_to_know.txt  chunk_id=75  Food recalls are removals of foods from the market that are in violation of the US Food and Drug Administration’s (FDA) regulations. FDA reg
+  3. score=0.6933  source=ecfr_21_cfr_part_7_subpart_c_recalls.txt  chunk_id=21  (v) Level E—No effectiveness checks. [43 FR 26218, June 16, 1978, as amended at 46 FR 8455, Jan. 27, 1981; 59 FR 14363, Mar. 28, 1994; 68 FR
+
+--- Q6 config B k=3: top-3 retrieved chunks ---
+  1. score=0.3820  source=wikipedia_food_distribution.txt  chunk_id=817  Japan
+  2. score=0.2249  source=wikipedia_food_distribution.txt  chunk_id=796  Rome
+  3. score=0.2023  source=wikipedia_food_distribution.txt  chunk_id=816  Japan during World War II and Africa during the late 1970s and early 1980s.
+
+--- Q6 config C k=3: top-3 retrieved chunks ---
+  1. score=0.3820  source=wikipedia_food_distribution.txt  chunk_id=817  Japan
+  2. score=0.2249  source=wikipedia_food_distribution.txt  chunk_id=796  Rome
+  3. score=0.2023  source=wikipedia_food_distribution.txt  chunk_id=816  Japan during World War II and Africa during the late 1970s and early 1980s.
+
+--- Q2 config C k=1: top-1 retrieved chunks ---
+  1. score=0.7282  source=fda_fsma_food_traceability_rule.txt  chunk_id=153  in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+
+--- Q2 config C k=3: top-3 retrieved chunks ---
+  1. score=0.7282  source=fda_fsma_food_traceability_rule.txt  chunk_id=153  in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+  2. score=0.7088  source=fda_fsma_food_traceability_rule.txt  chunk_id=95  Getting Started with the Food Traceability Rule
+  3. score=0.7071  source=fda_fsma_food_traceability_rule.txt  chunk_id=94  proposed to extend the compliance date for the rule by 30 months to July 20, 2028. Subsequently, the Continuing Appropriations, Agriculture,
+
+--- Q2 config C k=5: top-5 retrieved chunks ---
+  1. score=0.7282  source=fda_fsma_food_traceability_rule.txt  chunk_id=153  in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+  2. score=0.7088  source=fda_fsma_food_traceability_rule.txt  chunk_id=95  Getting Started with the Food Traceability Rule
+  3. score=0.7071  source=fda_fsma_food_traceability_rule.txt  chunk_id=94  proposed to extend the compliance date for the rule by 30 months to July 20, 2028. Subsequently, the Continuing Appropriations, Agriculture,
+  4. score=0.7028  source=fda_fsma_food_traceability_rule.txt  chunk_id=93  Compliance Date Because the Food Traceability Final Rule requires entities to share information with other entities in their supply chain, t
+  5. score=0.6987  source=fda_fsma_food_traceability_rule.txt  chunk_id=169  The Reagan-Udall Foundation held a virtual public meeting to hear insights on the Food Traceability Rule from both FDA leadership and other 
+

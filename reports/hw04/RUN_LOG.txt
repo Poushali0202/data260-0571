@@ -1,0 +1,390 @@
+DATA-260 HW4 run log
+Student: Poushali Purkayastha (SID4 0571, domain: grocery supply and recall notices)
+Machine: Intel Core i5-1135G7 (4 cores, 8 threads), 15.8 GB RAM, Windows 11 Home, CPU only
+Database: MySQL 8.0.46 in the Docker container s0571-mysql (port 3307), database s0571_rel
+Models: qwen3:8b through Ollama (RAG answers), sentence-transformers/all-MiniLM-L6-v2 (chunk embeddings)
+Timestamps ending in -07:00 are local time.
+
+=== Part 2 and 3: seeding (python seed_data.py) ===
+$ date
+2026-09-23T18:18:37-07:00
+$ python seed_data.py
+seed 571: 2 users, 5000 notices, 200 lots
+$ date
+2026-09-23T18:18:57-07:00
+
+=== Part 2: API checks with curl (server started with python app.py) ===
+$ date
+2026-09-23T18:21:07-07:00
+$ curl -i -s http://127.0.0.1:8571/api/notices   (no cookie)
+HTTP/1.1 401 Unauthorized
+date: Thu, 24 Sep 2026 01:21:07 GMT
+server: uvicorn
+content-length: 27
+content-type: application/json
+
+{"detail":"Login required"}
+
+$ curl -i -s -X POST -H "Content-Type: application/json" -d "{\"email\":\"inspector@example.com\",\"password\":\"wrong\"}" http://127.0.0.1:8571/auth/login
+HTTP/1.1 401 Unauthorized
+date: Thu, 24 Sep 2026 01:21:07 GMT
+server: uvicorn
+content-length: 38
+content-type: application/json
+
+{"detail":"Invalid email or password"}
+
+$ curl -i -s -c cookies.txt -X POST -H "Content-Type: application/json" -d "{\"email\":\"inspector@example.com\",\"password\":\"recall2026\"}" http://127.0.0.1:8571/auth/login
+HTTP/1.1 200 OK
+date: Thu, 24 Sep 2026 01:21:07 GMT
+server: uvicorn
+content-length: 58
+content-type: application/json
+set-cookie: session_id=38d14aac31fc093848d08f915610bc07a5ad1a11019e76868e5db6765fde92e8; HttpOnly; Max-Age=1800; Path=/; SameSite=lax
+
+{"id":1,"name":"Poushali","email":"inspector@example.com"}
+
+$ curl -s -b cookies.txt http://127.0.0.1:8571/auth/me
+{"id":1,"name":"Poushali","email":"inspector@example.com"}
+
+$ docker exec s0571-mysql mysql -uroot -p... s0571_rel -e "SELECT id, user_id, created_at, expires_at FROM sessions"
+id	user_id	created_at	expires_at
+38d14aac31fc093848d08f915610bc07a5ad1a11019e76868e5db6765fde92e8	1	2026-09-23 18:21:08	2026-09-23 18:51:08
+
+$ curl -i -s -b cookies.txt -X POST -H "Content-Type: application/json" -d "{\"productName\":\"Organic baby spinach 5 oz\",\"noticeSource\":\"FDA recall bulletin\"}" http://127.0.0.1:8571/api/notices
+HTTP/1.1 201 Created
+date: Thu, 24 Sep 2026 01:21:07 GMT
+server: uvicorn
+content-length: 90
+content-type: application/json
+
+{"productName":"Organic baby spinach 5 oz","noticeSource":"FDA recall bulletin","id":5001}
+
+$ curl -s -b cookies.txt http://127.0.0.1:8571/api/notices/5001
+{"productName":"Organic baby spinach 5 oz","noticeSource":"FDA recall bulletin","id":5001}
+
+$ curl -s -b cookies.txt -X PUT -H "Content-Type: application/json" -d "{\"productName\":\"Organic baby spinach 5 oz bag\",\"noticeSource\":\"FDA recall bulletin, updated\"}" http://127.0.0.1:8571/api/notices/5001
+{"productName":"Organic baby spinach 5 oz bag","noticeSource":"FDA recall bulletin, updated","id":5001}
+
+$ curl -s -b cookies.txt "http://127.0.0.1:8571/api/notices?q=spinach" | python -c "import json,sys; rows=json.load(sys.stdin); print(len(rows), \"rows, last:\", rows[-1])"
+221 rows, last: {'productName': 'Organic baby spinach 5 oz bag', 'noticeSource': 'FDA recall bulletin, updated', 'id': 5001}
+
+$ curl -i -s -b cookies.txt -X DELETE http://127.0.0.1:8571/api/notices/5001
+HTTP/1.1 204 No Content
+date: Thu, 24 Sep 2026 01:21:08 GMT
+server: uvicorn
+content-type: application/json
+
+
+$ curl -i -s -b cookies.txt http://127.0.0.1:8571/api/notices/5001
+HTTP/1.1 404 Not Found
+date: Thu, 24 Sep 2026 01:21:08 GMT
+server: uvicorn
+content-length: 29
+content-type: application/json
+
+{"detail":"Notice not found"}
+
+$ curl -s -b cookies.txt "http://127.0.0.1:8571/api/notices/naive?page_size=10" | python -c "import json,sys; b=json.load(sys.stdin); print({k: v for k, v in b.items() if k != \"notices\"}, \"first notice:\", b[\"notices\"][0])"
+{'version': 'naive', 'page_size': 10, 'sql_queries': 11} first notice: {'productName': 'Dried tahini 1 gallon', 'noticeSource': 'Abbott Nutrition', 'id': 5000, 'lots': [{'id': 183, 'lotCode': 'LOT-553350', 'unitsAffected': 2298}]}
+
+$ curl -s -b cookies.txt "http://127.0.0.1:8571/api/notices/fixed?page_size=10" | python -c "..."
+{'version': 'fixed', 'page_size': 10, 'sql_queries': 2} first notice: {'productName': 'Dried tahini 1 gallon', 'noticeSource': 'Abbott Nutrition', 'id': 5000, 'lots': [{'id': 183, 'lotCode': 'LOT-553350', 'unitsAffected': 2298}]}
+
+$ curl -i -s -b cookies.txt -X POST http://127.0.0.1:8571/auth/logout
+HTTP/1.1 200 OK
+date: Thu, 24 Sep 2026 01:21:08 GMT
+server: uvicorn
+content-length: 24
+content-type: application/json
+set-cookie: session_id=""; expires=Thu, 24 Sep 2026 01:21:09 GMT; Max-Age=0; Path=/; SameSite=lax
+
+{"message":"logged out"}
+
+$ curl -i -s -b cookies.txt http://127.0.0.1:8571/auth/me   (same cookie after logout)
+HTTP/1.1 401 Unauthorized
+date: Thu, 24 Sep 2026 01:21:08 GMT
+server: uvicorn
+content-length: 27
+content-type: application/json
+
+{"detail":"Login required"}
+
+$ date
+2026-09-23T18:21:09-07:00
+
+=== Part 3: N+1 measurement (python measure_n_plus_one.py), server started with python app.py, Ollama idle ===
+$ date
+2026-09-23T18:22:18-07:00
+$ python measure_n_plus_one.py
+page_size=10 naive: 30 requests done, sql_queries=11
+page_size=10 fixed: 30 requests done, sql_queries=2
+page_size=50 naive: 30 requests done, sql_queries=51
+page_size=50 fixed: 30 requests done, sql_queries=2
+page_size=200 naive: 30 requests done, sql_queries=201
+page_size=200 fixed: 30 requests done, sql_queries=2
+
+| Page size | Version | SQL stmts/req | p50 (ms) | p95 (ms) | p99 (ms) |
+|---|---|---|---|---|---|
+| 10 | naive | 11 | 23.76 | 29.21 | 72.06 |
+| 10 | fixed | 2 | 10.12 | 12.04 | 12.81 |
+| 50 | naive | 51 | 92.52 | 149.12 | 160.95 |
+| 50 | fixed | 2 | 13.69 | 19.28 | 19.65 |
+| 200 | naive | 201 | 647.48 | 870.04 | 1050.93 |
+| 200 | fixed | 2 | 32.29 | 61.64 | 81.7 |
+
+page_size=10: fixed is 2.35x faster at p50 (13.64 ms saved per request)
+page_size=50: fixed is 6.76x faster at p50 (78.83 ms saved per request)
+page_size=200: fixed is 20.05x faster at p50 (615.19 ms saved per request)
+wrote C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw04\raw\n_plus_one_requests.csv (180 rows) and n_plus_one_summary.json
+$ date
+2026-09-23T18:22:45-07:00
+
+=== Part 3 step 8: EXPLAIN before and after adding one index (mysql client against 127.0.0.1:3307) ===
+$ date
+2026-09-23T18:22:45-07:00
+$ mysql -h 127.0.0.1 -P 3307 -u root -p... s0571_rel -e "SHOW INDEX FROM grocery_notices"
+Table	Non_unique	Key_name	Seq_in_index	Column_name	Collation	Cardinality	Sub_part	Packed	Null	Index_type	Comment	Index_comment	Visible	Expression
+grocery_notices	0	PRIMARY	1	id	A	5158	NULL	NULL		BTREE			YES	NULL
+$ mysql ... -e "EXPLAIN SELECT id, product_name, notice_source FROM grocery_notices WHERE notice_source = 'FDA recall bulletin' ORDER BY id"
+id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+1	SIMPLE	grocery_notices	NULL	index	NULL	PRIMARY	4	NULL	5158	10.00	Using where
+$ mysql ... -e "EXPLAIN ANALYZE SELECT id, product_name, notice_source FROM grocery_notices WHERE notice_source = 'FDA recall bulletin' ORDER BY id"
+EXPLAIN
+-> Filter: (grocery_notices.notice_source = 'FDA recall bulletin')  (cost=522 rows=516) (actual time=0.0767..2.16 rows=183 loops=1)\n    -> Index scan on grocery_notices using PRIMARY  (cost=522 rows=5158) (actual time=0.0396..1.69 rows=5000 loops=1)\n
+$ mysql ... s0571_rel < migrations/hw04_add_index.sql
+index created
+$ mysql ... -e "SHOW INDEX FROM grocery_notices"
+Table	Non_unique	Key_name	Seq_in_index	Column_name	Collation	Cardinality	Sub_part	Packed	Null	Index_type	Comment	Index_comment	Visible	Expression
+grocery_notices	0	PRIMARY	1	id	A	5158	NULL	NULL		BTREE			YES	NULL
+grocery_notices	1	ix_grocery_notices_notice_source	1	notice_source	A	24	NULL	NULL		BTREE			YES	NULL
+$ mysql ... -e "EXPLAIN SELECT id, product_name, notice_source FROM grocery_notices WHERE notice_source = 'FDA recall bulletin' ORDER BY id"
+id	select_type	table	partitions	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+1	SIMPLE	grocery_notices	NULL	ref	ix_grocery_notices_notice_source	ix_grocery_notices_notice_source	802	const	183	100.00	NULL
+$ mysql ... -e "EXPLAIN ANALYZE SELECT id, product_name, notice_source FROM grocery_notices WHERE notice_source = 'FDA recall bulletin' ORDER BY id"
+EXPLAIN
+-> Index lookup on grocery_notices using ix_grocery_notices_notice_source (notice_source='FDA recall bulletin')  (cost=37 rows=183) (actual time=0.0887..0.593 rows=183 loops=1)\n
+$ date
+2026-09-23T18:22:46-07:00
+
+=== Part 3 check: statement counts confirmed with the MySQL general log ===
+$ date
+2026-09-23T18:24:10-07:00
+$ mysql ... -e "SET GLOBAL log_output = 'TABLE'; SET GLOBAL general_log = 'ON';"
+$ curl -s -b cookies.txt "http://127.0.0.1:8571/api/notices/naive?page_size=10" > /dev/null
+$ curl -s -b cookies.txt "http://127.0.0.1:8571/api/notices/fixed?page_size=10" > /dev/null
+$ mysql ... -e "SET GLOBAL general_log = 'OFF';"
+$ mysql ... -e "SELECT event_time, LEFT(argument, 95) AS statement FROM mysql.general_log WHERE command_type = 'Query' AND argument LIKE 'SELECT %' AND argument NOT LIKE '%general_log%' ORDER BY event_time"
+event_time	statement
+2026-09-24 01:24:11.123863	SELECT users.id AS users_id, users.name AS users_name, users.email AS users_email, users.passwo
+2026-09-24 01:24:11.355619	SELECT users.id AS users_id, users.name AS users_name, users.email AS users_email, users.passwo
+2026-09-24 01:24:11.470960	SELECT sessions.id AS sessions_id, sessions.user_id AS sessions_user_id, sessions.created_at AS
+2026-09-24 01:24:11.474658	SELECT grocery_notices.id AS grocery_notices_id, grocery_notices.product_name AS grocery_notice
+2026-09-24 01:24:11.478108	SELECT notice_lots.id AS notice_lots_id, notice_lots.notice_id AS notice_lots_notice_id, notice
+2026-09-24 01:24:11.482907	SELECT notice_lots.id AS notice_lots_id, notice_lots.notice_id AS notice_lots_notice_id, notice
+2026-09-24 01:24:11.486207	SELECT notice_lots.id AS notice_lots_id, notice_lots.notice_id AS notice_lots_notice_id, notice
+2026-09-24 01:24:11.489019	SELECT notice_lots.id AS notice_lots_id, notice_lots.notice_id AS notice_lots_notice_id, notice
+2026-09-24 01:24:11.492452	SELECT notice_lots.id AS notice_lots_id, notice_lots.notice_id AS notice_lots_notice_id, notice
+2026-09-24 01:24:11.496261	SELECT notice_lots.id AS notice_lots_id, notice_lots.notice_id AS notice_lots_notice_id, notice
+2026-09-24 01:24:11.499230	SELECT notice_lots.id AS notice_lots_id, notice_lots.notice_id AS notice_lots_notice_id, notice
+2026-09-24 01:24:11.501568	SELECT notice_lots.id AS notice_lots_id, notice_lots.notice_id AS notice_lots_notice_id, notice
+2026-09-24 01:24:11.503633	SELECT notice_lots.id AS notice_lots_id, notice_lots.notice_id AS notice_lots_notice_id, notice
+2026-09-24 01:24:11.506730	SELECT notice_lots.id AS notice_lots_id, notice_lots.notice_id AS notice_lots_notice_id, notice
+2026-09-24 01:24:11.590534	SELECT sessions.id AS sessions_id, sessions.user_id AS sessions_user_id, sessions.created_at AS
+2026-09-24 01:24:11.595585	SELECT grocery_notices.id AS grocery_notices_id, grocery_notices.product_name AS grocery_notice
+2026-09-24 01:24:11.599953	SELECT notice_lots.notice_id AS notice_lots_notice_id, notice_lots.id AS notice_lots_id, notice
+$ mysql ... -e "SELECT LEFT(argument, 22) AS statement_start, COUNT(*) AS statements FROM mysql.general_log WHERE command_type = 'Query' AND argument LIKE 'SELECT %' AND argument NOT LIKE '%general_log%' GROUP BY 1"
+statement_start	statements
+SELECT users.id AS use	2
+SELECT sessions.id AS 	2
+SELECT grocery_notices	2
+SELECT notice_lots.id 	10
+SELECT notice_lots.not	1
+
+=== Database contents (mysql client) ===
+$ mysql ... -e "SHOW TABLES; SELECT COUNT(*) AS notices FROM grocery_notices; SELECT COUNT(*) AS lots FROM notice_lots; SELECT COUNT(*) AS users FROM users; SELECT COUNT(*) AS sessions FROM sessions; SELECT * FROM grocery_notices ORDER BY id DESC LIMIT 3; SELECT * FROM notice_lots LIMIT 3; SELECT id, name, email FROM users"
+Tables_in_s0571_rel
+grocery_notices
+notice_lots
+sessions
+users
+notices
+5000
+lots
+200
+users
+2
+sessions
+2
+id	product_name	notice_source
+5000	Dried tahini 1 gallon	Abbott Nutrition
+4999	Fresh chicken thighs 12 oz	Harvest Fresh Produce
+4998	Frozen ground beef 5 oz	Abbott Nutrition
+id	notice_id	lot_code	units_affected
+1	4896	LOT-977337	3043
+2	4889	LOT-413239	221
+3	4991	LOT-926251	4635
+id	name	email
+1	Poushali	inspector@example.com
+2	Store Manager	manager@example.com
+$ date
+2026-09-23T18:24:12-07:00
+
+=== Part 3 check repeated after setting expire_on_commit=False on db_session_basede26 (app restarted) ===
+$ date
+2026-09-23T18:26:36-07:00
+$ curl -s -c cookies.txt -X POST ... http://127.0.0.1:8571/auth/login > /dev/null
+$ curl -s -b cookies.txt "http://127.0.0.1:8571/api/notices/naive?page_size=10" > /dev/null
+$ curl -s -b cookies.txt "http://127.0.0.1:8571/api/notices/fixed?page_size=10" > /dev/null
+$ mysql ... -e "SELECT LEFT(argument, 22) AS statement_start, COUNT(*) AS statements FROM mysql.general_log WHERE command_type = 'Query' AND argument LIKE 'SELECT %' AND argument NOT LIKE '%general_log%' GROUP BY 1"
+statement_start	statements
+SELECT users.id AS use	1
+SELECT sessions.id AS 	2
+SELECT grocery_notices	2
+SELECT notice_lots.id 	10
+SELECT notice_lots.not	1
+$ date
+2026-09-23T18:26:38-07:00
+
+=== Part 4: RAG run (PYTHONUTF8=1 python rag.py), Ollama qwen3:8b, started 2026-09-23T18:24:33-07:00, last answer written 2026-09-23T18:37:44-07:00 ===
+$ python rag.py
+21 documents, 1158 chunks (chunk_size=500, chunk_overlap=50)
+FAISS index built with 1158 vectors of dimension 384
+[tokens] turn=1 input=58 output=53 total=111
+[Q1 A k=3] The 2008 listeriosis outbreak in Canada was linked to the Maple Leaf Foods facility in Toronto, Ontario. This outbreak resulted in multiple deaths and led to a widespread recall of products. It was the largest listeriosis outbreak in Canadian history.
+
+--- Q1 config B k=3: top-3 retrieved chunks ---
+  1. score=0.8481  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=501  The 2008 Canadian listeriosis outbreak was a widespread outbreak of listeriosis in Canada linked to cold cuts from a Maple Leaf Foods plant 
+  2. score=0.8144  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=502  Listeriosis is an infection caused by the bacterium Listeria monocytogenes . The outbreak originated from lines 8 and 9 of the Maple Leaf Fo
+  3. score=0.6580  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=507  Officials from Maple Leaf believe that the outbreak originated sometime in July 2008 on line 8 or line 9 of the North York facility. Regardl
+[tokens] turn=2 input=337 output=80 total=417
+[Q1 B k=3] The 2008 listeriosis outbreak in Canada originated from lines 8 and 9 of the Maple Leaf Foods Bartor Road facility in Toronto, Ontario. This facility, with the establishment number 97B, was linked to the contamination of cold cuts that led to 57 confirmed cases and 23 deaths. The bacteria likely contaminated the products during the packaging process.
+
+--- Q1 config C k=3: top-3 retrieved chunks ---
+  1. score=0.8481  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=501  The 2008 Canadian listeriosis outbreak was a widespread outbreak of listeriosis in Canada linked to cold cuts from a Maple Leaf Foods plant 
+  2. score=0.8144  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=502  Listeriosis is an infection caused by the bacterium Listeria monocytogenes . The outbreak originated from lines 8 and 9 of the Maple Leaf Fo
+  3. score=0.6580  source=wikipedia_2008_canadian_listeriosis_outbreak.txt  chunk_id=507  Officials from Maple Leaf believe that the outbreak originated sometime in July 2008 on line 8 or line 9 of the North York facility. Regardl
+  context after filtering: [501, 502, 507]
+[tokens] turn=3 input=454 output=69 total=523
+[Q1 C k=3] The source of the 2008 listeriosis outbreak was the Maple Leaf Foods plant in Toronto, Ontario [Source 1]. Specifically, the outbreak originated from lines 8 and 9 of the Maple Leaf Foods Bartor Road facility (Establishment No. 97B) in Toronto, Ontario [Source 2].
+
+[tokens] turn=4 input=62 output=79 total=141
+[Q2 A k=3] The Food Safety Modernization Act (FSMA) was signed into law on January 4, 2011. The original compliance date for the Food Traceability Rule, which is part of FSMA, was January 1, 2022. However, the compliance date was later extended to January 1, 2025, for most covered products.
+
+--- Q2 config B k=3: top-3 retrieved chunks ---
+  1. score=0.7282  source=fda_fsma_food_traceability_rule.txt  chunk_id=153  in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+  2. score=0.7088  source=fda_fsma_food_traceability_rule.txt  chunk_id=95  Getting Started with the Food Traceability Rule
+  3. score=0.7071  source=fda_fsma_food_traceability_rule.txt  chunk_id=94  proposed to extend the compliance date for the rule by 30 months to July 20, 2028. Subsequently, the Continuing Appropriations, Agriculture,
+[tokens] turn=5 input=183 output=63 total=246
+[Q2 B k=3] The Food Safety Modernization Act was signed into law in 2011. The original compliance date for the Food Traceability Rule was July 20, 2026. However, it was extended to July 20, 2028, due to a congressional directive.
+
+--- Q2 config C k=3: top-3 retrieved chunks ---
+  1. score=0.7282  source=fda_fsma_food_traceability_rule.txt  chunk_id=153  in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+  2. score=0.7088  source=fda_fsma_food_traceability_rule.txt  chunk_id=95  Getting Started with the Food Traceability Rule
+  3. score=0.7071  source=fda_fsma_food_traceability_rule.txt  chunk_id=94  proposed to extend the compliance date for the rule by 30 months to July 20, 2028. Subsequently, the Continuing Appropriations, Agriculture,
+  context after filtering: [153, 95, 94]
+[tokens] turn=6 input=283 output=11 total=294
+[Q2 C k=3] I cannot answer this question from the provided documents.
+
+[tokens] turn=7 input=69 output=74 total=143
+[Q3 A k=3] The 2008 to 2009 Salmonella outbreak linked to peanut butter was caused by Peanut Corporation of America (PCA). The company was found to have knowingly sold contaminated peanut butter, leading to a massive recall and eventual bankruptcy. Following the outbreak, PCA's owner, Stewart Parnell, was convicted of criminal charges related to the contamination.
+
+--- Q3 config B k=3: top-3 retrieved chunks ---
+  1. score=0.6841  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=979  "costing us huge $$$$$." In a June 2008 email exchange, Parnell complained to a worker after being notified that Salmonella had been found i
+  2. score=0.6499  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=972  analysis and laboratory testing by state officials in Minnesota and Connecticut , the Food and Drug Administration (FDA) and the CDC confirm
+  3. score=0.6366  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=964  In late 2008 and early 2009, as a result of the Salmonella contamination event, nine people died and at least 714 people fell ill from food 
+[tokens] turn=8 input=358 output=69 total=427
+[Q3 B k=3] The company responsible for the 2008 to 2009 Salmonella outbreak linked to peanut butter was the Peanut Corporation of America (PCA). The contamination led to the most extensive food recall in U.S. history, resulting in nine deaths and over 700 illnesses, and ultimately led to the company's bankruptcy.
+
+--- Q3 config C k=3: top-3 retrieved chunks ---
+  1. score=0.6841  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=979  "costing us huge $$$$$." In a June 2008 email exchange, Parnell complained to a worker after being notified that Salmonella had been found i
+  2. score=0.6499  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=972  analysis and laboratory testing by state officials in Minnesota and Connecticut , the Food and Drug Administration (FDA) and the CDC confirm
+  3. score=0.6366  source=wikipedia_peanut_corporation_of_america.txt  chunk_id=964  In late 2008 and early 2009, as a result of the Salmonella contamination event, nine people died and at least 714 people fell ill from food 
+  context after filtering: [979, 972, 964]
+[tokens] turn=9 input=466 output=88 total=554
+[Q3 C k=3] The Peanut Corporation of America (PCA) was responsible for the 2008 to 2009 Salmonella outbreak linked to peanut butter [Source 2]. The contamination triggered the most extensive food recall in U.S. history up to that time, involving 46 states, more than 360 companies, and more than 3,900 different products manufactured using PCA ingredients [Source 3].
+
+[tokens] turn=10 input=41 output=50 total=91
+[Q4 A k=3] The cause of the outbreak depends on the specific disease or event in question. It could be due to a virus, bacteria, environmental factors, or human activity. To provide an accurate answer, more context is needed about the outbreak being referred to.
+
+--- Q4 config B k=3: top-3 retrieved chunks ---
+  1. score=0.7633  source=wikipedia_2011_germany_e_coli_outbreak.txt  chunk_id=528  Outbreak Cases
+  2. score=0.6633  source=wikipedia_2006_spinach_e_coli_outbreak.txt  chunk_id=493  spinach was a likely source. Within 24 hours of the outbreak, the data indicated that the outbreak was probably ongoing.
+  3. score=0.5863  source=wikipedia_2011_germany_e_coli_outbreak.txt  chunk_id=533  Most or all victims were believed to have become infected in Germany or France. Confirmed cases are listed below according to their location
+[tokens] turn=11 input=105 output=50 total=155
+[Q4 B k=3] The outbreak was likely caused by contaminated spinach, as the data indicated spinach was a probable source. Most victims became infected in Germany or France, suggesting the contamination may have originated from these regions. The source investigation is ongoing to confirm the exact cause.
+
+--- Q4 config C k=3: top-3 retrieved chunks ---
+  1. score=0.7633  source=wikipedia_2011_germany_e_coli_outbreak.txt  chunk_id=528  Outbreak Cases
+  2. score=0.6633  source=wikipedia_2006_spinach_e_coli_outbreak.txt  chunk_id=493  spinach was a likely source. Within 24 hours of the outbreak, the data indicated that the outbreak was probably ongoing.
+  3. score=0.5863  source=wikipedia_2011_germany_e_coli_outbreak.txt  chunk_id=533  Most or all victims were believed to have become infected in Germany or France. Confirmed cases are listed below according to their location
+  context after filtering: [528, 493, 533]
+[tokens] turn=12 input=224 output=58 total=282
+[Q4 C k=3] The outbreak was caused by contaminated food, specifically spinach, which was identified as a likely source [Source 2]. The contamination led to an ongoing outbreak with most or all victims becoming infected in Germany or France [Source 3]. The exact cause was not specified in the provided documents.
+
+[tokens] turn=13 input=54 output=73 total=127
+[Q5 A k=3] The FDA's toll-free phone number for reporting a problem with a recalled food is 1-800-FDA-1040 (1-800-323-1040). This number connects you to the FDA's Food Emergency Response Team. You can also report issues online through the FDA's Safety Reporting Portal.
+
+--- Q5 config B k=3: top-3 retrieved chunks ---
+  1. score=0.7445  source=ecfr_21_cfr_part_7_subpart_c_recalls.txt  chunk_id=50  will be issued by the appropriate Food and Drug Administration district office to the recalling firm.
+  2. score=0.7027  source=fda_food_recalls_what_you_need_to_know.txt  chunk_id=75  Food recalls are removals of foods from the market that are in violation of the US Food and Drug Administration’s (FDA) regulations. FDA reg
+  3. score=0.6933  source=ecfr_21_cfr_part_7_subpart_c_recalls.txt  chunk_id=21  (v) Level E—No effectiveness checks. [43 FR 26218, June 16, 1978, as amended at 46 FR 8455, Jan. 27, 1981; 59 FR 14363, Mar. 28, 1994; 68 FR
+[tokens] turn=14 input=354 output=59 total=413
+[Q5 B k=3] The context provided does not include the FDA's toll-free phone number for reporting a problem with a recalled food. The information focuses on the recall process and regulations rather than contact details. For reporting issues with recalled foods, consumers should visit the FDA's website or contact their local FDA district office.
+
+--- Q5 config C k=3: top-3 retrieved chunks ---
+  1. score=0.7445  source=ecfr_21_cfr_part_7_subpart_c_recalls.txt  chunk_id=50  will be issued by the appropriate Food and Drug Administration district office to the recalling firm.
+  2. score=0.7027  source=fda_food_recalls_what_you_need_to_know.txt  chunk_id=75  Food recalls are removals of foods from the market that are in violation of the US Food and Drug Administration’s (FDA) regulations. FDA reg
+  3. score=0.6933  source=ecfr_21_cfr_part_7_subpart_c_recalls.txt  chunk_id=21  (v) Level E—No effectiveness checks. [43 FR 26218, June 16, 1978, as amended at 46 FR 8455, Jan. 27, 1981; 59 FR 14363, Mar. 28, 1994; 68 FR
+  context after filtering: [50, 75, 21]
+[tokens] turn=15 input=471 output=11 total=482
+[Q5 C k=3] I cannot answer this question from the provided documents.
+
+[tokens] turn=16 input=48 output=61 total=109
+[Q6 A k=3] France won the 2018 FIFA World Cup, defeating Croatia 4-2 in the final held in Moscow. This was France's second World Cup title, with the victory coming after a penalty shootout in extra time. The tournament was hosted by Russia for the first time in its history.
+
+--- Q6 config B k=3: top-3 retrieved chunks ---
+  1. score=0.3820  source=wikipedia_food_distribution.txt  chunk_id=817  Japan
+  2. score=0.2249  source=wikipedia_food_distribution.txt  chunk_id=796  Rome
+  3. score=0.2023  source=wikipedia_food_distribution.txt  chunk_id=816  Japan during World War II and Africa during the late 1970s and early 1980s.
+[tokens] turn=17 input=80 output=44 total=124
+[Q6 B k=3] The 2018 FIFA World Cup was won by France. They defeated Croatia in the final match, which took place in Moscow, Russia. This victory marked France's second World Cup title in their history.
+
+--- Q6 config C k=3: top-3 retrieved chunks ---
+  1. score=0.3820  source=wikipedia_food_distribution.txt  chunk_id=817  Japan
+  2. score=0.2249  source=wikipedia_food_distribution.txt  chunk_id=796  Rome
+  3. score=0.2023  source=wikipedia_food_distribution.txt  chunk_id=816  Japan during World War II and Africa during the late 1970s and early 1980s.
+  dropped chunk 796: score 0.2249 below 0.35
+  dropped chunk 816: score 0.2023 below 0.35
+  context after filtering: [817]
+[tokens] turn=18 input=107 output=11 total=118
+[Q6 C k=3] I cannot answer this question from the provided documents.
+
+--- Q2 config C k=1: top-1 retrieved chunks ---
+  1. score=0.7282  source=fda_fsma_food_traceability_rule.txt  chunk_id=153  in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+  context after filtering: [153]
+[tokens] turn=19 input=150 output=11 total=161
+[Q2 C k=1] I cannot answer this question from the provided documents.
+
+--- Q2 config C k=3: top-3 retrieved chunks ---
+  1. score=0.7282  source=fda_fsma_food_traceability_rule.txt  chunk_id=153  in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+  2. score=0.7088  source=fda_fsma_food_traceability_rule.txt  chunk_id=95  Getting Started with the Food Traceability Rule
+  3. score=0.7071  source=fda_fsma_food_traceability_rule.txt  chunk_id=94  proposed to extend the compliance date for the rule by 30 months to July 20, 2028. Subsequently, the Continuing Appropriations, Agriculture,
+  context after filtering: [153, 95, 94]
+[tokens] turn=20 input=283 output=68 total=351
+[Q2 C k=3] The Food Safety Modernization Act was signed into law on January 4, 2011 [Source 3]. The original compliance date of the Food Traceability Rule was July 20, 2026, but it was extended to July 20, 2028 [Source 3].
+
+--- Q2 config C k=5: top-5 retrieved chunks ---
+  1. score=0.7282  source=fda_fsma_food_traceability_rule.txt  chunk_id=153  in § 1.1315 of the Food Traceability Rule and reflect the current practices specific to the covered entity.
+  2. score=0.7088  source=fda_fsma_food_traceability_rule.txt  chunk_id=95  Getting Started with the Food Traceability Rule
+  3. score=0.7071  source=fda_fsma_food_traceability_rule.txt  chunk_id=94  proposed to extend the compliance date for the rule by 30 months to July 20, 2028. Subsequently, the Continuing Appropriations, Agriculture,
+  4. score=0.7028  source=fda_fsma_food_traceability_rule.txt  chunk_id=93  Compliance Date Because the Food Traceability Final Rule requires entities to share information with other entities in their supply chain, t
+  5. score=0.6987  source=fda_fsma_food_traceability_rule.txt  chunk_id=169  The Reagan-Udall Foundation held a virtual public meeting to hear insights on the Food Traceability Rule from both FDA leadership and other 
+  context after filtering: [153, 95, 94, 93, 169]
+[tokens] turn=21 input=478 output=52 total=530
+[Q2 C k=5] The Food Safety Modernization Act was signed into law on January 4, 2011 [Source 3]. The original compliance date of the Food Traceability Rule was January 20, 2026 [Source 4].
+
+wrote rag_comparison.md, rag_k_sweep.md, rag_evaluation.md
+
+[exited with code 0]
+

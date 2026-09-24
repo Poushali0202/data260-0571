@@ -4,3 +4,5 @@ __pycache__/
 ecs-task-definition.rendered.json
 ecs-trust.json
 corpus_warmup/
+.env
+node_modules/

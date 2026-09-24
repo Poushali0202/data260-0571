@@ -6,3 +6,6 @@ verify-hw02:
 
 verify-hw03:
 	python verify_hw03.py
+
+verify-hw04:
+	python verify_hw04.py

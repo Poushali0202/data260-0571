@@ -16,3 +16,8 @@ pyyaml==6.0.3
 requests==2.33.1
 beautifulsoup4==4.14.3
 lxml==6.1.0
+sqlalchemy==2.0.52
+pymysql==2.2.8
+cryptography==46.0.7
+python-dotenv==1.2.2
+langchain-text-splitters==1.1.2
