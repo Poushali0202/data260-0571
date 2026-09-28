@@ -40,7 +40,9 @@ data260-0571/
         screenshots/
 ```
 
-![Project folder structure](screenshots/project-structure.png)
+![Project folder structure, root and backend folders](screenshots/project-structure.png)
+
+![Project folder structure, frontend and reports](screenshots/project-structure-2.png)
 
 ## Part 1: React client
 
@@ -165,9 +167,7 @@ Home page while logged out ("Login required", no Add button):
 
 ![Home page logged out](screenshots/react-home-logged-out.png)
 
-The cookie set by the login as seen in the browser (DevTools, Application, Cookies): only the opaque token, flagged HttpOnly:
-
-![Session cookie in DevTools](screenshots/react-cookie-devtools.png)
+The cookie set by the login holds only the opaque token and is flagged HttpOnly: the browser context used for these screenshots reports `session_id` with `httpOnly=True` and `sameSite=Lax`, and the curl transcript in Part 2 shows the same `Set-Cookie` header next to the matching row of the `sessions` table.
 
 ### I. Home page (Home.jsx, route /)
 
@@ -451,9 +451,11 @@ class UserSession(Base):
     user = relationship("User", lazy="joined")
 ```
 
-Database in MySQL Workbench (schema `s0571_rel`, the four tables, 5,000 notices, 200 lots, 2 users):
+Database `s0571_rel` seen through the mysql client: the four tables with their columns, then the row counts, sample rows, the two users and the sessions table. Postman and Workbench are not installed on this laptop, so the client screenshots in this report come from the mysql command line and from the API client built into FastAPI (Swagger UI at `/docs`).
 
-![Database in MySQL Workbench](screenshots/workbench-database.png)
+![Database schema](screenshots/database-schema.png)
+
+![Database rows](screenshots/database-rows.png)
 
 ```
 $ mysql ... -e "SHOW TABLES; SELECT COUNT(*) AS notices FROM grocery_notices; SELECT COUNT(*) AS lots FROM notice_lots; SELECT COUNT(*) AS users FROM users; ..."
@@ -608,29 +610,34 @@ def delete_notice(notice_id: int, db: Session = Depends(get_db)):
     db.commit()
 ```
 
-| Operation | Method and path | Postman screenshot |
+The requests below were sent from the API client built into FastAPI (Swagger UI at `http://localhost:8571/docs`), which keeps the session cookie between calls the way Postman does. Each screenshot shows the request, its curl equivalent, the status code and the response body.
+
+| Operation | Method and path | Screenshot |
 |---|---|---|
-| Log in (sets the cookie) | `POST /auth/login` | `postman-login.png` |
-| Add a new record | `POST /api/notices` | `postman-create.png` |
-| View all records | `GET /api/notices` | `postman-list.png` |
-| View a record by id | `GET /api/notices/{id}` | `postman-get-by-id.png` |
-| Update record details | `PUT /api/notices/{id}` | `postman-update.png` |
-| Delete a record | `DELETE /api/notices/{id}` | `postman-delete.png` |
-| Without the cookie | `GET /api/notices` | `postman-unauthorized.png` |
+| Without the cookie | `GET /api/notices` | `api-unauthorized.png` (401) |
+| Log in (sets the cookie) | `POST /auth/login` | `api-login.png` |
+| Add a new record | `POST /api/notices` | `api-create.png` (201) |
+| View a record by id | `GET /api/notices/{id}` | `api-get-by-id.png` |
+| Update record details | `PUT /api/notices/{id}` | `api-update.png` |
+| Delete a record | `DELETE /api/notices/{id}` | `api-delete.png` (204) |
+| View all records | `GET /api/notices` | `api-list.png` |
+| Log out | `POST /auth/logout` | `api-logout.png` |
 
-![Postman: login](screenshots/postman-login.png)
+![API client: 401 without cookie](screenshots/api-unauthorized.png)
 
-![Postman: create](screenshots/postman-create.png)
+![API client: login](screenshots/api-login.png)
 
-![Postman: list all](screenshots/postman-list.png)
+![API client: create](screenshots/api-create.png)
 
-![Postman: get by id](screenshots/postman-get-by-id.png)
+![API client: get by id](screenshots/api-get-by-id.png)
 
-![Postman: update](screenshots/postman-update.png)
+![API client: update](screenshots/api-update.png)
 
-![Postman: delete](screenshots/postman-delete.png)
+![API client: delete](screenshots/api-delete.png)
 
-![Postman: 401 without cookie](screenshots/postman-unauthorized.png)
+![API client: list all](screenshots/api-list.png)
+
+![API client: logout](screenshots/api-logout.png)
 
 The same round trip recorded with curl (`RUN_LOG.txt`):
 
@@ -653,7 +660,11 @@ HTTP/1.1 404 Not Found
 {"detail":"Notice not found"}
 ```
 
-![Terminal: curl checks](screenshots/terminal-curl-checks.png)
+![Terminal: curl checks 1](screenshots/terminal-curl-checks.png)
+
+![Terminal: curl checks 2](screenshots/terminal-curl-checks-2.png)
+
+![Terminal: curl checks 3](screenshots/terminal-curl-checks-3.png)
 
 ## Part 3: N+1 measurement and query tuning
 
@@ -763,6 +774,8 @@ SELECT grocery_notices  2
 SELECT notice_lots.id   10
 SELECT notice_lots.not  1
 ```
+
+![Terminal: general log check](screenshots/terminal-general-log.png)
 
 ### 4, 5 and 6. Measurements
 
@@ -887,27 +900,27 @@ $ mysql ... -e "EXPLAIN ANALYZE ..."
 
 What changed: before the index there was no `possible_keys` entry for the `WHERE` column, so MySQL scanned the whole table (`type=index` over PRIMARY, 5,158 estimated rows, 5,000 actually read) and applied the filter to every row (`Using where`, `filtered=10.00`), keeping 183. After the index the access type is `ref` with `ref=const`: the optimizer looks up `'FDA recall bulletin'` in the B-tree and reads only the 183 matching entries, the row estimate equals the real count, `filtered` is 100 percent, and the `Using where` step is gone. `EXPLAIN ANALYZE` shows the cost estimate dropping from 522 to 37 and the actual time from 2.16 ms to 0.59 ms. `key_len=802` is the 200-character `utf8mb4` column (4 bytes per character plus 2 length bytes). The `ORDER BY id` needs no filesort in either plan: the primary-key scan is already in id order, and an InnoDB secondary index stores the primary key with every entry, so the entries for one source also come out in id order.
 
-### 9. Both versions of the endpoint in Postman at each page size
+### 9. Both versions of the endpoint in the API client at each page size
 
 Each response shows `version`, `page_size`, `sql_queries` and the notices with their `lots`.
 
 | Page size | Naive | Fixed |
 |---|---|---|
-| 10 | `postman-naive-10.png` (`sql_queries: 11`) | `postman-fixed-10.png` (`sql_queries: 2`) |
-| 50 | `postman-naive-50.png` (`sql_queries: 51`) | `postman-fixed-50.png` (`sql_queries: 2`) |
-| 200 | `postman-naive-200.png` (`sql_queries: 201`) | `postman-fixed-200.png` (`sql_queries: 2`) |
+| 10 | `api-naive-10.png` (`sql_queries: 11`) | `api-fixed-10.png` (`sql_queries: 2`) |
+| 50 | `api-naive-50.png` (`sql_queries: 51`) | `api-fixed-50.png` (`sql_queries: 2`) |
+| 200 | `api-naive-200.png` (`sql_queries: 201`) | `api-fixed-200.png` (`sql_queries: 2`) |
 
-![Postman: naive, page size 10](screenshots/postman-naive-10.png)
+![API client: naive, page size 10](screenshots/api-naive-10.png)
 
-![Postman: fixed, page size 10](screenshots/postman-fixed-10.png)
+![API client: fixed, page size 10](screenshots/api-fixed-10.png)
 
-![Postman: naive, page size 50](screenshots/postman-naive-50.png)
+![API client: naive, page size 50](screenshots/api-naive-50.png)
 
-![Postman: fixed, page size 50](screenshots/postman-fixed-50.png)
+![API client: fixed, page size 50](screenshots/api-fixed-50.png)
 
-![Postman: naive, page size 200](screenshots/postman-naive-200.png)
+![API client: naive, page size 200](screenshots/api-naive-200.png)
 
-![Postman: fixed, page size 200](screenshots/postman-fixed-200.png)
+![API client: fixed, page size 200](screenshots/api-fixed-200.png)
 
 The same two responses from curl at page size 10 (`RUN_LOG.txt`):
 
