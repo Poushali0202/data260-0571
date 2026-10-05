@@ -130,7 +130,66 @@ def delete_supplier(supplier_id: int, db: Session = Depends(get_db)):
     db.commit()
 ```
 
-Every action tested, with the status code and body returned (full transcript in `RUN_LOG.txt`). Postman is not installed on this laptop, so the requests were sent with curl against the running server; the same requests can be replayed in Postman from the paths above.
+Every action was tested twice: with curl (transcript below and in `RUN_LOG.txt`) and in the API client built into FastAPI (Swagger UI at `http://localhost:8571/docs`, which keeps the session cookie between calls the way Postman does; Postman itself is not installed on this laptop). Each client screenshot shows the request body or parameters, the curl equivalent, the status code and the response body.
+
+| Action | Method and path | Status | Screenshot |
+|---|---|---|---|
+| Log in (sets the cookie) | `POST /auth/login` | 200 | `api-login.png` |
+| Add a supplier | `POST /api/suppliers` | 201 | `api-supplier-create.png` |
+| Duplicate supplier email | `POST /api/suppliers` | 409 | `api-supplier-duplicate-409.png` |
+| Bad email format | `POST /api/suppliers` | 422 | `api-supplier-bad-email-422.png` |
+| List suppliers, page 1 of size 3 | `GET /api/suppliers` | 200 | `api-supplier-list.png` |
+| Get one supplier | `GET /api/suppliers/{id}` | 200 | `api-supplier-get.png` |
+| Unknown supplier | `GET /api/suppliers/999` | 404 | `api-supplier-not-found-404.png` |
+| Update a supplier | `PUT /api/suppliers/{id}` | 200 | `api-supplier-update.png` |
+| Add a notice for that supplier | `POST /api/notices` | 201 | `api-notice-create.png` |
+| Bad notice code format | `POST /api/notices` | 422 | `api-notice-bad-code-422.png` |
+| Unknown supplierId | `POST /api/notices` | 409 | `api-notice-unknown-supplier-409.png` |
+| List notices, page 1 of size 3 | `GET /api/notices` | 200 | `api-notice-list.png` |
+| Get one notice | `GET /api/notices/{id}` | 200 | `api-notice-get.png` |
+| Update a notice | `PUT /api/notices/{id}` | 200 | `api-notice-update.png` |
+| Notices of one supplier (relationship query) | `GET /api/suppliers/{id}/notices` | 200 | `api-supplier-notices.png` |
+| Delete a supplier that still has a notice | `DELETE /api/suppliers/{id}` | 409 | `api-supplier-delete-409.png` |
+| Delete the notice | `DELETE /api/notices/{id}` | 204 | `api-notice-delete.png` |
+| Delete the supplier | `DELETE /api/suppliers/{id}` | 204 | `api-supplier-delete.png` |
+
+![API client: log in](screenshots/api-login.png)
+
+![API client: add a supplier (201)](screenshots/api-supplier-create.png)
+
+![API client: duplicate email (409)](screenshots/api-supplier-duplicate-409.png)
+
+![API client: bad email format (422)](screenshots/api-supplier-bad-email-422.png)
+
+![API client: list suppliers with pagination](screenshots/api-supplier-list.png)
+
+![API client: get one supplier](screenshots/api-supplier-get.png)
+
+![API client: unknown supplier (404)](screenshots/api-supplier-not-found-404.png)
+
+![API client: update a supplier](screenshots/api-supplier-update.png)
+
+![API client: add a notice (201)](screenshots/api-notice-create.png)
+
+![API client: bad notice code (422)](screenshots/api-notice-bad-code-422.png)
+
+![API client: unknown supplierId (409)](screenshots/api-notice-unknown-supplier-409.png)
+
+![API client: list notices with pagination](screenshots/api-notice-list.png)
+
+![API client: get one notice](screenshots/api-notice-get.png)
+
+![API client: update a notice](screenshots/api-notice-update.png)
+
+![API client: notices of one supplier](screenshots/api-supplier-notices.png)
+
+![API client: delete a supplier that still has a notice (409)](screenshots/api-supplier-delete-409.png)
+
+![API client: delete the notice (204)](screenshots/api-notice-delete.png)
+
+![API client: delete the supplier (204)](screenshots/api-supplier-delete.png)
+
+The curl transcript of the same actions:
 
 ```
 $ date
@@ -179,7 +238,7 @@ $ date
 2026-10-05T14:35:53-07:00
 ```
 
-![API client: supplier and notice actions](screenshots/api-actions.png)
+![Terminal: curl transcript of the API actions](screenshots/api-actions.png)
 
 ## Part 1: Redux client
 
@@ -280,7 +339,7 @@ def meal_details(id: str | int) -> dict:
     return details(meals[0])
 ```
 
-Run with `mcp dev meals_server.py` (Inspector in the browser) and with the Inspector CLI, whose outputs are saved in `raw/inspector/`:
+Run with `mcp dev meals_server.py` (Inspector 2.9.0 in the browser; each screenshot shows the filled tool form above and the returned result below) and with the Inspector CLI, whose JSON outputs are saved in `raw/inspector/`:
 
 `search_meals_by_name(query="Arrabiata", limit=3)`:
 
@@ -433,7 +492,7 @@ def search_notices_tool(query: str, limit: int = 5) -> dict:
     return search_notices({"query": query, "limit": limit}, store)
 ```
 
-Inspector results (`raw/inspector/domain_*.json`), one successful and one intentionally invalid call per tool:
+Run with `npx @modelcontextprotocol/inspector python domain_server.py`. Inspector results (`raw/inspector/domain_*.json`), one successful and one intentionally invalid call per tool, each screenshot with the input form above and the result below:
 
 `search_notices_tool(query="spinach", limit=3)`:
 
@@ -484,7 +543,9 @@ Inspector results (`raw/inspector/domain_*.json`), one successful and one intent
 }
 ```
 
-![Inspector: search_notices_tool valid and invalid](screenshots/inspector-domain-search.png)
+![Inspector: search_notices_tool, successful call](screenshots/inspector-domain-search-valid.png)
+
+![Inspector: search_notices_tool, rejected call](screenshots/inspector-domain-search-invalid.png)
 
 `notice_detail_tool(notice_id=4990)`:
 
@@ -515,7 +576,9 @@ Inspector results (`raw/inspector/domain_*.json`), one successful and one intent
 }
 ```
 
-![Inspector: notice_detail_tool valid and invalid](screenshots/inspector-domain-detail.png)
+![Inspector: notice_detail_tool, successful call](screenshots/inspector-domain-detail-valid.png)
+
+![Inspector: notice_detail_tool, rejected call](screenshots/inspector-domain-detail-invalid.png)
 
 `supplier_summary_tool(supplier_id=3)`:
 
@@ -543,7 +606,9 @@ Inspector results (`raw/inspector/domain_*.json`), one successful and one intent
 }
 ```
 
-![Inspector: supplier_summary_tool valid and invalid](screenshots/inspector-domain-summary.png)
+![Inspector: supplier_summary_tool, successful call](screenshots/inspector-domain-summary-valid.png)
+
+![Inspector: supplier_summary_tool, rejected call](screenshots/inspector-domain-summary-invalid.png)
 
 ## Part 3: Tool contracts under stress
 
