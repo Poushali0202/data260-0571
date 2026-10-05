@@ -1,0 +1,131 @@
+{
+  "tools": [
+    {
+      "name": "search_meals_by_name",
+      "description": "Search meals by name. Returns up to limit (1 to 25) meals with id, name, area, category and thumb.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "title": "Query",
+            "type": "string"
+          },
+          "limit": {
+            "default": 5,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "search_meals_by_nameArguments"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              }
+            ],
+            "title": "Result"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "title": "search_meals_by_nameOutput"
+      }
+    },
+    {
+      "name": "meals_by_ingredient",
+      "description": "Meals whose main ingredient matches. Returns small cards with id, name and thumb.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ingredient": {
+            "title": "Ingredient",
+            "type": "string"
+          },
+          "limit": {
+            "default": 12,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "ingredient"
+        ],
+        "title": "meals_by_ingredientArguments"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              }
+            ],
+            "title": "Result"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "title": "meals_by_ingredientOutput"
+      }
+    },
+    {
+      "name": "random_meal",
+      "description": "One random meal with its full recipe details.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "title": "random_mealArguments"
+      }
+    },
+    {
+      "name": "meal_details",
+      "description": "Full recipe details for one meal id: category, area, instructions, image, source, youtube and ingredients.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Id"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "meal_detailsArguments"
+      }
+    }
+  ]
+}

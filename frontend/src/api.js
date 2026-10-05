@@ -19,26 +19,9 @@ export async function me() {
   return res.data;
 }
 
-export async function fetchNotices() {
-  const res = await api.get("/api/notices");
+export async function fetchSuppliers() {
+  const res = await api.get("/api/suppliers", { params: { page_size: 200 } });
   return res.data;
 }
 
-export async function fetchNotice(id) {
-  const res = await api.get(`/api/notices/${id}`);
-  return res.data;
-}
-
-export async function createNotice(data) {
-  const res = await api.post("/api/notices", data);
-  return res.data;
-}
-
-export async function updateNotice(id, data) {
-  const res = await api.put(`/api/notices/${id}`, data);
-  return res.data;
-}
-
-export async function deleteNotice(id) {
-  await api.delete(`/api/notices/${id}`);
-}
+export default api;

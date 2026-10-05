@@ -156,3 +156,30 @@ python verify_hw04.py
 ```
 
 Full run instructions, results, and the report are in `reports/hw04/`.
+
+## Homework 5
+
+HW5 adds the `suppliers` table and the supplier fields on `grocery_notices` (`models.py`,
+`schemas.py`, `routers/suppliers.py`, `routers/notices.py`, `migrations/hw05_schema.sql`), moves
+the React data layer to Redux Toolkit (`frontend/src/store.js`,
+`frontend/src/features/notices/noticesSlice.js`), the two MCP servers (`meals_server.py`,
+`domain_server.py`), the shared tool layer with retry policy and safety rule (`retry.py`,
+`domain_tools.py`), the offline tests (`test_tools.py`), the Ollama agent loop (`agent.py`,
+`run_agent_scenarios.py`), the fault-injection experiment (`run_fault_injection.py`,
+`retry_demo.py`) and a smoke test (`verify_hw05.py`).
+
+```powershell
+python -m pip install -r requirements.txt
+python seed_data.py
+python app.py
+cd frontend; npm install; npm run dev
+mcp dev meals_server.py
+npx @modelcontextprotocol/inspector python domain_server.py
+python test_tools.py
+python retry_demo.py
+python run_fault_injection.py
+python run_agent_scenarios.py
+python verify_hw05.py
+```
+
+Full run instructions, results, and the report are in `reports/hw05/`.

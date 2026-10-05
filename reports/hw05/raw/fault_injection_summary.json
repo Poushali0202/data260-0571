@@ -1,0 +1,29 @@
+{
+  "verify_seed": 260571,
+  "results": [
+    {
+      "failure_rate": 0.0,
+      "calls": 50,
+      "successes": 50,
+      "success_rate": 1.0,
+      "mean_latency_ms": 41.61,
+      "p99_latency_ms": 265.24
+    },
+    {
+      "failure_rate": 0.2,
+      "calls": 50,
+      "successes": 50,
+      "success_rate": 1.0,
+      "mean_latency_ms": 83.5,
+      "p99_latency_ms": 624.27
+    },
+    {
+      "failure_rate": 0.5,
+      "calls": 50,
+      "successes": 39,
+      "success_rate": 0.78,
+      "mean_latency_ms": 330.68,
+      "p99_latency_ms": 664.21
+    }
+  ]
+}

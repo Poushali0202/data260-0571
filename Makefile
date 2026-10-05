@@ -9,3 +9,9 @@ verify-hw03:
 
 verify-hw04:
 	python verify_hw04.py
+
+verify-hw05:
+	python verify_hw05.py
+
+test-tools:
+	python test_tools.py

@@ -1,45 +1,44 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { fetchNotice } from "../api.js";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import NoticeForm from "./NoticeForm.jsx";
+import api from "../api.js";
+import { updateNotice } from "../features/notices/noticesSlice.js";
 
-export default function UpdateRecord({ user, onUpdate }) {
+export default function UpdateRecord({ user }) {
   const { id } = useParams();
   const noticeId = Number(id);
-  const [productName, setProductName] = useState("");
-  const [noticeSource, setNoticeSource] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const error = useSelector((state) => state.notices.error);
+  const inStore = useSelector((state) => state.notices.items.find((n) => n.id === noticeId));
+  const [initial, setInitial] = useState(inStore || null);
 
   useEffect(() => {
-    if (user) {
-      fetchNotice(noticeId).then((notice) => {
-        setProductName(notice.productName);
-        setNoticeSource(notice.noticeSource);
-      });
+    if (user && !inStore) {
+      api.get(`/api/notices/${noticeId}`).then((res) => setInitial(res.data)).catch(() => setInitial(null));
     }
-  }, [user, noticeId]);
+  }, [user, inStore, noticeId]);
 
   if (!user) {
     return <p className="notice">Login required</p>;
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    onUpdate(noticeId, { productName, noticeSource });
+  async function handleSubmit(data) {
+    const result = await dispatch(updateNotice({ id: noticeId, data }));
+    if (updateNotice.fulfilled.match(result)) {
+      navigate("/");
+    }
   }
 
   return (
     <div className="card">
       <h2>Update notice {noticeId}</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Product name
-          <input value={productName} onChange={(e) => setProductName(e.target.value)} required />
-        </label>
-        <label>
-          Source or manufacturer
-          <input value={noticeSource} onChange={(e) => setNoticeSource(e.target.value)} required />
-        </label>
-        <button type="submit">Update notice</button>
-      </form>
+      {initial ? (
+        <NoticeForm initial={initial} onSubmit={handleSubmit} submitLabel="Update notice" error={error} />
+      ) : (
+        <p className="notice">Notice not found.</p>
+      )}
     </div>
   );
 }

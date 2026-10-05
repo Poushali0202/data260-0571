@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.engine import make_url
 
 from database import DATABASE_URL, Base, db_session_basede26, engine
-from models import GroceryNotice, NoticeLot, User
+from models import GroceryNotice, NoticeLot, Supplier, User
 from routers.auth import hash_password
 
 SEED = 571
@@ -25,11 +25,17 @@ PRODUCTS = [
 ]
 SIZES = ["5 oz", "8 oz", "12 oz", "1 lb", "2 lb", "1 gallon", "6 pack", "family pack"]
 SOURCES = [
-    "FDA recall bulletin", "USDA FSIS notice", "CDC outbreak notice", "CFIA advisory", "Acme Foods",
-    "Dairy Fresh Co-op", "Green Valley Farms", "Pacific Seafood Supply", "Sunrise Bakery", "Harvest Fresh Produce",
-    "Blue Ridge Creamery", "Golden State Growers", "Northern Meats", "Riverbend Foods", "Maple Leaf Foods",
-    "Natural Selection Foods", "Abbott Nutrition", "Peanut Corporation of America", "Bay Area Grocers",
-    "Mission Organics", "Summit Frozen Foods", "Coastal Distributors", "Prairie Grain Mills", "Evergreen Market",
+    "FDA recall bulletin", "USDA FSIS notice", "CDC outbreak notice", "CFIA advisory",
+    "State health department", "Retailer recall page", "Supplier press release", "Consumer complaint",
+]
+SUPPLIERS = [
+    ("Acme Foods", "Ohio"), ("Dairy Fresh Co-op", "Wisconsin"), ("Green Valley Farms", "California"),
+    ("Pacific Seafood Supply", "Washington"), ("Sunrise Bakery", "Oregon"), ("Harvest Fresh Produce", "Arizona"),
+    ("Blue Ridge Creamery", "Virginia"), ("Golden State Growers", "California"), ("Northern Meats", "Minnesota"),
+    ("Riverbend Foods", "Iowa"), ("Maple Leaf Foods", "Ontario"), ("Natural Selection Foods", "California"),
+    ("Abbott Nutrition", "Michigan"), ("Bay Area Grocers", "California"), ("Mission Organics", "Texas"),
+    ("Summit Frozen Foods", "Colorado"), ("Coastal Distributors", "Florida"), ("Prairie Grain Mills", "Kansas"),
+    ("Evergreen Market", "Washington"), ("Peanut Corporation of America", "Georgia"),
 ]
 
 
@@ -49,10 +55,23 @@ def main():
 
     db = db_session_basede26()
     db.add_all([User(name=name, email=email, password_hash=hash_password(password)) for name, email, password in USERS])
+    suppliers = []
+    for name, region in SUPPLIERS:
+        email = name.lower().replace(" ", ".") + "@example.com"
+        suppliers.append(Supplier(name=name, region=region, email=email))
+    db.add_all(suppliers)
+    db.commit()
+
     notices = []
-    for _ in range(NOTICE_COUNT):
+    for i in range(1, NOTICE_COUNT + 1):
         product = f"{random.choice(FORMS)} {random.choice(PRODUCTS)} {random.choice(SIZES)}"
-        notices.append(GroceryNotice(productName=product, noticeSource=random.choice(SOURCES)))
+        notices.append(GroceryNotice(
+            productName=product,
+            noticeCode=f"RN-{i:06d}",
+            noticeSource=random.choice(SOURCES),
+            affectedUnits=random.choice([0, 0, random.randint(10, 5000)]),
+            supplierId=random.randint(1, len(SUPPLIERS)),
+        ))
     db.add_all(notices)
     db.commit()
 
@@ -66,7 +85,8 @@ def main():
     db.add_all(lots)
     db.commit()
 
-    print(f"seed {SEED}: {db.query(User).count()} users, {db.query(GroceryNotice).count()} notices, {db.query(NoticeLot).count()} lots")
+    print(f"seed {SEED}: {db.query(User).count()} users, {db.query(Supplier).count()} suppliers, "
+          f"{db.query(GroceryNotice).count()} notices, {db.query(NoticeLot).count()} lots")
     db.close()
 
 

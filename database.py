@@ -11,7 +11,8 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     raise RuntimeError("DATABASE_URL is missing. Copy .env.example to .env and fill in the MySQL password.")
 
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+TIMEOUTS = {"connect_timeout": 5, "read_timeout": 5, "write_timeout": 5}
+engine = create_engine(DATABASE_URL, pool_pre_ping=True, connect_args=TIMEOUTS)
 db_session_basede26 = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
 Base = declarative_base()
 

@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"ok\": true,\n  \"data\": {\n    \"query\": \"spinach\",\n    \"count\": 3,\n    \"notices\": [\n      {\n        \"id\": 4983,\n        \"productName\": \"Canned baby spinach 8 oz\",\n        \"noticeCode\": \"RN-004983\",\n        \"noticeSource\": \"State health department\",\n        \"affectedUnits\": 1012,\n        \"supplierId\": 15\n      },\n      {\n        \"id\": 4960,\n        \"productName\": \"Canned baby spinach 1 lb\",\n        \"noticeCode\": \"RN-004960\",\n        \"noticeSource\": \"Supplier press release\",\n        \"affectedUnits\": 4040,\n        \"supplierId\": 2\n      },\n      {\n        \"id\": 4870,\n        \"productName\": \"Canned baby spinach 1 gallon\",\n        \"noticeCode\": \"RN-004870\",\n        \"noticeSource\": \"Supplier press release\",\n        \"affectedUnits\": 0,\n        \"supplierId\": 12\n      }\n    ]\n  },\n  \"error\": null\n}"
+    }
+  ],
+  "isError": false
+}

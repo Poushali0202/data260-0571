@@ -1,0 +1,60 @@
+{
+  "tools": [
+    {
+      "name": "search_notices_tool",
+      "description": "Search grocery recall notices in s0571_rel by product name or notice source. Returns {ok, data, error}.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "title": "Query",
+            "type": "string"
+          },
+          "limit": {
+            "default": 5,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "search_notices_toolArguments"
+      }
+    },
+    {
+      "name": "notice_detail_tool",
+      "description": "Look up one recall notice by id with its supplier. Returns {ok, data, error}.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "notice_id": {
+            "title": "Notice Id",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "notice_id"
+        ],
+        "title": "notice_detail_toolArguments"
+      }
+    },
+    {
+      "name": "supplier_summary_tool",
+      "description": "Aggregate for one supplier: notice count and total affected units. Returns {ok, data, error}.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "supplier_id": {
+            "title": "Supplier Id",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "supplier_id"
+        ],
+        "title": "supplier_summary_toolArguments"
+      }
+    }
+  ]
+}

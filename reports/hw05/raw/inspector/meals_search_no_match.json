@@ -1,0 +1,15 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"results\": [],\n  \"message\": \"no matches for name 'zzzzqqq'\"\n}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "results": [],
+      "message": "no matches for name 'zzzzqqq'"
+    }
+  },
+  "isError": false
+}

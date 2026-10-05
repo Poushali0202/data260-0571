@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"ok\": false,\n  \"data\": null,\n  \"error\": \"notice 999999 not found\"\n}"
+    }
+  ],
+  "isError": false
+}

@@ -1,9 +1,10 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session, selectinload
 
 from database import get_db, queries_so_far, start_counting
-from models import GroceryNotice
+from models import GroceryNotice, Supplier
 from routers.auth import require_login
+from routers.suppliers import commit_or_409
 from schemas import NoticeIn, NoticeOut, NoticePage, NoticeWithLots
 
 router = APIRouter(prefix="/api/notices", dependencies=[Depends(require_login)])
@@ -16,13 +17,18 @@ def find_notice(db: Session, notice_id: int) -> GroceryNotice:
     return notice
 
 
+def check_supplier(db: Session, supplier_id: int):
+    if db.get(Supplier, supplier_id) is None:
+        raise HTTPException(status_code=409, detail=f"supplierId {supplier_id} does not exist")
+
+
 @router.get("", response_model=list[NoticeOut])
-def list_notices(q: str = "", db: Session = Depends(get_db)):
+def list_notices(q: str = "", page: int = Query(1, ge=1), page_size: int = Query(20, ge=1, le=200), db: Session = Depends(get_db)):
     query = db.query(GroceryNotice)
     if q.strip():
         term = q.strip()
         query = query.filter(GroceryNotice.productName.contains(term) | GroceryNotice.noticeSource.contains(term))
-    return query.order_by(GroceryNotice.id).all()
+    return query.order_by(GroceryNotice.id.desc()).offset((page - 1) * page_size).limit(page_size).all()
 
 
 @router.get("/naive", response_model=NoticePage)
@@ -54,9 +60,10 @@ def get_notice(notice_id: int, db: Session = Depends(get_db)):
 
 @router.post("", response_model=NoticeOut, status_code=201)
 def create_notice(data: NoticeIn, db: Session = Depends(get_db)):
+    check_supplier(db, data.supplierId)
     notice = GroceryNotice(**data.model_dump())
     db.add(notice)
-    db.commit()
+    commit_or_409(db, "A notice with this noticeCode already exists")
     db.refresh(notice)
     return notice
 
@@ -64,9 +71,10 @@ def create_notice(data: NoticeIn, db: Session = Depends(get_db)):
 @router.put("/{notice_id}", response_model=NoticeOut)
 def update_notice(notice_id: int, data: NoticeIn, db: Session = Depends(get_db)):
     notice = find_notice(db, notice_id)
-    notice.productName = data.productName
-    notice.noticeSource = data.noticeSource
-    db.commit()
+    check_supplier(db, data.supplierId)
+    for field, value in data.model_dump().items():
+        setattr(notice, field, value)
+    commit_or_409(db, "A notice with this noticeCode already exists")
     db.refresh(notice)
     return notice
 

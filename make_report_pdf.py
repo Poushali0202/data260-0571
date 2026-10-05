@@ -34,9 +34,9 @@ def main() -> None:
     report_dir = ROOT / "reports" / folder
     markdown = (report_dir / "report.md").read_text(encoding="utf-8")
     styles = getSampleStyleSheet()
-    heading = ParagraphStyle("H", parent=styles["Heading2"], spaceBefore=10, spaceAfter=6)
-    subheading = ParagraphStyle("H3", parent=styles["Heading3"], spaceBefore=8, spaceAfter=4)
-    body = ParagraphStyle("B", parent=styles["Normal"], fontSize=10, leading=13, spaceAfter=4)
+    heading = ParagraphStyle("H", parent=styles["Heading2"], fontName="Helvetica-Bold", fontSize=14, leading=17, spaceBefore=10, spaceAfter=6)
+    subheading = ParagraphStyle("H3", parent=styles["Heading3"], fontName="Helvetica-Bold", fontSize=12, leading=15, spaceBefore=8, spaceAfter=4)
+    body = ParagraphStyle("B", parent=styles["Normal"], fontSize=11, leading=14, spaceAfter=4)
     cell = ParagraphStyle("T", parent=body, fontSize=8, leading=10, spaceAfter=0)
     code = ParagraphStyle("C", parent=styles["Code"], fontSize=7.5, leading=9)
 
@@ -80,7 +80,7 @@ def main() -> None:
                 story.append(Spacer(1, 8))
             continue
         if raw.startswith("# "):
-            story.append(Paragraph(inline(raw[2:]), styles["Title"]))
+            story.append(Paragraph(inline(raw[2:]), ParagraphStyle("T0", parent=heading, fontSize=14, leading=17)))
             continue
         if raw.startswith("## "):
             story.append(Paragraph(inline(raw[3:]), heading))

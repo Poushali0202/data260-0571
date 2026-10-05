@@ -1,0 +1,45 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"id\": \"52940\",\n  \"name\": \"Brown Stew Chicken\",\n  \"thumb\": \"https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg\"\n}"
+    },
+    {
+      "type": "text",
+      "text": "{\n  \"id\": \"53161\",\n  \"name\": \"Chicken & chorizo rice pot\",\n  \"thumb\": \"https://www.themealdb.com/images/media/meals/fk80jp1763280767.jpg\"\n}"
+    },
+    {
+      "type": "text",
+      "text": "{\n  \"id\": \"52846\",\n  \"name\": \"Chicken & mushroom Hotpot\",\n  \"thumb\": \"https://www.themealdb.com/images/media/meals/uuuspp1511297945.jpg\"\n}"
+    },
+    {
+      "type": "text",
+      "text": "{\n  \"id\": \"52796\",\n  \"name\": \"Chicken Alfredo Primavera\",\n  \"thumb\": \"https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg\"\n}"
+    }
+  ],
+  "structuredContent": {
+    "result": [
+      {
+        "id": "52940",
+        "name": "Brown Stew Chicken",
+        "thumb": "https://www.themealdb.com/images/media/meals/sypxpx1515365095.jpg"
+      },
+      {
+        "id": "53161",
+        "name": "Chicken & chorizo rice pot",
+        "thumb": "https://www.themealdb.com/images/media/meals/fk80jp1763280767.jpg"
+      },
+      {
+        "id": "52846",
+        "name": "Chicken & mushroom Hotpot",
+        "thumb": "https://www.themealdb.com/images/media/meals/uuuspp1511297945.jpg"
+      },
+      {
+        "id": "52796",
+        "name": "Chicken Alfredo Primavera",
+        "thumb": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg"
+      }
+    ]
+  },
+  "isError": false
+}

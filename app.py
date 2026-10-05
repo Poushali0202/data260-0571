@@ -8,6 +8,7 @@ from fastapi.responses import FileResponse
 from database import Base, engine
 from routers.auth import router as auth_router
 from routers.notices import router as notices_router
+from routers.suppliers import router as suppliers_router
 
 PORT_BASE = 8571
 ROOT = Path(__file__).resolve().parent
@@ -22,6 +23,7 @@ app.add_middleware(
 )
 Base.metadata.create_all(bind=engine)
 app.include_router(auth_router)
+app.include_router(suppliers_router)
 app.include_router(notices_router)
 
 

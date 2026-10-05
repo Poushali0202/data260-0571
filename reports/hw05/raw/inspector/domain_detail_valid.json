@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"ok\": true,\n  \"data\": {\n    \"id\": 4990,\n    \"productName\": \"Store brand ice cream 6 pack\",\n    \"noticeCode\": \"RN-004990\",\n    \"noticeSource\": \"State health department\",\n    \"affectedUnits\": 0,\n    \"supplierId\": 18,\n    \"supplierName\": \"Prairie Grain Mills\",\n    \"createdAt\": \"2026-10-05T14:30:11\"\n  },\n  \"error\": null\n}"
+    }
+  ],
+  "isError": false
+}

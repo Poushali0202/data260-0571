@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"ok\": true,\n  \"data\": {\n    \"supplierId\": 3,\n    \"supplierName\": \"Green Valley Farms\",\n    \"region\": \"California\",\n    \"noticeCount\": 266,\n    \"totalAffectedUnits\": 214685\n  },\n  \"error\": null\n}"
+    }
+  ],
+  "isError": false
+}

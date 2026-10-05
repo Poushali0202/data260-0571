@@ -1,0 +1,262 @@
+DATA-260 HW5 run log
+Student: Poushali Purkayastha (SID4 0571, domain: grocery supply and recall notices)
+Machine: Intel Core i5-1135G7 (4 cores, 8 threads), 15.8 GB RAM, Windows 11 Home, CPU only
+Database: MySQL 8.0 in the Docker container s0571-mysql (port 3307), database s0571_rel
+Model: qwen3:8b through Ollama (agent runs), timestamps are local time (-07:00)
+
+$ python seed_data.py
+seed 571: 2 users, 20 suppliers, 5000 notices, 200 lots (2026-10-05T14:30:11-07:00)
+
+=== Part 1: seeding and database rows (python seed_data.py, mysql client in the container), finished 2026-10-05T14:36:13 ===
+suppliers	notices
+20	5000
+id	name	region	email	created_at	updated_at
+1	Acme Foods	Ohio	acme.foods@example.com	2026-10-05 14:29:59	2026-10-05 14:29:59
+2	Dairy Fresh Co-op	Wisconsin	dairy.fresh.co-op@example.com	2026-10-05 14:29:59	2026-10-05 14:29:59
+3	Green Valley Farms	California	green.valley.farms@example.com	2026-10-05 14:29:59	2026-10-05 14:29:59
+id	product_name	notice_code	notice_source	affected_units	supplier_id	created_at
+5000	Bagged cantaloupe family pack	RN-005000	USDA FSIS notice	3293	12	2026-10-05 14:30:11
+4999	Fresh ground beef 5 oz	RN-004999	Supplier press release	0	18	2026-10-05 14:30:11
+4998	Store brand mixed berries 2 lb	RN-004998	Supplier press release	685	7	2026-10-05 14:30:11
+
+=== Part 1: API round trip with curl (server started with python app.py on 8571), finished 2026-10-05T14:35:53 ===
+$ date
+2026-10-05T14:35:36-07:00
+$ curl -s -c cookies.txt -X POST -H 'Content-Type: application/json' -d '{"email":"inspector@example.com","password":"recall2026"}' http://127.0.0.1:8571/auth/login
+{"id":1,"name":"Poushali","email":"inspector@example.com"}
+$ curl -s -b cookies.txt -w ' [%{http_code}]' -X POST -H 'Content-Type: application/json' -d '{"name":"Verify Farms","region":"Nevada","email":"verify@example.com"}' http://127.0.0.1:8571/api/suppliers
+{"name":"Verify Farms","region":"Nevada","email":"verify@example.com","id":21,"createdAt":"2026-10-05T14:35:42","updatedAt":"2026-10-05T14:35:42"} [201]
+$ (same POST again, duplicate email)
+{"detail":"A supplier with this email already exists"} [409]
+$ (bad email format)
+{"detail":[{"type":"string_pattern_mismatch","loc":["body","email"],"msg":"String should match pattern '^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$'","input":"not-an-email","ctx":{"pattern":"^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"}}]} [422]
+$ curl -s -b cookies.txt 'http://127.0.0.1:8571/api/suppliers?page=1&page_size=3'
+[{"name":"Acme Foods","region":"Ohio","email":"acme.foods@example.com","id":1,"createdAt":"2026-10-05T14:29:59","updatedAt":"2026-10-05T14:29:59"},{"name":"Dairy Fresh Co-op","region":"Wisconsin","email":"dairy.fresh.co-op@example.com","id":2,"createdAt":"2026-10-05T14:29:59","updatedAt":"2026-10-05T14:29:59"},{"name":"Green Valley Farms","region":"California","email":"green.valley.farms@example.com","id":3,"createdAt":"2026-10-05T14:29:59","updatedAt":"2026-10-05T14:29:59"}]
+$ curl -s -b cookies.txt http://127.0.0.1:8571/api/suppliers/21
+{"name":"Verify Farms","region":"Nevada","email":"verify@example.com","id":21,"createdAt":"2026-10-05T14:35:42","updatedAt":"2026-10-05T14:35:42"} [200]
+$ curl -s -b cookies.txt http://127.0.0.1:8571/api/suppliers/999
+{"detail":"Supplier not found"} [404]
+$ curl -s -b cookies.txt -X PUT ... http://127.0.0.1:8571/api/suppliers/21
+{"name":"Verify Farms Ltd","region":"Nevada","email":"verify@example.com","id":21,"createdAt":"2026-10-05T14:35:42","updatedAt":"2026-10-05T14:35:45"} [200]
+$ curl -s -b cookies.txt -X POST ... http://127.0.0.1:8571/api/notices  (notice for supplier 21)
+{"productName":"Organic baby spinach 5 oz","noticeCode":"RN-005001","noticeSource":"FDA recall bulletin","affectedUnits":250,"supplierId":21,"id":5001,"createdAt":"2026-10-05T14:35:45","updatedAt":"2026-10-05T14:35:45"} [201]
+$ (same noticeCode again)
+{"detail":"A notice with this noticeCode already exists"} [409]
+$ (bad noticeCode format)
+{"detail":[{"type":"string_pattern_mismatch","loc":["body","noticeCode"],"msg":"String should match pattern '^RN-\\d{6}$'","input":"ABC","ctx":{"pattern":"^RN-\\d{6}$"}}]} [422]
+$ (unknown supplierId)
+{"detail":"supplierId 999 does not exist"} [409]
+$ curl -s -b cookies.txt 'http://127.0.0.1:8571/api/notices?page=1&page_size=2'
+[{"productName":"Organic baby spinach 5 oz","noticeCode":"RN-005001","noticeSource":"FDA recall bulletin","affectedUnits":250,"supplierId":21,"id":5001,"createdAt":"2026-10-05T14:35:45","updatedAt":"2026-10-05T14:35:45"},{"productName":"Bagged cantaloupe family pack","noticeCode":"RN-005000","noticeSource":"USDA FSIS notice","affectedUnits":3293,"supplierId":12,"id":5000,"createdAt":"2026-10-05T14:30:11","updatedAt":"2026-10-05T14:30:11"}]
+$ curl -s -b cookies.txt http://127.0.0.1:8571/api/notices/5001
+{"productName":"Organic baby spinach 5 oz","noticeCode":"RN-005001","noticeSource":"FDA recall bulletin","affectedUnits":250,"supplierId":21,"id":5001,"createdAt":"2026-10-05T14:35:45","updatedAt":"2026-10-05T14:35:45"} [200]
+$ curl -s -b cookies.txt -X PUT ... http://127.0.0.1:8571/api/notices/5001
+{"productName":"Organic baby spinach 5 oz","noticeCode":"RN-005001","noticeSource":"FDA recall bulletin","affectedUnits":300,"supplierId":21,"id":5001,"createdAt":"2026-10-05T14:35:45","updatedAt":"2026-10-05T14:35:49"} [200]
+$ curl -s -b cookies.txt http://127.0.0.1:8571/api/suppliers/21/notices  (relationship query)
+[{"productName":"Organic baby spinach 5 oz","noticeCode":"RN-005001","noticeSource":"FDA recall bulletin","affectedUnits":300,"supplierId":21,"id":5001,"createdAt":"2026-10-05T14:35:45","updatedAt":"2026-10-05T14:35:49"}] [200]
+$ curl -s -b cookies.txt -X DELETE http://127.0.0.1:8571/api/suppliers/21  (still has a notice)
+{"detail":"Supplier still has 1 notices; delete or reassign them first"} [409]
+$ curl -s -b cookies.txt -X DELETE http://127.0.0.1:8571/api/notices/5001
+ [204]
+$ curl -s -b cookies.txt -X DELETE http://127.0.0.1:8571/api/suppliers/21
+ [204]
+$ curl -s -b cookies.txt http://127.0.0.1:8571/api/notices/5001
+{"detail":"Notice not found"} [404]
+$ date
+2026-10-05T14:35:53-07:00
+
+=== Part 2: MCP Inspector CLI calls for both servers (outputs saved in raw/inspector/), finished 2026-10-05T14:40:00 ===
+=== meals_tools_list: npx @modelcontextprotocol/inspector --cli python meals_server.py --method tools/list
+exit 0
+{
+=== meals_search_meals_by_name: npx @modelcontextprotocol/inspector --cli python meals_server.py --method tools/call --tool-name search_meals_by_name --tool-arg query=Arrabiata --tool-arg limit=3
+exit 0
+{
+=== meals_meals_by_ingredient: npx @modelcontextprotocol/inspector --cli python meals_server.py --method tools/call --tool-name meals_by_ingredient --tool-arg ingredient=chicken --tool-arg limit=4
+exit 0
+{
+=== meals_random_meal: npx @modelcontextprotocol/inspector --cli python meals_server.py --method tools/call --tool-name random_meal
+exit 4
+=== meals_meal_details: npx @modelcontextprotocol/inspector --cli python meals_server.py --method tools/call --tool-name meal_details --tool-arg id=52771
+exit 0
+{
+=== meals_search_no_match: npx @modelcontextprotocol/inspector --cli python meals_server.py --method tools/call --tool-name search_meals_by_name --tool-arg query=zzzzqqq
+exit 0
+{
+=== domain_tools_list: npx @modelcontextprotocol/inspector --cli python domain_server.py --method tools/list
+exit 0
+{
+=== domain_search_valid: npx @modelcontextprotocol/inspector --cli python domain_server.py --method tools/call --tool-name search_notices_tool --tool-arg query=spinach --tool-arg limit=3
+exit 0
+{
+=== domain_search_invalid: npx @modelcontextprotocol/inspector --cli python domain_server.py --method tools/call --tool-name search_notices_tool --tool-arg query=    --tool-arg limit=5
+exit 0
+{
+=== domain_detail_valid: npx @modelcontextprotocol/inspector --cli python domain_server.py --method tools/call --tool-name notice_detail_tool --tool-arg notice_id=4990
+exit 0
+{
+=== domain_detail_invalid: npx @modelcontextprotocol/inspector --cli python domain_server.py --method tools/call --tool-name notice_detail_tool --tool-arg notice_id=999999
+exit 0
+{
+=== domain_summary_valid: npx @modelcontextprotocol/inspector --cli python domain_server.py --method tools/call --tool-name supplier_summary_tool --tool-arg supplier_id=3
+exit 0
+{
+=== domain_summary_invalid: npx @modelcontextprotocol/inspector --cli python domain_server.py --method tools/call --tool-name supplier_summary_tool --tool-arg supplier_id=0
+
+=== Part 3: retry policy demonstration (python retry_demo.py), finished 2026-10-05T14:33:12 ===
+INFO retry: attempt 1/3 succeeded
+WARNING retry: attempt 1/3 failed: simulated connection reset; retrying in 0.2 s
+INFO retry: attempt 2/3 succeeded
+WARNING retry: attempt 1/3 failed: simulated connection reset; retrying in 0.2 s
+WARNING retry: attempt 2/3 failed: simulated connection reset; retrying in 0.4 s
+ERROR retry: attempt 3/3 failed: simulated connection reset; giving up
+
+=== success on first attempt (pattern S) ===
+result: row fetched
+
+=== failure then success (pattern FS) ===
+result: row fetched
+
+=== failure on all attempts (pattern FFF) ===
+clean error result: {'ok': False, 'data': None, 'error': 'storage error: simulated connection reset'}
+
+=== Part 3: fault injection, 3 rates x 50 calls (python run_fault_injection.py), finished 2026-10-05T14:33:42 ===
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 3/3 failed: injected failure; giving up
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+attempt 2/3 failed: injected failure; retrying in 0.4 s
+attempt 1/3 failed: injected failure; retrying in 0.2 s
+rate 0%: 50/50 ok, mean 41.61 ms, p99 265.24 ms, first draws S S S S S S S S S S
+rate 20%: 50/50 ok, mean 83.5 ms, p99 624.27 ms, first draws S S S FS S S FFS S FS S
+rate 50%: 39/50 ok, mean 330.68 ms, p99 664.21 ms, first draws FS FFF FFF FS FFS S FS FFF FFF FFF
+wrote 150 call records to C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw05\raw\fault_injection_calls.csv
+
+=== Part 4: offline test runner (python test_tools.py), finished 2026-10-05T14:32:12 ===
+PASS test_search_valid
+PASS test_search_blank_query_rejected
+PASS test_search_limit_out_of_range_rejected
+PASS test_detail_valid
+PASS test_detail_unknown_id_rejected
+PASS test_summary_valid
+PASS test_summary_zero_id_rejected
+PASS test_unknown_tool_rejected
+PASS test_safety_rule_blocks_medication_search
+PASS test_agent_stops_at_max_steps
+10/10 tests passed
+
+=== Part 5: safety rule, allowed and blocked calls through execute_tool, finished 2026-10-05T14:32:12 ===
+{"ok": true, "data": {"query": "spinach", "count": 2, "notices": [{"id": 4983, "productName": "Canned baby spinach 8 oz", "noticeCode": "RN-004983", "noticeSource": "State health department", "affectedUnits": 1012, "supplierId": 15}, {"id": 4960, "productName": "Canned baby spinach 1 lb", "noticeCode": "RN-004960", "noticeSource": "Supplier press release", "affectedUnits": 4040, "supplierId": 2}]}, "error": null}
+{"ok": true, "data": {"id": 4990, "productName": "Store brand ice cream 6 pack", "noticeCode": "RN-004990", "noticeSource": "State health department", "affectedUnits": 0, "supplierId": 18, "supplierName": "Prairie Grain Mills", "createdAt": "2026-10-05T14:30:11"}, "error": null}
+{"ok": true, "data": {"supplierId": 3, "supplierName": "Green Valley Farms", "region": "California", "noticeCount": 266, "totalAffectedUnits": 214685}, "error": null}
+{"ok": false, "data": null, "error": "Safety rule: 'tablet' looks like a medication. This dataset only covers grocery recalls, so a 'no matches' answer would be misleading; use the FDA drug recall database instead."}
+
+=== Part 5: agent scenarios with qwen3:8b (PYTHONUTF8=1 python run_agent_scenarios.py), finished 2026-10-05T14:38:11 ===
+
+=== Is there a recall notice for baby spinach? Give me the newest one. (max_steps=5) ===
+[tokens] turn=1 input=368 output=28 total=396
+[tokens] turn=2 input=498 output=42 total=540
+step 1: search_notices({"query": "baby spinach", "limit": 1}) -> {"ok": true, "data": {"query": "baby spinach", "count": 1, "notices": [{"id": 4983, "productName": "Canned baby spinach 8 oz", "noticeCode": "RN-004983", "noticeSource": "State health department", "af
+stop_reason=completed steps_used=2 tool_calls=1 seconds=125.5
+answer: There is a recall notice for baby spinach with the newest notice ID 4983. The product is "Canned baby spinach 8 oz" and it was reported by the State health department.
+
+=== Show me the details of notice 4990 and tell me which supplier it belongs to. (max_steps=5) ===
+[tokens] turn=1 input=373 output=24 total=397
+[tokens] turn=2 input=515 output=51 total=566
+step 1: notice_detail({"notice_id": 4990}) -> {"ok": true, "data": {"id": 4990, "productName": "Store brand ice cream 6 pack", "noticeCode": "RN-004990", "noticeSource": "State health department", "affectedUnits": 0, "supplierId": 18, "supplierNa
+stop_reason=completed steps_used=2 tool_calls=1 seconds=53.5
+answer: The details of notice 4990 are as follows: the product is "Store brand ice cream 6 pack," issued by the State health department. It belongs to the supplier Prairie Grain Mills, with a supplier ID of 18.
+
+=== How many notices does supplier 3 have and how many units are affected in total? (max_steps=5) ===
+[tokens] turn=1 input=370 output=21 total=391
+[tokens] turn=2 input=459 output=30 total=489
+step 1: supplier_summary({"supplier_id": 3}) -> {"ok": true, "data": {"supplierId": 3, "supplierName": "Green Valley Farms", "region": "California", "noticeCount": 266, "totalAffectedUnits": 214685}, "error": null}
+stop_reason=completed steps_used=2 tool_calls=1 seconds=37.4
+answer: Supplier 3, Green Valley Farms, has 266 notices and a total of 214,685 affected units.
+
+=== Has ibuprofen been recalled recently? (max_steps=5) ===
+[tokens] turn=1 input=361 output=23 total=384
+step 1: search_notices({"query": "ibuprofen"}) -> {"ok": false, "data": null, "error": "Safety rule: 'ibuprofen' looks like a medication. This dataset only covers grocery recalls, so a 'no matches' answer would be misleading; use the FDA drug recall 
+stop_reason=safety_block steps_used=1 tool_calls=1 seconds=13.6
+answer: Safety rule: 'ibuprofen' looks like a medication. This dataset only covers grocery recalls, so a 'no matches' answer would be misleading; use the FDA drug recall database instead.
+
+=== Find milk notices, open the newest one, then summarise its supplier. (max_steps=2) ===
+[tokens] turn=1 input=368 output=28 total=396
+[tokens] turn=2 input=741 output=24 total=765
+step 1: search_notices({"query": "milk", "limit": 5}) -> {"ok": true, "data": {"query": "milk", "count": 5, "notices": [{"id": 4966, "productName": "Bagged whole milk 12 oz", "noticeCode": "RN-004966", "noticeSource": "Retailer recall page", "affectedUnits"
+step 2: notice_detail({"notice_id": 4966}) -> {"ok": true, "data": {"id": 4966, "productName": "Bagged whole milk 12 oz", "noticeCode": "RN-004966", "noticeSource": "Retailer recall page", "affectedUnits": 845, "supplierId": 15, "supplierName": "
+stop_reason=max_steps steps_used=2 tool_calls=2 seconds=68.5
+answer: 
+exit 0
