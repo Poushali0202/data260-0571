@@ -1,0 +1,133 @@
+{
+  "homework": "DATA-260 HW5",
+  "sid4": "0571",
+  "commit_hash": "b2a10d8d0b41d26ef76395e2fd8d31749071ff80",
+  "tag": "hw5",
+  "model": "qwen3:8b through Ollama",
+  "configuration": {
+    "port_base": 8571,
+    "prefix": "s0571",
+    "retry": {
+      "attempts": 3,
+      "base_delay_s": 0.2,
+      "max_delay_s": 1.0
+    },
+    "db_timeouts_s": 5
+  },
+  "seed": 571,
+  "verify_seed": 260571,
+  "verified_at_utc": "2026-10-05T21:43:09.552436+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "backend_responds_on_port_base",
+      "passed": true,
+      "details": "GET /health returned 200"
+    },
+    {
+      "check": "login_works",
+      "passed": true,
+      "details": "login returned 200"
+    },
+    {
+      "check": "create_supplier",
+      "passed": true,
+      "details": "POST /api/suppliers returned 201"
+    },
+    {
+      "check": "duplicate_email_is_409",
+      "passed": true,
+      "details": "second POST returned 409"
+    },
+    {
+      "check": "bad_email_is_422",
+      "passed": true,
+      "details": "POST with email 'bad' returned 422"
+    },
+    {
+      "check": "suppliers_paginated",
+      "passed": true,
+      "details": "5 rows for page_size 5"
+    },
+    {
+      "check": "create_notice_with_fk",
+      "passed": true,
+      "details": "POST /api/notices returned 201"
+    },
+    {
+      "check": "bad_notice_code_is_422",
+      "passed": true,
+      "details": "POST with noticeCode XYZ returned 422"
+    },
+    {
+      "check": "unknown_supplier_is_409",
+      "passed": true,
+      "details": "POST with supplierId 999999 returned 409"
+    },
+    {
+      "check": "relationship_query",
+      "passed": true,
+      "details": "1 notices for supplier 23"
+    },
+    {
+      "check": "update_notice",
+      "passed": true,
+      "details": "PUT returned 200"
+    },
+    {
+      "check": "supplier_with_notices_not_deletable",
+      "passed": true,
+      "details": "DELETE supplier returned 409"
+    },
+    {
+      "check": "delete_notice_then_supplier",
+      "passed": true,
+      "details": "deletes returned 204, 204; GET afterwards 404"
+    },
+    {
+      "check": "domain_server_has_three_tools",
+      "passed": true,
+      "details": "tools ['notice_detail_tool', 'search_notices_tool', 'supplier_summary_tool']"
+    },
+    {
+      "check": "domain_server_answers_tool_call",
+      "passed": true,
+      "details": "notice_detail_tool(1) returned ok envelope"
+    },
+    {
+      "check": "domain_server_rejects_invalid_input",
+      "passed": true,
+      "details": "error: supplier_id must be a positive integer"
+    },
+    {
+      "check": "meals_server_answers_tool_call",
+      "passed": true,
+      "details": "4 tools, search returned 1"
+    },
+    {
+      "check": "fault_injection_has_150_calls",
+      "passed": true,
+      "details": "150 rows, [50, 50, 50] per rate"
+    },
+    {
+      "check": "failure_sequence_reproduces_from_verify_seed",
+      "passed": true,
+      "details": "draw strings regenerated from random.Random(260571) match every row"
+    },
+    {
+      "check": "agent_runs_logged",
+      "passed": true,
+      "details": "5 runs, stop reasons ['completed', 'max_steps', 'safety_block']"
+    },
+    {
+      "check": "offline_tests_pass",
+      "passed": true,
+      "details": "10/10 tests passed"
+    },
+    {
+      "check": "report_files_present",
+      "passed": true,
+      "details": "all files present"
+    }
+  ]
+}
