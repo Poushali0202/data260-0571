@@ -23,3 +23,4 @@ python-dotenv==1.2.2
 langchain-text-splitters==1.1.2
 httpx==0.28.1
 mcp[cli]==2.3.0
+pymongo==4.19.0

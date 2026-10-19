@@ -1,0 +1,34 @@
+# Five fixed probe questions asked after the 30-message conversation in every setting.
+# An expected item counts as found when any of its phrases appears in the reply (case-insensitive).
+# score = 1 + round(4 * found / total), so 5 means every item was recalled and 1 means none.
+rubric:
+  5: every expected item is in the reply
+  4: about three quarters of the items are in the reply
+  3: about half of the items are in the reply
+  2: about a quarter of the items are in the reply
+  1: nothing expected is in the reply, the assistant says it does not know, or it answers with other values
+probes:
+  - id: p1
+    question: "Remind me, what is my name and which store do I manage?"
+    expected:
+      - ["Maya"]
+      - ["Willow Glen"]
+  - id: p2
+    question: "Which lot code and which notice code did the spinach recall have?"
+    expected:
+      - ["GV-2291"]
+      - ["RN-004410"]
+  - id: p3
+    question: "How do I prefer to receive follow-ups from you?"
+    expected:
+      - ["email", "e-mail"]
+  - id: p4
+    question: "Who is my assistant manager and which shift does he cover?"
+    expected:
+      - ["Daniel"]
+      - ["night"]
+  - id: p5
+    question: "What is our store code, and how many spinach bags did we pull in total?"
+    expected:
+      - ["WG-17"]
+      - ["168"]

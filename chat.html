@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Recall assistant chat</title>
+<style>
+  body { font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f4f6f5; color: #222; }
+  header { background: #2f5d50; color: #fff; padding: 12px 20px; font-size: 18px; }
+  main { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; padding: 16px 20px; }
+  #log { background: #fff; border: 1px solid #ccd; border-radius: 6px; padding: 12px; min-height: 420px; max-height: 560px; overflow-y: auto; }
+  .msg { margin: 6px 0; padding: 8px 10px; border-radius: 6px; white-space: pre-wrap; }
+  .user { background: #dfeee9; }
+  .assistant { background: #eef0f3; }
+  .meta { font-size: 11px; color: #666; margin-top: 4px; }
+  aside { background: #fff; border: 1px solid #ccd; border-radius: 6px; padding: 12px; font-size: 13px; }
+  aside pre { white-space: pre-wrap; font-size: 11px; background: #f7f7f7; padding: 6px; }
+  form { display: flex; gap: 8px; margin-top: 10px; }
+  input[type=text] { flex: 1; padding: 8px; font-size: 14px; }
+  button { padding: 8px 14px; font-size: 14px; }
+  .ids { display: flex; gap: 12px; font-size: 13px; margin-bottom: 8px; }
+  .ids input { width: 150px; }
+</style>
+</head>
+<body>
+<header>Grocery recall assistant (s0571, PORT_BASE 8571)</header>
+<main>
+  <section>
+    <div class="ids">
+      <label>user_id <input id="user" value="poushali"></label>
+      <label>session_id <input id="session" value=""></label>
+      <label>SHORT_TERM_N <input id="n" value="" style="width:60px" placeholder="default"></label>
+    </div>
+    <div id="log"></div>
+    <form id="form">
+      <input type="text" id="message" placeholder="Type a message or /help" autocomplete="off">
+      <button type="submit" id="send">Send</button>
+    </form>
+  </section>
+  <aside>
+    <strong>What the last turn used</strong>
+    <pre id="used">nothing yet</pre>
+  </aside>
+</main>
+<script>
+const log = document.getElementById("log");
+function add(role, text, meta) {
+  const div = document.createElement("div");
+  div.className = "msg " + role;
+  div.textContent = (role === "user" ? "You: " : "Assistant: ") + text;
+  if (meta) {
+    const m = document.createElement("div");
+    m.className = "meta";
+    m.textContent = meta;
+    div.appendChild(m);
+  }
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+document.getElementById("form").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const input = document.getElementById("message");
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = "";
+  add("user", text);
+  const body = { user_id: document.getElementById("user").value, message: text };
+  const session = document.getElementById("session").value;
+  if (session) body.session_id = session;
+  const n = document.getElementById("n").value;
+  if (n) body.short_term_n = Number(n);
+  document.getElementById("send").disabled = true;
+  try {
+    const response = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    const data = await response.json();
+    if (!response.ok) { add("assistant", "Error: " + JSON.stringify(data.detail)); return; }
+    document.getElementById("session").value = data.session_id;
+    const u = data.usage || {};
+    const meta = u.prompt_tokens ? `prompt ${u.prompt_tokens} tokens, completion ${u.completion_tokens} tokens, ${u.latency_ms} ms` : "";
+    add("assistant", data.reply, meta);
+    document.getElementById("used").textContent = JSON.stringify(data.used, null, 2);
+  } catch (error) {
+    add("assistant", "Request failed: " + error);
+  } finally {
+    document.getElementById("send").disabled = false;
+  }
+});
+</script>
+</body>
+</html>

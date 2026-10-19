@@ -15,3 +15,6 @@ verify-hw05:
 
 test-tools:
 	python test_tools.py
+
+verify-hw06:
+	python verify_hw06.py

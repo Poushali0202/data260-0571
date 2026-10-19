@@ -1,4 +1,4 @@
-# DATA-260 Homework 1 to 4
+# DATA-260 Homework 1 to 6
 
 ## Personal configuration
 
@@ -183,3 +183,23 @@ python verify_hw05.py
 ```
 
 Full run instructions, results, and the report are in `reports/hw05/`.
+
+## Homework 6
+
+HW6 adds the MongoDB document view of the notices (`config.py`, `mongo_db.py`, `doc_schemas.py`,
+`routers/doc_notices.py`), the chat endpoints with short-term, long-term and episodic memory
+(`routers/chat.py`, `memory.py`, `chat.html`), the memory cost experiment (`memory_probes.yaml`,
+`run_memory_cost.py`, `summarize_memory_cost.py`), the file-based memory with its commands
+(`AGENT.md`, `MEMORY.md`, `file_memory.py`, `agent_md_check.py`) and a smoke test (`verify_hw06.py`).
+
+```powershell
+docker run -d --name s0571-mongo -p 27017:27017 -v s0571_mongo_data:/data/db mongo:7.0
+python -m pip install -r requirements.txt
+python app.py
+python run_memory_cost.py
+python summarize_memory_cost.py
+python agent_md_check.py
+python verify_hw06.py
+```
+
+Full run instructions, results, and the report are in `reports/hw06/`.
