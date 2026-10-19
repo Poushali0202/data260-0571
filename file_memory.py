@@ -1,10 +1,13 @@
+import json
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from config import AGENT_FILE, MEMORY_FILE, MEMORY_MAX_AGE_HOURS, MEMORY_MAX_LINES
 from memory import aux_model, short_term_window
+from src.model_client import ModelClient
 
+consolidation_model = ModelClient(num_ctx=8192, num_predict=1200)
 STAMP = re.compile(r"<!--\s*last_consolidated:\s*(\S+)\s*-->")
 HELP = (
     "/memory shows AGENT.md and MEMORY.md as they are loaded into the system prompt. "
@@ -12,6 +15,18 @@ HELP = (
     "/dream extracts durable facts from the recent conversation and adds them to MEMORY.md. "
     "/help lists these commands."
 )
+GROUPS = {"type": "array", "items": {"type": "array", "items": {"type": "integer"}}}
+CONSOLIDATION_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "duplicates": GROUPS,
+        "related": GROUPS,
+        "conflicts": {"type": "array", "items": {"type": "object", "properties": {
+            "keep": {"type": "integer"}, "drop": {"type": "integer"}, "reason": {"type": "string"}},
+            "required": ["keep", "drop", "reason"]}},
+    },
+    "required": ["duplicates", "related", "conflicts"],
+}
 
 
 def load_file(name):
@@ -56,22 +71,76 @@ def bullets(text):
     return lines
 
 
+def plain(line):
+    return line[2:].strip() if line.startswith("- ") else line.strip()
+
+
+def words(line):
+    return {w.rstrip("sd") for w in re.findall(r"[a-z0-9]+", re.sub(r"\(noted [^)]*\)", "", plain(line).lower())) if len(w) > 2}
+
+
+def similar(a, b):
+    wa, wb = words(a), words(b)
+    return len(wa & wb) / len(wa | wb) if wa | wb else 0.0
+
+
 def consolidate():
     text = load_file(MEMORY_FILE)
     before = fact_lines(text)
+    numbered = "\n".join(f"{i}. {plain(line)}" for i, line in enumerate(before, start=1))
     prompt = (
-        "You maintain the memory file of a grocery recall assistant. Rewrite the facts below.\n"
-        "1. Merge lines that state the same fact into one line.\n"
-        "2. When two lines contradict each other, keep ONE line that starts with 'Resolved:' and states "
-        "which version you kept, which version you dropped, and why (prefer the later date or the more "
-        "specific statement). Never drop a conflicting line without such a note.\n"
-        "3. Keep every other fact. Do not invent facts.\n"
-        "Return only bullet lines that start with '- ', at most 30 lines.\n\n" + "\n".join(before)
+        "Below are numbered facts from the memory file of a grocery recall assistant. Return JSON with:\n"
+        "'duplicates': groups of numbers whose facts say the same thing;\n"
+        "'related': groups of numbers whose facts are about the same person, product or topic and can be "
+        "written on one line;\n"
+        "'conflicts': pairs of facts that contradict each other, as objects with 'keep', 'drop' and a short "
+        "'reason' (prefer the later noted date or the more specific statement).\n"
+        "A number may appear in at most one group or pair. Facts that stand alone are not listed.\n\n" + numbered
     )
-    response = aux_model.complete([{"role": "user", "content": prompt}])
-    after = bullets(response.text) or before
+    response = consolidation_model.complete([{"role": "user", "content": prompt}], response_format=CONSOLIDATION_SCHEMA)
+    try:
+        result = json.loads(response.text)
+    except json.JSONDecodeError:
+        result = {"duplicates": [], "related": [], "conflicts": []}
+    valid = lambda i: isinstance(i, int) and 1 <= i <= len(before)
+    used = set()
+    output = []
+
+    def take(group):
+        group = [i for i in group if valid(i) and i not in used]
+        used.update(group)
+        return group
+
+    resolved = []
+    for item in result.get("conflicts", []):
+        pair = take([item.get("keep"), item.get("drop")])
+        if len(pair) != 2:
+            used.difference_update(pair)
+            continue
+        line = (f"- Resolved: kept '{plain(before[pair[0] - 1])}'; dropped '{plain(before[pair[1] - 1])}' "
+                f"({item.get('reason', '').strip()})")
+        resolved.append(line)
+        output.append((pair[0], line))
+    for group in result.get("duplicates", []):
+        group = take(group)
+        if not group:
+            continue
+        first = before[group[0] - 1]
+        if all(similar(first, before[i - 1]) >= 0.5 for i in group):
+            output.append((group[0], max((before[i - 1] for i in group), key=len)))
+        else:
+            output.append((group[0], "- " + "; ".join(plain(before[i - 1]).rstrip(".") for i in group) + "."))
+    for group in result.get("related", []):
+        group = take(group)
+        for start in range(0, len(group), 6):
+            chunk = group[start:start + 6]
+            output.append((chunk[0], "- " + "; ".join(plain(before[i - 1]).rstrip(".") for i in chunk) + "."))
+    unassigned = [before[i - 1] for i in range(1, len(before) + 1) if i not in used]
+    output += [(i, before[i - 1]) for i in range(1, len(before) + 1) if i not in used]
+    after = [line for _, line in sorted(output, key=lambda item: item[0])]
     write_memory(after, datetime.now(timezone.utc))
-    return {"lines_before": len(before), "lines_after": len(after), "resolved": [l for l in after if "Resolved:" in l]}
+    return {"lines_before": len(before), "lines_after": len(after), "resolved": resolved,
+            "kept_unchanged": len(unassigned), "model_groups": result}
 
 
 def dream(user_id, session_id):
