@@ -1,0 +1,40 @@
+INFO:     Started server process [38456]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8571 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54459 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54464 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:54465 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:54466 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:54467 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54468 - "GET /api/doc/notices/6ad58060757bda746ae46cb2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54469 - "PUT /api/doc/notices/6ad58060757bda746ae46cb2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54470 - "PUT /api/doc/notices/6ad58060757bda746ae46cb2 HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54471 - "GET /api/doc/notices/000000000000000000000000 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54472 - "GET /api/doc/notices/not-an-id HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54473 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54474 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54475 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54476 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54477 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54478 - "DELETE /api/doc/notices/6ad58060757bda746ae46cb2 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:54479 - "DELETE /api/doc/notices/6ad58060757bda746ae46cb2 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54480 - "GET /api/doc/notices/6ad58060757bda746ae46cb2 HTTP/1.1" 404 Not Found
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[tokens] turn=1 input=115 output=60 total=175
+[tokens] turn=1 input=124 output=109 total=233
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 4332.65it/s]
+INFO:     127.0.0.1:54492 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=2 input=254 output=72 total=326
+[tokens] turn=2 input=106 output=69 total=175
+INFO:     127.0.0.1:50880 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=3 input=363 output=74 total=437
+[tokens] turn=3 input=99 output=41 total=140
+INFO:     127.0.0.1:65156 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=4 input=456 output=73 total=529
+[tokens] turn=4 input=97 output=62 total=159
+INFO:     127.0.0.1:52703 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=5 input=553 output=21 total=574
+[tokens] turn=5 input=102 output=74 total=176
+[tokens] turn=6 input=481 output=90 total=571
+INFO:     127.0.0.1:52590 - "POST /api/chat HTTP/1.1" 200 OK

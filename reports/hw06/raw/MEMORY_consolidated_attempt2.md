@@ -1,0 +1,51 @@
+# MEMORY.md
+<!-- last_consolidated: 2026-10-19T18:43:43+00:00 -->
+
+- The user is Maya Chen, store manager of Willow Glen Market in San Jose.
+- Store code for Willow Glen Market is WG-17.
+- Maya prefers follow-ups by email, not phone (noted 2026-10-03).
+- Assistant manager Daniel handles the night shift.
+- Produce supplier contact is Luis at Green Valley Farms.
+- Spinach recall RN-004410 concerns lot GV-2291 from Green Valley Farms.
+- Lot GV-2291 was delivered on October 14 (noted 2026-10-16).
+- The store pulled 168 bags of spinach (48 from the shelf, 120 from the back room).
+- A weekly summary of open notices is wanted every Monday.
+- Dairy Fresh Co-op supplies the whole milk.
+- The milk shortage was expected to end on Friday.
+- Customer notices are posted at the store entrance.
+- The store uses a loyalty card system to find buyers of recalled products.
+- Recall paperwork is kept for five years (noted 2026-10-16).
+- Frozen berries were not part of the spinach recall.
+- Green Valley Farms said the contamination in lot GV-2291 was Listeria (noted 2026-10-16).
+- The spinach notice status was set to investigating.
+- Maya prefers follow-ups by phone after 6 pm (noted 2026-10-15).
+- The night shift is handled by assistant manager Daniel.
+- The Monday summary should cover open and investigating notices.
+- Daniel posts recall notices at the entrance.
+- Luis's phone number ends in 7781.
+- Green Valley Farms is in California.
+- Dairy Fresh Co-op is in Wisconsin.
+- Acme Foods supplies the canned goods.
+- The store is open from 7 am to 10 pm.
+- Staff get recall alerts through the break room board and a group text.
+- The quarantine area is the locked cage in the back room.
+- Destroyed units are recorded on the disposal log with the lot code.
+- Customers who bought recalled spinach are contacted through loyalty card records.
+- The whole milk shortage was marked closed.
+- The frozen berries shortage from September is resolved.
+- Maya wants notice codes quoted in every reply.
+- The spinach notice RN-004410 is the most urgent open item.
+- Maya is allergic to peanuts and reviews peanut recalls personally.
+- Produce deliveries arrive on Tuesdays and Fridays.
+- Store code is WG-71 according to the district report.
+- Spinach deliveries are suspended until Green Valley Farms clears the lot.
+- The district manager is Priya Nair.
+- Priya wants the monthly recall count by the 3rd of each month.
+- The store has 12 employees on the day shift.
+- Notices are categorised as recall, shortage, contamination or distribution.
+- The assistant should answer in one to three sentences.
+- Milk deliveries resumed on October 17.
+- A recall notice stays open until the disposal log is signed.
+- Luis at Green Valley Farms is the produce supplier contact.
+- Maya manages Willow Glen Market in San Jose.
+- Resolved: Green Valley Farms said the contamination in lot GV-2291 was Listeria (noted 2026-10-16) [kept], Green Valley Farms said the contamination in lot GV-2291 was E. coli (noted 2026-10-13) [dropped] because the later date provides a more specific statement.

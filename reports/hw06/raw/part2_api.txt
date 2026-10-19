@@ -1,0 +1,281 @@
+$ date
+2026-10-19T11:10:08-07:00
+$ curl -s http://127.0.0.1:8571/api/memory/poushali | python -m json.tool
+{
+    "user_id": "poushali",
+    "messages": [
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "The notice code is RN-004422 and it came from the FDA recall bulletin.",
+            "created_at": "2026-10-19T18:01:19.988000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "The recall notice has code RN-004422 and was issued by the FDA recall bulletin. Ensure all units of lot GV-3310 are removed and disposed of or returned as instructed. Let me know if you need additional guidance.",
+            "created_at": "2026-10-19T18:01:44.501000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "What should I do with the affected cases first?",
+            "created_at": "2026-10-19T18:02:01.089000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "Prioritize removing all affected cases of lot GV-3310 from shelves immediately. Ensure they are securely stored or returned to the supplier as per the recall instructions. Let me know if you need help with disposal or documentation.",
+            "created_at": "2026-10-19T18:02:31.494000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "We have 30 cases on the floor and 60 more in the cooler.",
+            "created_at": "2026-10-19T18:02:41.902000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "You have 90 cases of lot GV-3310 in total. Immediately remove all 90 cases from shelves and coolers, and secure them for return or disposal as instructed. Let me know if you need help with the process.",
+            "created_at": "2026-10-19T18:03:19.241000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "Please remember that I prefer updates by email in the morning.",
+            "created_at": "2026-10-19T18:04:23.263000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "I'll remember to send you updates by email in the morning. Let me know if you need anything else today.",
+            "created_at": "2026-10-19T18:05:05.888000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "My assistant manager is Rohan, he covers the weekend shift.",
+            "created_at": "2026-10-19T18:05:14.612000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "I've noted that Rohan covers the weekend shift. Let me know if you need him involved in any recall actions or if you'd like to assign specific tasks to him.",
+            "created_at": "2026-10-19T18:05:47.397000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "There is also a shortage of oat milk from Dairy Fresh Co-op this week.",
+            "created_at": "2026-10-19T18:06:01.342000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "There is a shortage of oat milk from Dairy Fresh Co-op this week. Please monitor inventory and communicate this to staff to manage customer expectations. Let me know if you need help with alternative solutions.",
+            "created_at": "2026-10-19T18:06:38.176000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "Which notices did we discuss so far?",
+            "created_at": "2026-10-19T18:06:46.780000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "We discussed the FDA recall notice for romaine lettuce (lot GV-3310, notice code RN-004422) and a separate shortage notice for oat milk from Dairy Fresh Co-op. Let me know if you need further details on either.",
+            "created_at": "2026-10-19T18:07:20.926000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "What is the lot code of the lettuce recall, and how do I prefer updates?",
+            "created_at": "2026-10-19T18:07:28.207000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "The lot code of the lettuce recall is GV-3310. You prefer updates by email in the morning. Let me know if you need anything else.",
+            "created_at": "2026-10-19T18:07:58.618000+00:00"
+        }
+    ],
+    "session_summary": {
+        "user_id": "poushali",
+        "session_id": "demo-1",
+        "scope": "session",
+        "text": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- Updates preferred by email in the morning.  \n- Oat milk shortage from Dairy Fresh Co-op this week.  \n- Rohan covers weekend shift; available for recall actions.  \n- Affected cases must be removed and secured for return or disposal.",
+        "created_at": "2026-10-19T18:08:59.838000+00:00"
+    },
+    "lifetime_summary": {
+        "user_id": "poushali",
+        "session_id": null,
+        "scope": "user",
+        "text": "- Poushali manages Evergreen Market in Santa Clara.  \n- Works with Green Valley Farms and Dairy Fresh Co-op.  \n- Handles romaine lettuce recall (lot GV-3310, code RN-004422).  \n- Prefers email updates in the morning.  \n- Prioritizes secure removal and proper disposal of affected products.",
+        "created_at": "2026-10-19T18:09:30.222000+00:00"
+    },
+    "episodes": [
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user is asking about the lot code of a lettuce recall.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:08:11.549000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user is inquiring about their preferred method for receiving updates.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:08:11.549000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user is asking about previously discussed notices.",
+            "importance": 0.5,
+            "created_at": "2026-10-19T18:07:28.107000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "There is a shortage of oat milk from Dairy Fresh Co-op this week.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:06:46.682000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The assistant manager is named Rohan.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:06:01.259000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "Rohan covers the weekend shift.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:06:01.259000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user prefers updates to be sent by email in the morning.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:05:14.515000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The store has 30 cases on the floor.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:03:34.970000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The store has 60 cases in the cooler.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:03:34.970000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user is asking about the priority actions for affected cases.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:02:41.820000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The notice code is RN-004422.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:02:00.991000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The notice came from the FDA recall bulletin.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:02:00.991000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user received a recall notice for romaine lettuce.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:01:19.889000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The affected product is from Green Valley Farms.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:01:19.889000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The specific lot number associated with the recall is GV-3310.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:01:19.889000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "Poushali manages the Evergreen Market in Santa Clara.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:00:35.310000+00:00"
+        }
+    ]
+}
+$ curl -s http://127.0.0.1:8571/api/aggregate/poushali | python -m json.tool
+{
+    "user_id": "poushali",
+    "daily_message_counts": [
+        {
+            "date": "2026-10-19",
+            "messages": 20
+        }
+    ],
+    "recent_summaries": [
+        {
+            "user_id": "poushali",
+            "session_id": null,
+            "scope": "user",
+            "text": "- Poushali manages Evergreen Market in Santa Clara.  \n- Works with Green Valley Farms and Dairy Fresh Co-op.  \n- Handles romaine lettuce recall (lot GV-3310, code RN-004422).  \n- Prefers email updates in the morning.  \n- Prioritizes secure removal and proper disposal of affected products.",
+            "created_at": "2026-10-19T18:09:30.222000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "scope": "session",
+            "text": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- Updates preferred by email in the morning.  \n- Oat milk shortage from Dairy Fresh Co-op this week.  \n- Rohan covers weekend shift; available for recall actions.  \n- Affected cases must be removed and secured for return or disposal.",
+            "created_at": "2026-10-19T18:08:59.838000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "scope": "session",
+            "text": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice received for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code is RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- All affected cases must be removed immediately.  \n- Secure affected cases for return or disposal as instructed.  \n- Ensure proper disposal or return to supplier per recall guidelines.  \n- Assistance available for disposal or documentation process.",
+            "created_at": "2026-10-19T18:04:22.878000+00:00"
+        }
+    ]
+}

@@ -1,0 +1,133 @@
+{
+  "settings": {
+    "n4": {
+      "short_term_n": 4,
+      "policy": "none",
+      "turns": 30,
+      "mean_prompt_tokens": 483.4,
+      "mean_completion_tokens": 44.2,
+      "mean_window_tokens": 131,
+      "mean_summary_tokens": 184.9,
+      "mean_episodes_tokens": 61,
+      "mean_primer_tokens": 92.1,
+      "mean_latency_ms": 58084,
+      "mean_model_latency_ms": 25688,
+      "probe_scores": {
+        "p1": 5,
+        "p2": 5,
+        "p3": 5,
+        "p4": 5,
+        "p5": 5
+      },
+      "mean_probe_score": 5,
+      "prompt_tokens_per_conversation": 14501,
+      "completion_tokens_per_conversation": 1326,
+      "aux_prompt_tokens_per_conversation": 7669,
+      "aux_completion_tokens_per_conversation": 2342,
+      "chat_cost_per_conversation_usd": 0.021131,
+      "chat_cost_10k_usd": 211.31,
+      "full_cost_per_conversation_usd": 0.04051,
+      "full_cost_10k_usd": 405.1
+    },
+    "n12": {
+      "short_term_n": 12,
+      "policy": "none",
+      "turns": 30,
+      "mean_prompt_tokens": 709.3,
+      "mean_completion_tokens": 45.4,
+      "mean_window_tokens": 367.9,
+      "mean_summary_tokens": 174.8,
+      "mean_episodes_tokens": 60.5,
+      "mean_primer_tokens": 91.6,
+      "mean_latency_ms": 82279,
+      "mean_model_latency_ms": 47044,
+      "probe_scores": {
+        "p1": 5,
+        "p2": 5,
+        "p3": 5,
+        "p4": 5,
+        "p5": 5
+      },
+      "mean_probe_score": 5,
+      "prompt_tokens_per_conversation": 21279,
+      "completion_tokens_per_conversation": 1363,
+      "aux_prompt_tokens_per_conversation": 7710,
+      "aux_completion_tokens_per_conversation": 2307,
+      "chat_cost_per_conversation_usd": 0.028094,
+      "chat_cost_10k_usd": 280.94,
+      "full_cost_per_conversation_usd": 0.047339,
+      "full_cost_10k_usd": 473.39
+    },
+    "n30": {
+      "short_term_n": 30,
+      "policy": "none",
+      "turns": 30,
+      "mean_prompt_tokens": 1083.4,
+      "mean_completion_tokens": 44,
+      "mean_window_tokens": 740.5,
+      "mean_summary_tokens": 175.4,
+      "mean_episodes_tokens": 61.0,
+      "mean_primer_tokens": 92.2,
+      "mean_latency_ms": 108547,
+      "mean_model_latency_ms": 77720,
+      "probe_scores": {
+        "p1": 5,
+        "p2": 5,
+        "p3": 5,
+        "p4": 5,
+        "p5": 5
+      },
+      "mean_probe_score": 5,
+      "prompt_tokens_per_conversation": 32501,
+      "completion_tokens_per_conversation": 1320,
+      "aux_prompt_tokens_per_conversation": 7806,
+      "aux_completion_tokens_per_conversation": 2367,
+      "chat_cost_per_conversation_usd": 0.039101,
+      "chat_cost_10k_usd": 391.01,
+      "full_cost_per_conversation_usd": 0.058742,
+      "full_cost_10k_usd": 587.42
+    },
+    "n30_compress": {
+      "short_term_n": 30,
+      "policy": "compress_old",
+      "turns": 30,
+      "mean_prompt_tokens": 900.0,
+      "mean_completion_tokens": 42.4,
+      "mean_window_tokens": 545.4,
+      "mean_summary_tokens": 181.7,
+      "mean_episodes_tokens": 63.0,
+      "mean_primer_tokens": 95.1,
+      "mean_latency_ms": 82594,
+      "mean_model_latency_ms": 53899,
+      "probe_scores": {
+        "p1": 5,
+        "p2": 5,
+        "p3": 5,
+        "p4": 5,
+        "p5": 3
+      },
+      "mean_probe_score": 4.6,
+      "prompt_tokens_per_conversation": 26999,
+      "completion_tokens_per_conversation": 1271,
+      "aux_prompt_tokens_per_conversation": 7635,
+      "aux_completion_tokens_per_conversation": 2298,
+      "chat_cost_per_conversation_usd": 0.033354,
+      "chat_cost_10k_usd": 333.54,
+      "full_cost_per_conversation_usd": 0.052479,
+      "full_cost_10k_usd": 524.79
+    }
+  },
+  "best_setting": "n4",
+  "worst_setting": "n30",
+  "selection_rule": "worst = highest chat cost; best = lowest chat cost among settings whose mean probe score is within 0.5 of the highest score",
+  "policy_vs_n30": {
+    "prompt_tokens_saved_per_conversation": 5502,
+    "prompt_tokens_saved_percent": 16.9,
+    "probe_score_change": -0.4
+  },
+  "pricing": {
+    "input_per_million_usd": 1,
+    "output_per_million_usd": 5,
+    "conversations": 10000
+  }
+}

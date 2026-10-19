@@ -1,0 +1,17 @@
+﻿{
+    "reply":  "MEMORY.md consolidated: 53 lines before, 48 lines after.",
+    "session_id":  "demo-1",
+    "used":  {
+                 "command":  {
+                                 "command":  "compact",
+                                 "lines_before":  53,
+                                 "lines_after":  48,
+                                 "resolved":  [
+                                                  "- Resolved: Green Valley Farms said the contamination in lot GV-2291 was Listeria (noted 2026-10-16) [kept], Green Valley Farms said the contamination in lot GV-2291 was E. coli (noted 2026-10-13) [dropped] because the later date provides a more specific statement."
+                                              ]
+                             }
+             },
+    "usage":  {
+
+              }
+}

@@ -1,0 +1,22 @@
+﻿PASS backend_responds_on_port_base: GET /health returned 200
+PASS doc_create_201: POST returned 201, default status open
+PASS doc_list: 3 documents listed
+PASS doc_get_by_id: GET returned 200
+PASS doc_update: PUT returned 200
+PASS doc_validation_422: missing field 422, bad enum 422, bad date 422
+PASS doc_bad_id_400_and_unknown_404: malformed id 400, unknown id 404
+PASS doc_delete_then_404: DELETE 204, GET afterwards 404
+PASS mongo_schema_validator_rejects_bad_document: direct insert with a 120 character productName raised WriteError 121
+PASS chat_returns_reply: POST /api/chat returned 200, 164 characters
+PASS chat_reports_memory_used_and_tokens: used keys ['episodes', 'file_memory', 'long_term', 'new_facts', 'short_term'], prompt tokens 112
+PASS memory_endpoint: 2 messages, 2 episodes
+PASS aggregate_endpoint: daily counts [{'date': '2026-10-19', 'messages': 2}]
+PASS help_command: reply lists the four commands
+PASS memory_command: 29 fact lines, last consolidated 2026-10-19T19:17:39+00:00
+PASS agent_md_has_rules: 13 instructions under 6 headings
+PASS memory_md_consolidated_under_40_lines: 53 fact lines before, 29 after
+PASS sweep_has_four_settings_of_30_turns_and_5_probes: {'n4': {'conversation': 30, 'probe': 5}, 'n12': {'conversation': 30, 'probe': 5}, 'n30': {'conversation': 30, 'probe': 5}, 'n30_compress': {'conversation': 30, 'probe': 5}}
+PASS cost_summary_names_best_and_worst: best n4, worst n30
+PASS generated_function_follows_agent_md: 8/8 rules
+PASS report_files_present: all files present
+wrote C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw06\verification.json (passed=True)

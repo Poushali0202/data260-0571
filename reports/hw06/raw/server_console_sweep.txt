@@ -1,0 +1,726 @@
+INFO:     Started server process [3008]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8571 (Press CTRL+C to quit)
+INFO:     127.0.0.1:52099 - "GET /health HTTP/1.1" 200 OK
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[tokens] turn=1 input=110 output=36 total=146
+[tokens] turn=1 input=102 output=41 total=143
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 1969.44it/s]
+INFO:     127.0.0.1:52100 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=2 input=197 output=43 total=240
+[tokens] turn=2 input=109 output=105 total=214
+INFO:     127.0.0.1:62198 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64979 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64979 - "DELETE /api/doc/notices/6ad58061757bda746ae46cb4 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:64979 - "DELETE /api/doc/notices/6ad58061757bda746ae46cb3 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:64979 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64979 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64979 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:64981 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64981 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64981 - "GET /api/doc/notices/6ad583aea4cc4523092843cf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64981 - "GET /api/doc/notices/000000000000000000000000 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:64981 - "GET /api/doc/notices/not-an-id HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:64984 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:64984 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:64984 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:64984 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:64984 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+[tokens] turn=3 input=311 output=51 total=362
+[tokens] turn=3 input=106 output=69 total=175
+INFO:     127.0.0.1:64972 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65003 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65003 - "PUT /api/doc/notices/6ad583aea4cc4523092843cf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65003 - "PUT /api/doc/notices/6ad583aea4cc4523092843cf HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:65003 - "DELETE /api/doc/notices/6ad583aea4cc4523092843d1 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:65003 - "DELETE /api/doc/notices/6ad583aea4cc4523092843d1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:65003 - "GET /api/doc/notices/6ad583aea4cc4523092843d1 HTTP/1.1" 404 Not Found
+[tokens] turn=4 input=322 output=47 total=369
+[tokens] turn=4 input=95 output=31 total=126
+INFO:     127.0.0.1:64992 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=5 input=323 output=62 total=385
+[tokens] turn=5 input=105 output=72 total=177
+INFO:     127.0.0.1:54784 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54784 - "DELETE /api/doc/notices/6ad583aea4cc4523092843d0 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:54784 - "DELETE /api/doc/notices/6ad583aea4cc4523092843cf HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:54784 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:54784 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:54784 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:54785 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54785 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54785 - "GET /api/doc/notices/6ad58442a4cc4523092843dc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54785 - "GET /api/doc/notices/000000000000000000000000 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54785 - "GET /api/doc/notices/not-an-id HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54786 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54786 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54786 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54786 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54786 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54787 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54787 - "PUT /api/doc/notices/6ad58442a4cc4523092843dc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54787 - "PUT /api/doc/notices/6ad58442a4cc4523092843dc HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54787 - "DELETE /api/doc/notices/6ad58442a4cc4523092843de HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:54787 - "DELETE /api/doc/notices/6ad58442a4cc4523092843de HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54787 - "GET /api/doc/notices/6ad58442a4cc4523092843de HTTP/1.1" 404 Not Found
+[tokens] turn=6 input=409 output=132 total=541
+INFO:     127.0.0.1:49311 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=6 input=469 output=30 total=499
+[tokens] turn=7 input=101 output=29 total=130
+INFO:     127.0.0.1:54789 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=7 input=458 output=48 total=506
+[tokens] turn=8 input=106 output=71 total=177
+INFO:     127.0.0.1:51591 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=8 input=432 output=29 total=461
+INFO:     127.0.0.1:51614 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51614 - "DELETE /api/doc/notices/6ad58442a4cc4523092843dd HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:51614 - "DELETE /api/doc/notices/6ad58442a4cc4523092843dc HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:51614 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:51614 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:51614 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:51621 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51621 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51621 - "GET /api/doc/notices/6ad584dba4cc4523092843e9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51621 - "GET /api/doc/notices/000000000000000000000000 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51621 - "GET /api/doc/notices/not-an-id HTTP/1.1" 400 Bad Request
+[tokens] turn=9 input=94 output=44 total=138
+INFO:     127.0.0.1:51606 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51629 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:51629 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:51629 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:51629 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:51629 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+[tokens] turn=9 input=424 output=41 total=465
+INFO:     127.0.0.1:51636 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51636 - "PUT /api/doc/notices/6ad584dba4cc4523092843e9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51636 - "PUT /api/doc/notices/6ad584dba4cc4523092843e9 HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51636 - "DELETE /api/doc/notices/6ad584dba4cc4523092843eb HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:51636 - "DELETE /api/doc/notices/6ad584dba4cc4523092843eb HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51636 - "GET /api/doc/notices/6ad584dba4cc4523092843eb HTTP/1.1" 404 Not Found
+[tokens] turn=10 input=101 output=33 total=134
+INFO:     127.0.0.1:51622 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=10 input=412 output=39 total=451
+[tokens] turn=11 input=96 output=28 total=124
+INFO:     127.0.0.1:54286 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54286 - "DELETE /api/doc/notices/6ad584dba4cc4523092843ea HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:54286 - "DELETE /api/doc/notices/6ad584dba4cc4523092843e9 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:54286 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:54286 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:54286 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:54287 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54287 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54287 - "GET /api/doc/notices/6ad5853fa4cc4523092843f3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54287 - "GET /api/doc/notices/000000000000000000000000 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:54287 - "GET /api/doc/notices/not-an-id HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54288 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54288 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54288 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54288 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:54288 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+[tokens] turn=12 input=466 output=131 total=597
+INFO:     127.0.0.1:57259 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57259 - "PUT /api/doc/notices/6ad5853fa4cc4523092843f3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57259 - "PUT /api/doc/notices/6ad5853fa4cc4523092843f3 HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57259 - "DELETE /api/doc/notices/6ad5853fa4cc4523092843f5 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:57259 - "DELETE /api/doc/notices/6ad5853fa4cc4523092843f5 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57259 - "GET /api/doc/notices/6ad5853fa4cc4523092843f5 HTTP/1.1" 404 Not Found
+[tokens] turn=13 input=335 output=94 total=429
+INFO:     127.0.0.1:51637 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=11 input=531 output=67 total=598
+[tokens] turn=14 input=98 output=43 total=141
+INFO:     127.0.0.1:57268 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=12 input=549 output=29 total=578
+[tokens] turn=15 input=97 output=62 total=159
+INFO:     127.0.0.1:57284 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=13 input=537 output=37 total=574
+[tokens] turn=16 input=96 output=28 total=124
+INFO:     127.0.0.1:53012 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=14 input=505 output=33 total=538
+[tokens] turn=17 input=94 output=30 total=124
+INFO:     127.0.0.1:53025 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=15 input=545 output=34 total=579
+[tokens] turn=18 input=101 output=40 total=141
+[tokens] turn=19 input=466 output=132 total=598
+INFO:     127.0.0.1:53040 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=16 input=510 output=35 total=545
+[tokens] turn=20 input=100 output=31 total=131
+INFO:     127.0.0.1:53061 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=17 input=527 output=42 total=569
+[tokens] turn=21 input=102 output=46 total=148
+INFO:     127.0.0.1:58799 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=18 input=525 output=34 total=559
+[tokens] turn=22 input=97 output=30 total=127
+INFO:     127.0.0.1:58812 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=19 input=528 output=49 total=577
+[tokens] turn=23 input=99 output=33 total=132
+INFO:     127.0.0.1:56345 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=20 input=535 output=50 total=585
+[tokens] turn=24 input=102 output=44 total=146
+[tokens] turn=25 input=491 output=122 total=613
+[tokens] turn=26 input=677 output=117 total=794
+INFO:     127.0.0.1:56450 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=21 input=567 output=64 total=631
+[tokens] turn=27 input=93 output=27 total=120
+INFO:     127.0.0.1:64514 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=22 input=575 output=42 total=617
+[tokens] turn=28 input=98 output=31 total=129
+INFO:     127.0.0.1:64939 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=23 input=563 output=50 total=613
+[tokens] turn=29 input=95 output=31 total=126
+INFO:     127.0.0.1:64954 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=24 input=565 output=46 total=611
+[tokens] turn=30 input=99 output=40 total=139
+INFO:     127.0.0.1:64967 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=25 input=569 output=67 total=636
+[tokens] turn=31 input=92 output=27 total=119
+[tokens] turn=32 input=517 output=149 total=666
+INFO:     127.0.0.1:54722 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=26 input=582 output=57 total=639
+[tokens] turn=33 input=95 output=28 total=123
+INFO:     127.0.0.1:56608 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=27 input=610 output=26 total=636
+[tokens] turn=34 input=99 output=28 total=127
+INFO:     127.0.0.1:56623 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=28 input=562 output=68 total=630
+[tokens] turn=35 input=94 output=30 total=124
+INFO:     127.0.0.1:57142 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=29 input=575 output=44 total=619
+[tokens] turn=36 input=92 output=28 total=120
+INFO:     127.0.0.1:57157 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=30 input=583 output=26 total=609
+[tokens] turn=37 input=94 output=28 total=122
+[tokens] turn=38 input=494 output=146 total=640
+[tokens] turn=39 input=862 output=111 total=973
+INFO:     127.0.0.1:57170 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=31 input=555 output=24 total=579
+[tokens] turn=40 input=100 output=31 total=131
+INFO:     127.0.0.1:64469 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=32 input=535 output=25 total=560
+[tokens] turn=41 input=98 output=34 total=132
+INFO:     127.0.0.1:51835 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=33 input=526 output=10 total=536
+[tokens] turn=42 input=96 output=31 total=127
+INFO:     127.0.0.1:52243 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=34 input=500 output=14 total=514
+[tokens] turn=43 input=97 output=32 total=129
+INFO:     127.0.0.1:52259 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=35 input=511 output=22 total=533
+[tokens] turn=44 input=102 output=71 total=173
+[tokens] turn=45 input=383 output=111 total=494
+INFO:     127.0.0.1:52276 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=36 input=110 output=36 total=146
+[tokens] turn=46 input=102 output=41 total=143
+INFO:     127.0.0.1:56149 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=37 input=197 output=43 total=240
+[tokens] turn=47 input=109 output=105 total=214
+INFO:     127.0.0.1:64117 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=38 input=311 output=51 total=362
+[tokens] turn=48 input=106 output=69 total=175
+INFO:     127.0.0.1:53759 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=39 input=384 output=55 total=439
+[tokens] turn=49 input=95 output=31 total=126
+INFO:     127.0.0.1:59454 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=40 input=469 output=71 total=540
+[tokens] turn=50 input=105 output=72 total=177
+[tokens] turn=51 input=426 output=134 total=560
+INFO:     127.0.0.1:60155 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=41 input=707 output=29 total=736
+[tokens] turn=52 input=101 output=29 total=130
+INFO:     127.0.0.1:51925 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=42 input=761 output=45 total=806
+[tokens] turn=53 input=106 output=71 total=177
+INFO:     127.0.0.1:51941 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=43 input=761 output=29 total=790
+[tokens] turn=54 input=94 output=44 total=138
+INFO:     127.0.0.1:59590 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=44 input=732 output=31 total=763
+[tokens] turn=55 input=101 output=33 total=134
+INFO:     127.0.0.1:64484 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=45 input=707 output=33 total=740
+[tokens] turn=56 input=96 output=28 total=124
+[tokens] turn=57 input=448 output=138 total=586
+[tokens] turn=58 input=344 output=85 total=429
+INFO:     127.0.0.1:59763 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=46 input=789 output=65 total=854
+[tokens] turn=59 input=98 output=43 total=141
+INFO:     127.0.0.1:55248 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=47 input=771 output=32 total=803
+[tokens] turn=60 input=97 output=62 total=159
+INFO:     127.0.0.1:65370 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=48 input=767 output=31 total=798
+[tokens] turn=61 input=96 output=28 total=124
+INFO:     127.0.0.1:61107 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=49 input=743 output=32 total=775
+[tokens] turn=62 input=94 output=30 total=124
+INFO:     127.0.0.1:59716 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=50 input=785 output=29 total=814
+[tokens] turn=63 input=101 output=40 total=141
+[tokens] turn=64 input=462 output=135 total=597
+INFO:     127.0.0.1:59730 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=51 input=742 output=33 total=775
+[tokens] turn=65 input=100 output=31 total=131
+INFO:     127.0.0.1:49397 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=52 input=755 output=40 total=795
+[tokens] turn=66 input=102 output=46 total=148
+INFO:     127.0.0.1:64538 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=53 input=723 output=37 total=760
+[tokens] turn=67 input=97 output=30 total=127
+INFO:     127.0.0.1:55425 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=54 input=735 output=64 total=799
+[tokens] turn=68 input=99 output=33 total=132
+INFO:     127.0.0.1:51860 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=55 input=774 output=51 total=825
+[tokens] turn=69 input=102 output=44 total=146
+[tokens] turn=70 input=509 output=131 total=640
+[tokens] turn=71 input=689 output=102 total=791
+INFO:     127.0.0.1:58806 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=56 input=812 output=65 total=877
+[tokens] turn=72 input=93 output=27 total=120
+INFO:     127.0.0.1:63287 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=57 input=839 output=57 total=896
+[tokens] turn=73 input=98 output=31 total=129
+INFO:     127.0.0.1:59378 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=58 input=861 output=60 total=921
+[tokens] turn=74 input=95 output=31 total=126
+INFO:     127.0.0.1:58089 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=59 input=888 output=39 total=927
+[tokens] turn=75 input=99 output=40 total=139
+INFO:     127.0.0.1:52026 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=60 input=891 output=81 total=972
+[tokens] turn=76 input=92 output=27 total=119
+[tokens] turn=77 input=559 output=131 total=690
+INFO:     127.0.0.1:49167 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=61 input=873 output=38 total=911
+[tokens] turn=78 input=95 output=28 total=123
+INFO:     127.0.0.1:55604 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=62 input=874 output=37 total=911
+[tokens] turn=79 input=99 output=28 total=127
+INFO:     127.0.0.1:64195 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=63 input=838 output=68 total=906
+[tokens] turn=80 input=94 output=30 total=124
+INFO:     127.0.0.1:51265 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=64 input=848 output=50 total=898
+[tokens] turn=81 input=92 output=28 total=120
+INFO:     127.0.0.1:64685 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=65 input=832 output=31 total=863
+[tokens] turn=82 input=94 output=28 total=122
+[tokens] turn=83 input=479 output=140 total=619
+[tokens] turn=84 input=842 output=103 total=945
+INFO:     127.0.0.1:49261 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=66 input=852 output=24 total=876
+[tokens] turn=85 input=100 output=31 total=131
+INFO:     127.0.0.1:55318 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=67 input=795 output=25 total=820
+[tokens] turn=86 input=98 output=34 total=132
+INFO:     127.0.0.1:62433 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=68 input=773 output=26 total=799
+[tokens] turn=87 input=96 output=31 total=127
+INFO:     127.0.0.1:64939 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=69 input=751 output=14 total=765
+[tokens] turn=88 input=97 output=32 total=129
+INFO:     127.0.0.1:55688 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=70 input=723 output=26 total=749
+[tokens] turn=89 input=102 output=71 total=173
+[tokens] turn=90 input=397 output=138 total=535
+INFO:     127.0.0.1:52071 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=71 input=110 output=36 total=146
+[tokens] turn=91 input=102 output=41 total=143
+INFO:     127.0.0.1:58401 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=72 input=197 output=43 total=240
+[tokens] turn=92 input=109 output=105 total=214
+INFO:     127.0.0.1:56094 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=73 input=311 output=51 total=362
+[tokens] turn=93 input=106 output=69 total=175
+INFO:     127.0.0.1:58127 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=74 input=384 output=55 total=439
+[tokens] turn=94 input=95 output=31 total=126
+INFO:     127.0.0.1:51659 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=75 input=469 output=71 total=540
+[tokens] turn=95 input=105 output=72 total=177
+[tokens] turn=96 input=426 output=134 total=560
+INFO:     127.0.0.1:60640 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=76 input=707 output=27 total=734
+[tokens] turn=97 input=101 output=29 total=130
+INFO:     127.0.0.1:59631 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=77 input=759 output=42 total=801
+[tokens] turn=98 input=106 output=71 total=177
+INFO:     127.0.0.1:60312 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=78 input=818 output=29 total=847
+[tokens] turn=99 input=94 output=44 total=138
+INFO:     127.0.0.1:53509 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=79 input=865 output=34 total=899
+[tokens] turn=100 input=101 output=33 total=134
+INFO:     127.0.0.1:55303 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=80 input=924 output=33 total=957
+[tokens] turn=101 input=96 output=28 total=124
+[tokens] turn=102 input=446 output=142 total=588
+[tokens] turn=103 input=348 output=96 total=444
+INFO:     127.0.0.1:55322 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=81 input=1095 output=53 total=1148
+[tokens] turn=104 input=98 output=43 total=141
+INFO:     127.0.0.1:54051 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=82 input=1165 output=30 total=1195
+[tokens] turn=105 input=97 output=62 total=159
+INFO:     127.0.0.1:57122 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=83 input=1213 output=38 total=1251
+[tokens] turn=106 input=96 output=28 total=124
+INFO:     127.0.0.1:53537 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=84 input=1271 output=41 total=1312
+[tokens] turn=107 input=94 output=30 total=124
+INFO:     127.0.0.1:53720 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=85 input=1369 output=29 total=1398
+[tokens] turn=108 input=101 output=40 total=141
+[tokens] turn=109 input=468 output=139 total=607
+INFO:     127.0.0.1:56684 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=86 input=1382 output=38 total=1420
+[tokens] turn=110 input=100 output=31 total=131
+INFO:     127.0.0.1:51399 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=87 input=1391 output=45 total=1436
+[tokens] turn=111 input=102 output=46 total=148
+INFO:     127.0.0.1:51428 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=88 input=1375 output=35 total=1410
+[tokens] turn=112 input=97 output=30 total=127
+INFO:     127.0.0.1:61700 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=89 input=1357 output=45 total=1402
+[tokens] turn=113 input=99 output=33 total=132
+INFO:     127.0.0.1:60137 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=90 input=1354 output=51 total=1405
+[tokens] turn=114 input=102 output=44 total=146
+[tokens] turn=115 input=502 output=148 total=650
+[tokens] turn=116 input=725 output=100 total=825
+INFO:     127.0.0.1:65388 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=91 input=1342 output=57 total=1399
+[tokens] turn=117 input=93 output=27 total=120
+INFO:     127.0.0.1:50510 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=92 input=1363 output=45 total=1408
+[tokens] turn=118 input=98 output=31 total=129
+INFO:     127.0.0.1:55175 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=93 input=1358 output=57 total=1415
+[tokens] turn=119 input=95 output=31 total=126
+INFO:     127.0.0.1:61785 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=94 input=1401 output=35 total=1436
+[tokens] turn=120 input=99 output=40 total=139
+INFO:     127.0.0.1:58924 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=95 input=1399 output=70 total=1469
+[tokens] turn=121 input=92 output=27 total=119
+[tokens] turn=122 input=538 output=154 total=692
+INFO:     127.0.0.1:54867 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61608 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\src\model_client.py", line 72, in complete
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\middleware\cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 2734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 1780, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 2789, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 1800, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 1279, in handle
+    await app(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 158, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 144, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 706, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 354, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2518, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 1002, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\routers\chat.py", line 50, in chat
+    response = memory.chat_model.complete(messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\src\model_client.py", line 75, in complete
+    raise RuntimeError(
+RuntimeError: Ollama did not finish the 'qwen3:8b' request in time. Try a smaller model or increase OLLAMA_TIMEOUT.
+INFO:     127.0.0.1:63305 - "GET /health HTTP/1.1" 200 OK
+[tokens] turn=96 input=1410 output=39 total=1449
+[tokens] turn=123 input=95 output=28 total=123
+INFO:     127.0.0.1:64391 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=97 input=1414 output=30 total=1444
+[tokens] turn=124 input=99 output=28 total=127
+INFO:     127.0.0.1:60064 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=98 input=1402 output=81 total=1483
+[tokens] turn=125 input=94 output=30 total=124
+INFO:     127.0.0.1:49678 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=99 input=1446 output=50 total=1496
+[tokens] turn=126 input=92 output=28 total=120
+INFO:     127.0.0.1:63901 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=100 input=1450 output=30 total=1480
+[tokens] turn=127 input=94 output=28 total=122
+[tokens] turn=128 input=507 output=146 total=653
+[tokens] turn=129 input=894 output=100 total=994
+INFO:     127.0.0.1:51703 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=101 input=1459 output=24 total=1483
+[tokens] turn=130 input=100 output=31 total=131
+INFO:     127.0.0.1:61303 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=102 input=1437 output=25 total=1462
+[tokens] turn=131 input=98 output=34 total=132
+INFO:     127.0.0.1:65365 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=103 input=1401 output=30 total=1431
+[tokens] turn=132 input=96 output=31 total=127
+INFO:     127.0.0.1:56796 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=104 input=1387 output=23 total=1410
+[tokens] turn=133 input=97 output=32 total=129
+INFO:     127.0.0.1:56815 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=105 input=1386 output=26 total=1412
+[tokens] turn=134 input=102 output=71 total=173
+[tokens] turn=135 input=416 output=137 total=553
+INFO:     127.0.0.1:58310 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=106 input=110 output=36 total=146
+[tokens] turn=136 input=102 output=41 total=143
+INFO:     127.0.0.1:55017 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=107 input=197 output=43 total=240
+[tokens] turn=137 input=109 output=105 total=214
+INFO:     127.0.0.1:55041 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=108 input=311 output=51 total=362
+[tokens] turn=138 input=106 output=69 total=175
+INFO:     127.0.0.1:49335 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=109 input=370 output=56 total=426
+[tokens] turn=139 input=95 output=31 total=126
+INFO:     127.0.0.1:49349 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=110 input=438 output=73 total=511
+[tokens] turn=140 input=105 output=72 total=177
+[tokens] turn=141 input=429 output=132 total=561
+INFO:     127.0.0.1:50781 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=111 input=652 output=26 total=678
+[tokens] turn=142 input=101 output=29 total=130
+INFO:     127.0.0.1:64534 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=112 input=671 output=31 total=702
+[tokens] turn=143 input=106 output=71 total=177
+INFO:     127.0.0.1:64548 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=113 input=677 output=28 total=705
+[tokens] turn=144 input=94 output=44 total=138
+INFO:     127.0.0.1:64562 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=114 input=721 output=31 total=752
+[tokens] turn=145 input=101 output=33 total=134
+INFO:     127.0.0.1:52683 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=115 input=768 output=32 total=800
+[tokens] turn=146 input=96 output=28 total=124
+[tokens] turn=147 input=427 output=133 total=560
+[tokens] turn=148 input=337 output=86 total=423
+INFO:     127.0.0.1:52698 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=116 input=912 output=72 total=984
+[tokens] turn=149 input=98 output=43 total=141
+INFO:     127.0.0.1:51119 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=117 input=993 output=28 total=1021
+[tokens] turn=150 input=97 output=62 total=159
+INFO:     127.0.0.1:50725 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=118 input=1030 output=28 total=1058
+[tokens] turn=151 input=96 output=28 total=124
+INFO:     127.0.0.1:50741 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=119 input=1030 output=41 total=1071
+[tokens] turn=152 input=94 output=30 total=124
+INFO:     127.0.0.1:62762 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=120 input=1122 output=28 total=1150
+[tokens] turn=153 input=101 output=40 total=141
+[tokens] turn=154 input=465 output=135 total=600
+INFO:     127.0.0.1:62775 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=121 input=1134 output=29 total=1163
+[tokens] turn=155 input=100 output=31 total=131
+INFO:     127.0.0.1:62447 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=122 input=1128 output=42 total=1170
+[tokens] turn=156 input=102 output=46 total=148
+INFO:     127.0.0.1:62461 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=123 input=1123 output=33 total=1156
+[tokens] turn=157 input=97 output=30 total=127
+INFO:     127.0.0.1:58563 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=124 input=1119 output=44 total=1163
+[tokens] turn=158 input=99 output=33 total=132
+INFO:     127.0.0.1:54526 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=125 input=1131 output=55 total=1186
+[tokens] turn=159 input=102 output=44 total=146
+[tokens] turn=160 input=487 output=139 total=626
+[tokens] turn=161 input=691 output=88 total=779
+INFO:     127.0.0.1:63237 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=126 input=1149 output=57 total=1206
+[tokens] turn=162 input=93 output=27 total=120
+INFO:     127.0.0.1:65003 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=127 input=1150 output=43 total=1193
+[tokens] turn=163 input=98 output=31 total=129
+INFO:     127.0.0.1:51562 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=128 input=1140 output=61 total=1201
+[tokens] turn=164 input=95 output=31 total=126
+INFO:     127.0.0.1:51577 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=129 input=1159 output=56 total=1215
+[tokens] turn=165 input=99 output=40 total=139
+INFO:     127.0.0.1:55296 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=130 input=1171 output=51 total=1222
+[tokens] turn=166 input=92 output=27 total=119
+[tokens] turn=167 input=533 output=145 total=678
+INFO:     127.0.0.1:55313 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=131 input=1132 output=27 total=1159
+[tokens] turn=168 input=95 output=28 total=123
+INFO:     127.0.0.1:61087 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=132 input=1117 output=27 total=1144
+[tokens] turn=169 input=99 output=28 total=127
+INFO:     127.0.0.1:63736 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=133 input=1082 output=68 total=1150
+[tokens] turn=170 input=94 output=30 total=124
+INFO:     127.0.0.1:63749 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=134 input=1122 output=50 total=1172
+[tokens] turn=171 input=92 output=28 total=120
+INFO:     127.0.0.1:63765 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=135 input=1140 output=24 total=1164
+[tokens] turn=172 input=94 output=28 total=122
+[tokens] turn=173 input=464 output=145 total=609
+[tokens] turn=174 input=850 output=87 total=937
+INFO:     127.0.0.1:52705 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=136 input=1122 output=16 total=1138
+[tokens] turn=175 input=100 output=31 total=131
+INFO:     127.0.0.1:64273 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=137 input=1092 output=25 total=1117
+[tokens] turn=176 input=98 output=34 total=132
+INFO:     127.0.0.1:58825 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=138 input=1073 output=26 total=1099
+[tokens] turn=177 input=96 output=31 total=127
+INFO:     127.0.0.1:52936 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=139 input=1064 output=14 total=1078
+[tokens] turn=178 input=97 output=32 total=129
+INFO:     127.0.0.1:52949 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=140 input=1078 output=37 total=1115
+[tokens] turn=179 input=102 output=71 total=173
+[tokens] turn=180 input=405 output=145 total=550
+INFO:     127.0.0.1:52962 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52702 - "GET /chat HTTP/1.1" 200 OK
+[tokens] turn=141 input=112 output=41 total=153
+[tokens] turn=181 input=104 output=42 total=146
+INFO:     127.0.0.1:52702 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=142 input=204 output=55 total=259
+[tokens] turn=182 input=107 output=103 total=210
+INFO:     127.0.0.1:52702 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=143 input=328 output=53 total=381
+[tokens] turn=183 input=106 output=70 total=176
+INFO:     127.0.0.1:57288 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51151 - "GET /chat HTTP/1.1" 200 OK
+[tokens] turn=144 input=112 output=41 total=153
+[tokens] turn=184 input=104 output=42 total=146
+INFO:     127.0.0.1:51151 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=145 input=204 output=55 total=259
+[tokens] turn=185 input=107 output=103 total=210
+INFO:     127.0.0.1:64453 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=146 input=328 output=53 total=381
+[tokens] turn=186 input=106 output=70 total=176
+INFO:     127.0.0.1:64453 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=147 input=398 output=47 total=445
+[tokens] turn=187 input=95 output=30 total=125
+INFO:     127.0.0.1:58445 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=148 input=475 output=52 total=527
+[tokens] turn=188 input=103 output=70 total=173
+[tokens] turn=189 input=416 output=127 total=543
+INFO:     127.0.0.1:58445 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=149 input=681 output=24 total=705
+[tokens] turn=190 input=97 output=31 total=128
+INFO:     127.0.0.1:58445 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=150 input=727 output=36 total=763
+[tokens] turn=191 input=98 output=63 total=161
+INFO:     127.0.0.1:58445 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=151 input=705 output=40 total=745
+[tokens] turn=192 input=101 output=33 total=134
+INFO:     127.0.0.1:58445 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=152 input=685 output=56 total=741
+[tokens] turn=193 input=93 output=27 total=120
+INFO:     127.0.0.1:58445 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=153 input=684 output=34 total=718
+[tokens] turn=194 input=102 output=57 total=159
+[tokens] turn=195 input=457 output=132 total=589
+[tokens] turn=196 input=331 output=77 total=408
+INFO:     127.0.0.1:58445 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58815 - "GET /api/memory/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58817 - "GET /api/aggregate/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58819 - "GET /api/memory/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58821 - "GET /api/memory/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58822 - "GET /api/memory/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58825 - "GET /api/aggregate/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58829 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58829 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58829 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58839 - "GET /api/aggregate/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58842 - "GET /api/memory/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58843 - "GET /api/memory/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58844 - "GET /api/memory/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59466 - "GET /api/memory/poushali HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59468 - "GET /api/memory/poushali HTTP/1.1" 200 OK
+[tokens] turn=197 input=920 output=220 total=1140
+INFO:     127.0.0.1:58830 - "POST /api/chat HTTP/1.1" 200 OK

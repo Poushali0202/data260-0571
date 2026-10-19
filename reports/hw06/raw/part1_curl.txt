@@ -1,0 +1,38 @@
+$ date
+2026-10-18T19:28:48-07:00
+$ curl -s -w ' [%{http_code}]' -X POST -H 'Content-Type: application/json' -d '{"productName":"Organic baby spinach 5 oz","noticeDescription":"Possible Listeria contamination in lot GV-2291","noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z"}' http://127.0.0.1:8571/api/doc/notices
+{"productName":"Organic baby spinach 5 oz","noticeDescription":"Possible Listeria contamination in lot GV-2291","status":"open","noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z","id":"6ad58060757bda746ae46cb2","createdAt":"2026-10-19T02:28:48.878000Z","updatedAt":"2026-10-19T02:28:48.878000Z"} [201]
+$ curl -s -w ' [%{http_code}]' -X POST ... (whole milk shortage, status investigating)
+{"productName":"Whole milk 1 gal","noticeDescription":"Dairy Fresh Co-op delivery short this week","status":"investigating","noticeCategory":"shortage","noticeDate":"2026-10-17T08:30:00Z","id":"6ad58061757bda746ae46cb3","createdAt":"2026-10-19T02:28:49.332000Z","updatedAt":"2026-10-19T02:28:49.332000Z"} [201]
+$ curl -s -w ' [%{http_code}]' -X POST ... (frozen berries distribution update, no description)
+{"productName":"Frozen mixed berries 2 lb","noticeDescription":null,"status":"open","noticeCategory":"distribution","noticeDate":"2026-10-16T14:00:00Z","id":"6ad58061757bda746ae46cb4","createdAt":"2026-10-19T02:28:49.507000Z","updatedAt":"2026-10-19T02:28:49.507000Z"} [201]
+$ curl -s -w ' [%{http_code}]' http://127.0.0.1:8571/api/doc/notices
+[{"productName":"Frozen mixed berries 2 lb","noticeDescription":null,"status":"open","noticeCategory":"distribution","noticeDate":"2026-10-16T14:00:00Z","id":"6ad58061757bda746ae46cb4","createdAt":"2026-10-19T02:28:49.507000Z","updatedAt":"2026-10-19T02:28:49.507000Z"},{"productName":"Whole milk 1 gal","noticeDescription":"Dairy Fresh Co-op delivery short this week","status":"investigating","noticeCategory":"shortage","noticeDate":"2026-10-17T08:30:00Z","id":"6ad58061757bda746ae46cb3","createdAt":"2026-10-19T02:28:49.332000Z","updatedAt":"2026-10-19T02:28:49.332000Z"},{"productName":"Organic baby spinach 5 oz","noticeDescription":"Possible Listeria contamination in lot GV-2291","status":"open","noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z","id":"6ad58060757bda746ae46cb2","createdAt":"2026-10-19T02:28:48.878000Z","updatedAt":"2026-10-19T02:28:48.878000Z"}] [200]
+$ curl -s -w ' [%{http_code}]' http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2
+{"productName":"Organic baby spinach 5 oz","noticeDescription":"Possible Listeria contamination in lot GV-2291","status":"open","noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z","id":"6ad58060757bda746ae46cb2","createdAt":"2026-10-19T02:28:48.878000Z","updatedAt":"2026-10-19T02:28:48.878000Z"} [200]
+$ curl -s -w ' [%{http_code}]' -X PUT -H 'Content-Type: application/json' -d '{"status":"closed","noticeDescription":"All 168 bags pulled and quarantined"}' http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2
+{"productName":"Organic baby spinach 5 oz","noticeDescription":"All 168 bags pulled and quarantined","status":"closed","noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z","id":"6ad58060757bda746ae46cb2","createdAt":"2026-10-19T02:28:48.878000Z","updatedAt":"2026-10-19T02:28:49.736000Z"} [200]
+$ curl -s -w ' [%{http_code}]' -X PUT -H 'Content-Type: application/json' -d '{}' http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2   (no fields)
+{"detail":"No fields to update"} [400]
+$ curl -s -w ' [%{http_code}]' http://127.0.0.1:8571/api/doc/notices/000000000000000000000000   (unknown id)
+{"detail":"Notice not found"} [404]
+$ curl -s -w ' [%{http_code}]' http://127.0.0.1:8571/api/doc/notices/not-an-id   (malformed id)
+{"detail":"Invalid notice id"} [400]
+$ curl -s -w ' [%{http_code}]' -X POST -H 'Content-Type: application/json' -d '{"noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z"}' http://127.0.0.1:8571/api/doc/notices   (missing productName)
+{"detail":[{"type":"missing","loc":["body","productName"],"msg":"Field required","input":{"noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z"}}]} [422]
+$ curl -s -w ' [%{http_code}]' -X POST ... noticeCategory="rumor"   (invalid enum)
+{"detail":[{"type":"literal_error","loc":["body","noticeCategory"],"msg":"Input should be 'recall', 'shortage', 'contamination' or 'distribution'","input":"rumor","ctx":{"expected":"'recall', 'shortage', 'contamination' or 'distribution'"}}]} [422]
+$ curl -s -w ' [%{http_code}]' -X POST ... noticeDate="next week"   (wrong type)
+{"detail":[{"type":"datetime_from_date_parsing","loc":["body","noticeDate"],"msg":"Input should be a valid datetime or date, input is too short","input":"next week","ctx":{"error":"input is too short"}}]} [422]
+$ curl -s -w ' [%{http_code}]' -X POST ... productName of 120 characters   (too long)
+{"detail":[{"type":"string_too_long","loc":["body","productName"],"msg":"String should have at most 100 characters","input":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","ctx":{"max_length":100}}]} [422]
+$ curl -s -w ' [%{http_code}]' -X POST ... status=5   (wrong type for enum field)
+{"detail":[{"type":"literal_error","loc":["body","status"],"msg":"Input should be 'open', 'investigating' or 'closed'","input":5,"ctx":{"expected":"'open', 'investigating' or 'closed'"}}]} [422]
+$ curl -s -w ' [%{http_code}]' -X DELETE http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2
+ [204]
+$ curl -s -w ' [%{http_code}]' -X DELETE http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2   (again)
+{"detail":"Notice not found"} [404]
+$ curl -s -w ' [%{http_code}]' http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2   (after delete)
+{"detail":"Notice not found"} [404]
+$ date
+2026-10-18T19:28:51-07:00

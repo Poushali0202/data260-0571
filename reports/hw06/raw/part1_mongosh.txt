@@ -1,0 +1,77 @@
+$ docker exec s0571-mongo mongosh s0571_doc --quiet --eval 'db.getCollectionNames()'
+[ 'episodes', 'messages', 'summaries', 'notices' ]
+$ docker exec s0571-mongo mongosh s0571_doc --quiet --eval 'db.getCollectionInfos({name:"notices"})[0].options.validator'
+{
+  '$jsonSchema': {
+    bsonType: 'object',
+    required: [
+      'productName',
+      'status',
+      'noticeCategory',
+      'noticeDate',
+      'createdAt',
+      'updatedAt'
+    ],
+    properties: {
+      productName: { bsonType: 'string', minLength: 1, maxLength: 100 },
+      noticeDescription: { bsonType: [ 'string', 'null' ], maxLength: 1000 },
+      status: { enum: [ 'open', 'investigating', 'closed' ] },
+      noticeCategory: {
+        enum: [ 'recall', 'shortage', 'contamination', 'distribution' ]
+      },
+      noticeDate: { bsonType: 'date' },
+      createdAt: { bsonType: 'date' },
+      updatedAt: { bsonType: 'date' }
+    }
+  }
+}
+$ docker exec s0571-mongo mongosh s0571_doc --quiet --eval 'db.notices.find().pretty()'
+[
+  {
+    _id: ObjectId('6ad58061757bda746ae46cb3'),
+    productName: 'Whole milk 1 gal',
+    noticeDescription: 'Dairy Fresh Co-op delivery short this week',
+    status: 'investigating',
+    noticeCategory: 'shortage',
+    noticeDate: ISODate('2026-10-17T08:30:00.000Z'),
+    createdAt: ISODate('2026-10-19T02:28:49.332Z'),
+    updatedAt: ISODate('2026-10-19T02:28:49.332Z')
+  },
+  {
+    _id: ObjectId('6ad58061757bda746ae46cb4'),
+    productName: 'Frozen mixed berries 2 lb',
+    noticeDescription: null,
+    status: 'open',
+    noticeCategory: 'distribution',
+    noticeDate: ISODate('2026-10-16T14:00:00.000Z'),
+    createdAt: ISODate('2026-10-19T02:28:49.507Z'),
+    updatedAt: ISODate('2026-10-19T02:28:49.507Z')
+  }
+]
+$ docker exec s0571-mongo mongosh s0571_doc --quiet --eval 'db.notices.insertOne({productName:"Eggs", noticeCategory:"rumor", noticeDate:new Date(), status:"open", createdAt:new Date(), updatedAt:new Date()})'   (bypasses the API, invalid enum)
+Document failed validation
+[
+  {
+    operatorName: 'properties',
+    propertiesNotSatisfied: [
+      {
+        propertyName: 'noticeCategory',
+        details: [
+          {
+            operatorName: 'enum',
+            specifiedAs: {
+              enum: [
+                'recall',
+                'shortage',
+                'contamination',
+                'distribution'
+              ]
+            },
+            reason: 'value was not found in enum',
+            consideredValue: 'rumor'
+          }
+        ]
+      }
+    ]
+  }
+]

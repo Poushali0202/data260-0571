@@ -1,0 +1,126 @@
+{
+  "homework": "DATA-260 HW6",
+  "sid4": "0571",
+  "commit_hash": "7a3083b6997f6a3e73bf7da6295bd3da1a149b1d",
+  "tag": "hw6",
+  "model": "qwen3:8b through Ollama, embeddings all-MiniLM-L6-v2",
+  "configuration": {
+    "port_base": 8571,
+    "prefix": "s0571",
+    "mongo_db": "s0571_doc",
+    "short_term_n": 12,
+    "summarize_every_user_msgs": 5,
+    "top_k_episodes": 4
+  },
+  "seed": 571,
+  "verify_seed": 260571,
+  "verified_at_utc": "2026-10-19T19:26:23.390969+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "backend_responds_on_port_base",
+      "passed": true,
+      "details": "GET /health returned 200"
+    },
+    {
+      "check": "doc_create_201",
+      "passed": true,
+      "details": "POST returned 201, default status open"
+    },
+    {
+      "check": "doc_list",
+      "passed": true,
+      "details": "3 documents listed"
+    },
+    {
+      "check": "doc_get_by_id",
+      "passed": true,
+      "details": "GET returned 200"
+    },
+    {
+      "check": "doc_update",
+      "passed": true,
+      "details": "PUT returned 200"
+    },
+    {
+      "check": "doc_validation_422",
+      "passed": true,
+      "details": "missing field 422, bad enum 422, bad date 422"
+    },
+    {
+      "check": "doc_bad_id_400_and_unknown_404",
+      "passed": true,
+      "details": "malformed id 400, unknown id 404"
+    },
+    {
+      "check": "doc_delete_then_404",
+      "passed": true,
+      "details": "DELETE 204, GET afterwards 404"
+    },
+    {
+      "check": "mongo_schema_validator_rejects_bad_document",
+      "passed": true,
+      "details": "direct insert with a 120 character productName raised WriteError 121"
+    },
+    {
+      "check": "chat_returns_reply",
+      "passed": true,
+      "details": "POST /api/chat returned 200, 164 characters"
+    },
+    {
+      "check": "chat_reports_memory_used_and_tokens",
+      "passed": true,
+      "details": "used keys ['episodes', 'file_memory', 'long_term', 'new_facts', 'short_term'], prompt tokens 112"
+    },
+    {
+      "check": "memory_endpoint",
+      "passed": true,
+      "details": "2 messages, 2 episodes"
+    },
+    {
+      "check": "aggregate_endpoint",
+      "passed": true,
+      "details": "daily counts [{'date': '2026-10-19', 'messages': 2}]"
+    },
+    {
+      "check": "help_command",
+      "passed": true,
+      "details": "reply lists the four commands"
+    },
+    {
+      "check": "memory_command",
+      "passed": true,
+      "details": "29 fact lines, last consolidated 2026-10-19T19:17:39+00:00"
+    },
+    {
+      "check": "agent_md_has_rules",
+      "passed": true,
+      "details": "13 instructions under 6 headings"
+    },
+    {
+      "check": "memory_md_consolidated_under_40_lines",
+      "passed": true,
+      "details": "53 fact lines before, 29 after"
+    },
+    {
+      "check": "sweep_has_four_settings_of_30_turns_and_5_probes",
+      "passed": true,
+      "details": "{'n4': {'conversation': 30, 'probe': 5}, 'n12': {'conversation': 30, 'probe': 5}, 'n30': {'conversation': 30, 'probe': 5}, 'n30_compress': {'conversation': 30, 'probe': 5}}"
+    },
+    {
+      "check": "cost_summary_names_best_and_worst",
+      "passed": true,
+      "details": "best n4, worst n30"
+    },
+    {
+      "check": "generated_function_follows_agent_md",
+      "passed": true,
+      "details": "8/8 rules"
+    },
+    {
+      "check": "report_files_present",
+      "passed": true,
+      "details": "all files present"
+    }
+  ]
+}

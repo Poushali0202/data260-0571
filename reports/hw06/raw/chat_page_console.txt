@@ -1,0 +1,11 @@
+11:00:35 turn 1 done in 50.0 s
+11:01:19 turn 2 done in 44.3 s
+11:02:01 turn 3 done in 41.1 s
+11:02:41 turn 4 done in 40.8 s
+11:04:22 turn 5 done in 101.1 s
+11:05:14 turn 6 done in 51.3 s
+11:06:01 turn 7 done in 46.7 s
+11:06:46 turn 8 done in 45.4 s
+11:07:28 turn 9 done in 41.4 s
+11:09:30 turn 10 done in 122.1 s
+saved

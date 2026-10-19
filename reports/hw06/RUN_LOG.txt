@@ -1,0 +1,1045 @@
+DATA-260 HW6 run log
+Student: Poushali Purkayastha (SID4 0571, domain: grocery supply and recall notices)
+Machine: Intel Core i5-1135G7 (4 cores, 8 threads), 15.8 GB RAM, Windows 11 Home, CPU only
+Databases: MongoDB 7.0 in the Docker container s0571-mongo (port 27017), database s0571_doc; MySQL 8.0 in s0571-mysql (port 3307)
+Model: qwen3:8b through Ollama (temperature 0, thinking off), embeddings all-MiniLM-L6-v2
+Timestamps are local time (-07:00) unless they end in +00:00 (UTC, written by the server).
+
+
+=== Part 1: document API round trip with curl (server started with python app.py on 8571) ===
+$ date
+2026-10-18T19:28:48-07:00
+$ curl -s -w ' [%{http_code}]' -X POST -H 'Content-Type: application/json' -d '{"productName":"Organic baby spinach 5 oz","noticeDescription":"Possible Listeria contamination in lot GV-2291","noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z"}' http://127.0.0.1:8571/api/doc/notices
+{"productName":"Organic baby spinach 5 oz","noticeDescription":"Possible Listeria contamination in lot GV-2291","status":"open","noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z","id":"6ad58060757bda746ae46cb2","createdAt":"2026-10-19T02:28:48.878000Z","updatedAt":"2026-10-19T02:28:48.878000Z"} [201]
+$ curl -s -w ' [%{http_code}]' -X POST ... (whole milk shortage, status investigating)
+{"productName":"Whole milk 1 gal","noticeDescription":"Dairy Fresh Co-op delivery short this week","status":"investigating","noticeCategory":"shortage","noticeDate":"2026-10-17T08:30:00Z","id":"6ad58061757bda746ae46cb3","createdAt":"2026-10-19T02:28:49.332000Z","updatedAt":"2026-10-19T02:28:49.332000Z"} [201]
+$ curl -s -w ' [%{http_code}]' -X POST ... (frozen berries distribution update, no description)
+{"productName":"Frozen mixed berries 2 lb","noticeDescription":null,"status":"open","noticeCategory":"distribution","noticeDate":"2026-10-16T14:00:00Z","id":"6ad58061757bda746ae46cb4","createdAt":"2026-10-19T02:28:49.507000Z","updatedAt":"2026-10-19T02:28:49.507000Z"} [201]
+$ curl -s -w ' [%{http_code}]' http://127.0.0.1:8571/api/doc/notices
+[{"productName":"Frozen mixed berries 2 lb","noticeDescription":null,"status":"open","noticeCategory":"distribution","noticeDate":"2026-10-16T14:00:00Z","id":"6ad58061757bda746ae46cb4","createdAt":"2026-10-19T02:28:49.507000Z","updatedAt":"2026-10-19T02:28:49.507000Z"},{"productName":"Whole milk 1 gal","noticeDescription":"Dairy Fresh Co-op delivery short this week","status":"investigating","noticeCategory":"shortage","noticeDate":"2026-10-17T08:30:00Z","id":"6ad58061757bda746ae46cb3","createdAt":"2026-10-19T02:28:49.332000Z","updatedAt":"2026-10-19T02:28:49.332000Z"},{"productName":"Organic baby spinach 5 oz","noticeDescription":"Possible Listeria contamination in lot GV-2291","status":"open","noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z","id":"6ad58060757bda746ae46cb2","createdAt":"2026-10-19T02:28:48.878000Z","updatedAt":"2026-10-19T02:28:48.878000Z"}] [200]
+$ curl -s -w ' [%{http_code}]' http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2
+{"productName":"Organic baby spinach 5 oz","noticeDescription":"Possible Listeria contamination in lot GV-2291","status":"open","noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z","id":"6ad58060757bda746ae46cb2","createdAt":"2026-10-19T02:28:48.878000Z","updatedAt":"2026-10-19T02:28:48.878000Z"} [200]
+$ curl -s -w ' [%{http_code}]' -X PUT -H 'Content-Type: application/json' -d '{"status":"closed","noticeDescription":"All 168 bags pulled and quarantined"}' http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2
+{"productName":"Organic baby spinach 5 oz","noticeDescription":"All 168 bags pulled and quarantined","status":"closed","noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z","id":"6ad58060757bda746ae46cb2","createdAt":"2026-10-19T02:28:48.878000Z","updatedAt":"2026-10-19T02:28:49.736000Z"} [200]
+$ curl -s -w ' [%{http_code}]' -X PUT -H 'Content-Type: application/json' -d '{}' http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2   (no fields)
+{"detail":"No fields to update"} [400]
+$ curl -s -w ' [%{http_code}]' http://127.0.0.1:8571/api/doc/notices/000000000000000000000000   (unknown id)
+{"detail":"Notice not found"} [404]
+$ curl -s -w ' [%{http_code}]' http://127.0.0.1:8571/api/doc/notices/not-an-id   (malformed id)
+{"detail":"Invalid notice id"} [400]
+$ curl -s -w ' [%{http_code}]' -X POST -H 'Content-Type: application/json' -d '{"noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z"}' http://127.0.0.1:8571/api/doc/notices   (missing productName)
+{"detail":[{"type":"missing","loc":["body","productName"],"msg":"Field required","input":{"noticeCategory":"recall","noticeDate":"2026-10-18T09:00:00Z"}}]} [422]
+$ curl -s -w ' [%{http_code}]' -X POST ... noticeCategory="rumor"   (invalid enum)
+{"detail":[{"type":"literal_error","loc":["body","noticeCategory"],"msg":"Input should be 'recall', 'shortage', 'contamination' or 'distribution'","input":"rumor","ctx":{"expected":"'recall', 'shortage', 'contamination' or 'distribution'"}}]} [422]
+$ curl -s -w ' [%{http_code}]' -X POST ... noticeDate="next week"   (wrong type)
+{"detail":[{"type":"datetime_from_date_parsing","loc":["body","noticeDate"],"msg":"Input should be a valid datetime or date, input is too short","input":"next week","ctx":{"error":"input is too short"}}]} [422]
+$ curl -s -w ' [%{http_code}]' -X POST ... productName of 120 characters   (too long)
+{"detail":[{"type":"string_too_long","loc":["body","productName"],"msg":"String should have at most 100 characters","input":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","ctx":{"max_length":100}}]} [422]
+$ curl -s -w ' [%{http_code}]' -X POST ... status=5   (wrong type for enum field)
+{"detail":[{"type":"literal_error","loc":["body","status"],"msg":"Input should be 'open', 'investigating' or 'closed'","input":5,"ctx":{"expected":"'open', 'investigating' or 'closed'"}}]} [422]
+$ curl -s -w ' [%{http_code}]' -X DELETE http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2
+ [204]
+$ curl -s -w ' [%{http_code}]' -X DELETE http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2   (again)
+{"detail":"Notice not found"} [404]
+$ curl -s -w ' [%{http_code}]' http://127.0.0.1:8571/api/doc/notices/6ad58060757bda746ae46cb2   (after delete)
+{"detail":"Notice not found"} [404]
+$ date
+2026-10-18T19:28:51-07:00
+
+
+=== Part 1: collections, validator, sample documents and a rejected insert (mongosh in the container) ===
+$ docker exec s0571-mongo mongosh s0571_doc --quiet --eval 'db.getCollectionNames()'
+[ 'episodes', 'messages', 'summaries', 'notices' ]
+$ docker exec s0571-mongo mongosh s0571_doc --quiet --eval 'db.getCollectionInfos({name:"notices"})[0].options.validator'
+{
+  '$jsonSchema': {
+    bsonType: 'object',
+    required: [
+      'productName',
+      'status',
+      'noticeCategory',
+      'noticeDate',
+      'createdAt',
+      'updatedAt'
+    ],
+    properties: {
+      productName: { bsonType: 'string', minLength: 1, maxLength: 100 },
+      noticeDescription: { bsonType: [ 'string', 'null' ], maxLength: 1000 },
+      status: { enum: [ 'open', 'investigating', 'closed' ] },
+      noticeCategory: {
+        enum: [ 'recall', 'shortage', 'contamination', 'distribution' ]
+      },
+      noticeDate: { bsonType: 'date' },
+      createdAt: { bsonType: 'date' },
+      updatedAt: { bsonType: 'date' }
+    }
+  }
+}
+$ docker exec s0571-mongo mongosh s0571_doc --quiet --eval 'db.notices.find().pretty()'
+[
+  {
+    _id: ObjectId('6ad58061757bda746ae46cb3'),
+    productName: 'Whole milk 1 gal',
+    noticeDescription: 'Dairy Fresh Co-op delivery short this week',
+    status: 'investigating',
+    noticeCategory: 'shortage',
+    noticeDate: ISODate('2026-10-17T08:30:00.000Z'),
+    createdAt: ISODate('2026-10-19T02:28:49.332Z'),
+    updatedAt: ISODate('2026-10-19T02:28:49.332Z')
+  },
+  {
+    _id: ObjectId('6ad58061757bda746ae46cb4'),
+    productName: 'Frozen mixed berries 2 lb',
+    noticeDescription: null,
+    status: 'open',
+    noticeCategory: 'distribution',
+    noticeDate: ISODate('2026-10-16T14:00:00.000Z'),
+    createdAt: ISODate('2026-10-19T02:28:49.507Z'),
+    updatedAt: ISODate('2026-10-19T02:28:49.507Z')
+  }
+]
+$ docker exec s0571-mongo mongosh s0571_doc --quiet --eval 'db.notices.insertOne({productName:"Eggs", noticeCategory:"rumor", noticeDate:new Date(), status:"open", createdAt:new Date(), updatedAt:new Date()})'   (bypasses the API, invalid enum)
+Document failed validation
+[
+  {
+    operatorName: 'properties',
+    propertiesNotSatisfied: [
+      {
+        propertyName: 'noticeCategory',
+        details: [
+          {
+            operatorName: 'enum',
+            specifiedAs: {
+              enum: [
+                'recall',
+                'shortage',
+                'contamination',
+                'distribution'
+              ]
+            },
+            reason: 'value was not found in enum',
+            consideredValue: 'rumor'
+          }
+        ]
+      }
+    ]
+  }
+]
+
+
+=== Part 2: server console of the smoke session (first five chat turns, user smoke1), 2026-10-18 19:29 to 19:38 ===
+[tokens] turn=1 input=115 output=60 total=175
+[tokens] turn=1 input=124 output=109 total=233
+INFO:     127.0.0.1:54492 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=2 input=254 output=72 total=326
+[tokens] turn=2 input=106 output=69 total=175
+INFO:     127.0.0.1:50880 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=3 input=363 output=74 total=437
+[tokens] turn=3 input=99 output=41 total=140
+INFO:     127.0.0.1:65156 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=4 input=456 output=73 total=529
+[tokens] turn=4 input=97 output=62 total=159
+INFO:     127.0.0.1:52703 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=5 input=553 output=21 total=574
+[tokens] turn=5 input=102 output=74 total=176
+[tokens] turn=6 input=481 output=90 total=571
+INFO:     127.0.0.1:52590 - "POST /api/chat HTTP/1.1" 200 OK
+
+
+=== Part 3: sweep runner console (python run_memory_cost.py 25|28, resumed from reports/hw06/raw/sweep_turns.csv after each chunk) ===
+2026-10-18T19:41:33 n4 conversation 1  prompt=110 completion=36 latency=107735ms wall=107.8s
+2026-10-18T19:42:45 n4 conversation 2  prompt=197 completion=43 latency=71996ms wall=72.0s
+2026-10-18T19:43:40 n4 conversation 3  prompt=311 completion=51 latency=55193ms wall=55.2s
+2026-10-18T19:44:22 n4 conversation 4  prompt=322 completion=47 latency=41913ms wall=41.9s
+2026-10-18T19:46:08 n4 conversation 5  prompt=323 completion=62 latency=106344ms wall=106.4s
+2026-10-18T19:46:52 n4 conversation 6  prompt=469 completion=30 latency=43835ms wall=43.8s
+2026-10-18T19:47:35 n4 conversation 7  prompt=458 completion=48 latency=42947ms wall=43.0s
+2026-10-18T19:48:06 n4 conversation 8  prompt=432 completion=29 latency=30508ms wall=30.5s
+2026-10-18T19:48:38 n4 conversation 9  prompt=424 completion=41 latency=32585ms wall=32.6s
+2026-10-18T19:50:46 n4 conversation 10  prompt=412 completion=39 latency=127867ms wall=127.9s
+2026-10-18T19:51:42 n4 conversation 11  prompt=531 completion=67 latency=56183ms wall=56.2s
+2026-10-18T19:52:18 n4 conversation 12  prompt=549 completion=29 latency=35543ms wall=35.6s
+2026-10-18T19:52:46 n4 conversation 13  prompt=537 completion=37 latency=28587ms wall=28.6s
+2026-10-18T19:53:13 n4 conversation 14  prompt=505 completion=33 latency=26562ms wall=26.6s
+2026-10-18T19:54:38 n4 conversation 15  prompt=545 completion=34 latency=85300ms wall=85.3s
+2026-10-18T19:55:07 n4 conversation 16  prompt=510 completion=35 latency=28837ms wall=28.8s
+2026-10-18T19:55:41 n4 conversation 17  prompt=527 completion=42 latency=33689ms wall=33.7s
+2026-10-18T19:56:10 n4 conversation 18  prompt=525 completion=34 latency=29476ms wall=29.5s
+2026-10-18T19:56:47 n4 conversation 19  prompt=528 completion=49 latency=37098ms wall=37.1s
+2026-10-18T19:59:42 n4 conversation 20  prompt=535 completion=50 latency=174970ms wall=175.0s
+2026-10-18T20:00:39 n4 conversation 21  prompt=567 completion=64 latency=56412ms wall=56.4s
+2026-10-18T20:01:11 n4 conversation 22  prompt=575 completion=42 latency=32098ms wall=32.1s
+2026-10-18T20:01:43 n4 conversation 23  prompt=563 completion=50 latency=32407ms wall=32.4s
+2026-10-18T20:02:18 n4 conversation 24  prompt=565 completion=46 latency=34551ms wall=34.6s
+2026-10-18T20:03:55 n4 conversation 25  prompt=569 completion=67 latency=96746ms wall=96.8s
+2026-10-18T20:04:35 n4 conversation 26  prompt=582 completion=57 latency=39847ms wall=39.9s
+2026-10-18T20:05:03 n4 conversation 27  prompt=610 completion=26 latency=28198ms wall=28.2s
+time budget used, rerun to continue
+2026-10-18T20:05:50 n4 conversation 28  prompt=562 completion=68 latency=31905ms wall=32.0s
+2026-10-18T20:06:18 n4 conversation 29  prompt=575 completion=44 latency=28198ms wall=28.2s
+2026-10-18T20:09:03 n4 conversation 30  prompt=583 completion=26 latency=164997ms wall=165.0s
+2026-10-18T20:09:46 n4 probe 1 p1 prompt=555 completion=24 latency=42946ms wall=43.0s
+2026-10-18T20:10:16 n4 probe 2 p2 prompt=535 completion=25 latency=29876ms wall=29.9s
+2026-10-18T20:10:41 n4 probe 3 p3 prompt=526 completion=10 latency=25483ms wall=25.5s
+2026-10-18T20:11:11 n4 probe 4 p4 prompt=500 completion=14 latency=29947ms wall=30.0s
+2026-10-18T20:12:57 n4 probe 5 p5 prompt=511 completion=22 latency=105683ms wall=105.7s
+2026-10-18T20:13:34 n12 conversation 1  prompt=110 completion=36 latency=36889ms wall=36.9s
+2026-10-18T20:14:31 n12 conversation 2  prompt=197 completion=43 latency=56759ms wall=56.8s
+2026-10-18T20:15:09 n12 conversation 3  prompt=311 completion=51 latency=38643ms wall=38.7s
+2026-10-18T20:15:53 n12 conversation 4  prompt=384 completion=55 latency=43844ms wall=43.9s
+2026-10-18T20:17:25 n12 conversation 5  prompt=469 completion=71 latency=91440ms wall=91.5s
+2026-10-18T20:18:12 n12 conversation 6  prompt=707 completion=29 latency=47244ms wall=47.3s
+2026-10-18T20:19:27 n12 conversation 7  prompt=761 completion=45 latency=75309ms wall=75.3s
+2026-10-18T20:20:29 n12 conversation 8  prompt=761 completion=29 latency=61317ms wall=61.4s
+2026-10-18T20:21:30 n12 conversation 9  prompt=732 completion=31 latency=61611ms wall=61.6s
+2026-10-18T20:23:56 n12 conversation 10  prompt=707 completion=33 latency=146313ms wall=146.3s
+2026-10-18T20:25:18 n12 conversation 11  prompt=789 completion=65 latency=81187ms wall=81.2s
+2026-10-18T20:26:22 n12 conversation 12  prompt=771 completion=32 latency=64609ms wall=64.6s
+2026-10-18T20:27:08 n12 conversation 13  prompt=767 completion=31 latency=45368ms wall=45.4s
+2026-10-18T20:27:48 n12 conversation 14  prompt=743 completion=32 latency=40729ms wall=40.7s
+2026-10-18T20:29:25 n12 conversation 15  prompt=785 completion=29 latency=96750ms wall=96.8s
+2026-10-18T20:30:11 n12 conversation 16  prompt=742 completion=33 latency=45327ms wall=45.3s
+2026-10-18T20:31:08 n12 conversation 17  prompt=755 completion=40 latency=57223ms wall=57.2s
+2026-10-18T20:31:50 n12 conversation 18  prompt=723 completion=37 latency=42558ms wall=42.6s
+2026-10-18T20:32:51 n12 conversation 19  prompt=735 completion=64 latency=60889ms wall=60.9s
+2026-10-18T20:36:15 n12 conversation 20  prompt=774 completion=51 latency=203577ms wall=203.6s
+time budget used, rerun to continue
+2026-10-18T20:38:03 n12 conversation 21  prompt=812 completion=65 latency=93298ms wall=93.4s
+2026-10-18T20:39:25 n12 conversation 22  prompt=839 completion=57 latency=81696ms wall=81.7s
+2026-10-18T20:40:44 n12 conversation 23  prompt=861 completion=60 latency=79076ms wall=79.2s
+2026-10-18T20:42:24 n12 conversation 24  prompt=888 completion=39 latency=99603ms wall=99.6s
+2026-10-18T20:45:36 n12 conversation 25  prompt=891 completion=81 latency=191949ms wall=192.1s
+2026-10-18T20:46:39 n12 conversation 26  prompt=873 completion=38 latency=63809ms wall=63.9s
+2026-10-18T20:47:39 n12 conversation 27  prompt=874 completion=37 latency=59608ms wall=59.6s
+2026-10-18T20:48:48 n12 conversation 28  prompt=838 completion=68 latency=68689ms wall=68.7s
+2026-10-18T20:49:54 n12 conversation 29  prompt=848 completion=50 latency=66686ms wall=66.7s
+2026-10-18T20:54:21 n12 conversation 30  prompt=832 completion=31 latency=266379ms wall=266.5s
+2026-10-18T20:55:53 n12 probe 1 p1 prompt=852 completion=24 latency=91942ms wall=92.0s
+2026-10-18T20:56:48 n12 probe 2 p2 prompt=795 completion=25 latency=54734ms wall=54.8s
+2026-10-18T20:57:41 n12 probe 3 p3 prompt=773 completion=26 latency=52788ms wall=52.8s
+2026-10-18T20:58:27 n12 probe 4 p4 prompt=751 completion=14 latency=46456ms wall=46.5s
+2026-10-18T21:01:20 n12 probe 5 p5 prompt=723 completion=26 latency=173087ms wall=173.1s
+2026-10-18T21:03:30 n30 conversation 1  prompt=110 completion=36 latency=129741ms wall=129.8s
+2026-10-18T21:04:26 n30 conversation 2  prompt=197 completion=43 latency=56360ms wall=56.4s
+2026-10-18T21:05:07 n30 conversation 3  prompt=311 completion=51 latency=40789ms wall=40.8s
+time budget used, rerun to continue
+2026-10-18T21:37:23 n30 conversation 21  prompt=1342 completion=57 latency=96254ms wall=96.3s
+2026-10-18T21:39:17 n30 conversation 22  prompt=1363 completion=45 latency=114191ms wall=114.2s
+2026-10-18T21:41:07 n30 conversation 23  prompt=1358 completion=57 latency=109535ms wall=109.6s
+2026-10-18T21:42:31 n30 conversation 24  prompt=1401 completion=35 latency=83933ms wall=83.9s
+2026-10-18T21:45:24 n30 conversation 25  prompt=1399 completion=70 latency=173066ms wall=173.1s
+Traceback (most recent call last):
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\run_memory_cost.py", line 121, in <module>
+    main()
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\run_memory_cost.py", line 109, in main
+    run_turn(setting, n, policy, "conversation", turn, "", message)
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\run_memory_cost.py", line 82, in run_turn
+    result = post_chat(body)
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\run_memory_cost.py", line 58, in post_chat
+    with urllib.request.urlopen(request, timeout=900) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+=== resumed 2026-10-19T02:31:59-07:00 after the laptop slept during n30 turn 26; the orphan user message of that turn was removed before resuming ===
+2026-10-19T02:34:10 n30 conversation 26  prompt=1410 completion=39 latency=130657ms wall=130.9s
+2026-10-19T02:35:45 n30 conversation 27  prompt=1414 completion=30 latency=95050ms wall=95.1s
+2026-10-19T02:37:51 n30 conversation 28  prompt=1402 completion=81 latency=125702ms wall=125.7s
+2026-10-19T02:39:28 n30 conversation 29  prompt=1446 completion=50 latency=97528ms wall=97.5s
+2026-10-19T02:42:54 n30 conversation 30  prompt=1450 completion=30 latency=206088ms wall=206.1s
+2026-10-19T02:44:27 n30 probe 1 p1 prompt=1459 completion=24 latency=92706ms wall=92.7s
+2026-10-19T02:45:56 n30 probe 2 p2 prompt=1437 completion=25 latency=88954ms wall=89.0s
+2026-10-19T02:47:28 n30 probe 3 p3 prompt=1401 completion=30 latency=91926ms wall=91.9s
+2026-10-19T02:48:51 n30 probe 4 p4 prompt=1387 completion=23 latency=83059ms wall=83.1s
+2026-10-19T02:51:16 n30 probe 5 p5 prompt=1386 completion=26 latency=145066ms wall=145.1s
+2026-10-19T02:51:45 n30_compress conversation 1  prompt=110 completion=36 latency=29061ms wall=29.1s
+2026-10-19T02:52:29 n30_compress conversation 2  prompt=197 completion=43 latency=43763ms wall=43.8s
+2026-10-19T02:53:13 n30_compress conversation 3  prompt=311 completion=51 latency=43802ms wall=43.8s
+2026-10-19T02:53:56 n30_compress conversation 4  prompt=370 completion=56 latency=43221ms wall=43.2s
+2026-10-19T02:55:51 n30_compress conversation 5  prompt=438 completion=73 latency=114974ms wall=115.0s
+2026-10-19T02:56:45 n30_compress conversation 6  prompt=652 completion=26 latency=53613ms wall=53.6s
+2026-10-19T02:57:38 n30_compress conversation 7  prompt=671 completion=31 latency=53568ms wall=53.6s
+2026-10-19T02:58:24 n30_compress conversation 8  prompt=677 completion=28 latency=46273ms wall=46.3s
+2026-10-19T02:59:11 n30_compress conversation 9  prompt=721 completion=31 latency=46145ms wall=46.2s
+2026-10-19T03:01:39 n30_compress conversation 10  prompt=768 completion=32 latency=148170ms wall=148.2s
+time budget used, rerun to continue
+2026-10-19T03:03:19 n30_compress conversation 11  prompt=912 completion=72 latency=89472ms wall=89.7s
+2026-10-19T03:04:25 n30_compress conversation 12  prompt=993 completion=28 latency=65382ms wall=65.4s
+2026-10-19T03:05:25 n30_compress conversation 13  prompt=1030 completion=28 latency=59834ms wall=59.8s
+2026-10-19T03:06:27 n30_compress conversation 14  prompt=1030 completion=41 latency=62037ms wall=62.0s
+2026-10-19T03:08:23 n30_compress conversation 15  prompt=1122 completion=28 latency=116033ms wall=116.0s
+2026-10-19T03:09:31 n30_compress conversation 16  prompt=1134 completion=29 latency=68087ms wall=68.1s
+2026-10-19T03:10:48 n30_compress conversation 17  prompt=1128 completion=42 latency=77545ms wall=77.6s
+2026-10-19T03:12:11 n30_compress conversation 18  prompt=1123 completion=33 latency=82362ms wall=82.4s
+2026-10-19T03:13:34 n30_compress conversation 19  prompt=1119 completion=44 latency=83327ms wall=83.3s
+2026-10-19T03:16:49 n30_compress conversation 20  prompt=1131 completion=55 latency=194790ms wall=194.8s
+2026-10-19T03:18:23 n30_compress conversation 21  prompt=1149 completion=57 latency=93790ms wall=93.8s
+2026-10-19T03:19:34 n30_compress conversation 22  prompt=1150 completion=43 latency=71388ms wall=71.4s
+2026-10-19T03:20:51 n30_compress conversation 23  prompt=1140 completion=61 latency=77432ms wall=77.4s
+2026-10-19T03:22:10 n30_compress conversation 24  prompt=1159 completion=56 latency=78150ms wall=78.2s
+2026-10-19T03:24:31 n30_compress conversation 25  prompt=1171 completion=51 latency=140883ms wall=140.9s
+2026-10-19T03:25:53 n30_compress conversation 26  prompt=1132 completion=27 latency=82519ms wall=82.5s
+2026-10-19T03:26:58 n30_compress conversation 27  prompt=1117 completion=27 latency=65052ms wall=65.1s
+2026-10-19T03:28:10 n30_compress conversation 28  prompt=1082 completion=68 latency=71483ms wall=71.5s
+2026-10-19T03:29:20 n30_compress conversation 29  prompt=1122 completion=50 latency=70246ms wall=70.3s
+2026-10-19T03:32:45 n30_compress conversation 30  prompt=1140 completion=24 latency=205423ms wall=205.4s
+time budget used, rerun to continue
+2026-10-19T03:34:34 n30_compress probe 1 p1 prompt=1122 completion=16 latency=80660ms wall=80.8s
+2026-10-19T03:35:37 n30_compress probe 2 p2 prompt=1092 completion=25 latency=63240ms wall=63.3s
+2026-10-19T03:36:38 n30_compress probe 3 p3 prompt=1073 completion=26 latency=60349ms wall=60.4s
+2026-10-19T03:37:35 n30_compress probe 4 p4 prompt=1064 completion=14 latency=57162ms wall=57.2s
+2026-10-19T03:39:30 n30_compress probe 5 p5 prompt=1078 completion=37 latency=115100ms wall=115.1s
+sweep complete
+
+Note on the sweep console: chunk 4 (2026-10-18 21:05 to 21:35, n30 turns 4 to 20) was started without
+the tee to this file, so its runner lines are missing here; the server-side rows for those turns with
+UTC timestamps are in raw/chat_log.csv and the turn data in raw/sweep_turns.csv. The laptop went to
+sleep during n30 turn 26 (21:45 to 02:30) and again after the sweep (03:42 to 10:39, and 10:40 to 10:58);
+the first sleep killed the in-flight request, the orphaned user message was deleted and the turn rerun.
+
+
+=== Part 3: scoring and cost summary (python summarize_memory_cost.py) ===
+| Setting | Mean prompt tokens/turn | Mean latency (ms) | Probe quality (1-5) |
+|---|---|---|---|
+| n4 (N=4, policy none) | 483.4 | 58084 | 5 |
+| n12 (N=12, policy none) | 709.3 | 82279 | 5 |
+| n30 (N=30, policy none) | 1083.4 | 108547 | 5 |
+| n30_compress (N=30, policy compress_old) | 900.0 | 82594 | 4.6 |
+
+| Setting | Prompt tokens / conversation | Completion tokens / conversation | Cost / conversation | Cost for 10,000 | With extraction and summaries |
+|---|---|---|---|---|---|
+| n4 | 14501 | 1326 | $0.0211 | $211.31 | $405.10 |
+| n12 | 21279 | 1363 | $0.0281 | $280.94 | $473.39 |
+| n30 | 32501 | 1320 | $0.0391 | $391.01 | $587.42 |
+| n30_compress | 26999 | 1271 | $0.0334 | $333.54 | $524.79 |
+
+best: n4, worst: n30, policy vs n30: {'prompt_tokens_saved_per_conversation': 5502, 'prompt_tokens_saved_percent': 16.9, 'probe_score_change': -0.4}
+n4 p1 score=5 (2/2): You are Maya Chen, and you manage Willow Glen Market (store code WG-17) in San Jose.
+n4 p2 score=5 (2/2): The spinach recall had lot code GV-2291 and notice code RN-004410.
+n4 p3 score=5 (1/1): You prefer to receive follow-ups via email.
+n4 p4 score=5 (2/2): Your assistant manager is Daniel, and he covers the night shift.
+n4 p5 score=5 (2/2): Your store code is WG-17. You pulled a total of 168 spinach bags.
+n12 p1 score=5 (2/2): You are Maya Chen, and you manage Willow Glen Market (store code WG-17) in San Jose.
+n12 p2 score=5 (2/2): The spinach recall involved lot code GV-2291 and notice code RN-004410.
+n12 p3 score=5 (1/1): I prefer to follow up with you via email. Let me know if you need any updates or additional information sent that way.
+n12 p4 score=5 (2/2): Your assistant manager is Daniel, and he covers the night shift.
+n12 p5 score=5 (2/2): Your store code is WG-17, and you pulled a total of 168 spinach bags for the recall.
+n30 p1 score=5 (2/2): You are Maya Chen, and you manage Willow Glen Market (store code WG-17) in San Jose.
+n30 p2 score=5 (2/2): The spinach recall had lot code GV-2291 and notice code RN-004410.
+n30 p3 score=5 (1/1): You prefer to receive follow-ups via email rather than by phone. Let me know if you need any updates or additional information sent to your email.
+n30 p4 score=5 (2/2): Your assistant manager is Daniel, and he covers the night shift. Let me know if you need anything else!
+n30 p5 score=5 (2/2): Your store code is WG-17, and you pulled a total of 168 spinach bags in the recall.
+n30_compress p1 score=5 (2/2): You are Maya Chen, and you manage Willow Glen Market in San Jose.
+n30_compress p2 score=5 (2/2): The spinach recall involved lot code GV-2291 and notice code RN-004410.
+n30_compress p3 score=5 (1/1): I prefer to send follow-ups via email, as you mentioned earlier. Let me know if you need any assistance with that.
+n30_compress p4 score=5 (2/2): Your assistant manager is Daniel, and he covers the night shift.
+n30_compress p5 score=3 (1/2): Your store code is WG-037, and you pulled a total of 168 bags of spinach (lot GV-2291) for the recall.
+
+
+=== Part 2: live chat page session, user poushali, session demo-1 (scratch Playwright script driving http://127.0.0.1:8571/chat) ===
+11:00:35 turn 1 done in 50.0 s
+11:01:19 turn 2 done in 44.3 s
+11:02:01 turn 3 done in 41.1 s
+11:02:41 turn 4 done in 40.8 s
+11:04:22 turn 5 done in 101.1 s
+11:05:14 turn 6 done in 51.3 s
+11:06:01 turn 7 done in 46.7 s
+11:06:46 turn 8 done in 45.4 s
+11:07:28 turn 9 done in 41.4 s
+11:09:30 turn 10 done in 122.1 s
+saved
+
+
+=== Part 2: GET /api/memory/poushali and GET /api/aggregate/poushali ===
+$ date
+2026-10-19T11:10:08-07:00
+$ curl -s http://127.0.0.1:8571/api/memory/poushali | python -m json.tool
+{
+    "user_id": "poushali",
+    "messages": [
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "The notice code is RN-004422 and it came from the FDA recall bulletin.",
+            "created_at": "2026-10-19T18:01:19.988000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "The recall notice has code RN-004422 and was issued by the FDA recall bulletin. Ensure all units of lot GV-3310 are removed and disposed of or returned as instructed. Let me know if you need additional guidance.",
+            "created_at": "2026-10-19T18:01:44.501000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "What should I do with the affected cases first?",
+            "created_at": "2026-10-19T18:02:01.089000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "Prioritize removing all affected cases of lot GV-3310 from shelves immediately. Ensure they are securely stored or returned to the supplier as per the recall instructions. Let me know if you need help with disposal or documentation.",
+            "created_at": "2026-10-19T18:02:31.494000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "We have 30 cases on the floor and 60 more in the cooler.",
+            "created_at": "2026-10-19T18:02:41.902000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "You have 90 cases of lot GV-3310 in total. Immediately remove all 90 cases from shelves and coolers, and secure them for return or disposal as instructed. Let me know if you need help with the process.",
+            "created_at": "2026-10-19T18:03:19.241000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "Please remember that I prefer updates by email in the morning.",
+            "created_at": "2026-10-19T18:04:23.263000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "I'll remember to send you updates by email in the morning. Let me know if you need anything else today.",
+            "created_at": "2026-10-19T18:05:05.888000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "My assistant manager is Rohan, he covers the weekend shift.",
+            "created_at": "2026-10-19T18:05:14.612000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "I've noted that Rohan covers the weekend shift. Let me know if you need him involved in any recall actions or if you'd like to assign specific tasks to him.",
+            "created_at": "2026-10-19T18:05:47.397000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "There is also a shortage of oat milk from Dairy Fresh Co-op this week.",
+            "created_at": "2026-10-19T18:06:01.342000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "There is a shortage of oat milk from Dairy Fresh Co-op this week. Please monitor inventory and communicate this to staff to manage customer expectations. Let me know if you need help with alternative solutions.",
+            "created_at": "2026-10-19T18:06:38.176000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "Which notices did we discuss so far?",
+            "created_at": "2026-10-19T18:06:46.780000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "We discussed the FDA recall notice for romaine lettuce (lot GV-3310, notice code RN-004422) and a separate shortage notice for oat milk from Dairy Fresh Co-op. Let me know if you need further details on either.",
+            "created_at": "2026-10-19T18:07:20.926000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "user",
+            "content": "What is the lot code of the lettuce recall, and how do I prefer updates?",
+            "created_at": "2026-10-19T18:07:28.207000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "role": "assistant",
+            "content": "The lot code of the lettuce recall is GV-3310. You prefer updates by email in the morning. Let me know if you need anything else.",
+            "created_at": "2026-10-19T18:07:58.618000+00:00"
+        }
+    ],
+    "session_summary": {
+        "user_id": "poushali",
+        "session_id": "demo-1",
+        "scope": "session",
+        "text": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- Updates preferred by email in the morning.  \n- Oat milk shortage from Dairy Fresh Co-op this week.  \n- Rohan covers weekend shift; available for recall actions.  \n- Affected cases must be removed and secured for return or disposal.",
+        "created_at": "2026-10-19T18:08:59.838000+00:00"
+    },
+    "lifetime_summary": {
+        "user_id": "poushali",
+        "session_id": null,
+        "scope": "user",
+        "text": "- Poushali manages Evergreen Market in Santa Clara.  \n- Works with Green Valley Farms and Dairy Fresh Co-op.  \n- Handles romaine lettuce recall (lot GV-3310, code RN-004422).  \n- Prefers email updates in the morning.  \n- Prioritizes secure removal and proper disposal of affected products.",
+        "created_at": "2026-10-19T18:09:30.222000+00:00"
+    },
+    "episodes": [
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user is asking about the lot code of a lettuce recall.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:08:11.549000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user is inquiring about their preferred method for receiving updates.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:08:11.549000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user is asking about previously discussed notices.",
+            "importance": 0.5,
+            "created_at": "2026-10-19T18:07:28.107000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "There is a shortage of oat milk from Dairy Fresh Co-op this week.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:06:46.682000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The assistant manager is named Rohan.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:06:01.259000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "Rohan covers the weekend shift.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:06:01.259000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user prefers updates to be sent by email in the morning.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:05:14.515000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The store has 30 cases on the floor.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:03:34.970000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The store has 60 cases in the cooler.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:03:34.970000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user is asking about the priority actions for affected cases.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:02:41.820000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The notice code is RN-004422.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:02:00.991000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The notice came from the FDA recall bulletin.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:02:00.991000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The user received a recall notice for romaine lettuce.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:01:19.889000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The affected product is from Green Valley Farms.",
+            "importance": 0.8,
+            "created_at": "2026-10-19T18:01:19.889000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "The specific lot number associated with the recall is GV-3310.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:01:19.889000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "fact": "Poushali manages the Evergreen Market in Santa Clara.",
+            "importance": 0.9,
+            "created_at": "2026-10-19T18:00:35.310000+00:00"
+        }
+    ]
+}
+$ curl -s http://127.0.0.1:8571/api/aggregate/poushali | python -m json.tool
+{
+    "user_id": "poushali",
+    "daily_message_counts": [
+        {
+            "date": "2026-10-19",
+            "messages": 20
+        }
+    ],
+    "recent_summaries": [
+        {
+            "user_id": "poushali",
+            "session_id": null,
+            "scope": "user",
+            "text": "- Poushali manages Evergreen Market in Santa Clara.  \n- Works with Green Valley Farms and Dairy Fresh Co-op.  \n- Handles romaine lettuce recall (lot GV-3310, code RN-004422).  \n- Prefers email updates in the morning.  \n- Prioritizes secure removal and proper disposal of affected products.",
+            "created_at": "2026-10-19T18:09:30.222000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "scope": "session",
+            "text": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- Updates preferred by email in the morning.  \n- Oat milk shortage from Dairy Fresh Co-op this week.  \n- Rohan covers weekend shift; available for recall actions.  \n- Affected cases must be removed and secured for return or disposal.",
+            "created_at": "2026-10-19T18:08:59.838000+00:00"
+        },
+        {
+            "user_id": "poushali",
+            "session_id": "demo-1",
+            "scope": "session",
+            "text": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice received for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code is RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- All affected cases must be removed immediately.  \n- Secure affected cases for return or disposal as instructed.  \n- Ensure proper disposal or return to supplier per recall guidelines.  \n- Assistance available for disposal or documentation process.",
+            "created_at": "2026-10-19T18:04:22.878000+00:00"
+        }
+    ]
+}
+
+
+=== Part 4: /compact reply (final design; the earlier attempts are raw/part4_compact_attempt1.json, attempt2, attempt3) ===
+{
+    "reply":  "MEMORY.md consolidated: 53 lines before, 24 lines after.",
+    "session_id":  "demo-1",
+    "used":  {
+                 "command":  {
+                                 "command":  "compact",
+                                 "lines_before":  53,
+                                 "lines_after":  24,
+                                 "resolved":  [
+                                                  "- Resolved: kept \u0027Lot GV-2291 was delivered on October 14 (noted 2026-10-16).\u0027; dropped \u0027Lot GV-2291 was delivered on October 12 (noted 2026-10-13).\u0027 (Later noted date (2026-10-16 vs 2026-10-13))",
+                                                  "- Resolved: kept \u0027Recall paperwork is kept for five years (noted 2026-10-16).\u0027; dropped \u0027Recall paperwork is kept for two years (noted 2026-10-05).\u0027 (Later noted date (2026-10-16 vs 2026-10-05))",
+                                                  "- Resolved: kept \u0027Maya prefers follow-ups by phone after 6 pm (noted 2026-10-15).\u0027; dropped \u0027Maya prefers follow-ups by email, not phone (noted 2026-10-03).\u0027 (Later noted date (2026-10-15 vs 2026-10-03))",
+                                                  "- Resolved: kept \u0027Green Valley Farms said the contamination in lot GV-2291 was Listeria (noted 2026-10-16).\u0027; dropped \u0027Green Valley Farms said the contamination in lot GV-2291 was E. coli (noted 2026-10-13).\u0027 (Later noted date (2026-10-16 vs 2026-10-13))",
+                                                  "- Resolved: kept \u0027The assistant should answer in one to three sentences.\u0027; dropped \u0027Milk deliveries resumed on October 17.\u0027 (More specific statement)"
+                                              ],
+                                 "kept_unchanged":  1,
+                                 "model_groups":  {
+                                                      "duplicates":  [
+                                                                         [
+                                                                             1,
+                                                                             52
+                                                                         ],
+                                                                         [
+                                                                             2,
+                                                                             19
+                                                                         ],
+                                                                         [
+                                                                             3,
+                                                                             16
+                                                                         ],
+                                                                         [
+                                                                             4,
+                                                                             21
+                                                                         ],
+                                                                         [
+                                                                             5,
+                                                                             51
+                                                                         ],
+                                                                         [
+                                                                             17,
+                                                                             53
+                                                                         ],
+                                                                         [
+                                                                             39,
+                                                                             13
+                                                                         ]
+                                                                     ],
+                                                      "related":  [
+                                                                      [
+                                                                          1,
+                                                                          52,
+                                                                          2,
+                                                                          19,
+                                                                          4,
+                                                                          21,
+                                                                          44,
+                                                                          45,
+                                                                          47,
+                                                                          48,
+                                                                          49,
+                                                                          50,
+                                                                          51,
+                                                                          53
+                                                                      ],
+                                                                      [
+                                                                          6,
+                                                                          7,
+                                                                          22,
+                                                                          17,
+                                                                          53,
+                                                                          15,
+                                                                          34,
+                                                                          35,
+                                                                          36,
+                                                                          37,
+                                                                          38,
+                                                                          40,
+                                                                          41,
+                                                                          43,
+                                                                          48,
+                                                                          50
+                                                                      ],
+                                                                      [
+                                                                          8,
+                                                                          12,
+                                                                          13,
+                                                                          34,
+                                                                          39,
+                                                                          48,
+                                                                          50
+                                                                      ],
+                                                                      [
+                                                                          9,
+                                                                          23,
+                                                                          37,
+                                                                          48
+                                                                      ],
+                                                                      [
+                                                                          10,
+                                                                          11,
+                                                                          15,
+                                                                          35,
+                                                                          36,
+                                                                          48
+                                                                      ],
+                                                                      [
+                                                                          14,
+                                                                          29
+                                                                      ],
+                                                                      [
+                                                                          24,
+                                                                          12,
+                                                                          25,
+                                                                          51
+                                                                      ],
+                                                                      [
+                                                                          26,
+                                                                          27
+                                                                      ],
+                                                                      [
+                                                                          28,
+                                                                          38
+                                                                      ],
+                                                                      [
+                                                                          30,
+                                                                          46
+                                                                      ],
+                                                                      [
+                                                                          31,
+                                                                          32,
+                                                                          33,
+                                                                          34,
+                                                                          35,
+                                                                          36,
+                                                                          37,
+                                                                          38,
+                                                                          48,
+                                                                          50
+                                                                      ],
+                                                                      [
+                                                                          42,
+                                                                          2,
+                                                                          19
+                                                                      ]
+                                                                  ],
+                                                      "conflicts":  [
+                                                                        {
+                                                                            "keep":  22,
+                                                                            "drop":  7,
+                                                                            "reason":  "Later noted date (2026-10-16 vs 2026-10-13)"
+                                                                        },
+                                                                        {
+                                                                            "keep":  29,
+                                                                            "drop":  14,
+                                                                            "reason":  "Later noted date (2026-10-16 vs 2026-10-05)"
+                                                                        },
+                                                                        {
+                                                                            "keep":  20,
+                                                                            "drop":  3,
+                                                                            "reason":  "Later noted date (2026-10-15 vs 2026-10-03)"
+                                                                        },
+                                                                        {
+                                                                            "keep":  17,
+                                                                            "drop":  53,
+                                                                            "reason":  "Later noted date (2026-10-16 vs 2026-10-13)"
+                                                                        },
+                                                                        {
+                                                                            "keep":  48,
+                                                                            "drop":  49,
+                                                                            "reason":  "More specific statement"
+                                                                        }
+                                                                    ]
+                                                  }
+                             }
+             },
+    "usage":  {
+
+              }
+}
+
+
+=== Part 4: /dream reply after the chat session ===
+{
+
+    "reply":  "Added to MEMORY.md:\n- Poushali manages the Evergreen Market in Santa Clara\n- Recall notice for romaine lettuce from Green Valley Farms, lot GV-3310, code RN-004422\n- Preference for updates by email in the morning\n- Assistant manager Rohan covers the weekend shift\n- Shortage of oat milk from Dairy Fresh Co-op this week",
+
+    "session_id":  "demo-1",
+
+    "used":  {
+
+                 "command":  {
+
+                                 "command":  "dream",
+
+                                 "added":  [
+
+                                               "- Poushali manages the Evergreen Market in Santa Clara",
+
+                                               "- Recall notice for romaine lettuce from Green Valley Farms, lot GV-3310, code RN-004422",
+
+                                               "- Preference for updates by email in the morning",
+
+                                               "- Assistant manager Rohan covers the weekend shift",
+
+                                               "- Shortage of oat milk from Dairy Fresh Co-op this week"
+
+                                           ]
+
+                             }
+
+             },
+
+    "usage":  {
+
+
+
+              }
+
+}
+
+
+=== Part 4: chat turn with file_memory true ===
+{
+
+    "reply":  "The store code is WG-17, and the night shift is handled by assistant manager Daniel.",
+
+    "session_id":  "demo-2",
+
+    "used":  {
+
+                 "short_term":  {
+
+                                    "count":  0,
+
+                                    "messages":  [
+
+
+
+                                                 ]
+
+                                },
+
+                 "long_term":  {
+
+                                   "session_summary":  null,
+
+                                   "lifetime_summary":  "- Poushali manages Evergreen Market in Santa Clara.  \n- Works with Green Valley Farms and Dairy Fresh Co-op.  \n- Handles romaine lettuce recall (lot GV-3310, code RN-004422).  \n- Prefers email updates in the morning.  \n- Prioritizes secure removal and proper disposal of affected products."
+
+                               },
+
+                 "episodes":  [
+
+                                  {
+
+                                      "fact":  "The user prefers updates to be sent by email in the morning.",
+
+                                      "importance":  0.9,
+
+                                      "score":  0.375
+
+                                  },
+
+                                  {
+
+                                      "fact":  "The notice code is RN-004422.",
+
+                                      "importance":  0.9,
+
+                                      "score":  0.344
+
+                                  },
+
+                                  {
+
+                                      "fact":  "The user is inquiring about their preferred method for receiving updates.",
+
+                                      "importance":  0.8,
+
+                                      "score":  0.301
+
+                                  },
+
+                                  {
+
+                                      "fact":  "Rohan covers the weekend shift.",
+
+                                      "importance":  0.8,
+
+                                      "score":  0.289
+
+                                  }
+
+                              ],
+
+                 "new_facts":  [
+
+                                   {
+
+                                       "fact":  "The user is asking for the store code.",
+
+                                       "importance":  0.9
+
+                                   },
+
+                                   {
+
+                                       "fact":  "The user is asking who handles the night shift.",
+
+                                       "importance":  0.9
+
+                                   }
+
+                               ],
+
+                 "file_memory":  {
+
+                                     "included":  true,
+
+                                     "consolidated":  false
+
+                                 }
+
+             },
+
+    "usage":  {
+
+                  "prompt_tokens":  1621,
+
+                  "completion_tokens":  21,
+
+                  "primer_tokens":  96,
+
+                  "summary_tokens":  87,
+
+                  "episodes_tokens":  59,
+
+                  "window_tokens":  0,
+
+                  "message_tokens":  14,
+
+                  "file_memory_tokens":  1364,
+
+                  "model_latency_ms":  84844,
+
+                  "latency_ms":  216896,
+
+                  "aux_prompt_tokens":  98,
+
+                  "aux_completion_tokens":  50,
+
+                  "summaries_written":  0
+
+              }
+
+}
+
+
+=== Verification (python verify_hw06.py) ===
+PASS backend_responds_on_port_base: GET /health returned 200
+PASS doc_create_201: POST returned 201, default status open
+PASS doc_list: 3 documents listed
+PASS doc_get_by_id: GET returned 200
+PASS doc_update: PUT returned 200
+PASS doc_validation_422: missing field 422, bad enum 422, bad date 422
+PASS doc_bad_id_400_and_unknown_404: malformed id 400, unknown id 404
+PASS doc_delete_then_404: DELETE 204, GET afterwards 404
+PASS mongo_schema_validator_rejects_bad_document: direct insert with a 120 character productName raised WriteError 121
+PASS chat_returns_reply: POST /api/chat returned 200, 164 characters
+PASS chat_reports_memory_used_and_tokens: used keys ['episodes', 'file_memory', 'long_term', 'new_facts', 'short_term'], prompt tokens 112
+PASS memory_endpoint: 2 messages, 2 episodes
+PASS aggregate_endpoint: daily counts [{'date': '2026-10-19', 'messages': 2}]
+PASS help_command: reply lists the four commands
+PASS memory_command: 29 fact lines, last consolidated 2026-10-19T19:17:39+00:00
+PASS agent_md_has_rules: 13 instructions under 6 headings
+PASS memory_md_consolidated_under_40_lines: 53 fact lines before, 29 after
+PASS sweep_has_four_settings_of_30_turns_and_5_probes: {'n4': {'conversation': 30, 'probe': 5}, 'n12': {'conversation': 30, 'probe': 5}, 'n30': {'conversation': 30, 'probe': 5}, 'n30_compress': {'conversation': 30, 'probe': 5}}
+PASS cost_summary_names_best_and_worst: best n4, worst n30
+PASS generated_function_follows_agent_md: 8/8 rules
+PASS report_files_present: all files present
+wrote C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\reports\hw06\verification.json (passed=True)

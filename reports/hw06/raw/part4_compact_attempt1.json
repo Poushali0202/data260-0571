@@ -1,0 +1,17 @@
+{
+    "reply":  "MEMORY.md consolidated: 53 lines before, 14 lines after.",
+    "session_id":  "demo-1",
+    "used":  {
+                 "command":  {
+                                 "command":  "compact",
+                                 "lines_before":  53,
+                                 "lines_after":  14,
+                                 "resolved":  [
+
+                                              ]
+                             }
+             },
+    "usage":  {
+
+              }
+}

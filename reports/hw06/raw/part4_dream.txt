@@ -1,0 +1,19 @@
+{
+    "reply":  "Added to MEMORY.md:\n- Poushali manages the Evergreen Market in Santa Clara\n- Recall notice for romaine lettuce from Green Valley Farms, lot GV-3310, code RN-004422\n- Preference for updates by email in the morning\n- Assistant manager Rohan covers the weekend shift\n- Shortage of oat milk from Dairy Fresh Co-op this week",
+    "session_id":  "demo-1",
+    "used":  {
+                 "command":  {
+                                 "command":  "dream",
+                                 "added":  [
+                                               "- Poushali manages the Evergreen Market in Santa Clara",
+                                               "- Recall notice for romaine lettuce from Green Valley Farms, lot GV-3310, code RN-004422",
+                                               "- Preference for updates by email in the morning",
+                                               "- Assistant manager Rohan covers the weekend shift",
+                                               "- Shortage of oat milk from Dairy Fresh Co-op this week"
+                                           ]
+                             }
+             },
+    "usage":  {
+
+              }
+}

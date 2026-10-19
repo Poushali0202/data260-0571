@@ -1,0 +1,179 @@
+﻿{
+    "reply":  "MEMORY.md consolidated: 53 lines before, 24 lines after.",
+    "session_id":  "demo-1",
+    "used":  {
+                 "command":  {
+                                 "command":  "compact",
+                                 "lines_before":  53,
+                                 "lines_after":  24,
+                                 "resolved":  [
+                                                  "- Resolved: kept \u0027Lot GV-2291 was delivered on October 14 (noted 2026-10-16).\u0027; dropped \u0027Lot GV-2291 was delivered on October 12 (noted 2026-10-13).\u0027 (Later noted date (2026-10-16 vs 2026-10-13))",
+                                                  "- Resolved: kept \u0027Recall paperwork is kept for five years (noted 2026-10-16).\u0027; dropped \u0027Recall paperwork is kept for two years (noted 2026-10-05).\u0027 (Later noted date (2026-10-16 vs 2026-10-05))",
+                                                  "- Resolved: kept \u0027Maya prefers follow-ups by phone after 6 pm (noted 2026-10-15).\u0027; dropped \u0027Maya prefers follow-ups by email, not phone (noted 2026-10-03).\u0027 (Later noted date (2026-10-15 vs 2026-10-03))",
+                                                  "- Resolved: kept \u0027Green Valley Farms said the contamination in lot GV-2291 was Listeria (noted 2026-10-16).\u0027; dropped \u0027Green Valley Farms said the contamination in lot GV-2291 was E. coli (noted 2026-10-13).\u0027 (Later noted date (2026-10-16 vs 2026-10-13))",
+                                                  "- Resolved: kept \u0027The assistant should answer in one to three sentences.\u0027; dropped \u0027Milk deliveries resumed on October 17.\u0027 (More specific statement)"
+                                              ],
+                                 "kept_unchanged":  1,
+                                 "model_groups":  {
+                                                      "duplicates":  [
+                                                                         [
+                                                                             1,
+                                                                             52
+                                                                         ],
+                                                                         [
+                                                                             2,
+                                                                             19
+                                                                         ],
+                                                                         [
+                                                                             3,
+                                                                             16
+                                                                         ],
+                                                                         [
+                                                                             4,
+                                                                             21
+                                                                         ],
+                                                                         [
+                                                                             5,
+                                                                             51
+                                                                         ],
+                                                                         [
+                                                                             17,
+                                                                             53
+                                                                         ],
+                                                                         [
+                                                                             39,
+                                                                             13
+                                                                         ]
+                                                                     ],
+                                                      "related":  [
+                                                                      [
+                                                                          1,
+                                                                          52,
+                                                                          2,
+                                                                          19,
+                                                                          4,
+                                                                          21,
+                                                                          44,
+                                                                          45,
+                                                                          47,
+                                                                          48,
+                                                                          49,
+                                                                          50,
+                                                                          51,
+                                                                          53
+                                                                      ],
+                                                                      [
+                                                                          6,
+                                                                          7,
+                                                                          22,
+                                                                          17,
+                                                                          53,
+                                                                          15,
+                                                                          34,
+                                                                          35,
+                                                                          36,
+                                                                          37,
+                                                                          38,
+                                                                          40,
+                                                                          41,
+                                                                          43,
+                                                                          48,
+                                                                          50
+                                                                      ],
+                                                                      [
+                                                                          8,
+                                                                          12,
+                                                                          13,
+                                                                          34,
+                                                                          39,
+                                                                          48,
+                                                                          50
+                                                                      ],
+                                                                      [
+                                                                          9,
+                                                                          23,
+                                                                          37,
+                                                                          48
+                                                                      ],
+                                                                      [
+                                                                          10,
+                                                                          11,
+                                                                          15,
+                                                                          35,
+                                                                          36,
+                                                                          48
+                                                                      ],
+                                                                      [
+                                                                          14,
+                                                                          29
+                                                                      ],
+                                                                      [
+                                                                          24,
+                                                                          12,
+                                                                          25,
+                                                                          51
+                                                                      ],
+                                                                      [
+                                                                          26,
+                                                                          27
+                                                                      ],
+                                                                      [
+                                                                          28,
+                                                                          38
+                                                                      ],
+                                                                      [
+                                                                          30,
+                                                                          46
+                                                                      ],
+                                                                      [
+                                                                          31,
+                                                                          32,
+                                                                          33,
+                                                                          34,
+                                                                          35,
+                                                                          36,
+                                                                          37,
+                                                                          38,
+                                                                          48,
+                                                                          50
+                                                                      ],
+                                                                      [
+                                                                          42,
+                                                                          2,
+                                                                          19
+                                                                      ]
+                                                                  ],
+                                                      "conflicts":  [
+                                                                        {
+                                                                            "keep":  22,
+                                                                            "drop":  7,
+                                                                            "reason":  "Later noted date (2026-10-16 vs 2026-10-13)"
+                                                                        },
+                                                                        {
+                                                                            "keep":  29,
+                                                                            "drop":  14,
+                                                                            "reason":  "Later noted date (2026-10-16 vs 2026-10-05)"
+                                                                        },
+                                                                        {
+                                                                            "keep":  20,
+                                                                            "drop":  3,
+                                                                            "reason":  "Later noted date (2026-10-15 vs 2026-10-03)"
+                                                                        },
+                                                                        {
+                                                                            "keep":  17,
+                                                                            "drop":  53,
+                                                                            "reason":  "Later noted date (2026-10-16 vs 2026-10-13)"
+                                                                        },
+                                                                        {
+                                                                            "keep":  48,
+                                                                            "drop":  49,
+                                                                            "reason":  "More specific statement"
+                                                                        }
+                                                                    ]
+                                                  }
+                             }
+             },
+    "usage":  {
+
+              }
+}

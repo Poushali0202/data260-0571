@@ -1,0 +1,198 @@
+INFO:     Started server process [2064]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8571 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61930 - "GET /health HTTP/1.1" 200 OK
+INFO:     Started server process [29340]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8571 (Press CTRL+C to quit)
+INFO:     127.0.0.1:65213 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53389 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53389 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53389 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53316 - "POST /api/chat HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\src\model_client.py", line 72, in complete
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\uvicorn\protocols\http\httptools_impl.py", line 421, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 56, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\applications.py", line 90, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\middleware\errors.py", line 186, in __call__
+    raise exc
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\middleware\errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\middleware\cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 2734, in app
+    await route.handle(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 1780, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 2789, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 1800, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 1279, in handle
+    await app(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 158, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 144, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 706, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\fastapi\routing.py", line 354, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\starlette\concurrency.py", line 32, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 2518, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 1002, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\routers\chat.py", line 27, in chat
+    result = handle_command(data.message, data.user_id, session_id)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\file_memory.py", line 109, in handle_command
+    result = consolidate()
+             ^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\file_memory.py", line 73, in consolidate
+    response = consolidation_model.complete([{"role": "user", "content": prompt}])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\src\model_client.py", line 75, in complete
+    raise RuntimeError(
+RuntimeError: Ollama did not finish the 'qwen3:8b' request in time. Try a smaller model or increase OLLAMA_TIMEOUT.
+=== restart 2026-10-19T11:39:45-07:00 with OLLAMA_TIMEOUT=900 ===
+INFO:     Started server process [29540]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8571 (Press CTRL+C to quit)
+INFO:     127.0.0.1:63909 - "GET /health HTTP/1.1" 200 OK
+[tokens] turn=1 input=920 output=756 total=1676
+INFO:     127.0.0.1:63910 - "POST /api/chat HTTP/1.1" 200 OK
+=== restart 2026-10-19T11:45:06-07:00 with OLLAMA_TIMEOUT=900 (index-based consolidation) ===
+Traceback (most recent call last):
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\app.py", line 12, in <module>
+    from routers.chat import router as chat_router
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\routers\chat.py", line 10, in <module>
+    from file_memory import consolidate, handle_command, load_file, needs_consolidation, system_prompt_block
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\file_memory.py", line 65
+    numbered = "
+               ^
+SyntaxError: unterminated string literal (detected at line 65)
+=== restart 2026-10-19T11:48:04-07:00 with OLLAMA_TIMEOUT=900 (index-based consolidation) ===
+INFO:     Started server process [20960]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8571 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58922 - "GET /health HTTP/1.1" 200 OK
+[tokens] turn=1 input=1054 output=1800 total=2854
+INFO:     127.0.0.1:50510 - "POST /api/chat HTTP/1.1" 200 OK
+=== restart 2026-10-19T12:01:47-07:00 with OLLAMA_TIMEOUT=900 (group-based consolidation) ===
+INFO:     Started server process [1000]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8571 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58182 - "GET /health HTTP/1.1" 200 OK
+[tokens] turn=1 input=1022 output=600 total=1622
+INFO:     127.0.0.1:58183 - "POST /api/chat HTTP/1.1" 200 OK
+=== restart 2026-10-19T12:09:33-07:00 with OLLAMA_TIMEOUT=900 (group-based consolidation, conflicts first) ===
+INFO:     Started server process [24372]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8571 (Press CTRL+C to quit)
+INFO:     127.0.0.1:55541 - "GET /health HTTP/1.1" 200 OK
+[tokens] turn=1 input=1022 output=611 total=1633
+INFO:     127.0.0.1:54244 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=2 input=1022 output=611 total=1633
+INFO:     127.0.0.1:56226 - "POST /api/chat HTTP/1.1" 200 OK
+[tokens] turn=1 input=695 output=78 total=773
+INFO:     127.0.0.1:65382 - "POST /api/chat HTTP/1.1" 200 OK
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 3291.18it/s]
+[tokens] turn=1 input=1621 output=21 total=1642
+[tokens] turn=2 input=98 output=50 total=148
+INFO:     127.0.0.1:61081 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51659 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51660 - "POST /api/doc/notices HTTP/1.1" 201 Created
+INFO:     127.0.0.1:51661 - "GET /api/doc/notices HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51662 - "GET /api/doc/notices/6ad66ec2779066b867e0a711 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51663 - "PUT /api/doc/notices/6ad66ec2779066b867e0a711 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51664 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:51665 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:51666 - "POST /api/doc/notices HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:51667 - "GET /api/doc/notices/not-an-id HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51668 - "GET /api/doc/notices/000000000000000000000000 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:51669 - "DELETE /api/doc/notices/6ad66ec2779066b867e0a711 HTTP/1.1" 204 No Content
+INFO:     127.0.0.1:51670 - "GET /api/doc/notices/6ad66ec2779066b867e0a711 HTTP/1.1" 404 Not Found
+[tokens] turn=2 input=112 output=40 total=152
+[tokens] turn=3 input=104 output=65 total=169
+INFO:     127.0.0.1:51676 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51692 - "GET /api/memory/verify_hw06 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51693 - "GET /api/aggregate/verify_hw06 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51694 - "POST /api/chat HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51695 - "POST /api/chat HTTP/1.1" 200 OK

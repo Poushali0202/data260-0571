@@ -1,0 +1,67 @@
+{
+    "reply":  "The store code is WG-17, and the night shift is handled by assistant manager Daniel.",
+    "session_id":  "demo-2",
+    "used":  {
+                 "short_term":  {
+                                    "count":  0,
+                                    "messages":  [
+
+                                                 ]
+                                },
+                 "long_term":  {
+                                   "session_summary":  null,
+                                   "lifetime_summary":  "- Poushali manages Evergreen Market in Santa Clara.  \n- Works with Green Valley Farms and Dairy Fresh Co-op.  \n- Handles romaine lettuce recall (lot GV-3310, code RN-004422).  \n- Prefers email updates in the morning.  \n- Prioritizes secure removal and proper disposal of affected products."
+                               },
+                 "episodes":  [
+                                  {
+                                      "fact":  "The user prefers updates to be sent by email in the morning.",
+                                      "importance":  0.9,
+                                      "score":  0.375
+                                  },
+                                  {
+                                      "fact":  "The notice code is RN-004422.",
+                                      "importance":  0.9,
+                                      "score":  0.344
+                                  },
+                                  {
+                                      "fact":  "The user is inquiring about their preferred method for receiving updates.",
+                                      "importance":  0.8,
+                                      "score":  0.301
+                                  },
+                                  {
+                                      "fact":  "Rohan covers the weekend shift.",
+                                      "importance":  0.8,
+                                      "score":  0.289
+                                  }
+                              ],
+                 "new_facts":  [
+                                   {
+                                       "fact":  "The user is asking for the store code.",
+                                       "importance":  0.9
+                                   },
+                                   {
+                                       "fact":  "The user is asking who handles the night shift.",
+                                       "importance":  0.9
+                                   }
+                               ],
+                 "file_memory":  {
+                                     "included":  true,
+                                     "consolidated":  false
+                                 }
+             },
+    "usage":  {
+                  "prompt_tokens":  1621,
+                  "completion_tokens":  21,
+                  "primer_tokens":  96,
+                  "summary_tokens":  87,
+                  "episodes_tokens":  59,
+                  "window_tokens":  0,
+                  "message_tokens":  14,
+                  "file_memory_tokens":  1364,
+                  "model_latency_ms":  84844,
+                  "latency_ms":  216896,
+                  "aux_prompt_tokens":  98,
+                  "aux_completion_tokens":  50,
+                  "summaries_written":  0
+              }
+}

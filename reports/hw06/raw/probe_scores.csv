@@ -1,0 +1,21 @@
+setting,probe_id,question,reply,found,total,score
+n4,p1,"Remind me, what is my name and which store do I manage?","You are Maya Chen, and you manage Willow Glen Market (store code WG-17) in San Jose.",2,2,5
+n4,p2,Which lot code and which notice code did the spinach recall have?,The spinach recall had lot code GV-2291 and notice code RN-004410.,2,2,5
+n4,p3,How do I prefer to receive follow-ups from you?,You prefer to receive follow-ups via email.,1,1,5
+n4,p4,Who is my assistant manager and which shift does he cover?,"Your assistant manager is Daniel, and he covers the night shift.",2,2,5
+n4,p5,"What is our store code, and how many spinach bags did we pull in total?",Your store code is WG-17. You pulled a total of 168 spinach bags.,2,2,5
+n12,p1,"Remind me, what is my name and which store do I manage?","You are Maya Chen, and you manage Willow Glen Market (store code WG-17) in San Jose.",2,2,5
+n12,p2,Which lot code and which notice code did the spinach recall have?,The spinach recall involved lot code GV-2291 and notice code RN-004410.,2,2,5
+n12,p3,How do I prefer to receive follow-ups from you?,I prefer to follow up with you via email. Let me know if you need any updates or additional information sent that way.,1,1,5
+n12,p4,Who is my assistant manager and which shift does he cover?,"Your assistant manager is Daniel, and he covers the night shift.",2,2,5
+n12,p5,"What is our store code, and how many spinach bags did we pull in total?","Your store code is WG-17, and you pulled a total of 168 spinach bags for the recall.",2,2,5
+n30,p1,"Remind me, what is my name and which store do I manage?","You are Maya Chen, and you manage Willow Glen Market (store code WG-17) in San Jose.",2,2,5
+n30,p2,Which lot code and which notice code did the spinach recall have?,The spinach recall had lot code GV-2291 and notice code RN-004410.,2,2,5
+n30,p3,How do I prefer to receive follow-ups from you?,You prefer to receive follow-ups via email rather than by phone. Let me know if you need any updates or additional information sent to your email.,1,1,5
+n30,p4,Who is my assistant manager and which shift does he cover?,"Your assistant manager is Daniel, and he covers the night shift. Let me know if you need anything else!",2,2,5
+n30,p5,"What is our store code, and how many spinach bags did we pull in total?","Your store code is WG-17, and you pulled a total of 168 spinach bags in the recall.",2,2,5
+n30_compress,p1,"Remind me, what is my name and which store do I manage?","You are Maya Chen, and you manage Willow Glen Market in San Jose.",2,2,5
+n30_compress,p2,Which lot code and which notice code did the spinach recall have?,The spinach recall involved lot code GV-2291 and notice code RN-004410.,2,2,5
+n30_compress,p3,How do I prefer to receive follow-ups from you?,"I prefer to send follow-ups via email, as you mentioned earlier. Let me know if you need any assistance with that.",1,1,5
+n30_compress,p4,Who is my assistant manager and which shift does he cover?,"Your assistant manager is Daniel, and he covers the night shift.",2,2,5
+n30_compress,p5,"What is our store code, and how many spinach bags did we pull in total?","Your store code is WG-037, and you pulled a total of 168 bags of spinach (lot GV-2291) for the recall.",1,2,3

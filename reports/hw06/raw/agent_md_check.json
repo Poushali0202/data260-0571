@@ -1,0 +1,14 @@
+{
+  "task": "Implement the function notice_age_days(notice_date, today) that returns the number of whole days between a notice date and today, both datetime objects, and raises ValueError when today is earlier than the notice date. Follow every instruction in AGENT.md. Return only Python code with the imports, the function and its test function. No explanation and no markdown fences.",
+  "rules": {
+    "function_notice_age_days_exists": true,
+    "snake_case_names": true,
+    "type_hints_on_parameters_and_return": true,
+    "docstring_present": true,
+    "no_print_calls": true,
+    "raises_value_error": true,
+    "test_function_with_assert": true,
+    "tests_run_and_pass": true
+  },
+  "stderr": ""
+}

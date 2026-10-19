@@ -1,0 +1,27 @@
+# MEMORY.md
+<!-- last_consolidated: 2026-10-19T19:17:39+00:00 -->
+
+- The user is Maya Chen, store manager of Willow Glen Market in San Jose.
+- Store code for Willow Glen Market is WG-17.
+- The night shift is handled by assistant manager Daniel.
+- Luis at Green Valley Farms is the produce supplier contact.
+- Spinach recall RN-004410 concerns lot GV-2291 from Green Valley Farms; Frozen berries were not part of the spinach recall; Customers who bought recalled spinach are contacted through loyalty card records; The whole milk shortage was marked closed; The frozen berries shortage from September is resolved; Maya wants notice codes quoted in every reply.
+- The store pulled 168 bags of spinach (48 from the shelf, 120 from the back room); Customer notices are posted at the store entrance.
+- A weekly summary of open notices is wanted every Monday; The Monday summary should cover open and investigating notices.
+- Dairy Fresh Co-op supplies the whole milk; The milk shortage was expected to end on Friday.
+- Maya prefers follow-ups by email, not phone.
+- Resolved: kept 'Green Valley Farms said the contamination in lot GV-2291 was Listeria (noted 2026-10-16).'; dropped 'Green Valley Farms said the contamination in lot GV-2291 was E. coli (noted 2026-10-13).' (Later noted date (2026-10-16 vs 2026-10-13))
+- The spinach notice status was set to investigating.
+- Resolved: kept 'Maya prefers follow-ups by phone after 6 pm (noted 2026-10-15).'; dropped 'Maya prefers follow-ups by email, not phone (noted 2026-10-03).' (Later noted date (2026-10-15 vs 2026-10-03))
+- Resolved: kept 'Lot GV-2291 was delivered on October 14 (noted 2026-10-16).'; dropped 'Lot GV-2291 was delivered on October 12 (noted 2026-10-13).' (Later noted date (2026-10-16 vs 2026-10-13))
+- Daniel posts recall notices at the entrance; Luis's phone number ends in 7781.
+- Green Valley Farms is in California; Dairy Fresh Co-op is in Wisconsin.
+- Acme Foods supplies the canned goods.
+- Resolved: kept 'Recall paperwork is kept for five years (noted 2026-10-16).'; dropped 'Recall paperwork is kept for two years (noted 2026-10-05).' (Later noted date (2026-10-16 vs 2026-10-05))
+- The store is open from 7 am to 10 pm; The store has 12 employees on the day shift.
+- Staff get recall alerts through the break room board and a group text; The quarantine area is the locked cage in the back room; Destroyed units are recorded on the disposal log with the lot code.
+- The spinach notice RN-004410 is the most urgent open item; Maya is allergic to peanuts and reviews peanut recalls personally; Produce deliveries arrive on Tuesdays and Fridays; Spinach deliveries are suspended until Green Valley Farms clears the lot.
+- The store uses a loyalty card system to find buyers of recalled products.
+- Store code is WG-71 according to the district report.
+- The district manager is Priya Nair; Priya wants the monthly recall count by the 3rd of each month; Notices are categorised as recall, shortage, contamination or distribution; A recall notice stays open until the disposal log is signed.
+- Resolved: kept 'The assistant should answer in one to three sentences.'; dropped 'Milk deliveries resumed on October 17.' (More specific statement)

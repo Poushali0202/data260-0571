@@ -1,0 +1,171 @@
+2026-10-18T19:41:33 n4 conversation 1  prompt=110 completion=36 latency=107735ms wall=107.8s
+2026-10-18T19:42:45 n4 conversation 2  prompt=197 completion=43 latency=71996ms wall=72.0s
+2026-10-18T19:43:40 n4 conversation 3  prompt=311 completion=51 latency=55193ms wall=55.2s
+2026-10-18T19:44:22 n4 conversation 4  prompt=322 completion=47 latency=41913ms wall=41.9s
+2026-10-18T19:46:08 n4 conversation 5  prompt=323 completion=62 latency=106344ms wall=106.4s
+2026-10-18T19:46:52 n4 conversation 6  prompt=469 completion=30 latency=43835ms wall=43.8s
+2026-10-18T19:47:35 n4 conversation 7  prompt=458 completion=48 latency=42947ms wall=43.0s
+2026-10-18T19:48:06 n4 conversation 8  prompt=432 completion=29 latency=30508ms wall=30.5s
+2026-10-18T19:48:38 n4 conversation 9  prompt=424 completion=41 latency=32585ms wall=32.6s
+2026-10-18T19:50:46 n4 conversation 10  prompt=412 completion=39 latency=127867ms wall=127.9s
+2026-10-18T19:51:42 n4 conversation 11  prompt=531 completion=67 latency=56183ms wall=56.2s
+2026-10-18T19:52:18 n4 conversation 12  prompt=549 completion=29 latency=35543ms wall=35.6s
+2026-10-18T19:52:46 n4 conversation 13  prompt=537 completion=37 latency=28587ms wall=28.6s
+2026-10-18T19:53:13 n4 conversation 14  prompt=505 completion=33 latency=26562ms wall=26.6s
+2026-10-18T19:54:38 n4 conversation 15  prompt=545 completion=34 latency=85300ms wall=85.3s
+2026-10-18T19:55:07 n4 conversation 16  prompt=510 completion=35 latency=28837ms wall=28.8s
+2026-10-18T19:55:41 n4 conversation 17  prompt=527 completion=42 latency=33689ms wall=33.7s
+2026-10-18T19:56:10 n4 conversation 18  prompt=525 completion=34 latency=29476ms wall=29.5s
+2026-10-18T19:56:47 n4 conversation 19  prompt=528 completion=49 latency=37098ms wall=37.1s
+2026-10-18T19:59:42 n4 conversation 20  prompt=535 completion=50 latency=174970ms wall=175.0s
+2026-10-18T20:00:39 n4 conversation 21  prompt=567 completion=64 latency=56412ms wall=56.4s
+2026-10-18T20:01:11 n4 conversation 22  prompt=575 completion=42 latency=32098ms wall=32.1s
+2026-10-18T20:01:43 n4 conversation 23  prompt=563 completion=50 latency=32407ms wall=32.4s
+2026-10-18T20:02:18 n4 conversation 24  prompt=565 completion=46 latency=34551ms wall=34.6s
+2026-10-18T20:03:55 n4 conversation 25  prompt=569 completion=67 latency=96746ms wall=96.8s
+2026-10-18T20:04:35 n4 conversation 26  prompt=582 completion=57 latency=39847ms wall=39.9s
+2026-10-18T20:05:03 n4 conversation 27  prompt=610 completion=26 latency=28198ms wall=28.2s
+time budget used, rerun to continue
+2026-10-18T20:05:50 n4 conversation 28  prompt=562 completion=68 latency=31905ms wall=32.0s
+2026-10-18T20:06:18 n4 conversation 29  prompt=575 completion=44 latency=28198ms wall=28.2s
+2026-10-18T20:09:03 n4 conversation 30  prompt=583 completion=26 latency=164997ms wall=165.0s
+2026-10-18T20:09:46 n4 probe 1 p1 prompt=555 completion=24 latency=42946ms wall=43.0s
+2026-10-18T20:10:16 n4 probe 2 p2 prompt=535 completion=25 latency=29876ms wall=29.9s
+2026-10-18T20:10:41 n4 probe 3 p3 prompt=526 completion=10 latency=25483ms wall=25.5s
+2026-10-18T20:11:11 n4 probe 4 p4 prompt=500 completion=14 latency=29947ms wall=30.0s
+2026-10-18T20:12:57 n4 probe 5 p5 prompt=511 completion=22 latency=105683ms wall=105.7s
+2026-10-18T20:13:34 n12 conversation 1  prompt=110 completion=36 latency=36889ms wall=36.9s
+2026-10-18T20:14:31 n12 conversation 2  prompt=197 completion=43 latency=56759ms wall=56.8s
+2026-10-18T20:15:09 n12 conversation 3  prompt=311 completion=51 latency=38643ms wall=38.7s
+2026-10-18T20:15:53 n12 conversation 4  prompt=384 completion=55 latency=43844ms wall=43.9s
+2026-10-18T20:17:25 n12 conversation 5  prompt=469 completion=71 latency=91440ms wall=91.5s
+2026-10-18T20:18:12 n12 conversation 6  prompt=707 completion=29 latency=47244ms wall=47.3s
+2026-10-18T20:19:27 n12 conversation 7  prompt=761 completion=45 latency=75309ms wall=75.3s
+2026-10-18T20:20:29 n12 conversation 8  prompt=761 completion=29 latency=61317ms wall=61.4s
+2026-10-18T20:21:30 n12 conversation 9  prompt=732 completion=31 latency=61611ms wall=61.6s
+2026-10-18T20:23:56 n12 conversation 10  prompt=707 completion=33 latency=146313ms wall=146.3s
+2026-10-18T20:25:18 n12 conversation 11  prompt=789 completion=65 latency=81187ms wall=81.2s
+2026-10-18T20:26:22 n12 conversation 12  prompt=771 completion=32 latency=64609ms wall=64.6s
+2026-10-18T20:27:08 n12 conversation 13  prompt=767 completion=31 latency=45368ms wall=45.4s
+2026-10-18T20:27:48 n12 conversation 14  prompt=743 completion=32 latency=40729ms wall=40.7s
+2026-10-18T20:29:25 n12 conversation 15  prompt=785 completion=29 latency=96750ms wall=96.8s
+2026-10-18T20:30:11 n12 conversation 16  prompt=742 completion=33 latency=45327ms wall=45.3s
+2026-10-18T20:31:08 n12 conversation 17  prompt=755 completion=40 latency=57223ms wall=57.2s
+2026-10-18T20:31:50 n12 conversation 18  prompt=723 completion=37 latency=42558ms wall=42.6s
+2026-10-18T20:32:51 n12 conversation 19  prompt=735 completion=64 latency=60889ms wall=60.9s
+2026-10-18T20:36:15 n12 conversation 20  prompt=774 completion=51 latency=203577ms wall=203.6s
+time budget used, rerun to continue
+2026-10-18T20:38:03 n12 conversation 21  prompt=812 completion=65 latency=93298ms wall=93.4s
+2026-10-18T20:39:25 n12 conversation 22  prompt=839 completion=57 latency=81696ms wall=81.7s
+2026-10-18T20:40:44 n12 conversation 23  prompt=861 completion=60 latency=79076ms wall=79.2s
+2026-10-18T20:42:24 n12 conversation 24  prompt=888 completion=39 latency=99603ms wall=99.6s
+2026-10-18T20:45:36 n12 conversation 25  prompt=891 completion=81 latency=191949ms wall=192.1s
+2026-10-18T20:46:39 n12 conversation 26  prompt=873 completion=38 latency=63809ms wall=63.9s
+2026-10-18T20:47:39 n12 conversation 27  prompt=874 completion=37 latency=59608ms wall=59.6s
+2026-10-18T20:48:48 n12 conversation 28  prompt=838 completion=68 latency=68689ms wall=68.7s
+2026-10-18T20:49:54 n12 conversation 29  prompt=848 completion=50 latency=66686ms wall=66.7s
+2026-10-18T20:54:21 n12 conversation 30  prompt=832 completion=31 latency=266379ms wall=266.5s
+2026-10-18T20:55:53 n12 probe 1 p1 prompt=852 completion=24 latency=91942ms wall=92.0s
+2026-10-18T20:56:48 n12 probe 2 p2 prompt=795 completion=25 latency=54734ms wall=54.8s
+2026-10-18T20:57:41 n12 probe 3 p3 prompt=773 completion=26 latency=52788ms wall=52.8s
+2026-10-18T20:58:27 n12 probe 4 p4 prompt=751 completion=14 latency=46456ms wall=46.5s
+2026-10-18T21:01:20 n12 probe 5 p5 prompt=723 completion=26 latency=173087ms wall=173.1s
+2026-10-18T21:03:30 n30 conversation 1  prompt=110 completion=36 latency=129741ms wall=129.8s
+2026-10-18T21:04:26 n30 conversation 2  prompt=197 completion=43 latency=56360ms wall=56.4s
+2026-10-18T21:05:07 n30 conversation 3  prompt=311 completion=51 latency=40789ms wall=40.8s
+time budget used, rerun to continue
+2026-10-18T21:37:23 n30 conversation 21  prompt=1342 completion=57 latency=96254ms wall=96.3s
+2026-10-18T21:39:17 n30 conversation 22  prompt=1363 completion=45 latency=114191ms wall=114.2s
+2026-10-18T21:41:07 n30 conversation 23  prompt=1358 completion=57 latency=109535ms wall=109.6s
+2026-10-18T21:42:31 n30 conversation 24  prompt=1401 completion=35 latency=83933ms wall=83.9s
+2026-10-18T21:45:24 n30 conversation 25  prompt=1399 completion=70 latency=173066ms wall=173.1s
+Traceback (most recent call last):
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\run_memory_cost.py", line 121, in <module>
+    main()
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\run_memory_cost.py", line 109, in main
+    run_turn(setting, n, policy, "conversation", turn, "", message)
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\run_memory_cost.py", line 82, in run_turn
+    result = post_chat(body)
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\run_memory_cost.py", line 58, in post_chat
+    with urllib.request.urlopen(request, timeout=900) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1430, in getresponse
+    response.begin()
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+=== resumed 2026-10-19T02:31:59-07:00 after the laptop slept during n30 turn 26; the orphan user message of that turn was removed before resuming ===
+2026-10-19T02:34:10 n30 conversation 26  prompt=1410 completion=39 latency=130657ms wall=130.9s
+2026-10-19T02:35:45 n30 conversation 27  prompt=1414 completion=30 latency=95050ms wall=95.1s
+2026-10-19T02:37:51 n30 conversation 28  prompt=1402 completion=81 latency=125702ms wall=125.7s
+2026-10-19T02:39:28 n30 conversation 29  prompt=1446 completion=50 latency=97528ms wall=97.5s
+2026-10-19T02:42:54 n30 conversation 30  prompt=1450 completion=30 latency=206088ms wall=206.1s
+2026-10-19T02:44:27 n30 probe 1 p1 prompt=1459 completion=24 latency=92706ms wall=92.7s
+2026-10-19T02:45:56 n30 probe 2 p2 prompt=1437 completion=25 latency=88954ms wall=89.0s
+2026-10-19T02:47:28 n30 probe 3 p3 prompt=1401 completion=30 latency=91926ms wall=91.9s
+2026-10-19T02:48:51 n30 probe 4 p4 prompt=1387 completion=23 latency=83059ms wall=83.1s
+2026-10-19T02:51:16 n30 probe 5 p5 prompt=1386 completion=26 latency=145066ms wall=145.1s
+2026-10-19T02:51:45 n30_compress conversation 1  prompt=110 completion=36 latency=29061ms wall=29.1s
+2026-10-19T02:52:29 n30_compress conversation 2  prompt=197 completion=43 latency=43763ms wall=43.8s
+2026-10-19T02:53:13 n30_compress conversation 3  prompt=311 completion=51 latency=43802ms wall=43.8s
+2026-10-19T02:53:56 n30_compress conversation 4  prompt=370 completion=56 latency=43221ms wall=43.2s
+2026-10-19T02:55:51 n30_compress conversation 5  prompt=438 completion=73 latency=114974ms wall=115.0s
+2026-10-19T02:56:45 n30_compress conversation 6  prompt=652 completion=26 latency=53613ms wall=53.6s
+2026-10-19T02:57:38 n30_compress conversation 7  prompt=671 completion=31 latency=53568ms wall=53.6s
+2026-10-19T02:58:24 n30_compress conversation 8  prompt=677 completion=28 latency=46273ms wall=46.3s
+2026-10-19T02:59:11 n30_compress conversation 9  prompt=721 completion=31 latency=46145ms wall=46.2s
+2026-10-19T03:01:39 n30_compress conversation 10  prompt=768 completion=32 latency=148170ms wall=148.2s
+time budget used, rerun to continue
+2026-10-19T03:03:19 n30_compress conversation 11  prompt=912 completion=72 latency=89472ms wall=89.7s
+2026-10-19T03:04:25 n30_compress conversation 12  prompt=993 completion=28 latency=65382ms wall=65.4s
+2026-10-19T03:05:25 n30_compress conversation 13  prompt=1030 completion=28 latency=59834ms wall=59.8s
+2026-10-19T03:06:27 n30_compress conversation 14  prompt=1030 completion=41 latency=62037ms wall=62.0s
+2026-10-19T03:08:23 n30_compress conversation 15  prompt=1122 completion=28 latency=116033ms wall=116.0s
+2026-10-19T03:09:31 n30_compress conversation 16  prompt=1134 completion=29 latency=68087ms wall=68.1s
+2026-10-19T03:10:48 n30_compress conversation 17  prompt=1128 completion=42 latency=77545ms wall=77.6s
+2026-10-19T03:12:11 n30_compress conversation 18  prompt=1123 completion=33 latency=82362ms wall=82.4s
+2026-10-19T03:13:34 n30_compress conversation 19  prompt=1119 completion=44 latency=83327ms wall=83.3s
+2026-10-19T03:16:49 n30_compress conversation 20  prompt=1131 completion=55 latency=194790ms wall=194.8s
+2026-10-19T03:18:23 n30_compress conversation 21  prompt=1149 completion=57 latency=93790ms wall=93.8s
+2026-10-19T03:19:34 n30_compress conversation 22  prompt=1150 completion=43 latency=71388ms wall=71.4s
+2026-10-19T03:20:51 n30_compress conversation 23  prompt=1140 completion=61 latency=77432ms wall=77.4s
+2026-10-19T03:22:10 n30_compress conversation 24  prompt=1159 completion=56 latency=78150ms wall=78.2s
+2026-10-19T03:24:31 n30_compress conversation 25  prompt=1171 completion=51 latency=140883ms wall=140.9s
+2026-10-19T03:25:53 n30_compress conversation 26  prompt=1132 completion=27 latency=82519ms wall=82.5s
+2026-10-19T03:26:58 n30_compress conversation 27  prompt=1117 completion=27 latency=65052ms wall=65.1s
+2026-10-19T03:28:10 n30_compress conversation 28  prompt=1082 completion=68 latency=71483ms wall=71.5s
+2026-10-19T03:29:20 n30_compress conversation 29  prompt=1122 completion=50 latency=70246ms wall=70.3s
+2026-10-19T03:32:45 n30_compress conversation 30  prompt=1140 completion=24 latency=205423ms wall=205.4s
+time budget used, rerun to continue
+2026-10-19T03:34:34 n30_compress probe 1 p1 prompt=1122 completion=16 latency=80660ms wall=80.8s
+2026-10-19T03:35:37 n30_compress probe 2 p2 prompt=1092 completion=25 latency=63240ms wall=63.3s
+2026-10-19T03:36:38 n30_compress probe 3 p3 prompt=1073 completion=26 latency=60349ms wall=60.4s
+2026-10-19T03:37:35 n30_compress probe 4 p4 prompt=1064 completion=14 latency=57162ms wall=57.2s
+2026-10-19T03:39:30 n30_compress probe 5 p5 prompt=1078 completion=37 latency=115100ms wall=115.1s
+sweep complete

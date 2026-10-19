@@ -1,0 +1,791 @@
+[
+  {
+    "turn": 1,
+    "message": "Hello, I am Poushali and I manage the Evergreen Market in Santa Clara.",
+    "reply": "Assistant: Welcome, Poushali. I'm here to assist you with any recall, shortage, contamination, or distribution-related notices for Evergreen Market in Santa Clara. How can I help you today?\nprompt 112 tokens, completion 41 tokens, 49691 ms",
+    "used": {
+      "short_term": {
+        "count": 0,
+        "messages": []
+      },
+      "long_term": {
+        "session_summary": null,
+        "lifetime_summary": null
+      },
+      "episodes": [],
+      "new_facts": [
+        {
+          "fact": "Poushali manages the Evergreen Market in Santa Clara.",
+          "importance": 0.9
+        }
+      ],
+      "file_memory": {
+        "included": false,
+        "consolidated": false
+      }
+    },
+    "seconds": 50.0
+  },
+  {
+    "turn": 2,
+    "message": "We received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310.",
+    "reply": "Assistant: We have received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310. Please remove all units of this lot from shelves and ensure they are properly disposed of or returned to the supplier. Let me know if you need further assistance.\nprompt 204 tokens, completion 55 tokens, 44132 ms",
+    "used": {
+      "short_term": {
+        "count": 2,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hello, I am Poushali and I manage the Evergreen Market in Santa Clara."
+          },
+          {
+            "role": "assistant",
+            "content": "Welcome, Poushali. I'm here to assist you with any recall, shortage, contamination, or distribution-related notices for Evergreen Market in Santa Clara. How can I help you today?"
+          }
+        ]
+      },
+      "long_term": {
+        "session_summary": null,
+        "lifetime_summary": null
+      },
+      "episodes": [
+        {
+          "fact": "Poushali manages the Evergreen Market in Santa Clara.",
+          "importance": 0.9,
+          "score": 0.115
+        }
+      ],
+      "new_facts": [
+        {
+          "fact": "The user received a recall notice for romaine lettuce.",
+          "importance": 0.9
+        },
+        {
+          "fact": "The affected product is from Green Valley Farms.",
+          "importance": 0.8
+        },
+        {
+          "fact": "The specific lot number associated with the recall is GV-3310.",
+          "importance": 0.9
+        }
+      ],
+      "file_memory": {
+        "included": false,
+        "consolidated": false
+      }
+    },
+    "seconds": 44.3
+  },
+  {
+    "turn": 3,
+    "message": "The notice code is RN-004422 and it came from the FDA recall bulletin.",
+    "reply": "Assistant: The recall notice has code RN-004422 and was issued by the FDA recall bulletin. Ensure all units of lot GV-3310 are removed and disposed of or returned as instructed. Let me know if you need additional guidance.\nprompt 328 tokens, completion 53 tokens, 41009 ms",
+    "used": {
+      "short_term": {
+        "count": 4,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hello, I am Poushali and I manage the Evergreen Market in Santa Clara."
+          },
+          {
+            "role": "assistant",
+            "content": "Welcome, Poushali. I'm here to assist you with any recall, shortage, contamination, or distribution-related notices for Evergreen Market in Santa Clara. How can I help you today?"
+          },
+          {
+            "role": "user",
+            "content": "We received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310."
+          },
+          {
+            "role": "assistant",
+            "content": "We have received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310. Please remove all units of this lot from shelves and ensure they are properly disposed of or returned to the supplier. Let me know if you need further assistance."
+          }
+        ]
+      },
+      "long_term": {
+        "session_summary": null,
+        "lifetime_summary": null
+      },
+      "episodes": [
+        {
+          "fact": "The user received a recall notice for romaine lettuce.",
+          "importance": 0.9,
+          "score": 0.512
+        },
+        {
+          "fact": "The specific lot number associated with the recall is GV-3310.",
+          "importance": 0.9,
+          "score": 0.504
+        },
+        {
+          "fact": "The affected product is from Green Valley Farms.",
+          "importance": 0.8,
+          "score": 0.406
+        },
+        {
+          "fact": "Poushali manages the Evergreen Market in Santa Clara.",
+          "importance": 0.9,
+          "score": 0.038
+        }
+      ],
+      "new_facts": [
+        {
+          "fact": "The notice code is RN-004422.",
+          "importance": 0.9
+        },
+        {
+          "fact": "The notice came from the FDA recall bulletin.",
+          "importance": 0.8
+        }
+      ],
+      "file_memory": {
+        "included": false,
+        "consolidated": false
+      }
+    },
+    "seconds": 41.1
+  },
+  {
+    "turn": 4,
+    "message": "What should I do with the affected cases first?",
+    "reply": "Assistant: Prioritize removing all affected cases of lot GV-3310 from shelves immediately. Ensure they are securely stored or returned to the supplier as per the recall instructions. Let me know if you need help with disposal or documentation.\nprompt 398 tokens, completion 47 tokens, 40738 ms",
+    "used": {
+      "short_term": {
+        "count": 6,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hello, I am Poushali and I manage the Evergreen Market in Santa Clara."
+          },
+          {
+            "role": "assistant",
+            "content": "Welcome, Poushali. I'm here to assist you with any recall, shortage, contamination, or distribution-related notices for Evergreen Market in Santa Clara. How can I help you today?"
+          },
+          {
+            "role": "user",
+            "content": "We received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310."
+          },
+          {
+            "role": "assistant",
+            "content": "We have received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310. Please remove all units of this lot from shelves and ensure they are properly disposed of or returned to the supplier. Let me know if you need further assistance."
+          },
+          {
+            "role": "user",
+            "content": "The notice code is RN-004422 and it came from the FDA recall bulletin."
+          },
+          {
+            "role": "assistant",
+            "content": "The recall notice has code RN-004422 and was issued by the FDA recall bulletin. Ensure all units of lot GV-3310 are removed and disposed of or returned as instructed. Let me know if you need additional guidance."
+          }
+        ]
+      },
+      "long_term": {
+        "session_summary": null,
+        "lifetime_summary": null
+      },
+      "episodes": [
+        {
+          "fact": "The affected product is from Green Valley Farms.",
+          "importance": 0.8,
+          "score": 0.18
+        },
+        {
+          "fact": "The notice came from the FDA recall bulletin.",
+          "importance": 0.8,
+          "score": 0.136
+        },
+        {
+          "fact": "The notice code is RN-004422.",
+          "importance": 0.9,
+          "score": 0.111
+        },
+        {
+          "fact": "The specific lot number associated with the recall is GV-3310.",
+          "importance": 0.9,
+          "score": 0.105
+        }
+      ],
+      "new_facts": [
+        {
+          "fact": "The user is asking about the priority actions for affected cases.",
+          "importance": 0.8
+        }
+      ],
+      "file_memory": {
+        "included": false,
+        "consolidated": false
+      }
+    },
+    "seconds": 40.8
+  },
+  {
+    "turn": 5,
+    "message": "We have 30 cases on the floor and 60 more in the cooler.",
+    "reply": "Assistant: You have 90 cases of lot GV-3310 in total. Immediately remove all 90 cases from shelves and coolers, and secure them for return or disposal as instructed. Let me know if you need help with the process.\nprompt 475 tokens, completion 52 tokens, 100982 ms",
+    "used": {
+      "short_term": {
+        "count": 8,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hello, I am Poushali and I manage the Evergreen Market in Santa Clara."
+          },
+          {
+            "role": "assistant",
+            "content": "Welcome, Poushali. I'm here to assist you with any recall, shortage, contamination, or distribution-related notices for Evergreen Market in Santa Clara. How can I help you today?"
+          },
+          {
+            "role": "user",
+            "content": "We received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310."
+          },
+          {
+            "role": "assistant",
+            "content": "We have received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310. Please remove all units of this lot from shelves and ensure they are properly disposed of or returned to the supplier. Let me know if you need further assistance."
+          },
+          {
+            "role": "user",
+            "content": "The notice code is RN-004422 and it came from the FDA recall bulletin."
+          },
+          {
+            "role": "assistant",
+            "content": "The recall notice has code RN-004422 and was issued by the FDA recall bulletin. Ensure all units of lot GV-3310 are removed and disposed of or returned as instructed. Let me know if you need additional guidance."
+          },
+          {
+            "role": "user",
+            "content": "What should I do with the affected cases first?"
+          },
+          {
+            "role": "assistant",
+            "content": "Prioritize removing all affected cases of lot GV-3310 from shelves immediately. Ensure they are securely stored or returned to the supplier as per the recall instructions. Let me know if you need help with disposal or documentation."
+          }
+        ]
+      },
+      "long_term": {
+        "session_summary": null,
+        "lifetime_summary": null
+      },
+      "episodes": [
+        {
+          "fact": "The user is asking about the priority actions for affected cases.",
+          "importance": 0.8,
+          "score": 0.11
+        },
+        {
+          "fact": "The specific lot number associated with the recall is GV-3310.",
+          "importance": 0.9,
+          "score": 0.081
+        },
+        {
+          "fact": "Poushali manages the Evergreen Market in Santa Clara.",
+          "importance": 0.9,
+          "score": 0.029
+        },
+        {
+          "fact": "The notice came from the FDA recall bulletin.",
+          "importance": 0.8,
+          "score": 0.011
+        }
+      ],
+      "new_facts": [
+        {
+          "fact": "The store has 30 cases on the floor.",
+          "importance": 0.8
+        },
+        {
+          "fact": "The store has 60 cases in the cooler.",
+          "importance": 0.8
+        }
+      ],
+      "file_memory": {
+        "included": false,
+        "consolidated": false
+      }
+    },
+    "seconds": 101.1
+  },
+  {
+    "turn": 6,
+    "message": "Please remember that I prefer updates by email in the morning.",
+    "reply": "Assistant: I'll remember to send you updates by email in the morning. Let me know if you need anything else today.\nprompt 681 tokens, completion 24 tokens, 51258 ms",
+    "used": {
+      "short_term": {
+        "count": 10,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hello, I am Poushali and I manage the Evergreen Market in Santa Clara."
+          },
+          {
+            "role": "assistant",
+            "content": "Welcome, Poushali. I'm here to assist you with any recall, shortage, contamination, or distribution-related notices for Evergreen Market in Santa Clara. How can I help you today?"
+          },
+          {
+            "role": "user",
+            "content": "We received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310."
+          },
+          {
+            "role": "assistant",
+            "content": "We have received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310. Please remove all units of this lot from shelves and ensure they are properly disposed of or returned to the supplier. Let me know if you need further assistance."
+          },
+          {
+            "role": "user",
+            "content": "The notice code is RN-004422 and it came from the FDA recall bulletin."
+          },
+          {
+            "role": "assistant",
+            "content": "The recall notice has code RN-004422 and was issued by the FDA recall bulletin. Ensure all units of lot GV-3310 are removed and disposed of or returned as instructed. Let me know if you need additional guidance."
+          },
+          {
+            "role": "user",
+            "content": "What should I do with the affected cases first?"
+          },
+          {
+            "role": "assistant",
+            "content": "Prioritize removing all affected cases of lot GV-3310 from shelves immediately. Ensure they are securely stored or returned to the supplier as per the recall instructions. Let me know if you need help with disposal or documentation."
+          },
+          {
+            "role": "user",
+            "content": "We have 30 cases on the floor and 60 more in the cooler."
+          },
+          {
+            "role": "assistant",
+            "content": "You have 90 cases of lot GV-3310 in total. Immediately remove all 90 cases from shelves and coolers, and secure them for return or disposal as instructed. Let me know if you need help with the process."
+          }
+        ]
+      },
+      "long_term": {
+        "session_summary": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice received for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code is RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- All affected cases must be removed immediately.  \n- Secure affected cases for return or disposal as instructed.  \n- Ensure proper disposal or return to supplier per recall guidelines.  \n- Assistance available for disposal or documentation process.",
+        "lifetime_summary": null
+      },
+      "episodes": [
+        {
+          "fact": "The notice code is RN-004422.",
+          "importance": 0.9,
+          "score": 0.244
+        },
+        {
+          "fact": "The user is asking about the priority actions for affected cases.",
+          "importance": 0.8,
+          "score": 0.198
+        },
+        {
+          "fact": "The notice came from the FDA recall bulletin.",
+          "importance": 0.8,
+          "score": 0.16
+        },
+        {
+          "fact": "The specific lot number associated with the recall is GV-3310.",
+          "importance": 0.9,
+          "score": 0.086
+        }
+      ],
+      "new_facts": [
+        {
+          "fact": "The user prefers updates to be sent by email in the morning.",
+          "importance": 0.9
+        }
+      ],
+      "file_memory": {
+        "included": false,
+        "consolidated": false
+      }
+    },
+    "seconds": 51.3
+  },
+  {
+    "turn": 7,
+    "message": "My assistant manager is Rohan, he covers the weekend shift.",
+    "reply": "Assistant: I've noted that Rohan covers the weekend shift. Let me know if you need him involved in any recall actions or if you'd like to assign specific tasks to him.\nprompt 727 tokens, completion 36 tokens, 46654 ms",
+    "used": {
+      "short_term": {
+        "count": 12,
+        "messages": [
+          {
+            "role": "user",
+            "content": "Hello, I am Poushali and I manage the Evergreen Market in Santa Clara."
+          },
+          {
+            "role": "assistant",
+            "content": "Welcome, Poushali. I'm here to assist you with any recall, shortage, contamination, or distribution-related notices for Evergreen Market in Santa Clara. How can I help you today?"
+          },
+          {
+            "role": "user",
+            "content": "We received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310."
+          },
+          {
+            "role": "assistant",
+            "content": "We have received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310. Please remove all units of this lot from shelves and ensure they are properly disposed of or returned to the supplier. Let me know if you need further assistance."
+          },
+          {
+            "role": "user",
+            "content": "The notice code is RN-004422 and it came from the FDA recall bulletin."
+          },
+          {
+            "role": "assistant",
+            "content": "The recall notice has code RN-004422 and was issued by the FDA recall bulletin. Ensure all units of lot GV-3310 are removed and disposed of or returned as instructed. Let me know if you need additional guidance."
+          },
+          {
+            "role": "user",
+            "content": "What should I do with the affected cases first?"
+          },
+          {
+            "role": "assistant",
+            "content": "Prioritize removing all affected cases of lot GV-3310 from shelves immediately. Ensure they are securely stored or returned to the supplier as per the recall instructions. Let me know if you need help with disposal or documentation."
+          },
+          {
+            "role": "user",
+            "content": "We have 30 cases on the floor and 60 more in the cooler."
+          },
+          {
+            "role": "assistant",
+            "content": "You have 90 cases of lot GV-3310 in total. Immediately remove all 90 cases from shelves and coolers, and secure them for return or disposal as instructed. Let me know if you need help with the process."
+          },
+          {
+            "role": "user",
+            "content": "Please remember that I prefer updates by email in the morning."
+          },
+          {
+            "role": "assistant",
+            "content": "I'll remember to send you updates by email in the morning. Let me know if you need anything else today."
+          }
+        ]
+      },
+      "long_term": {
+        "session_summary": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice received for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code is RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- All affected cases must be removed immediately.  \n- Secure affected cases for return or disposal as instructed.  \n- Ensure proper disposal or return to supplier per recall guidelines.  \n- Assistance available for disposal or documentation process.",
+        "lifetime_summary": null
+      },
+      "episodes": [
+        {
+          "fact": "The user prefers updates to be sent by email in the morning.",
+          "importance": 0.9,
+          "score": 0.258
+        },
+        {
+          "fact": "The notice code is RN-004422.",
+          "importance": 0.9,
+          "score": 0.195
+        },
+        {
+          "fact": "Poushali manages the Evergreen Market in Santa Clara.",
+          "importance": 0.9,
+          "score": 0.122
+        },
+        {
+          "fact": "The user received a recall notice for romaine lettuce.",
+          "importance": 0.9,
+          "score": 0.12
+        }
+      ],
+      "new_facts": [
+        {
+          "fact": "The assistant manager is named Rohan.",
+          "importance": 0.9
+        },
+        {
+          "fact": "Rohan covers the weekend shift.",
+          "importance": 0.8
+        }
+      ],
+      "file_memory": {
+        "included": false,
+        "consolidated": false
+      }
+    },
+    "seconds": 46.7
+  },
+  {
+    "turn": 8,
+    "message": "There is also a shortage of oat milk from Dairy Fresh Co-op this week.",
+    "reply": "Assistant: There is a shortage of oat milk from Dairy Fresh Co-op this week. Please monitor inventory and communicate this to staff to manage customer expectations. Let me know if you need help with alternative solutions.\nprompt 705 tokens, completion 40 tokens, 45346 ms",
+    "used": {
+      "short_term": {
+        "count": 12,
+        "messages": [
+          {
+            "role": "user",
+            "content": "We received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310."
+          },
+          {
+            "role": "assistant",
+            "content": "We have received a recall notice for romaine lettuce from Green Valley Farms, lot GV-3310. Please remove all units of this lot from shelves and ensure they are properly disposed of or returned to the supplier. Let me know if you need further assistance."
+          },
+          {
+            "role": "user",
+            "content": "The notice code is RN-004422 and it came from the FDA recall bulletin."
+          },
+          {
+            "role": "assistant",
+            "content": "The recall notice has code RN-004422 and was issued by the FDA recall bulletin. Ensure all units of lot GV-3310 are removed and disposed of or returned as instructed. Let me know if you need additional guidance."
+          },
+          {
+            "role": "user",
+            "content": "What should I do with the affected cases first?"
+          },
+          {
+            "role": "assistant",
+            "content": "Prioritize removing all affected cases of lot GV-3310 from shelves immediately. Ensure they are securely stored or returned to the supplier as per the recall instructions. Let me know if you need help with disposal or documentation."
+          },
+          {
+            "role": "user",
+            "content": "We have 30 cases on the floor and 60 more in the cooler."
+          },
+          {
+            "role": "assistant",
+            "content": "You have 90 cases of lot GV-3310 in total. Immediately remove all 90 cases from shelves and coolers, and secure them for return or disposal as instructed. Let me know if you need help with the process."
+          },
+          {
+            "role": "user",
+            "content": "Please remember that I prefer updates by email in the morning."
+          },
+          {
+            "role": "assistant",
+            "content": "I'll remember to send you updates by email in the morning. Let me know if you need anything else today."
+          },
+          {
+            "role": "user",
+            "content": "My assistant manager is Rohan, he covers the weekend shift."
+          },
+          {
+            "role": "assistant",
+            "content": "I've noted that Rohan covers the weekend shift. Let me know if you need him involved in any recall actions or if you'd like to assign specific tasks to him."
+          }
+        ]
+      },
+      "long_term": {
+        "session_summary": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice received for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code is RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- All affected cases must be removed immediately.  \n- Secure affected cases for return or disposal as instructed.  \n- Ensure proper disposal or return to supplier per recall guidelines.  \n- Assistance available for disposal or documentation process.",
+        "lifetime_summary": null
+      },
+      "episodes": [
+        {
+          "fact": "The affected product is from Green Valley Farms.",
+          "importance": 0.8,
+          "score": 0.337
+        },
+        {
+          "fact": "The user received a recall notice for romaine lettuce.",
+          "importance": 0.9,
+          "score": 0.285
+        },
+        {
+          "fact": "The notice came from the FDA recall bulletin.",
+          "importance": 0.8,
+          "score": 0.283
+        },
+        {
+          "fact": "Rohan covers the weekend shift.",
+          "importance": 0.8,
+          "score": 0.172
+        }
+      ],
+      "new_facts": [
+        {
+          "fact": "There is a shortage of oat milk from Dairy Fresh Co-op this week.",
+          "importance": 0.9
+        }
+      ],
+      "file_memory": {
+        "included": false,
+        "consolidated": false
+      }
+    },
+    "seconds": 45.4
+  },
+  {
+    "turn": 9,
+    "message": "Which notices did we discuss so far?",
+    "reply": "Assistant: We discussed the FDA recall notice for romaine lettuce (lot GV-3310, notice code RN-004422) and a separate shortage notice for oat milk from Dairy Fresh Co-op. Let me know if you need further details on either.\nprompt 685 tokens, completion 56 tokens, 41335 ms",
+    "used": {
+      "short_term": {
+        "count": 12,
+        "messages": [
+          {
+            "role": "user",
+            "content": "The notice code is RN-004422 and it came from the FDA recall bulletin."
+          },
+          {
+            "role": "assistant",
+            "content": "The recall notice has code RN-004422 and was issued by the FDA recall bulletin. Ensure all units of lot GV-3310 are removed and disposed of or returned as instructed. Let me know if you need additional guidance."
+          },
+          {
+            "role": "user",
+            "content": "What should I do with the affected cases first?"
+          },
+          {
+            "role": "assistant",
+            "content": "Prioritize removing all affected cases of lot GV-3310 from shelves immediately. Ensure they are securely stored or returned to the supplier as per the recall instructions. Let me know if you need help with disposal or documentation."
+          },
+          {
+            "role": "user",
+            "content": "We have 30 cases on the floor and 60 more in the cooler."
+          },
+          {
+            "role": "assistant",
+            "content": "You have 90 cases of lot GV-3310 in total. Immediately remove all 90 cases from shelves and coolers, and secure them for return or disposal as instructed. Let me know if you need help with the process."
+          },
+          {
+            "role": "user",
+            "content": "Please remember that I prefer updates by email in the morning."
+          },
+          {
+            "role": "assistant",
+            "content": "I'll remember to send you updates by email in the morning. Let me know if you need anything else today."
+          },
+          {
+            "role": "user",
+            "content": "My assistant manager is Rohan, he covers the weekend shift."
+          },
+          {
+            "role": "assistant",
+            "content": "I've noted that Rohan covers the weekend shift. Let me know if you need him involved in any recall actions or if you'd like to assign specific tasks to him."
+          },
+          {
+            "role": "user",
+            "content": "There is also a shortage of oat milk from Dairy Fresh Co-op this week."
+          },
+          {
+            "role": "assistant",
+            "content": "There is a shortage of oat milk from Dairy Fresh Co-op this week. Please monitor inventory and communicate this to staff to manage customer expectations. Let me know if you need help with alternative solutions."
+          }
+        ]
+      },
+      "long_term": {
+        "session_summary": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice received for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code is RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- All affected cases must be removed immediately.  \n- Secure affected cases for return or disposal as instructed.  \n- Ensure proper disposal or return to supplier per recall guidelines.  \n- Assistance available for disposal or documentation process.",
+        "lifetime_summary": null
+      },
+      "episodes": [
+        {
+          "fact": "The notice came from the FDA recall bulletin.",
+          "importance": 0.8,
+          "score": 0.44
+        },
+        {
+          "fact": "The notice code is RN-004422.",
+          "importance": 0.9,
+          "score": 0.437
+        },
+        {
+          "fact": "The user received a recall notice for romaine lettuce.",
+          "importance": 0.9,
+          "score": 0.337
+        },
+        {
+          "fact": "The user is asking about the priority actions for affected cases.",
+          "importance": 0.8,
+          "score": 0.238
+        }
+      ],
+      "new_facts": [
+        {
+          "fact": "The user is asking about previously discussed notices.",
+          "importance": 0.5
+        }
+      ],
+      "file_memory": {
+        "included": false,
+        "consolidated": false
+      }
+    },
+    "seconds": 41.4
+  },
+  {
+    "turn": 10,
+    "message": "What is the lot code of the lettuce recall, and how do I prefer updates?",
+    "reply": "Assistant: The lot code of the lettuce recall is GV-3310. You prefer updates by email in the morning. Let me know if you need anything else.\nprompt 684 tokens, completion 34 tokens, 122017 ms",
+    "used": {
+      "short_term": {
+        "count": 12,
+        "messages": [
+          {
+            "role": "user",
+            "content": "What should I do with the affected cases first?"
+          },
+          {
+            "role": "assistant",
+            "content": "Prioritize removing all affected cases of lot GV-3310 from shelves immediately. Ensure they are securely stored or returned to the supplier as per the recall instructions. Let me know if you need help with disposal or documentation."
+          },
+          {
+            "role": "user",
+            "content": "We have 30 cases on the floor and 60 more in the cooler."
+          },
+          {
+            "role": "assistant",
+            "content": "You have 90 cases of lot GV-3310 in total. Immediately remove all 90 cases from shelves and coolers, and secure them for return or disposal as instructed. Let me know if you need help with the process."
+          },
+          {
+            "role": "user",
+            "content": "Please remember that I prefer updates by email in the morning."
+          },
+          {
+            "role": "assistant",
+            "content": "I'll remember to send you updates by email in the morning. Let me know if you need anything else today."
+          },
+          {
+            "role": "user",
+            "content": "My assistant manager is Rohan, he covers the weekend shift."
+          },
+          {
+            "role": "assistant",
+            "content": "I've noted that Rohan covers the weekend shift. Let me know if you need him involved in any recall actions or if you'd like to assign specific tasks to him."
+          },
+          {
+            "role": "user",
+            "content": "There is also a shortage of oat milk from Dairy Fresh Co-op this week."
+          },
+          {
+            "role": "assistant",
+            "content": "There is a shortage of oat milk from Dairy Fresh Co-op this week. Please monitor inventory and communicate this to staff to manage customer expectations. Let me know if you need help with alternative solutions."
+          },
+          {
+            "role": "user",
+            "content": "Which notices did we discuss so far?"
+          },
+          {
+            "role": "assistant",
+            "content": "We discussed the FDA recall notice for romaine lettuce (lot GV-3310, notice code RN-004422) and a separate shortage notice for oat milk from Dairy Fresh Co-op. Let me know if you need further details on either."
+          }
+        ]
+      },
+      "long_term": {
+        "session_summary": "- Poushali manages Evergreen Market in Santa Clara.  \n- Recall notice received for romaine lettuce from Green Valley Farms, lot GV-3310.  \n- Notice code is RN-004422 from FDA recall bulletin.  \n- 90 cases of lot GV-3310 found: 30 on floor, 60 in cooler.  \n- All affected cases must be removed immediately.  \n- Secure affected cases for return or disposal as instructed.  \n- Ensure proper disposal or return to supplier per recall guidelines.  \n- Assistance available for disposal or documentation process.",
+        "lifetime_summary": null
+      },
+      "episodes": [
+        {
+          "fact": "The user received a recall notice for romaine lettuce.",
+          "importance": 0.9,
+          "score": 0.625
+        },
+        {
+          "fact": "The specific lot number associated with the recall is GV-3310.",
+          "importance": 0.9,
+          "score": 0.426
+        },
+        {
+          "fact": "The notice came from the FDA recall bulletin.",
+          "importance": 0.8,
+          "score": 0.309
+        },
+        {
+          "fact": "The affected product is from Green Valley Farms.",
+          "importance": 0.8,
+          "score": 0.292
+        }
+      ],
+      "new_facts": [
+        {
+          "fact": "The user is asking about the lot code of a lettuce recall.",
+          "importance": 0.9
+        },
+        {
+          "fact": "The user is inquiring about their preferred method for receiving updates.",
+          "importance": 0.8
+        }
+      ],
+      "file_memory": {
+        "included": false,
+        "consolidated": false
+      }
+    },
+    "seconds": 122.1
+  }
+]
