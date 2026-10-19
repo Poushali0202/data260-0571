@@ -25,3 +25,8 @@
 - Store code is WG-71 according to the district report.
 - The district manager is Priya Nair; Priya wants the monthly recall count by the 3rd of each month; Notices are categorised as recall, shortage, contamination or distribution; A recall notice stays open until the disposal log is signed.
 - Resolved: kept 'The assistant should answer in one to three sentences.'; dropped 'Milk deliveries resumed on October 17.' (More specific statement)
+- Poushali manages the Evergreen Market in Santa Clara
+- Recall notice for romaine lettuce from Green Valley Farms, lot GV-3310, code RN-004422
+- Preference for updates by email in the morning
+- Assistant manager Rohan covers the weekend shift
+- Shortage of oat milk from Dairy Fresh Co-op this week
