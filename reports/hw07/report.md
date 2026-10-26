@@ -676,7 +676,20 @@ My first deny-list used `\brm\s+-rf\b|\brm\s+-r\b` for recursive deletion and `>
 
 ![safety gate test](screenshots/part6-gate.png)
 
-The glob, search and read integration run needs the model and was not run before the deadline; the gate test above is the final 10/10 result.
+Combined run of `python test_file_tools.py` (2026-10-26 14:53, full output in `raw/file_tools_console.txt` and `raw/file_tools_integration.json`):
+
+```
+instruction: List the Python files in the sandbox, find the one that contains DEBUG, and show me its full contents.
+  tool #1 glob_files {"pattern": "**/*.py", "root": "."} -> {"matches": ["inventory.py", "notify.py", "report.py"]}
+  tool #2 search_in_files {"file_pattern": "*.py", "root": ".", "pattern": "DEBUG"}
+          -> {"hits": ["notify.py:3: logging.basicConfig(level=logging.DEBUG)"]}
+  total tool calls: 2, stop: final_answer
+tool order: glob_files -> search_in_files
+integration result: FAIL
+gate result: 10/10 correct, false allows: []
+```
+
+The glob and search steps worked and found the right file and line, but the model stopped before `read_file` and wrote "full contents" of `notify.py` that it invented (a `send_notification` function and a `__main__` block); the real file is seven lines with `def send(msg)`. The test marks this as FAIL because it requires a `read_file` call on `notify.py`. This is the same unsupported-claim problem as in Part 3, and the same fix applies: a check that the answer is backed by a read_file observation, with a retry when it is not. The safety-gate half of the run is 10/10 with no false allows.
 
 ## AI use
 
