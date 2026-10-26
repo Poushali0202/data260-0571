@@ -18,3 +18,6 @@ test-tools:
 
 verify-hw06:
 	python verify_hw06.py
+
+verify-hw07:
+	python verify_hw07.py

@@ -203,3 +203,32 @@ python verify_hw06.py
 ```
 
 Full run instructions, results, and the report are in `reports/hw06/`.
+
+## Homework 7
+
+HW7 replaces the HW4 session login with JWT bearer tokens and the roles reader, writer and moderator
+(`routers/auth.py`, `migrations/hw07_users.sql`; the session version stays at the `hw4` tag), adds
+Ruff with a pre-commit hook (`pyproject.toml`, `.pre-commit-config.yaml`), a hand-written agent loop
+with a repair path (`agent_loop.py`, `run_reliability.py`), bounded Reflexion with per-task verifiers
+(`reflexion.py`, `run_reflexion.py`), a LangChain ReAct agent for Bay Wheels pricing with a Streamlit
+UI (`bike_tools.py`, `bike_agent.py`, `bike_app.py`, `make_bike_scenarios.py`), the prompt-injection
+runs (`run_attacks.py`), file tools with a bash safety gate (`file_tools.py`, `test_file_tools.py`),
+a results summary (`summarize_hw07.py`) and a smoke test (`verify_hw07.py`).
+
+```powershell
+python -m pip install -r requirements.txt
+pre-commit install
+mysql -u root -p < migrations/hw07_users.sql
+python seed_data.py
+python app.py
+python run_reliability.py
+python run_reflexion.py
+python summarize_hw07.py
+streamlit run bike_app.py --server.port 8573
+python run_attacks.py
+python test_file_tools.py
+python verify_hw07.py
+```
+
+Seeded users: reader1 / reader0571, writer1 / writer0571, moderator1 / moderator0571.
+Full run instructions, results, and the report are in `reports/hw07/`.

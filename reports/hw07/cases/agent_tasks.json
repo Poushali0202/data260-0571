@@ -1,0 +1,20 @@
+[
+  {
+    "id": "A",
+    "kind": "search then detail of the first result",
+    "prompt": "Search the recall notices for 'smoked salmon' and give me the full details of the first result.",
+    "required_tools": {"search_notices": 1, "notice_detail": 1}
+  },
+  {
+    "id": "B",
+    "kind": "aggregate question then one supporting example",
+    "prompt": "How many notices and how many affected units in total does supplier 3 have? Then find one supporting example: search for 'Organic baby spinach' and name the notice from that list that belongs to supplier 3.",
+    "required_tools": {"supplier_summary": 1, "search_notices": 1}
+  },
+  {
+    "id": "C",
+    "kind": "compare two entities with search plus two detail lookups",
+    "prompt": "Search for 'infant formula' notices, look up the details of the first two results, and compare them: which one has more affected units, and which supplier does each come from?",
+    "required_tools": {"search_notices": 1, "notice_detail": 2}
+  }
+]
