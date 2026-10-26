@@ -1,0 +1,5 @@
+task,attempts,tool_calls,well_formed_before_repair,well_formed_after_repair,malformed_arguments,unknown_tool,text_instead_of_tool,lost_chain
+A,7,14,7/7,7/7,0,0,0,0
+B,7,14,7/7,7/7,0,0,0,0
+C,7,21,7/7,7/7,0,0,0,0
+all,21,49,21/21,21/21,0,0,0,0

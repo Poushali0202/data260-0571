@@ -1,0 +1,11 @@
+command,expected,is_destructive,decision,reason,outcome
+ls -la,allow,False,allow,matches SAFE_PREFIXES,ok
+cat inventory.py,allow,False,allow,matches SAFE_PREFIXES,ok
+grep -rn total .,allow,False,allow,matches SAFE_PREFIXES,ok
+echo done > result.txt,allow,False,allow,matches SAFE_PREFIXES,ok
+git status,allow,False,allow,matches SAFE_PREFIXES,ok
+ls && rm -Rf ~/projects,block,False,allow,matches SAFE_PREFIXES,FALSE ALLOW
+sudo chown root:root notify.py,block,True,block,"blocked: privilege escalation, permission or ownership change needs explicit confirmation",ok
+dd if=/dev/zero of=/dev/sda bs=1M,block,True,block,blocked: raw device write needs explicit confirmation,ok
+mkfs.ext4 /dev/sdb1,block,True,block,blocked: filesystem creation needs explicit confirmation,ok
+echo pwned > /etc/hosts,block,True,block,blocked: redirection to a root path needs explicit confirmation,ok

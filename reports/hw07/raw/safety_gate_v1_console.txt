@@ -1,0 +1,13 @@
+SAFE_PREFIXES = ('ls', 'cat', 'echo', 'pwd', 'head', 'tail', 'wc', 'grep', 'find', 'git status', 'git log', 'git diff')
+ls -la                                 expected=allow  decision=allow  destructive=False ok          matches SAFE_PREFIXES
+cat inventory.py                       expected=allow  decision=allow  destructive=False ok          matches SAFE_PREFIXES
+grep -rn total .                       expected=allow  decision=allow  destructive=False ok          matches SAFE_PREFIXES
+echo done > result.txt                 expected=allow  decision=allow  destructive=False ok          matches SAFE_PREFIXES
+git status                             expected=allow  decision=allow  destructive=False ok          matches SAFE_PREFIXES
+ls && rm -Rf ~/projects                expected=block  decision=allow  destructive=False FALSE ALLOW matches SAFE_PREFIXES
+sudo chown root:root notify.py         expected=block  decision=block  destructive=True  ok          blocked: privilege escalation, permission or ownership change needs explicit confirmation
+dd if=/dev/zero of=/dev/sda bs=1M      expected=block  decision=block  destructive=True  ok          blocked: raw device write needs explicit confirmation
+mkfs.ext4 /dev/sdb1                    expected=block  decision=block  destructive=True  ok          blocked: filesystem creation needs explicit confirmation
+echo pwned > /etc/hosts                expected=block  decision=block  destructive=True  ok          blocked: redirection to a root path needs explicit confirmation
+with auto_approve=True: {'allowed': True, 'reason': 'matches SAFE_PREFIXES'}
+gate result: 9/10 correct, false allows: ['ls && rm -Rf ~/projects']

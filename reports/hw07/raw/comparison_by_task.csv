@@ -1,0 +1,4 @@
+task,original_success,reflexion_success,reflexion_stops,reflexion_mean_attempts,original_mean_tokens,reflexion_mean_tokens
+A,7/7,7/7,{'success': 7},1.0,1641,1634
+B,0/7,7/7,{'success': 7},2.0,1360,3186
+C,7/7,7/7,{'success': 7},1.0,1956,1956

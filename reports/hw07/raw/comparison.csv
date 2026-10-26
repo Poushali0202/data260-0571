@@ -1,0 +1,8 @@
+metric,original,reflexion
+Task success,14/21,21/21
+Unsupported claims (final answers with any / total claims),2 / 2,0 / 0
+Retry rate (runs that retried / mean retries),0/21 / 0,7/21 / 0.33
+Tool calls per run (mean),2.33,3.00
+Tokens per run (mean),1653,2259
+Latency per run (mean ms),55167,89229
+Verifier false rejections,5 of 7 rejections,2 of 7 rejections
