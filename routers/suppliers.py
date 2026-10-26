@@ -4,10 +4,12 @@ from sqlalchemy.orm import Session
 
 from database import get_db
 from models import GroceryNotice, Supplier
-from routers.auth import require_login
+from routers.auth import current_user, require_role
 from schemas import NoticeOut, SupplierIn, SupplierOut
 
-router = APIRouter(prefix="/api/suppliers", dependencies=[Depends(require_login)])
+router = APIRouter(prefix="/api/suppliers", dependencies=[Depends(current_user)])
+can_write = [Depends(require_role("writer", "moderator"))]
+can_delete = [Depends(require_role("moderator"))]
 
 
 def find_supplier(db: Session, supplier_id: int) -> Supplier:
@@ -41,7 +43,7 @@ def notices_of_supplier(supplier_id: int, db: Session = Depends(get_db)):
     return db.query(GroceryNotice).filter(GroceryNotice.supplierId == supplier_id).order_by(GroceryNotice.id.desc()).all()
 
 
-@router.post("", response_model=SupplierOut, status_code=201)
+@router.post("", response_model=SupplierOut, status_code=201, dependencies=can_write)
 def create_supplier(data: SupplierIn, db: Session = Depends(get_db)):
     supplier = Supplier(**data.model_dump())
     db.add(supplier)
@@ -50,7 +52,7 @@ def create_supplier(data: SupplierIn, db: Session = Depends(get_db)):
     return supplier
 
 
-@router.put("/{supplier_id}", response_model=SupplierOut)
+@router.put("/{supplier_id}", response_model=SupplierOut, dependencies=can_write)
 def update_supplier(supplier_id: int, data: SupplierIn, db: Session = Depends(get_db)):
     supplier = find_supplier(db, supplier_id)
     supplier.name = data.name
@@ -61,7 +63,7 @@ def update_supplier(supplier_id: int, data: SupplierIn, db: Session = Depends(ge
     return supplier
 
 
-@router.delete("/{supplier_id}", status_code=204)
+@router.delete("/{supplier_id}", status_code=204, dependencies=can_delete)
 def delete_supplier(supplier_id: int, db: Session = Depends(get_db)):
     supplier = find_supplier(db, supplier_id)
     count = db.query(GroceryNotice).filter(GroceryNotice.supplierId == supplier_id).count()

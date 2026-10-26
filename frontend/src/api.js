@@ -2,16 +2,25 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "http://localhost:8571",
-  withCredentials: true,
 });
 
-export async function login(email, password) {
-  const res = await api.post("/auth/login", { email, password });
-  return res.data;
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+export async function login(username, password) {
+  const form = new URLSearchParams({ username, password });
+  const res = await api.post("/auth/login", form);
+  localStorage.setItem("token", res.data.access_token);
+  return me();
 }
 
-export async function logout() {
-  await api.post("/auth/logout");
+export function logout() {
+  localStorage.removeItem("token");
 }
 
 export async function me() {

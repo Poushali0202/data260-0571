@@ -4,18 +4,18 @@ import { login } from "../api.js";
 
 export default function Login({ onLogin }) {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const user = await login(email, password);
+      const user = await login(username, password);
       onLogin(user);
       navigate("/");
     } catch {
-      setError("Invalid email or password");
+      setError("Invalid username or password");
     }
   }
 
@@ -25,8 +25,8 @@ export default function Login({ onLogin }) {
       {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
         <label>
-          Email
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          Username
+          <input value={username} onChange={(e) => setUsername(e.target.value)} required />
         </label>
         <label>
           Password

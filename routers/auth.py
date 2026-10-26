@@ -1,23 +1,20 @@
 import hashlib
 import hmac
 import secrets
-from datetime import datetime, timedelta
-from pathlib import Path
+from datetime import datetime, timedelta, timezone
 
-from fastapi import APIRouter, Depends, Form, HTTPException, Request, Response
-from fastapi.responses import RedirectResponse
-from fastapi.templating import Jinja2Templates
+import jwt
+from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
+from config import JWT_ALGORITHM, JWT_SECRET, TOKEN_MINUTES
 from database import get_db
-from models import User, UserSession
-from schemas import LoginIn, UserOut
+from models import User
+from schemas import Token, UserOut
 
-router = APIRouter()
-templates = Jinja2Templates(directory=Path(__file__).resolve().parent.parent / "templates")
-
-COOKIE = "session_id"
-SESSION_MINUTES = 30
+router = APIRouter(prefix="/auth")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 
 def hash_password(password: str) -> str:
@@ -32,100 +29,41 @@ def check_password(password: str, stored: str) -> bool:
     return hmac.compare_digest(candidate, digest)
 
 
-def find_user(db: Session, email: str, password: str):
-    user = db.query(User).filter(User.email == email).first()
-    if user and check_password(password, user.password_hash):
+def create_token(user: User, minutes: int = TOKEN_MINUTES) -> str:
+    expires = datetime.now(timezone.utc) + timedelta(minutes=minutes)
+    claims = {"sub": user.username, "role": user.role, "exp": expires}
+    return jwt.encode(claims, JWT_SECRET, algorithm=JWT_ALGORITHM)
+
+
+def current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)) -> User:
+    unauthorized = HTTPException(status_code=401, detail="Invalid or expired token", headers={"WWW-Authenticate": "Bearer"})
+    try:
+        claims = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
+    except jwt.InvalidTokenError:
+        raise unauthorized
+    user = db.query(User).filter(User.username == claims.get("sub")).first()
+    if user is None:
+        raise unauthorized
+    return user
+
+
+def require_role(*roles):
+    def check(user: User = Depends(current_user)) -> User:
+        if user.role not in roles:
+            raise HTTPException(status_code=403, detail=f"Role '{user.role}' is not allowed; needs one of {list(roles)}")
         return user
-    return None
+
+    return check
 
 
-def open_session(db: Session, user: User, response: Response):
-    token = secrets.token_hex(32)
-    now = datetime.now()
-    expires = now + timedelta(minutes=SESSION_MINUTES)
-    db.add(UserSession(id=token, user_id=user.id, created_at=now, expires_at=expires))
-    db.commit()
-    response.set_cookie(COOKIE, token, httponly=True, samesite="lax", max_age=SESSION_MINUTES * 60)
+@router.post("/login", response_model=Token)
+def login(form: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.username == form.username).first()
+    if user is None or not check_password(form.password, user.password_hash):
+        raise HTTPException(status_code=401, detail="Invalid username or password", headers={"WWW-Authenticate": "Bearer"})
+    return {"access_token": create_token(user), "token_type": "bearer"}
 
 
-def close_session(db: Session, request: Request, response: Response):
-    token = request.cookies.get(COOKIE)
-    if token:
-        db.query(UserSession).filter(UserSession.id == token).delete()
-        db.commit()
-    response.delete_cookie(COOKIE)
-
-
-def current_user(request: Request, db: Session = Depends(get_db)):
-    token = request.cookies.get(COOKIE)
-    if not token:
-        return None
-    session = db.get(UserSession, token)
-    if session is None:
-        return None
-    if session.expires_at < datetime.now():
-        db.delete(session)
-        db.commit()
-        return None
-    return session.user
-
-
-def require_login(user=Depends(current_user)):
-    if user is None:
-        raise HTTPException(status_code=401, detail="Login required")
+@router.get("/me", response_model=UserOut)
+def me(user: User = Depends(current_user)):
     return user
-
-
-@router.post("/auth/login", response_model=UserOut)
-def login(data: LoginIn, response: Response, db: Session = Depends(get_db)):
-    user = find_user(db, data.email, data.password)
-    if user is None:
-        raise HTTPException(status_code=401, detail="Invalid email or password")
-    open_session(db, user, response)
-    return user
-
-
-@router.post("/auth/logout")
-def logout(request: Request, response: Response, db: Session = Depends(get_db)):
-    close_session(db, request, response)
-    return {"message": "logged out"}
-
-
-@router.get("/auth/me", response_model=UserOut)
-def me(user=Depends(require_login)):
-    return user
-
-
-@router.get("/")
-def home(request: Request, user=Depends(current_user)):
-    return templates.TemplateResponse(request, "index.html", {"user": user})
-
-
-@router.get("/login")
-def login_page(request: Request, user=Depends(current_user)):
-    return templates.TemplateResponse(request, "login.html", {"user": user, "error": None})
-
-
-@router.post("/login")
-def login_form(request: Request, email: str = Form(), password: str = Form(), db: Session = Depends(get_db)):
-    user = find_user(db, email, password)
-    if user is None:
-        context = {"user": None, "error": "Invalid email or password."}
-        return templates.TemplateResponse(request, "login.html", context, status_code=401)
-    response = RedirectResponse("/dashboard", status_code=302)
-    open_session(db, user, response)
-    return response
-
-
-@router.get("/dashboard")
-def dashboard(request: Request, user=Depends(current_user)):
-    if user is None:
-        return RedirectResponse("/login", status_code=302)
-    return templates.TemplateResponse(request, "dashboard.html", {"user": user})
-
-
-@router.get("/logout")
-def logout_page(request: Request, db: Session = Depends(get_db)):
-    response = RedirectResponse("/", status_code=302)
-    close_session(db, request, response)
-    return response

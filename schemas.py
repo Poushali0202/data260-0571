@@ -55,14 +55,14 @@ class NoticePage(BaseModel):
     notices: list[NoticeWithLots]
 
 
-class LoginIn(BaseModel):
-    email: str
-    password: str
+class Token(BaseModel):
+    access_token: str
+    token_type: str
 
 
 class UserOut(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
     id: int
-    name: str
-    email: str
+    username: str
+    role: str

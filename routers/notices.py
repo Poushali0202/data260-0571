@@ -3,11 +3,13 @@ from sqlalchemy.orm import Session, selectinload
 
 from database import get_db, queries_so_far, start_counting
 from models import GroceryNotice, Supplier
-from routers.auth import require_login
+from routers.auth import current_user, require_role
 from routers.suppliers import commit_or_409
 from schemas import NoticeIn, NoticeOut, NoticePage, NoticeWithLots
 
-router = APIRouter(prefix="/api/notices", dependencies=[Depends(require_login)])
+router = APIRouter(prefix="/api/notices", dependencies=[Depends(current_user)])
+can_write = [Depends(require_role("writer", "moderator"))]
+can_delete = [Depends(require_role("moderator"))]
 
 
 def find_notice(db: Session, notice_id: int) -> GroceryNotice:
@@ -23,7 +25,8 @@ def check_supplier(db: Session, supplier_id: int):
 
 
 @router.get("", response_model=list[NoticeOut])
-def list_notices(q: str = "", page: int = Query(1, ge=1), page_size: int = Query(20, ge=1, le=200), db: Session = Depends(get_db)):
+def list_notices(q: str = "", page: int = Query(1, ge=1), page_size: int = Query(20, ge=1, le=200),
+                 db: Session = Depends(get_db)):
     query = db.query(GroceryNotice)
     if q.strip():
         term = q.strip()
@@ -58,7 +61,7 @@ def get_notice(notice_id: int, db: Session = Depends(get_db)):
     return find_notice(db, notice_id)
 
 
-@router.post("", response_model=NoticeOut, status_code=201)
+@router.post("", response_model=NoticeOut, status_code=201, dependencies=can_write)
 def create_notice(data: NoticeIn, db: Session = Depends(get_db)):
     check_supplier(db, data.supplierId)
     notice = GroceryNotice(**data.model_dump())
@@ -68,7 +71,7 @@ def create_notice(data: NoticeIn, db: Session = Depends(get_db)):
     return notice
 
 
-@router.put("/{notice_id}", response_model=NoticeOut)
+@router.put("/{notice_id}", response_model=NoticeOut, dependencies=can_write)
 def update_notice(notice_id: int, data: NoticeIn, db: Session = Depends(get_db)):
     notice = find_notice(db, notice_id)
     check_supplier(db, data.supplierId)
@@ -79,7 +82,7 @@ def update_notice(notice_id: int, data: NoticeIn, db: Session = Depends(get_db))
     return notice
 
 
-@router.delete("/highest", status_code=204)
+@router.delete("/highest", status_code=204, dependencies=can_delete)
 def delete_highest(db: Session = Depends(get_db)):
     notice = db.query(GroceryNotice).order_by(GroceryNotice.id.desc()).first()
     if notice is None:
@@ -88,7 +91,7 @@ def delete_highest(db: Session = Depends(get_db)):
     db.commit()
 
 
-@router.delete("/{notice_id}", status_code=204)
+@router.delete("/{notice_id}", status_code=204, dependencies=can_delete)
 def delete_notice(notice_id: int, db: Session = Depends(get_db)):
     db.delete(find_notice(db, notice_id))
     db.commit()

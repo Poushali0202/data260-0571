@@ -10,7 +10,7 @@ export default function Navbar({ user, onLogout }) {
         {user ? (
           <>
             <NavLink to="/create">Add notice</NavLink>
-            <span className="user">{user.name}</span>
+            <span className="user">{user.username} ({user.role})</span>
             <button type="button" onClick={onLogout}>Log out</button>
           </>
         ) : (

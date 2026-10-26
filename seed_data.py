@@ -12,8 +12,9 @@ NOTICE_COUNT = 5000
 LOT_COUNT = 200
 
 USERS = [
-    ("Poushali", "inspector@example.com", "recall2026"),
-    ("Store Manager", "manager@example.com", "shelf2026"),
+    ("reader1", "reader0571", "reader"),
+    ("writer1", "writer0571", "writer"),
+    ("moderator1", "moderator0571", "moderator"),
 ]
 
 FORMS = ["Organic", "Frozen", "Fresh", "Canned", "Dried", "Bagged", "Store brand", "Family size"]
@@ -54,7 +55,7 @@ def main():
     Base.metadata.create_all(bind=engine)
 
     db = db_session_basede26()
-    db.add_all([User(name=name, email=email, password_hash=hash_password(password)) for name, email, password in USERS])
+    db.add_all([User(username=username, password_hash=hash_password(password), role=role) for username, password, role in USERS])
     suppliers = []
     for name, region in SUPPLIERS:
         email = name.lower().replace(" ", ".") + "@example.com"

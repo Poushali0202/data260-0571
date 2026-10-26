@@ -18,3 +18,8 @@ AGENT_FILE = "AGENT.md"
 MEMORY_FILE = "MEMORY.md"
 MEMORY_MAX_LINES = 40
 MEMORY_MAX_AGE_HOURS = 24
+
+JWT_SECRET = os.getenv("JWT_SECRET", "s0571-local-dev-secret")
+JWT_ALGORITHM = "HS256"
+TOKEN_MINUTES = int(os.getenv("TOKEN_MINUTES", "30"))
+ROLES = ("reader", "writer", "moderator")

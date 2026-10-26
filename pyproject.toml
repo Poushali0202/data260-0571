@@ -1,0 +1,7 @@
+[tool.ruff]
+line-length = 130
+target-version = "py312"
+extend-exclude = ["frontend", "corpus", "corpus_warmup"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
