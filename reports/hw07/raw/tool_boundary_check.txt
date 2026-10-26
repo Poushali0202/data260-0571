@@ -1,0 +1,3 @@
+Direct csv_sql call with the statement from the hostile fixture (no model involved): DELETE FROM trips WHERE duration_min < 5
+READ_ONLY=False: success=True error=None rows left=176/518
+READ_ONLY=True: success=False error=only read-only SELECT queries are allowed rows left=518/518

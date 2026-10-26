@@ -1,0 +1,21 @@
+127.0.0.1 - - [26/Oct/2026 15:32:53] "GET /hostile_pricing.html HTTP/1.1" 200 -
+PASS backend_responds_on_port_base: GET /health returned 200
+PASS login_returns_jwt: three roles got bearer tokens
+PASS login_invalid_401: wrong password returned 401
+PASS me_missing_invalid_expired_401: missing/invalid/expired returned [401, 401, 401]
+PASS me_returns_identity_and_role: 200 {'id': 2, 'username': 'writer1', 'role': 'writer'}
+PASS create_reader_403_writer_201: reader 403, writer 201
+PASS delete_writer_403_moderator_204: writer 403, moderator 204
+PASS list_200_with_token_401_without: with token 200 (3 rows), without 401
+PASS passwords_hashed_in_mysql: 3 users, salted PBKDF2 hashes verify
+PASS agent_loop_completes_task_a: 2 tool calls, stop final_answer, verifier True
+PASS missing_id_returns_message: notice 987654 not found
+PASS bad_calls_classified: ['unknown_tool', 'malformed_arguments', 'malformed_arguments']
+PASS reflection_cannot_change_rules: [reflection dropped: it tried to change instructions or permissions]
+PASS csv_sql_select_only: SELECT ok, 3 non-SELECT blocked, 518/518 rows kept
+PASS calculator_whitelist: 29*37 = 1073, code rejected
+PASS policy_retriever_passages: 2 labelled passages with a sha256 snapshot hash
+PASS safety_gate_10_cases: 10/10 correct, confirmed delete allowed
+PASS file_tools_in_sandbox: edit diff returned, search found DEBUG, path outside sandbox rejected
+PASS report_files_present: all present
+19/19 checks passed, written to reports/hw07/verification.json

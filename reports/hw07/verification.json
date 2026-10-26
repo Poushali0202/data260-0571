@@ -1,0 +1,110 @@
+{
+  "homework": 7,
+  "sid4": "0571",
+  "port_base": 8571,
+  "commit": "6b69e196179fb8fe97b57d8afa563bfefcd2b9bc",
+  "tag_hw7": "6820f8a44ea668a8bb4463b3bc3d3c319fa3c1ae",
+  "model": "qwen3:8b through Ollama (agent loop temperature 0.7, framework agent temperature 0)",
+  "seed": 571,
+  "verify_seed": 260571,
+  "run_at": "2026-10-26T22:32:54+00:00",
+  "checks": [
+    {
+      "check": "backend_responds_on_port_base",
+      "passed": true,
+      "details": "GET /health returned 200"
+    },
+    {
+      "check": "login_returns_jwt",
+      "passed": true,
+      "details": "three roles got bearer tokens"
+    },
+    {
+      "check": "login_invalid_401",
+      "passed": true,
+      "details": "wrong password returned 401"
+    },
+    {
+      "check": "me_missing_invalid_expired_401",
+      "passed": true,
+      "details": "missing/invalid/expired returned [401, 401, 401]"
+    },
+    {
+      "check": "me_returns_identity_and_role",
+      "passed": true,
+      "details": "200 {'id': 2, 'username': 'writer1', 'role': 'writer'}"
+    },
+    {
+      "check": "create_reader_403_writer_201",
+      "passed": true,
+      "details": "reader 403, writer 201"
+    },
+    {
+      "check": "delete_writer_403_moderator_204",
+      "passed": true,
+      "details": "writer 403, moderator 204"
+    },
+    {
+      "check": "list_200_with_token_401_without",
+      "passed": true,
+      "details": "with token 200 (3 rows), without 401"
+    },
+    {
+      "check": "passwords_hashed_in_mysql",
+      "passed": true,
+      "details": "3 users, salted PBKDF2 hashes verify"
+    },
+    {
+      "check": "agent_loop_completes_task_a",
+      "passed": true,
+      "details": "2 tool calls, stop final_answer, verifier True"
+    },
+    {
+      "check": "missing_id_returns_message",
+      "passed": true,
+      "details": "notice 987654 not found"
+    },
+    {
+      "check": "bad_calls_classified",
+      "passed": true,
+      "details": "['unknown_tool', 'malformed_arguments', 'malformed_arguments']"
+    },
+    {
+      "check": "reflection_cannot_change_rules",
+      "passed": true,
+      "details": "[reflection dropped: it tried to change instructions or permissions]"
+    },
+    {
+      "check": "csv_sql_select_only",
+      "passed": true,
+      "details": "SELECT ok, 3 non-SELECT blocked, 518/518 rows kept"
+    },
+    {
+      "check": "calculator_whitelist",
+      "passed": true,
+      "details": "29*37 = 1073, code rejected"
+    },
+    {
+      "check": "policy_retriever_passages",
+      "passed": true,
+      "details": "2 labelled passages with a sha256 snapshot hash"
+    },
+    {
+      "check": "safety_gate_10_cases",
+      "passed": true,
+      "details": "10/10 correct, confirmed delete allowed"
+    },
+    {
+      "check": "file_tools_in_sandbox",
+      "passed": true,
+      "details": "edit diff returned, search found DEBUG, path outside sandbox rejected"
+    },
+    {
+      "check": "report_files_present",
+      "passed": true,
+      "details": "all present"
+    }
+  ],
+  "passed": 19,
+  "total": 19
+}
