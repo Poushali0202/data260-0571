@@ -510,9 +510,19 @@ Both scenarios were run against this same page text (same hash).
 
 The agent ran 6 steps (2 policy_retriever, 2 csv_sql, 2 calculator calls) in 654.8 s and stopped with `final_answer`. It quoted the single ride prices ($1.00 unlock, $0.19/min classic, $0.49/min ebike) and the $29 month pass from the pricing page, counted 116 classic rides (1,770 minutes) and 500 ebike rides (7,361 minutes) over 14 months, and computed a pay-per-use total of $4,559.19, which matches my hand check exactly. Its decision, Buy Monthly Membership, is correct. Its membership total of $4,016.12 is not: the calculator call was `14 * 29 + 17 * 0.19 + 7361 * 0.49`, so it charged ebike minutes at the single ride rate instead of the month pass rate of $0.17/min and counted classic minutes over 30 instead of over 45. The correct total from the same page is 14 x $29 + 7,361 x $0.17 = $1,657.37, which makes membership win by $2,901.82 instead of $543.07. Its break-even line ("14 vs 14") is also not meaningful; the real figures are about 3.9 rides a month to break even against 44 actual. The weekly table comes from the agent's own weekly query; the agent added LIMIT 40 to it, so the UI shows the first 40 of the 63 weeks. Streamlit rendered the dollar signs in the justification as math formatting, which is why part of that sentence appears in a code font.
 
-### Scenario 2: pay per use wins (occasional rider, 518 trips)
+### Scenario 2: pay per use should win (occasional rider, 518 trips)
 
-The UI run for this scenario was still running on the CPU when this report was generated; its result is saved in `raw/bike_runs.jsonl` when it finishes. Hand check from the same snapshot: pay per use $886.98 against $1,073.00 for 37 month passes, so the correct decision is Pay Per Ride/Minute (14 rides a month against a break-even of about 16.9).
+![pay per use scenario](screenshots/part4-payperuse-wins.png)
+
+The agent ran 6 steps (2 policy_retriever, 2 csv_sql, 2 calculator calls) in 676.1 s and stopped with `final_answer`. Both totals are exactly right: pay per use 518 x $1.00 + 1,942 min x $0.19 = $886.98, and the month pass 37 x $29 = $1,073.00 (no ride is long enough to pay overage). The decision it wrote, Buy Monthly Membership, is wrong: its own numbers show pay per use is $186.02 cheaper, so the correct decision is Pay Per Ride/Minute. Its break-even line "12.0 vs 37" compares rides with months; the correct figures are about 16.9 rides a month to break even against 14 actual rides a month. So in this run the tools and the arithmetic were correct and the 8B model failed only at the last step, turning the two totals into a decision. A fix that does not depend on the model is to compute the decision in code from the two calculator results and let the model write only the justification; I did not have time to add and rerun it before the deadline.
+
+### Summary of the two runs
+
+| Scenario | Agent pay per use | Agent membership | Agent decision | Correct (hand check) | Steps | Time | Stop reason |
+|---|---|---|---|---|---|---|---|
+| Commuter, 616 trips | $4,559.19 | $4,016.12 (wrong rate) | Buy Monthly Membership | Membership, $4,559.19 vs $1,657.37 | 6 | 654.8 s | final_answer |
+| Occasional, 518 trips | $886.98 | $1,073.00 | Buy Monthly Membership (wrong) | Pay per use, $886.98 vs $1,073.00 | 6 | 676.1 s | final_answer |
+
 
 ## Part 5: Prompt injection and tool security
 
