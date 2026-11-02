@@ -1,0 +1,490 @@
+DATA-260 HW8 run log
+Student: Poushali Purkayastha (SID4 0571, PREFIX s0571, domain: grocery supply and recall notices)
+Machine: Intel Core i5-1135G7, 15.8 GB RAM, Windows 11 Home, CPU only. Docker Desktop 28.3.3, Kafka apache/kafka:3.9.2 (KRaft, one broker).
+Model: qwen3:8b through Ollama 0.40.12, temperature 0 (planner, writer, reviewer). Python 3.12.10, aiokafka 0.15.0.
+All runs on 2026-11-02, timestamps are local time (PST, -08:00). Code at tag hw8.
+
+=== Topics (kafka-topics.sh --describe) ===
+Topic: s0571_final	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: s0571_notice_requests	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: s0571_notice_responses	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: s0571_dead_letter	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: s0571_drafts	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: s0571_tasks	PartitionCount: 2	ReplicationFactor: 1	Configs: 
+Topic: s0571_inbox	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: __consumer_offsets	PartitionCount: 50	ReplicationFactor: 1	Configs: compression.type=producer,cleanup.policy=compact,segment.bytes=104857600
+
+=== Part 1: python homework_demo.py (12:34) ===
+=== CREATE_NOTICE ===
+12:34:36.317 [CLIENT] created correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f for CREATE_NOTICE
+12:34:36.317 [CLIENT] POST http://127.0.0.1:8571/notices
+12:34:36.342 [API] sent to s0571_notice_requests partition=0 offset=32 correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f message={"correlation_id": "258eb3bc-d7ec-4a59-b04b-07bf48d7692f", "reply_to": "s0571_notice_responses", "operation": "CREATE_NOTICE", "data": {"productName": "Organic baby spinach 5 oz", "noticeCode": "RN-000571", "noticeSource": "FDA recall bulletin", "noticeCategory": "recall", "affectedUnits": 1200}}
+12:34:36.344 [WORKER] received from s0571_notice_requests partition=0 offset=32 correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f operation=CREATE_NOTICE
+12:34:36.344 [WORKER] processed CREATE_NOTICE correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f success=True
+12:34:36.351 [WORKER] sent to s0571_notice_responses partition=0 offset=32 correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f message={"correlation_id": "258eb3bc-d7ec-4a59-b04b-07bf48d7692f", "success": true, "notice_id": "1308825e-e252-4f10-b009-0a76a60ad44d", "message": "Notice created"}
+12:34:36.352 [API] received from s0571_notice_responses partition=0 offset=32 correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f success=True
+12:34:36.352 [API] returned response to caller correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f
+12:34:36.354 [CLIENT] received response success=True correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f
+12:34:37.465 [CLIENT] correlation_id preserved: True
+12:34:37.465 [CLIENT] generated notice_id=1308825e-e252-4f10-b009-0a76a60ad44d
+
+=== GET_NOTICE ===
+12:34:37.465 [CLIENT] created correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c for GET_NOTICE
+12:34:37.465 [CLIENT] POST http://127.0.0.1:8571/notices
+12:34:37.481 [API] sent to s0571_notice_requests partition=0 offset=33 correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c message={"correlation_id": "615159cc-9fe6-4613-af10-dbd904fe798c", "reply_to": "s0571_notice_responses", "operation": "GET_NOTICE", "data": {"notice_id": "1308825e-e252-4f10-b009-0a76a60ad44d"}}
+12:34:37.481 [WORKER] received from s0571_notice_requests partition=0 offset=33 correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c operation=GET_NOTICE
+12:34:37.481 [WORKER] processed GET_NOTICE correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c success=True
+12:34:37.483 [WORKER] sent to s0571_notice_responses partition=0 offset=33 correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c message={"correlation_id": "615159cc-9fe6-4613-af10-dbd904fe798c", "success": true, "notice": {"notice_id": "1308825e-e252-4f10-b009-0a76a60ad44d", "productName": "Organic baby spinach 5 oz", "noticeCode": "RN-000571", "noticeSource": "FDA recall bulletin", "noticeCategory": "recall", "affectedUnits": 1200}}
+12:34:37.483 [API] received from s0571_notice_responses partition=0 offset=33 correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c success=True
+12:34:37.483 [API] returned response to caller correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c
+12:34:37.484 [CLIENT] received response success=True correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c
+12:34:38.601 [CLIENT] correlation_id preserved: True
+
+Retrieved notice:
+{"notice_id": "1308825e-e252-4f10-b009-0a76a60ad44d", "productName": "Organic baby spinach 5 oz", "noticeCode": "RN-000571", "noticeSource": "FDA recall bulletin", "noticeCategory": "recall", "affectedUnits": 1200}
+CREATE success=True GET success=True correlation_id preserved on both requests: True
+
+=== Part 1: error cases sent to the API (worker container log, err-test lines) ===
+12:34:57.792 [WORKER] received from s0571_notice_requests partition=0 offset=34 correlation_id=err-test-1 operation=DELETE_NOTICE
+12:34:57.792 [WORKER] processed DELETE_NOTICE correlation_id=err-test-1 success=False
+12:34:57.794 [WORKER] sent to s0571_notice_responses partition=0 offset=34 correlation_id=err-test-1 message={"correlation_id": "err-test-1", "success": false, "error": "Unknown operation"}
+12:34:57.854 [WORKER] received from s0571_notice_requests partition=0 offset=35 correlation_id=err-test-2 operation=GET_NOTICE
+12:34:57.855 [WORKER] processed GET_NOTICE correlation_id=err-test-2 success=False
+12:34:57.856 [WORKER] sent to s0571_notice_responses partition=0 offset=35 correlation_id=err-test-2 message={"correlation_id": "err-test-2", "success": false, "error": "Notice not found"}
+12:34:57.863 [WORKER] received from s0571_notice_requests partition=0 offset=36 correlation_id=err-test-3 operation=CREATE_NOTICE
+12:34:57.863 [WORKER] processed CREATE_NOTICE correlation_id=err-test-3 success=False
+12:34:57.864 [WORKER] sent to s0571_notice_responses partition=0 offset=36 correlation_id=err-test-3 message={"correlation_id": "err-test-3", "success": false, "error": "productName is required"}
+12:34:57.873 [WORKER] received from s0571_notice_requests partition=0 offset=37 correlation_id=err-test-4 operation=CREATE_NOTICE
+12:34:57.873 [WORKER] processed CREATE_NOTICE correlation_id=err-test-4 success=False
+12:34:57.874 [WORKER] sent to s0571_notice_responses partition=0 offset=37 correlation_id=err-test-4 message={"correlation_id": "err-test-4", "success": false, "error": "noticeCode must look like RN-123456"}
+12:34:57.883 [WORKER] received from s0571_notice_requests partition=0 offset=38 correlation_id=err-test-5 operation=CREATE_NOTICE
+12:34:57.883 [WORKER] processed CREATE_NOTICE correlation_id=err-test-5 success=False
+12:34:57.884 [WORKER] sent to s0571_notice_responses partition=0 offset=38 correlation_id=err-test-5 message={"correlation_id": "err-test-5", "success": false, "error": "noticeCategory must be one of: contamination, distribution, recall, shortage"}
+12:34:57.894 [WORKER] received from s0571_notice_requests partition=0 offset=39 correlation_id=err-test-6 operation=CREATE_NOTICE
+12:34:57.894 [WORKER] processed CREATE_NOTICE correlation_id=err-test-6 success=False
+12:34:57.895 [WORKER] sent to s0571_notice_responses partition=0 offset=39 correlation_id=err-test-6 message={"correlation_id": "err-test-6", "success": false, "error": "affectedUnits must be a whole number 0 or more"}
+
+=== Part 1: worker and API startup lines ===
+--- notice_worker_container.log
+12:34:00.959 [WORKER] Consumer is ready and listening...
+--- notice_api_container.log
+12:33:53.789 [API] FastAPI server started at http://127.0.0.1:8571
+INFO:     Uvicorn running on http://0.0.0.0:8571 (Press CTRL+C to quit)
+
+=== Part 2: one question from s0571_inbox to s0571_final (four terminals) ===
+--- p2_send_question.log
+12:12:34.306 [YOU] sent question to s0571_inbox offset=1 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995
+12:12:34.306 [YOU] waiting for the answer on s0571_final
+12:13:44.662 [YOU] received from s0571_final offset=1 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995
+{
+  "correlation_id": "8c340cdd-1777-4a77-8a2c-9b8dfa9b5995",
+  "status": "approved",
+  "answer": "The shopper should check the packaging for a recall notice or lot number to confirm if the spinach is affected. Do not consume it and keep it in its original packaging. Contact the grocery store or manufacturer for a refund or replacement. Follow any additional instructions from the recall notice or local health authorities to ensure safety.",
+  "review_note": "The draft accurately follows the plan and addresses the question without inventing facts.",
+  "question": "A shopper bought spinach that is now under a recall notice. What should they check and what should they do with it?"
+}
+--- p2_planner.log
+12:12:19.593 [PLANNER] listening on s0571_inbox
+12:12:34.306 [PLANNER] received from s0571_inbox offset=1 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995 question=A shopper bought spinach that is now under a recall notice. What should they check and wha...
+[tokens] turn=1 input=85 output=72 total=157
+12:13:08.653 [PLANNER] sent plan to s0571_tasks partition=1 offset=0 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995 plan=1. Check the packaging for a recall notice or lot number to confirm if the spinach is part...
+--- p2_writer.log
+12:12:22.240 [WRITER-1] listening on s0571_tasks (auto_commit=False, dedupe=True, dead_letter=True)
+12:13:08.660 [WRITER-1] received from s0571_tasks partition=1 offset=0 key=None
+12:13:08.660 [WRITER-1] writing draft correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995 attempt 1/3
+[tokens] turn=1 input=141 output=62 total=203
+12:13:28.476 [WRITER-1] sent draft to s0571_drafts offset=1 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995 draft=The shopper should check the packaging for a recall notice or lot number to confirm if the...
+12:13:28.487 [WRITER-1] committed partition=1 offset=1
+--- p2_reviewer.log
+12:12:23.936 [REVIEWER] listening on s0571_drafts
+12:13:28.478 [REVIEWER] received from s0571_drafts offset=1 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995 draft=The shopper should check the packaging for a recall notice or lot number to confirm if the...
+[tokens] turn=1 input=224 output=30 total=254
+12:13:44.661 [REVIEWER] sent approved to s0571_final offset=1 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995 note=The draft accurately follows the plan and addresses the question without inventing facts.
+
+=== Part 3 I: duplicate delivery, before fix (writer --no-dedupe) ===
+--- p3_dup_before_question.log
+12:15:28.122 [YOU] sent question to s0571_inbox offset=2 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d
+12:15:28.122 [YOU] waiting for the answer on s0571_final
+12:16:43.107 [YOU] received from s0571_final offset=2 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d
+{
+  "correlation_id": "60b8fbaf-63ee-4f9b-b44a-973714d52c0d",
+  "status": "approved",
+  "answer": "If you have frozen chicken nuggets from a recalled lot due to possible plastic pieces, it is safest to discard them, even if they are still frozen. The recall indicates a potential contamination risk. If the product is unopened and frozen, it may still be safe to return or discard, but if thawed or cooked, it should be thrown away. For confirmation, contact the manufacturer or the FDA for specific guidance on the recalled product.",
+  "review_note": "The draft accurately follows the plan, addresses the question, and does not invent facts.",
+  "question": "Is it safe to eat frozen chicken nuggets from a lot that was recalled for possible plastic pieces?"
+}
+--- p3_dup_before_replay.log
+12:16:48.342 [REPLAY] original at s0571_tasks partition=0 offset=1, replayed unchanged as offset=2 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d
+--- p3_dup_before_writer.log
+12:15:23.063 [WRITER-1] listening on s0571_tasks (auto_commit=False, dedupe=False, dead_letter=True)
+12:15:56.764 [WRITER-1] received from s0571_tasks partition=0 offset=1 key=None
+12:15:56.764 [WRITER-1] writing draft correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d attempt 1/3
+[tokens] turn=1 input=208 output=89 total=297
+12:16:23.008 [WRITER-1] sent draft to s0571_drafts offset=2 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d draft=If you have frozen chicken nuggets from a recalled lot due to possible plastic pieces, it ...
+12:16:23.012 [WRITER-1] committed partition=0 offset=2
+12:16:48.342 [WRITER-1] received from s0571_tasks partition=0 offset=2 key=None
+12:16:48.342 [WRITER-1] writing draft correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d attempt 1/3
+[tokens] turn=2 input=208 output=88 total=296
+12:17:05.094 [WRITER-1] sent draft to s0571_drafts offset=3 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d draft=If you have frozen chicken nuggets from a recalled lot due to possible plastic pieces, it ...
+12:17:05.097 [WRITER-1] committed partition=0 offset=3
+--- p3_dup_before_final_topic.txt
+Offset:2	{"correlation_id": "60b8fbaf-63ee-4f9b-b44a-973714d52c0d", "status": "approved", "answer": "If you have frozen 
+Offset:3	{"correlation_id": "60b8fbaf-63ee-4f9b-b44a-973714d52c0d", "status": "approved", "answer": "If you have frozen 
+
+=== Part 3 I: duplicate delivery, after fix (idempotency on correlation_id) ===
+--- p3_dup_after_question.log
+12:17:56.054 [YOU] sent question to s0571_inbox offset=3 correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6
+12:17:56.054 [YOU] waiting for the answer on s0571_final
+12:19:02.753 [YOU] received from s0571_final offset=4 correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6
+{
+  "correlation_id": "cb207d2f-73b7-4505-9b57-4bf9e0c519e6",
+  "status": "approved",
+  "answer": "The store should not sell the unaffected lots without confirmation. First, review the recall notice to identify affected lots. Next, confirm with the supplier or regulatory authority that the unaffected lots are safe. Check inventory records to ensure only non-recalled items remain. Finally, consult the store\u2019s recall response team to decide on proper handling and sale of unaffected products. Selling without verification could risk customer safety and legal issues.",
+  "review_note": "The draft follows the plan and addresses the question without inventing facts.",
+  "question": "A store received a recall notice for smoked salmon. Should it keep selling the unaffected lots?"
+}
+--- p3_dup_after_replay.log
+12:19:07.439 [REPLAY] original at s0571_tasks partition=1 offset=1, replayed unchanged as offset=2 correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6
+--- p3_dup_after_writer.log
+12:17:48.471 [WRITER-1] listening on s0571_tasks (auto_commit=False, dedupe=True, dead_letter=True)
+12:18:15.693 [WRITER-1] received from s0571_tasks partition=1 offset=1 key=None
+12:18:15.693 [WRITER-1] writing draft correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6 attempt 1/3
+[tokens] turn=1 input=147 output=82 total=229
+12:18:42.910 [WRITER-1] sent draft to s0571_drafts offset=4 correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6 draft=The store should not sell the unaffected lots without confirmation. First, review the reca...
+12:18:42.914 [WRITER-1] committed partition=1 offset=2
+12:19:07.439 [WRITER-1] received from s0571_tasks partition=1 offset=2 key=None
+12:19:07.439 [WRITER-1] duplicate correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6, already processed, skipped
+12:19:07.448 [WRITER-1] committed partition=1 offset=3
+--- p3_dup_after_final_topic.txt
+Offset:4	{"correlation_id": "cb207d2f-73b7-4505-9b57-4bf9e0c519e6", "status": "approved", "answer": "The store should no
+
+=== Part 3: planner and reviewer logs during the duplicate and consumer death runs ===
+--- p3_planner.log
+12:15:23.047 [PLANNER] listening on s0571_inbox
+12:15:28.122 [PLANNER] received from s0571_inbox offset=2 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d question=Is it safe to eat frozen chicken nuggets from a lot that was recalled for possible plastic...
+[tokens] turn=1 input=81 output=143 total=224
+12:15:56.763 [PLANNER] sent plan to s0571_tasks partition=0 offset=1 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d plan=1. **Check the Recall Information**: Confirm the specific recall details, including the lo...
+12:17:56.054 [PLANNER] received from s0571_inbox offset=3 correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6 question=A store received a recall notice for smoked salmon. Should it keep selling the unaffected ...
+[tokens] turn=2 input=79 output=84 total=163
+12:18:15.693 [PLANNER] sent plan to s0571_tasks partition=1 offset=1 correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6 plan=1. Review the recall notice to identify which specific lots are affected and which are not...
+12:20:27.378 [PLANNER] received from s0571_inbox offset=4 correlation_id=c3a07346-cae0-4cef-93d8-dee79ba53706 question=Can a shopper return opened peanut butter that is part of a recall for a refund?
+[tokens] turn=3 input=78 output=89 total=167
+12:20:45.074 [PLANNER] sent plan to s0571_tasks partition=0 offset=3 correlation_id=c3a07346-cae0-4cef-93d8-dee79ba53706 plan=1. Check the specific recall notice for details on return policies and eligibility for ref...
+12:23:22.492 [PLANNER] received from s0571_inbox offset=5 correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81 question=How should a store tell customers about a spinach recall at the checkout?
+[tokens] turn=4 input=75 output=85 total=160
+12:23:40.360 [PLANNER] sent plan to s0571_tasks partition=0 offset=4 correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81 plan=1. **Inform customers immediately** by displaying clear signage at the checkout lanes with...
+--- p3_reviewer.log
+12:15:23.048 [REVIEWER] listening on s0571_drafts
+12:16:23.009 [REVIEWER] received from s0571_drafts offset=2 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d draft=If you have frozen chicken nuggets from a recalled lot due to possible plastic pieces, it ...
+[tokens] turn=1 input=318 output=32 total=350
+12:16:43.106 [REVIEWER] sent approved to s0571_final offset=2 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d note=The draft accurately follows the plan, addresses the question, and does not invent facts.
+12:17:05.095 [REVIEWER] received from s0571_drafts offset=3 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d draft=If you have frozen chicken nuggets from a recalled lot due to possible plastic pieces, it ...
+[tokens] turn=2 input=317 output=32 total=349
+12:17:14.945 [REVIEWER] sent approved to s0571_final offset=3 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d note=The draft accurately follows the plan, addresses the question, and does not invent facts.
+12:18:42.911 [REVIEWER] received from s0571_drafts offset=4 correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6 draft=The store should not sell the unaffected lots without confirmation. First, review the reca...
+[tokens] turn=3 input=250 output=29 total=279
+12:19:02.752 [REVIEWER] sent approved to s0571_final offset=4 correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6 note=The draft follows the plan and addresses the question without inventing facts.
+12:24:16.439 [REVIEWER] received from s0571_drafts offset=5 correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81 draft=The store should inform customers immediately by posting clear recall signs at checkout la...
+[tokens] turn=4 input=234 output=33 total=267
+12:24:35.210 [REVIEWER] sent approved to s0571_final offset=5 correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81 note=The draft aligns with the plan and addresses all key points without inventing new informat...
+12:26:03.836 [REVIEWER] received from s0571_drafts offset=6 correlation_id=9420a1c6-bf1c-40ac-a893-5bfb9e47ac97 draft=The store should pull all peanut butter jars with lot codes listed on the recall notice. E...
+[tokens] turn=5 input=194 output=41 total=235
+12:26:35.755 [REVIEWER] sent approved to s0571_final offset=6 correlation_id=9420a1c6-bf1c-40ac-a893-5bfb9e47ac97 note=The draft accurately follows the plan by identifying the lot codes from the recall notice ...
+
+=== Part 3 II: writer killed mid-draft, before fix (writer --auto-commit) ===
+--- p3_death_before_writer.log
+12:20:19.743 [WRITER-1] listening on s0571_tasks (auto_commit=True, dedupe=True, dead_letter=True)
+12:20:45.075 [WRITER-1] received from s0571_tasks partition=0 offset=3 key=None
+12:20:45.075 [WRITER-1] writing draft correlation_id=c3a07346-cae0-4cef-93d8-dee79ba53706 attempt 1/3
+--- p3_death_before_kill.txt
+killed writer pid 23148
+group right after the kill:
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                      
+s0571-writer    s0571_tasks     0          4               4               0               aiokafka-0.15.0-63bc2ee0-0123-40dc-9205-3d0d72235
+s0571-writer    s0571_tasks     1          3               3               0               aiokafka-0.15.0-63bc2ee0-0123-40dc-9205-3d0d72235
+--- p3_death_before_writer_restart.log
+12:21:07.246 [WRITER-1] listening on s0571_tasks (auto_commit=True, dedupe=True, dead_letter=True)
+--- p3_death_before_after_restart.txt
+--- group after restart
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID        
+s0571-writer    s0571_tasks     0          4               4               0               aiokafka-0.15.0-724
+s0571-writer    s0571_tasks     1          3               3               0               aiokafka-0.15.0-724
+--- p3_death_before_question.log
+12:20:27.378 [YOU] sent question to s0571_inbox offset=4 correlation_id=c3a07346-cae0-4cef-93d8-dee79ba53706
+12:20:27.378 [YOU] waiting for the answer on s0571_final
+
+=== Part 3 II: writer killed mid-draft, after fix (commit after the draft is sent) ===
+--- p3_death_after_writer.log
+12:23:14.608 [WRITER-1] listening on s0571_tasks (auto_commit=False, dedupe=True, dead_letter=True)
+12:23:40.360 [WRITER-1] received from s0571_tasks partition=0 offset=4 key=None
+12:23:40.360 [WRITER-1] writing draft correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81 attempt 1/3
+--- p3_death_after_kill.txt
+killed writer pid 22064
+group right after the kill:
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID        
+s0571-writer    s0571_tasks     0          4               5               1               aiokafka-0.15.0-4e9
+s0571-writer    s0571_tasks     1          3               3               0               aiokafka-0.15.0-4e9
+--- p3_death_after_writer_restart.log
+12:23:57.770 [WRITER-1] listening on s0571_tasks (auto_commit=False, dedupe=True, dead_letter=True)
+12:23:57.770 [WRITER-1] received from s0571_tasks partition=0 offset=4 key=None
+12:23:57.770 [WRITER-1] writing draft correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81 attempt 1/3
+[tokens] turn=1 input=144 output=69 total=213
+12:24:16.438 [WRITER-1] sent draft to s0571_drafts offset=5 correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81 draft=The store should inform customers immediately by posting clear recall signs at checkout la...
+12:24:16.442 [WRITER-1] committed partition=0 offset=5
+--- p3_death_after_after_restart.txt
+--- group after restart
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID        
+s0571-writer    s0571_tasks     0          5               5               0               aiokafka-0.15.0-d70
+s0571-writer    s0571_tasks     1          3               3               0               aiokafka-0.15.0-d70
+--- p3_death_after_question.log
+12:23:22.491 [YOU] sent question to s0571_inbox offset=5 correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81
+12:23:22.491 [YOU] waiting for the answer on s0571_final
+12:24:35.211 [YOU] received from s0571_final offset=5 correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81
+{
+  "correlation_id": "053b51ef-ba42-4901-8bb9-27623f156b81",
+  "status": "approved",
+  "answer": "The store should inform customers immediately by posting clear recall signs at checkout lanes. Staff should verbally confirm the recall, explain the risk, and advise against consuming the spinach. They should offer refunds or replacements for affected products. Finally, direct customers to official recall information or contact details for further help. This ensures transparency, safety, and customer trust.",
+  "review_note": "The draft aligns with the plan and addresses all key points without inventing new information.",
+  "question": "How should a store tell customers about a spinach recall at the checkout?"
+}
+
+=== Part 3 III: poison message, before fix (writer --no-dlq, started twice) ===
+--- p3_poison_send.log
+12:24:51.202 [POISON] sent malformed task to s0571_tasks partition=1 offset=3
+12:24:51.203 [POISON] sent normal task behind it partition=1 offset=4 correlation_id=9420a1c6-bf1c-40ac-a893-5bfb9e47ac97
+--- p3_poison_before_writer.log
+=== run 1 (--no-dlq)
+12:24:55.937 [WRITER-1] listening on s0571_tasks (auto_commit=False, dedupe=True, dead_letter=False)
+12:24:55.938 [WRITER-1] received from s0571_tasks partition=1 offset=3 key=b'poison-test'
+12:24:55.938 [WRITER-1] writing draft correlation_id=None attempt 1/3
+12:24:55.939 [WRITER-1] attempt 1/3 failed: Unterminated string starting at: line 1 column 51 (char 50)
+Traceback (most recent call last):
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 106, in <module>
+    asyncio.run(main())
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 71, in main
+    task, draft = await asyncio.to_thread(write_draft, msg.value)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 39, in write_draft
+    task = json.loads(raw)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 51 (char 50)
+exit code 1
+=== run 2, restarted (--no-dlq)
+12:24:59.443 [WRITER-1] listening on s0571_tasks (auto_commit=False, dedupe=True, dead_letter=False)
+12:24:59.444 [WRITER-1] received from s0571_tasks partition=1 offset=3 key=b'poison-test'
+12:24:59.444 [WRITER-1] writing draft correlation_id=None attempt 1/3
+12:24:59.444 [WRITER-1] attempt 1/3 failed: Unterminated string starting at: line 1 column 51 (char 50)
+Traceback (most recent call last):
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 106, in <module>
+    asyncio.run(main())
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 71, in main
+    task, draft = await asyncio.to_thread(write_draft, msg.value)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 39, in write_draft
+    task = json.loads(raw)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 51 (char 50)
+exit code 1
+--- group after two crashes
+
+Consumer group 's0571-writer' has no active members.
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOS
+s0571-writer    s0571_tasks     0          5               5               0               -               -  
+s0571-writer    s0571_tasks     1          3               5               2               -               -  
+
+=== Part 3 III: poison message, after fix (3 attempts, then s0571_dead_letter) ===
+--- p3_poison_after_writer.log
+12:25:22.875 [WRITER-1] listening on s0571_tasks (auto_commit=False, dedupe=True, dead_letter=True)
+12:25:22.875 [WRITER-1] received from s0571_tasks partition=1 offset=3 key=b'poison-test'
+12:25:22.875 [WRITER-1] writing draft correlation_id=None attempt 1/3
+12:25:22.877 [WRITER-1] attempt 1/3 failed: Unterminated string starting at: line 1 column 51 (char 50)
+12:25:23.898 [WRITER-1] writing draft correlation_id=None attempt 2/3
+12:25:23.899 [WRITER-1] attempt 2/3 failed: Unterminated string starting at: line 1 column 51 (char 50)
+12:25:24.898 [WRITER-1] writing draft correlation_id=None attempt 3/3
+12:25:24.899 [WRITER-1] attempt 3/3 failed: Unterminated string starting at: line 1 column 51 (char 50)
+12:25:25.925 [WRITER-1] gave up after 3 attempts, moved to s0571_dead_letter offset=0
+12:25:25.928 [WRITER-1] committed partition=1 offset=4
+12:25:25.928 [WRITER-1] received from s0571_tasks partition=1 offset=4 key=b'poison-test'
+12:25:25.928 [WRITER-1] writing draft correlation_id=9420a1c6-bf1c-40ac-a893-5bfb9e47ac97 attempt 1/3
+[tokens] turn=1 input=86 output=87 total=173
+12:26:03.835 [WRITER-1] sent draft to s0571_drafts offset=6 correlation_id=9420a1c6-bf1c-40ac-a893-5bfb9e47ac97 draft=The store should pull all peanut butter jars with lot codes listed on the recall notice. E...
+12:26:03.913 [WRITER-1] committed partition=1 offset=5
+--- p3_poison_after_group.txt
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID        
+s0571-writer    s0571_tasks     0          5               5               0               aiokafka-0.15.0-e6e
+s0571-writer    s0571_tasks     1          5               5               0               aiokafka-0.15.0-e6e
+--- p3_dead_letter_topic.txt
+Offset:0	{"correlation_id": null, "source_topic": "s0571_tasks", "partition": 1, "offset": 3, "error": "Unterminated string starting at: line 1 column 51 (char 50)", "attempts": 3, "raw": "{\"correlation_id\": \"poison-08a1b4fb\", \"question\": \"Which lots are"}
+
+=== Part 3 IV: ordering, two writers in group s0571-writer ===
+
+GROUP           CONSUMER-ID                                          HOST            CLIENT-ID       #PARTITIONS     ASSIGNMENT
+s0571-writer    aiokafka-0.15.0-c8bc7649-02bf-4925-8556-e014ab21609f /172.23.0.1     aiokafka-0.15.0 1               (1)
+s0571-writer    aiokafka-0.15.0-af1240ef-337a-40c5-895a-9b3f3658d037 /172.23.0.1     aiokafka-0.15.0 1               (0)
+
+=== Part 3 IV: ordering run 1, no key (python order_test.py) ===
+12:27:32.441 [ORDER] sent Smoked salmon 12 oz seq=1 key=None partition=0 offset=5
+12:27:32.444 [ORDER] sent Smoked salmon 12 oz seq=2 key=None partition=1 offset=5
+12:27:32.446 [ORDER] sent Frozen chicken nuggets 2 lb seq=1 key=None partition=1 offset=6
+12:27:32.596 [ORDER] sent Creamy peanut butter 16 oz seq=1 key=None partition=0 offset=6
+12:27:32.605 [ORDER] sent Smoked salmon 12 oz seq=3 key=None partition=0 offset=7
+12:27:32.607 [ORDER] sent Frozen chicken nuggets 2 lb seq=2 key=None partition=1 offset=7
+12:27:32.636 [ORDER] sent Organic baby spinach 5 oz seq=1 key=None partition=0 offset=8
+12:27:32.683 [ORDER] sent Creamy peanut butter 16 oz seq=2 key=None partition=1 offset=8
+12:27:32.723 [ORDER] sent Smoked salmon 12 oz seq=4 key=None partition=0 offset=9
+12:27:32.848 [ORDER] sent Organic baby spinach 5 oz seq=2 key=None partition=0 offset=10
+12:27:32.850 [ORDER] sent Organic baby spinach 5 oz seq=3 key=None partition=1 offset=9
+12:27:33.000 [ORDER] sent Creamy peanut butter 16 oz seq=3 key=None partition=1 offset=10
+12:27:33.001 [ORDER] sent Smoked salmon 12 oz seq=5 key=None partition=1 offset=11
+12:27:33.003 [ORDER] sent Frozen chicken nuggets 2 lb seq=3 key=None partition=1 offset=12
+12:27:33.004 [ORDER] sent Smoked salmon 12 oz seq=6 key=None partition=0 offset=11
+12:27:33.006 [ORDER] sent Creamy peanut butter 16 oz seq=4 key=None partition=0 offset=12
+12:27:33.007 [ORDER] sent Smoked salmon 12 oz seq=7 key=None partition=0 offset=13
+12:27:33.011 [ORDER] sent Smoked salmon 12 oz seq=8 key=None partition=1 offset=13
+12:27:33.015 [ORDER] sent Frozen chicken nuggets 2 lb seq=4 key=None partition=0 offset=14
+12:27:33.052 [ORDER] sent Organic baby spinach 5 oz seq=4 key=None partition=1 offset=14
+12:27:44.061 [ORDER] #1 Smoked salmon 12 oz seq=1 partition=0 by writer-2
+12:27:51.242 [ORDER] #2 Smoked salmon 12 oz seq=2 partition=1 by writer-1
+12:27:58.461 [ORDER] #3 Creamy peanut butter 16 oz seq=1 partition=0 by writer-2
+12:28:07.066 [ORDER] #4 Frozen chicken nuggets 2 lb seq=1 partition=1 by writer-1
+12:28:15.077 [ORDER] #5 Smoked salmon 12 oz seq=3 partition=0 by writer-2
+12:28:22.484 [ORDER] #6 Frozen chicken nuggets 2 lb seq=2 partition=1 by writer-1
+12:28:30.333 [ORDER] #7 Organic baby spinach 5 oz seq=1 partition=0 by writer-2
+12:28:38.874 [ORDER] #8 Creamy peanut butter 16 oz seq=2 partition=1 by writer-1
+12:28:45.249 [ORDER] #9 Smoked salmon 12 oz seq=4 partition=0 by writer-2
+12:28:51.316 [ORDER] #10 Organic baby spinach 5 oz seq=3 partition=1 by writer-1
+12:28:58.422 [ORDER] #11 Organic baby spinach 5 oz seq=2 partition=0 by writer-2
+12:29:04.477 [ORDER] #12 Creamy peanut butter 16 oz seq=3 partition=1 by writer-1
+12:29:10.377 [ORDER] #13 Smoked salmon 12 oz seq=6 partition=0 by writer-2
+12:29:17.412 [ORDER] #14 Smoked salmon 12 oz seq=5 partition=1 by writer-1
+12:29:24.470 [ORDER] #15 Creamy peanut butter 16 oz seq=4 partition=0 by writer-2
+12:29:29.686 [ORDER] #16 Frozen chicken nuggets 2 lb seq=3 partition=1 by writer-1
+12:29:35.544 [ORDER] #17 Smoked salmon 12 oz seq=7 partition=0 by writer-2
+12:29:41.464 [ORDER] #18 Smoked salmon 12 oz seq=8 partition=1 by writer-1
+12:29:48.087 [ORDER] #19 Frozen chicken nuggets 2 lb seq=4 partition=0 by writer-2
+12:29:55.305 [ORDER] #20 Organic baby spinach 5 oz seq=4 partition=1 by writer-1
+
+Summary (nokey):
+  Organic baby spinach 5 oz    processed seq order [1, 3, 2, 4]  partitions [0, 1]  in order: False
+  Creamy peanut butter 16 oz   processed seq order [1, 2, 3, 4]  partitions [0, 1]  in order: True
+  Frozen chicken nuggets 2 lb  processed seq order [1, 2, 3, 4]  partitions [0, 1]  in order: True
+  Smoked salmon 12 oz          processed seq order [1, 2, 3, 4, 6, 5, 7, 8]  partitions [0, 1]  in order: False
+
+=== Part 3 IV: ordering run 2, key = product name (python order_test.py --keyed) ===
+12:30:48.586 [ORDER] sent Smoked salmon 12 oz seq=1 key=b'Smoked salmon 12 oz' partition=1 offset=15
+12:30:48.589 [ORDER] sent Smoked salmon 12 oz seq=2 key=b'Smoked salmon 12 oz' partition=1 offset=16
+12:30:48.590 [ORDER] sent Frozen chicken nuggets 2 lb seq=1 key=b'Frozen chicken nuggets 2 lb' partition=0 offset=15
+12:30:48.592 [ORDER] sent Creamy peanut butter 16 oz seq=1 key=b'Creamy peanut butter 16 oz' partition=1 offset=17
+12:30:48.596 [ORDER] sent Smoked salmon 12 oz seq=3 key=b'Smoked salmon 12 oz' partition=1 offset=18
+12:30:48.597 [ORDER] sent Frozen chicken nuggets 2 lb seq=2 key=b'Frozen chicken nuggets 2 lb' partition=0 offset=16
+12:30:48.599 [ORDER] sent Organic baby spinach 5 oz seq=1 key=b'Organic baby spinach 5 oz' partition=0 offset=17
+12:30:48.601 [ORDER] sent Creamy peanut butter 16 oz seq=2 key=b'Creamy peanut butter 16 oz' partition=1 offset=19
+12:30:48.602 [ORDER] sent Smoked salmon 12 oz seq=4 key=b'Smoked salmon 12 oz' partition=1 offset=20
+12:30:48.604 [ORDER] sent Organic baby spinach 5 oz seq=2 key=b'Organic baby spinach 5 oz' partition=0 offset=18
+12:30:48.606 [ORDER] sent Organic baby spinach 5 oz seq=3 key=b'Organic baby spinach 5 oz' partition=0 offset=19
+12:30:48.608 [ORDER] sent Creamy peanut butter 16 oz seq=3 key=b'Creamy peanut butter 16 oz' partition=1 offset=21
+12:30:48.610 [ORDER] sent Smoked salmon 12 oz seq=5 key=b'Smoked salmon 12 oz' partition=1 offset=22
+12:30:48.611 [ORDER] sent Frozen chicken nuggets 2 lb seq=3 key=b'Frozen chicken nuggets 2 lb' partition=0 offset=20
+12:30:48.614 [ORDER] sent Smoked salmon 12 oz seq=6 key=b'Smoked salmon 12 oz' partition=1 offset=23
+12:30:48.615 [ORDER] sent Creamy peanut butter 16 oz seq=4 key=b'Creamy peanut butter 16 oz' partition=1 offset=24
+12:30:48.617 [ORDER] sent Smoked salmon 12 oz seq=7 key=b'Smoked salmon 12 oz' partition=1 offset=25
+12:30:48.619 [ORDER] sent Smoked salmon 12 oz seq=8 key=b'Smoked salmon 12 oz' partition=1 offset=26
+12:30:48.620 [ORDER] sent Frozen chicken nuggets 2 lb seq=4 key=b'Frozen chicken nuggets 2 lb' partition=0 offset=21
+12:30:48.622 [ORDER] sent Organic baby spinach 5 oz seq=4 key=b'Organic baby spinach 5 oz' partition=0 offset=22
+12:30:54.855 [ORDER] #1 Frozen chicken nuggets 2 lb seq=1 partition=0 by writer-1
+12:30:58.716 [ORDER] #2 Smoked salmon 12 oz seq=1 partition=1 by writer-2
+12:31:06.365 [ORDER] #3 Frozen chicken nuggets 2 lb seq=2 partition=0 by writer-1
+12:31:12.124 [ORDER] #4 Smoked salmon 12 oz seq=2 partition=1 by writer-2
+12:31:17.385 [ORDER] #5 Organic baby spinach 5 oz seq=1 partition=0 by writer-1
+12:31:23.375 [ORDER] #6 Creamy peanut butter 16 oz seq=1 partition=1 by writer-2
+12:31:30.154 [ORDER] #7 Organic baby spinach 5 oz seq=2 partition=0 by writer-1
+12:31:36.661 [ORDER] #8 Smoked salmon 12 oz seq=3 partition=1 by writer-2
+12:31:41.946 [ORDER] #9 Organic baby spinach 5 oz seq=3 partition=0 by writer-1
+12:31:48.471 [ORDER] #10 Creamy peanut butter 16 oz seq=2 partition=1 by writer-2
+12:31:53.433 [ORDER] #11 Frozen chicken nuggets 2 lb seq=3 partition=0 by writer-1
+12:31:58.417 [ORDER] #12 Smoked salmon 12 oz seq=4 partition=1 by writer-2
+12:32:04.556 [ORDER] #13 Frozen chicken nuggets 2 lb seq=4 partition=0 by writer-1
+12:32:10.096 [ORDER] #14 Creamy peanut butter 16 oz seq=3 partition=1 by writer-2
+12:32:15.807 [ORDER] #15 Organic baby spinach 5 oz seq=4 partition=0 by writer-1
+12:32:21.751 [ORDER] #16 Smoked salmon 12 oz seq=5 partition=1 by writer-2
+12:32:28.744 [ORDER] #17 Smoked salmon 12 oz seq=6 partition=1 by writer-2
+12:32:36.867 [ORDER] #18 Creamy peanut butter 16 oz seq=4 partition=1 by writer-2
+12:32:43.244 [ORDER] #19 Smoked salmon 12 oz seq=7 partition=1 by writer-2
+12:32:49.941 [ORDER] #20 Smoked salmon 12 oz seq=8 partition=1 by writer-2
+
+Summary (keyed):
+  Organic baby spinach 5 oz    processed seq order [1, 2, 3, 4]  partitions [0]  in order: True
+  Creamy peanut butter 16 oz   processed seq order [1, 2, 3, 4]  partitions [1]  in order: True
+  Frozen chicken nuggets 2 lb  processed seq order [1, 2, 3, 4]  partitions [0]  in order: True
+  Smoked salmon 12 oz          processed seq order [1, 2, 3, 4, 5, 6, 7, 8]  partitions [1]  in order: True
+
+=== After the ordering runs: reviewer offset moved past the 40 ordering drafts ===
+
+GROUP                          TOPIC                          PARTITION  NEW-OFFSET     s0571-reviewer                 s0571_drafts                   0          47             
+
+=== Verification: python verify_hw08.py on tag hw8 (run_at 2026-11-02T20:41:54+00:00 UTC) ===
+PASS topics_and_partitions: {'s0571_notice_responses': 1, 's0571_tasks': 2, 's0571_notice_requests': 1, 's0571_drafts': 1, 's0571_dead_letter': 1, 's0571_inbox': 1, 's0571_final': 1}
+PASS create_then_get_round_trip: notice_id 82ea628b-1ad2-4983-b37d-0ebbe83287e3, fields match True
+PASS correlation_id_preserved: ['verify-create', 'verify-get']
+PASS errors_clean_and_keep_correlation_id: ['Unknown operation', 'Notice not found', 'productName is required']
+PASS agents_start: planner, writer and reviewer are listening
+PASS inbox_to_final_journey: status approved, correlation_id kept
+PASS replay_is_idempotent: replay skipped, 1 draft
+PASS poison_retried_then_dead_lettered: 3 failed attempts, dead letter count 2 -> 3
+PASS poison_does_not_block: next message on the same partition was processed
+PASS report_files_present: all present
+10/10 checks passed, written to reports/hw08/verification.json

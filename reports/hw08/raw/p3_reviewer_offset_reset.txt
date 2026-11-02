@@ -1,0 +1,2 @@
+
+GROUP                          TOPIC                          PARTITION  NEW-OFFSET     s0571-reviewer                 s0571_drafts                   0          47             

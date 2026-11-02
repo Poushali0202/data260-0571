@@ -1,0 +1,21 @@
+processed_order,entity,seq,task_partition,task_offset,writer,finished_at,correlation_id
+1,Frozen chicken nuggets 2 lb,1,0,15,writer-1,2026-11-02T12:30:54.855,1af436fb-32bc-4701-91bd-f4e3acf45eb6
+2,Smoked salmon 12 oz,1,1,15,writer-2,2026-11-02T12:30:58.716,fbc6c9b3-cf60-4a35-a1de-af4382f6e8fb
+3,Frozen chicken nuggets 2 lb,2,0,16,writer-1,2026-11-02T12:31:06.365,643cd247-53dd-44e3-b54a-6e5c9ede5502
+4,Smoked salmon 12 oz,2,1,16,writer-2,2026-11-02T12:31:12.124,1ddda974-923a-4630-83e2-a4f9fc7eeef4
+5,Organic baby spinach 5 oz,1,0,17,writer-1,2026-11-02T12:31:17.385,662735b8-69a7-497c-bccf-d0e5e284bfc4
+6,Creamy peanut butter 16 oz,1,1,17,writer-2,2026-11-02T12:31:23.375,522c570f-a922-4c45-9d28-bac0ceac5219
+7,Organic baby spinach 5 oz,2,0,18,writer-1,2026-11-02T12:31:30.154,49a46cab-9281-4d56-ac5d-dcf088a5c264
+8,Smoked salmon 12 oz,3,1,18,writer-2,2026-11-02T12:31:36.661,b42bd2a3-e197-4df7-a095-961c3272bd4d
+9,Organic baby spinach 5 oz,3,0,19,writer-1,2026-11-02T12:31:41.946,2448928f-77bf-41bc-a5c0-739fa9b9dc52
+10,Creamy peanut butter 16 oz,2,1,19,writer-2,2026-11-02T12:31:48.471,8887b6fc-a714-4b62-b3f5-78abeb967f82
+11,Frozen chicken nuggets 2 lb,3,0,20,writer-1,2026-11-02T12:31:53.433,751614e8-7875-45fa-bf2b-01fa4592f2d8
+12,Smoked salmon 12 oz,4,1,20,writer-2,2026-11-02T12:31:58.417,bf8abc73-510b-4d92-a12d-abd60c3b48b4
+13,Frozen chicken nuggets 2 lb,4,0,21,writer-1,2026-11-02T12:32:04.556,dba5e5ec-1c05-4b47-abfb-b01053d31710
+14,Creamy peanut butter 16 oz,3,1,21,writer-2,2026-11-02T12:32:10.096,b77ec77e-6d62-48dc-9d5d-27769d4d7efc
+15,Organic baby spinach 5 oz,4,0,22,writer-1,2026-11-02T12:32:15.807,00f98329-a98a-47ad-bda3-5815c60d3d59
+16,Smoked salmon 12 oz,5,1,22,writer-2,2026-11-02T12:32:21.751,3cc75c40-1f3f-4a2c-8ad6-43a89945c6da
+17,Smoked salmon 12 oz,6,1,23,writer-2,2026-11-02T12:32:28.744,3afebf41-cf18-480a-9532-3bb501c88340
+18,Creamy peanut butter 16 oz,4,1,24,writer-2,2026-11-02T12:32:36.867,2d5d1648-3cf4-4472-81fd-ee774d7be79d
+19,Smoked salmon 12 oz,7,1,25,writer-2,2026-11-02T12:32:43.244,0f53d7fe-e567-42ad-909b-ff043bdcf171
+20,Smoked salmon 12 oz,8,1,26,writer-2,2026-11-02T12:32:49.941,128ed685-953a-4987-874b-fb64172db799

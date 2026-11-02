@@ -1,0 +1,4 @@
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID        
+s0571-writer    s0571_tasks     0          5               5               0               aiokafka-0.15.0-e6e
+s0571-writer    s0571_tasks     1          5               5               0               aiokafka-0.15.0-e6e

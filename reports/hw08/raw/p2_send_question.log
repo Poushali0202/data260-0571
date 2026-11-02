@@ -1,0 +1,10 @@
+12:12:34.306 [YOU] sent question to s0571_inbox offset=1 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995
+12:12:34.306 [YOU] waiting for the answer on s0571_final
+12:13:44.662 [YOU] received from s0571_final offset=1 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995
+{
+  "correlation_id": "8c340cdd-1777-4a77-8a2c-9b8dfa9b5995",
+  "status": "approved",
+  "answer": "The shopper should check the packaging for a recall notice or lot number to confirm if the spinach is affected. Do not consume it and keep it in its original packaging. Contact the grocery store or manufacturer for a refund or replacement. Follow any additional instructions from the recall notice or local health authorities to ensure safety.",
+  "review_note": "The draft accurately follows the plan and addresses the question without inventing facts.",
+  "question": "A shopper bought spinach that is now under a recall notice. What should they check and what should they do with it?"
+}

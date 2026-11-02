@@ -1,0 +1,4 @@
+12:12:23.936 [REVIEWER] listening on s0571_drafts
+12:13:28.478 [REVIEWER] received from s0571_drafts offset=1 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995 draft=The shopper should check the packaging for a recall notice or lot number to confirm if the...
+[tokens] turn=1 input=224 output=30 total=254
+12:13:44.661 [REVIEWER] sent approved to s0571_final offset=1 correlation_id=8c340cdd-1777-4a77-8a2c-9b8dfa9b5995 note=The draft accurately follows the plan and addresses the question without inventing facts.

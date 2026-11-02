@@ -1,0 +1,1 @@
+Offset:0	{"correlation_id": null, "source_topic": "s0571_tasks", "partition": 1, "offset": 3, "error": "Unterminated string starting at: line 1 column 51 (char 50)", "attempts": 3, "raw": "{\"correlation_id\": \"poison-08a1b4fb\", \"question\": \"Which lots are"}

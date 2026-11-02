@@ -1,0 +1,37 @@
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+12:33:53.789 [API] FastAPI server started at http://127.0.0.1:8571
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8571 (Press CTRL+C to quit)
+12:34:36.342 [API] sent to s0571_notice_requests partition=0 offset=32 correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f message={"correlation_id": "258eb3bc-d7ec-4a59-b04b-07bf48d7692f", "reply_to": "s0571_notice_responses", "operation": "CREATE_NOTICE", "data": {"productName": "Organic baby spinach 5 oz", "noticeCode": "RN-000571", "noticeSource": "FDA recall bulletin", "noticeCategory": "recall", "affectedUnits": 1200}}
+12:34:36.352 [API] received from s0571_notice_responses partition=0 offset=32 correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f success=True
+12:34:36.352 [API] returned response to caller correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f
+INFO:     172.23.0.1:46330 - "POST /notices HTTP/1.1" 200 OK
+12:34:37.481 [API] sent to s0571_notice_requests partition=0 offset=33 correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c message={"correlation_id": "615159cc-9fe6-4613-af10-dbd904fe798c", "reply_to": "s0571_notice_responses", "operation": "GET_NOTICE", "data": {"notice_id": "1308825e-e252-4f10-b009-0a76a60ad44d"}}
+12:34:37.483 [API] received from s0571_notice_responses partition=0 offset=33 correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c success=True
+12:34:37.483 [API] returned response to caller correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c
+INFO:     172.23.0.1:46340 - "POST /notices HTTP/1.1" 200 OK
+12:34:57.791 [API] sent to s0571_notice_requests partition=0 offset=34 correlation_id=err-test-1 message={"correlation_id": "err-test-1", "reply_to": "s0571_notice_responses", "operation": "DELETE_NOTICE", "data": {}}
+12:34:57.794 [API] received from s0571_notice_responses partition=0 offset=34 correlation_id=err-test-1 success=False
+12:34:57.794 [API] returned response to caller correlation_id=err-test-1
+INFO:     172.23.0.1:46046 - "POST /notices HTTP/1.1" 200 OK
+12:34:57.854 [API] sent to s0571_notice_requests partition=0 offset=35 correlation_id=err-test-2 message={"correlation_id": "err-test-2", "reply_to": "s0571_notice_responses", "operation": "GET_NOTICE", "data": {"notice_id": "no-such-id"}}
+12:34:57.856 [API] received from s0571_notice_responses partition=0 offset=35 correlation_id=err-test-2 success=False
+12:34:57.856 [API] returned response to caller correlation_id=err-test-2
+INFO:     172.23.0.1:46046 - "POST /notices HTTP/1.1" 200 OK
+12:34:57.863 [API] sent to s0571_notice_requests partition=0 offset=36 correlation_id=err-test-3 message={"correlation_id": "err-test-3", "reply_to": "s0571_notice_responses", "operation": "CREATE_NOTICE", "data": {"productName": "", "noticeCode": "RN-000001", "noticeSource": "FDA", "noticeCategory": "recall", "affectedUnits": 5}}
+12:34:57.864 [API] received from s0571_notice_responses partition=0 offset=36 correlation_id=err-test-3 success=False
+12:34:57.864 [API] returned response to caller correlation_id=err-test-3
+INFO:     172.23.0.1:46046 - "POST /notices HTTP/1.1" 200 OK
+12:34:57.873 [API] sent to s0571_notice_requests partition=0 offset=37 correlation_id=err-test-4 message={"correlation_id": "err-test-4", "reply_to": "s0571_notice_responses", "operation": "CREATE_NOTICE", "data": {"productName": "Milk", "noticeCode": "RN-12", "noticeSource": "FDA", "noticeCategory": "recall", "affectedUnits": 5}}
+12:34:57.874 [API] received from s0571_notice_responses partition=0 offset=37 correlation_id=err-test-4 success=False
+12:34:57.875 [API] returned response to caller correlation_id=err-test-4
+INFO:     172.23.0.1:46046 - "POST /notices HTTP/1.1" 200 OK
+12:34:57.882 [API] sent to s0571_notice_requests partition=0 offset=38 correlation_id=err-test-5 message={"correlation_id": "err-test-5", "reply_to": "s0571_notice_responses", "operation": "CREATE_NOTICE", "data": {"productName": "Milk", "noticeCode": "RN-000001", "noticeSource": "FDA", "noticeCategory": "flood", "affectedUnits": 5}}
+12:34:57.885 [API] received from s0571_notice_responses partition=0 offset=38 correlation_id=err-test-5 success=False
+12:34:57.885 [API] returned response to caller correlation_id=err-test-5
+INFO:     172.23.0.1:46046 - "POST /notices HTTP/1.1" 200 OK
+12:34:57.893 [API] sent to s0571_notice_requests partition=0 offset=39 correlation_id=err-test-6 message={"correlation_id": "err-test-6", "reply_to": "s0571_notice_responses", "operation": "CREATE_NOTICE", "data": {"productName": "Milk", "noticeCode": "RN-000001", "noticeSource": "FDA", "noticeCategory": "recall", "affectedUnits": -3}}
+12:34:57.896 [API] received from s0571_notice_responses partition=0 offset=39 correlation_id=err-test-6 success=False
+12:34:57.896 [API] returned response to caller correlation_id=err-test-6
+INFO:     172.23.0.1:46046 - "POST /notices HTTP/1.1" 200 OK

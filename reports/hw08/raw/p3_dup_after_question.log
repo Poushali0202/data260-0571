@@ -1,0 +1,10 @@
+12:17:56.054 [YOU] sent question to s0571_inbox offset=3 correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6
+12:17:56.054 [YOU] waiting for the answer on s0571_final
+12:19:02.753 [YOU] received from s0571_final offset=4 correlation_id=cb207d2f-73b7-4505-9b57-4bf9e0c519e6
+{
+  "correlation_id": "cb207d2f-73b7-4505-9b57-4bf9e0c519e6",
+  "status": "approved",
+  "answer": "The store should not sell the unaffected lots without confirmation. First, review the recall notice to identify affected lots. Next, confirm with the supplier or regulatory authority that the unaffected lots are safe. Check inventory records to ensure only non-recalled items remain. Finally, consult the store\u2019s recall response team to decide on proper handling and sale of unaffected products. Selling without verification could risk customer safety and legal issues.",
+  "review_note": "The draft follows the plan and addresses the question without inventing facts.",
+  "question": "A store received a recall notice for smoked salmon. Should it keep selling the unaffected lots?"
+}

@@ -1,0 +1,10 @@
+12:15:28.122 [YOU] sent question to s0571_inbox offset=2 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d
+12:15:28.122 [YOU] waiting for the answer on s0571_final
+12:16:43.107 [YOU] received from s0571_final offset=2 correlation_id=60b8fbaf-63ee-4f9b-b44a-973714d52c0d
+{
+  "correlation_id": "60b8fbaf-63ee-4f9b-b44a-973714d52c0d",
+  "status": "approved",
+  "answer": "If you have frozen chicken nuggets from a recalled lot due to possible plastic pieces, it is safest to discard them, even if they are still frozen. The recall indicates a potential contamination risk. If the product is unopened and frozen, it may still be safe to return or discard, but if thawed or cooked, it should be thrown away. For confirmation, contact the manufacturer or the FDA for specific guidance on the recalled product.",
+  "review_note": "The draft accurately follows the plan, addresses the question, and does not invent facts.",
+  "question": "Is it safe to eat frozen chicken nuggets from a lot that was recalled for possible plastic pieces?"
+}

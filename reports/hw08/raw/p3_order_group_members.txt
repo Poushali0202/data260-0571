@@ -1,0 +1,4 @@
+
+GROUP           CONSUMER-ID                                          HOST            CLIENT-ID       #PARTITIONS     ASSIGNMENT
+s0571-writer    aiokafka-0.15.0-c8bc7649-02bf-4925-8556-e014ab21609f /172.23.0.1     aiokafka-0.15.0 1               (1)
+s0571-writer    aiokafka-0.15.0-af1240ef-337a-40c5-895a-9b3f3658d037 /172.23.0.1     aiokafka-0.15.0 1               (0)

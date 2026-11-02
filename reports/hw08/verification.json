@@ -1,0 +1,65 @@
+{
+  "homework": 8,
+  "sid4": "0571",
+  "port_base": 8571,
+  "commit": "0f1ed5518ccaa77b85b6997c1283625fd1600d1e",
+  "tag_hw8": "0f1ed5518ccaa77b85b6997c1283625fd1600d1e",
+  "model": "qwen3:8b through Ollama, temperature 0 (planner, writer, reviewer)",
+  "seed": 571,
+  "verify_seed": 260571,
+  "run_at": "2026-11-02T20:41:54+00:00",
+  "checks": [
+    {
+      "check": "topics_and_partitions",
+      "passed": true,
+      "details": "{'s0571_notice_responses': 1, 's0571_tasks': 2, 's0571_notice_requests': 1, 's0571_drafts': 1, 's0571_dead_letter': 1, 's0571_inbox': 1, 's0571_final': 1}"
+    },
+    {
+      "check": "create_then_get_round_trip",
+      "passed": true,
+      "details": "notice_id 82ea628b-1ad2-4983-b37d-0ebbe83287e3, fields match True"
+    },
+    {
+      "check": "correlation_id_preserved",
+      "passed": true,
+      "details": "['verify-create', 'verify-get']"
+    },
+    {
+      "check": "errors_clean_and_keep_correlation_id",
+      "passed": true,
+      "details": "['Unknown operation', 'Notice not found', 'productName is required']"
+    },
+    {
+      "check": "agents_start",
+      "passed": true,
+      "details": "planner, writer and reviewer are listening"
+    },
+    {
+      "check": "inbox_to_final_journey",
+      "passed": true,
+      "details": "status approved, correlation_id kept"
+    },
+    {
+      "check": "replay_is_idempotent",
+      "passed": true,
+      "details": "replay skipped, 1 draft"
+    },
+    {
+      "check": "poison_retried_then_dead_lettered",
+      "passed": true,
+      "details": "3 failed attempts, dead letter count 2 -> 3"
+    },
+    {
+      "check": "poison_does_not_block",
+      "passed": true,
+      "details": "next message on the same partition was processed"
+    },
+    {
+      "check": "report_files_present",
+      "passed": true,
+      "details": "all present"
+    }
+  ],
+  "passed": 10,
+  "total": 10
+}

@@ -1,0 +1,8 @@
+Topic: s0571_final	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: s0571_notice_requests	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: s0571_notice_responses	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: s0571_dead_letter	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: s0571_drafts	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: s0571_tasks	PartitionCount: 2	ReplicationFactor: 1	Configs: 
+Topic: s0571_inbox	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+Topic: __consumer_offsets	PartitionCount: 50	ReplicationFactor: 1	Configs: compression.type=producer,cleanup.policy=compact,segment.bytes=104857600

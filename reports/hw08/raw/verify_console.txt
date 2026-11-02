@@ -1,0 +1,11 @@
+PASS topics_and_partitions: {'s0571_notice_responses': 1, 's0571_tasks': 2, 's0571_notice_requests': 1, 's0571_drafts': 1, 's0571_dead_letter': 1, 's0571_inbox': 1, 's0571_final': 1}
+PASS create_then_get_round_trip: notice_id 82ea628b-1ad2-4983-b37d-0ebbe83287e3, fields match True
+PASS correlation_id_preserved: ['verify-create', 'verify-get']
+PASS errors_clean_and_keep_correlation_id: ['Unknown operation', 'Notice not found', 'productName is required']
+PASS agents_start: planner, writer and reviewer are listening
+PASS inbox_to_final_journey: status approved, correlation_id kept
+PASS replay_is_idempotent: replay skipped, 1 draft
+PASS poison_retried_then_dead_lettered: 3 failed attempts, dead letter count 2 -> 3
+PASS poison_does_not_block: next message on the same partition was processed
+PASS report_files_present: all present
+10/10 checks passed, written to reports/hw08/verification.json

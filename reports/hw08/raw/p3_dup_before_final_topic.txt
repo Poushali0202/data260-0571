@@ -1,0 +1,2 @@
+Offset:2	{"correlation_id": "60b8fbaf-63ee-4f9b-b44a-973714d52c0d", "status": "approved", "answer": "If you have frozen 
+Offset:3	{"correlation_id": "60b8fbaf-63ee-4f9b-b44a-973714d52c0d", "status": "approved", "answer": "If you have frozen 

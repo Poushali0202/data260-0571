@@ -1,0 +1,10 @@
+12:23:22.491 [YOU] sent question to s0571_inbox offset=5 correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81
+12:23:22.491 [YOU] waiting for the answer on s0571_final
+12:24:35.211 [YOU] received from s0571_final offset=5 correlation_id=053b51ef-ba42-4901-8bb9-27623f156b81
+{
+  "correlation_id": "053b51ef-ba42-4901-8bb9-27623f156b81",
+  "status": "approved",
+  "answer": "The store should inform customers immediately by posting clear recall signs at checkout lanes. Staff should verbally confirm the recall, explain the risk, and advise against consuming the spinach. They should offer refunds or replacements for affected products. Finally, direct customers to official recall information or contact details for further help. This ensures transparency, safety, and customer trust.",
+  "review_note": "The draft aligns with the plan and addresses all key points without inventing new information.",
+  "question": "How should a store tell customers about a spinach recall at the checkout?"
+}

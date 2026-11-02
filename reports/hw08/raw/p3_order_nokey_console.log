@@ -1,0 +1,46 @@
+12:27:32.441 [ORDER] sent Smoked salmon 12 oz seq=1 key=None partition=0 offset=5
+12:27:32.444 [ORDER] sent Smoked salmon 12 oz seq=2 key=None partition=1 offset=5
+12:27:32.446 [ORDER] sent Frozen chicken nuggets 2 lb seq=1 key=None partition=1 offset=6
+12:27:32.596 [ORDER] sent Creamy peanut butter 16 oz seq=1 key=None partition=0 offset=6
+12:27:32.605 [ORDER] sent Smoked salmon 12 oz seq=3 key=None partition=0 offset=7
+12:27:32.607 [ORDER] sent Frozen chicken nuggets 2 lb seq=2 key=None partition=1 offset=7
+12:27:32.636 [ORDER] sent Organic baby spinach 5 oz seq=1 key=None partition=0 offset=8
+12:27:32.683 [ORDER] sent Creamy peanut butter 16 oz seq=2 key=None partition=1 offset=8
+12:27:32.723 [ORDER] sent Smoked salmon 12 oz seq=4 key=None partition=0 offset=9
+12:27:32.848 [ORDER] sent Organic baby spinach 5 oz seq=2 key=None partition=0 offset=10
+12:27:32.850 [ORDER] sent Organic baby spinach 5 oz seq=3 key=None partition=1 offset=9
+12:27:33.000 [ORDER] sent Creamy peanut butter 16 oz seq=3 key=None partition=1 offset=10
+12:27:33.001 [ORDER] sent Smoked salmon 12 oz seq=5 key=None partition=1 offset=11
+12:27:33.003 [ORDER] sent Frozen chicken nuggets 2 lb seq=3 key=None partition=1 offset=12
+12:27:33.004 [ORDER] sent Smoked salmon 12 oz seq=6 key=None partition=0 offset=11
+12:27:33.006 [ORDER] sent Creamy peanut butter 16 oz seq=4 key=None partition=0 offset=12
+12:27:33.007 [ORDER] sent Smoked salmon 12 oz seq=7 key=None partition=0 offset=13
+12:27:33.011 [ORDER] sent Smoked salmon 12 oz seq=8 key=None partition=1 offset=13
+12:27:33.015 [ORDER] sent Frozen chicken nuggets 2 lb seq=4 key=None partition=0 offset=14
+12:27:33.052 [ORDER] sent Organic baby spinach 5 oz seq=4 key=None partition=1 offset=14
+12:27:44.061 [ORDER] #1 Smoked salmon 12 oz seq=1 partition=0 by writer-2
+12:27:51.242 [ORDER] #2 Smoked salmon 12 oz seq=2 partition=1 by writer-1
+12:27:58.461 [ORDER] #3 Creamy peanut butter 16 oz seq=1 partition=0 by writer-2
+12:28:07.066 [ORDER] #4 Frozen chicken nuggets 2 lb seq=1 partition=1 by writer-1
+12:28:15.077 [ORDER] #5 Smoked salmon 12 oz seq=3 partition=0 by writer-2
+12:28:22.484 [ORDER] #6 Frozen chicken nuggets 2 lb seq=2 partition=1 by writer-1
+12:28:30.333 [ORDER] #7 Organic baby spinach 5 oz seq=1 partition=0 by writer-2
+12:28:38.874 [ORDER] #8 Creamy peanut butter 16 oz seq=2 partition=1 by writer-1
+12:28:45.249 [ORDER] #9 Smoked salmon 12 oz seq=4 partition=0 by writer-2
+12:28:51.316 [ORDER] #10 Organic baby spinach 5 oz seq=3 partition=1 by writer-1
+12:28:58.422 [ORDER] #11 Organic baby spinach 5 oz seq=2 partition=0 by writer-2
+12:29:04.477 [ORDER] #12 Creamy peanut butter 16 oz seq=3 partition=1 by writer-1
+12:29:10.377 [ORDER] #13 Smoked salmon 12 oz seq=6 partition=0 by writer-2
+12:29:17.412 [ORDER] #14 Smoked salmon 12 oz seq=5 partition=1 by writer-1
+12:29:24.470 [ORDER] #15 Creamy peanut butter 16 oz seq=4 partition=0 by writer-2
+12:29:29.686 [ORDER] #16 Frozen chicken nuggets 2 lb seq=3 partition=1 by writer-1
+12:29:35.544 [ORDER] #17 Smoked salmon 12 oz seq=7 partition=0 by writer-2
+12:29:41.464 [ORDER] #18 Smoked salmon 12 oz seq=8 partition=1 by writer-1
+12:29:48.087 [ORDER] #19 Frozen chicken nuggets 2 lb seq=4 partition=0 by writer-2
+12:29:55.305 [ORDER] #20 Organic baby spinach 5 oz seq=4 partition=1 by writer-1
+
+Summary (nokey):
+  Organic baby spinach 5 oz    processed seq order [1, 3, 2, 4]  partitions [0, 1]  in order: False
+  Creamy peanut butter 16 oz   processed seq order [1, 2, 3, 4]  partitions [0, 1]  in order: True
+  Frozen chicken nuggets 2 lb  processed seq order [1, 2, 3, 4]  partitions [0, 1]  in order: True
+  Smoked salmon 12 oz          processed seq order [1, 2, 3, 4, 6, 5, 7, 8]  partitions [0, 1]  in order: False

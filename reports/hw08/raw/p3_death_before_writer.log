@@ -1,0 +1,3 @@
+12:20:19.743 [WRITER-1] listening on s0571_tasks (auto_commit=True, dedupe=True, dead_letter=True)
+12:20:45.075 [WRITER-1] received from s0571_tasks partition=0 offset=3 key=None
+12:20:45.075 [WRITER-1] writing draft correlation_id=c3a07346-cae0-4cef-93d8-dee79ba53706 attempt 1/3

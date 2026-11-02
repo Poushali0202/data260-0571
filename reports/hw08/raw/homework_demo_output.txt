@@ -1,0 +1,28 @@
+=== CREATE_NOTICE ===
+12:34:36.317 [CLIENT] created correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f for CREATE_NOTICE
+12:34:36.317 [CLIENT] POST http://127.0.0.1:8571/notices
+12:34:36.342 [API] sent to s0571_notice_requests partition=0 offset=32 correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f message={"correlation_id": "258eb3bc-d7ec-4a59-b04b-07bf48d7692f", "reply_to": "s0571_notice_responses", "operation": "CREATE_NOTICE", "data": {"productName": "Organic baby spinach 5 oz", "noticeCode": "RN-000571", "noticeSource": "FDA recall bulletin", "noticeCategory": "recall", "affectedUnits": 1200}}
+12:34:36.344 [WORKER] received from s0571_notice_requests partition=0 offset=32 correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f operation=CREATE_NOTICE
+12:34:36.344 [WORKER] processed CREATE_NOTICE correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f success=True
+12:34:36.351 [WORKER] sent to s0571_notice_responses partition=0 offset=32 correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f message={"correlation_id": "258eb3bc-d7ec-4a59-b04b-07bf48d7692f", "success": true, "notice_id": "1308825e-e252-4f10-b009-0a76a60ad44d", "message": "Notice created"}
+12:34:36.352 [API] received from s0571_notice_responses partition=0 offset=32 correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f success=True
+12:34:36.352 [API] returned response to caller correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f
+12:34:36.354 [CLIENT] received response success=True correlation_id=258eb3bc-d7ec-4a59-b04b-07bf48d7692f
+12:34:37.465 [CLIENT] correlation_id preserved: True
+12:34:37.465 [CLIENT] generated notice_id=1308825e-e252-4f10-b009-0a76a60ad44d
+
+=== GET_NOTICE ===
+12:34:37.465 [CLIENT] created correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c for GET_NOTICE
+12:34:37.465 [CLIENT] POST http://127.0.0.1:8571/notices
+12:34:37.481 [API] sent to s0571_notice_requests partition=0 offset=33 correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c message={"correlation_id": "615159cc-9fe6-4613-af10-dbd904fe798c", "reply_to": "s0571_notice_responses", "operation": "GET_NOTICE", "data": {"notice_id": "1308825e-e252-4f10-b009-0a76a60ad44d"}}
+12:34:37.481 [WORKER] received from s0571_notice_requests partition=0 offset=33 correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c operation=GET_NOTICE
+12:34:37.481 [WORKER] processed GET_NOTICE correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c success=True
+12:34:37.483 [WORKER] sent to s0571_notice_responses partition=0 offset=33 correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c message={"correlation_id": "615159cc-9fe6-4613-af10-dbd904fe798c", "success": true, "notice": {"notice_id": "1308825e-e252-4f10-b009-0a76a60ad44d", "productName": "Organic baby spinach 5 oz", "noticeCode": "RN-000571", "noticeSource": "FDA recall bulletin", "noticeCategory": "recall", "affectedUnits": 1200}}
+12:34:37.483 [API] received from s0571_notice_responses partition=0 offset=33 correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c success=True
+12:34:37.483 [API] returned response to caller correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c
+12:34:37.484 [CLIENT] received response success=True correlation_id=615159cc-9fe6-4613-af10-dbd904fe798c
+12:34:38.601 [CLIENT] correlation_id preserved: True
+
+Retrieved notice:
+{"notice_id": "1308825e-e252-4f10-b009-0a76a60ad44d", "productName": "Organic baby spinach 5 oz", "noticeCode": "RN-000571", "noticeSource": "FDA recall bulletin", "noticeCategory": "recall", "affectedUnits": 1200}
+CREATE success=True GET success=True correlation_id preserved on both requests: True

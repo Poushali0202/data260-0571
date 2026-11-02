@@ -1,0 +1,6 @@
+killed writer pid 23148
+group right after the kill:
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                      
+s0571-writer    s0571_tasks     0          4               4               0               aiokafka-0.15.0-63bc2ee0-0123-40dc-9205-3d0d72235
+s0571-writer    s0571_tasks     1          3               3               0               aiokafka-0.15.0-63bc2ee0-0123-40dc-9205-3d0d72235

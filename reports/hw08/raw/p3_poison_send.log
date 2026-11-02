@@ -1,0 +1,2 @@
+12:24:51.202 [POISON] sent malformed task to s0571_tasks partition=1 offset=3
+12:24:51.203 [POISON] sent normal task behind it partition=1 offset=4 correlation_id=9420a1c6-bf1c-40ac-a893-5bfb9e47ac97

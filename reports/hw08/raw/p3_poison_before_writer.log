@@ -1,0 +1,87 @@
+=== run 1 (--no-dlq)
+12:24:55.937 [WRITER-1] listening on s0571_tasks (auto_commit=False, dedupe=True, dead_letter=False)
+12:24:55.938 [WRITER-1] received from s0571_tasks partition=1 offset=3 key=b'poison-test'
+12:24:55.938 [WRITER-1] writing draft correlation_id=None attempt 1/3
+12:24:55.939 [WRITER-1] attempt 1/3 failed: Unterminated string starting at: line 1 column 51 (char 50)
+Traceback (most recent call last):
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 106, in <module>
+    asyncio.run(main())
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 71, in main
+    task, draft = await asyncio.to_thread(write_draft, msg.value)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 39, in write_draft
+    task = json.loads(raw)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 51 (char 50)
+exit code 1
+=== run 2, restarted (--no-dlq)
+12:24:59.443 [WRITER-1] listening on s0571_tasks (auto_commit=False, dedupe=True, dead_letter=False)
+12:24:59.444 [WRITER-1] received from s0571_tasks partition=1 offset=3 key=b'poison-test'
+12:24:59.444 [WRITER-1] writing draft correlation_id=None attempt 1/3
+12:24:59.444 [WRITER-1] attempt 1/3 failed: Unterminated string starting at: line 1 column 51 (char 50)
+Traceback (most recent call last):
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 106, in <module>
+    asyncio.run(main())
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 71, in main
+    task, draft = await asyncio.to_thread(write_draft, msg.value)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\asyncio\threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\Documents\DATA-260_Agentic\Homework1_AWS_Docker_export\writer.py", line 39, in write_draft
+    task = json.loads(raw)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Poushali\AppData\Local\Programs\Python\Python312\Lib\json\decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 51 (char 50)
+exit code 1
+--- group after two crashes
+
+Consumer group 's0571-writer' has no active members.
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOS
+s0571-writer    s0571_tasks     0          5               5               0               -               -  
+s0571-writer    s0571_tasks     1          3               5               2               -               -  
