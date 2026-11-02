@@ -6,3 +6,4 @@ ecs-trust.json
 corpus_warmup/
 .env
 node_modules/
+state/
