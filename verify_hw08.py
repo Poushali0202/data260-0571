@@ -9,6 +9,7 @@ from pathlib import Path
 
 import requests
 from aiokafka import AIOKafkaConsumer
+from aiokafka.admin import AIOKafkaAdminClient
 
 from kafka_common import BOOTSTRAP, DEAD_LETTER, DRAFTS, FINAL, INBOX, TASKS
 
@@ -68,13 +69,12 @@ def json_values(topic):
 
 def topic_partitions():
     async def describe():
-        consumer = AIOKafkaConsumer(bootstrap_servers=BOOTSTRAP)
-        await consumer.start()
+        admin = AIOKafkaAdminClient(bootstrap_servers=BOOTSTRAP)
+        await admin.start()
         try:
-            await consumer.topics()
-            return {t: len(consumer.partitions_for_topic(t) or []) for t in TOPICS}
+            return {t["topic"]: len(t["partitions"]) for t in await admin.describe_topics(list(TOPICS))}
         finally:
-            await consumer.stop()
+            await admin.close()
 
     return asyncio.run(describe())
 
