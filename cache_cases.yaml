@@ -1,0 +1,64 @@
+# Seed queries are answered by the agent pipeline and stored in the cache first.
+# Each case is then sent as a new query. expected says whether the cache should answer it,
+# cached_id says which seed holds the correct answer for a case that should hit.
+
+seeds:
+  - {id: s01, query: "How many units are affected by recall notice RN-004870?"}
+  - {id: s02, query: "Which supplier is responsible for notice RN-005000?"}
+  - {id: s03, query: "What lots are listed under notice RN-004822?"}
+  - {id: s04, query: "Where did the notice RN-000001 come from?"}
+  - {id: s05, query: "What product is covered by recall notice RN-004805?"}
+  - {id: s06, query: "What should a shopper do with a recalled product they already opened?"}
+  - {id: s07, query: "How do I get a refund for a recalled grocery item?"}
+  - {id: s08, query: "What is the total number of units across all lots of notice RN-004815?"}
+  - {id: s09, query: "In which region is the supplier of notice RN-000003 located?"}
+  - {id: s10, query: "Is it safe to cook a recalled food item to make it safe to eat?"}
+
+cases:
+  # exact duplicates, should hit
+  - {id: c01, category: exact_duplicate, expected: hit, cached_id: s01, query: "How many units are affected by recall notice RN-004870?"}
+  - {id: c02, category: exact_duplicate, expected: hit, cached_id: s02, query: "Which supplier is responsible for notice RN-005000?"}
+  - {id: c03, category: exact_duplicate, expected: hit, cached_id: s03, query: "What lots are listed under notice RN-004822?"}
+  - {id: c04, category: exact_duplicate, expected: hit, cached_id: s04, query: "Where did the notice RN-000001 come from?"}
+  - {id: c05, category: exact_duplicate, expected: hit, cached_id: s05, query: "What product is covered by recall notice RN-004805?"}
+  - {id: c06, category: exact_duplicate, expected: hit, cached_id: s06, query: "What should a shopper do with a recalled product they already opened?"}
+  - {id: c07, category: exact_duplicate, expected: hit, cached_id: s07, query: "How do I get a refund for a recalled grocery item?"}
+  - {id: c08, category: exact_duplicate, expected: hit, cached_id: s08, query: "What is the total number of units across all lots of notice RN-004815?"}
+  - {id: c09, category: exact_duplicate, expected: hit, cached_id: s09, query: "In which region is the supplier of notice RN-000003 located?"}
+  - {id: c10, category: exact_duplicate, expected: hit, cached_id: s10, query: "Is it safe to cook a recalled food item to make it safe to eat?"}
+
+  # paraphrases, should hit
+  - {id: c11, category: paraphrase, expected: hit, cached_id: s01, query: "What is the number of affected units for notice RN-004870?"}
+  - {id: c12, category: paraphrase, expected: hit, cached_id: s02, query: "Who is the supplier behind recall RN-005000?"}
+  - {id: c13, category: paraphrase, expected: hit, cached_id: s03, query: "Which lot codes belong to recall notice RN-004822?"}
+  - {id: c14, category: paraphrase, expected: hit, cached_id: s04, query: "What is the source of recall notice RN-000001?"}
+  - {id: c15, category: paraphrase, expected: hit, cached_id: s05, query: "Which product does notice RN-004805 cover?"}
+  - {id: c16, category: paraphrase, expected: hit, cached_id: s06, query: "I already opened a recalled item, what should I do with it?"}
+  - {id: c17, category: paraphrase, expected: hit, cached_id: s07, query: "Can I get my money back for a grocery product that was recalled?"}
+  - {id: c18, category: paraphrase, expected: hit, cached_id: s08, query: "How many units in total do the lots of notice RN-004815 add up to?"}
+  - {id: c19, category: paraphrase, expected: hit, cached_id: s09, query: "Where is the supplier for notice RN-000003 based?"}
+  - {id: c20, category: paraphrase, expected: hit, cached_id: s10, query: "Does cooking a recalled food make it safe to eat?"}
+
+  # superficially similar but a different correct answer, should miss
+  - {id: c21, category: similar_different, expected: miss, query: "How many units are affected by recall notice RN-004871?"}
+  - {id: c22, category: similar_different, expected: miss, query: "Which supplier is responsible for notice RN-004999?"}
+  - {id: c23, category: similar_different, expected: miss, query: "What lots are listed under notice RN-004823?"}
+  - {id: c24, category: similar_different, expected: miss, query: "Where did the notice RN-000002 come from?"}
+  - {id: c25, category: similar_different, expected: miss, query: "What product is covered by recall notice RN-004806?"}
+  - {id: c26, category: similar_different, expected: miss, query: "What should a store do with recalled products still on its shelves?"}
+  - {id: c27, category: similar_different, expected: miss, query: "How does a store get a refund from the supplier for recalled stock?"}
+  - {id: c28, category: similar_different, expected: miss, query: "What is the total number of units across all lots of notice RN-004870?"}
+  - {id: c29, category: similar_different, expected: miss, query: "In which region is the supplier of notice RN-000004 located?"}
+  - {id: c30, category: similar_different, expected: miss, query: "Is it safe to eat a product from the same brand that is not on the recall list?"}
+
+  # unrelated, should miss
+  - {id: c31, category: unrelated, expected: miss, query: "How do I reset my password for the notices app?"}
+  - {id: c32, category: unrelated, expected: miss, query: "What is the capital of Oregon?"}
+  - {id: c33, category: unrelated, expected: miss, query: "How many suppliers are in the database?"}
+  - {id: c34, category: unrelated, expected: miss, query: "What time does the grocery store open on Sundays?"}
+  - {id: c35, category: unrelated, expected: miss, query: "Explain how Kafka consumer groups work."}
+  - {id: c36, category: unrelated, expected: miss, query: "What is a good recipe for banana bread?"}
+  - {id: c37, category: unrelated, expected: miss, query: "Which notice has the highest number of affected units?"}
+  - {id: c38, category: unrelated, expected: miss, query: "How do I export the notices list to CSV?"}
+  - {id: c39, category: unrelated, expected: miss, query: "What is the weather in San Jose today?"}
+  - {id: c40, category: unrelated, expected: miss, query: "Who signed the Food Safety Modernization Act into law?"}
