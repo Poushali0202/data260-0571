@@ -8,7 +8,9 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import inch
-from reportlab.platypus import Image, Paragraph, Preformatted, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.platypus import Image, Paragraph, Preformatted, SimpleDocTemplate, Spacer, Table, TableStyle, XPreformatted
 
 ROOT = Path(__file__).resolve().parent
 
@@ -34,8 +36,10 @@ def main() -> None:
     report_dir = ROOT / "reports" / folder
     markdown = (report_dir / "report.md").read_text(encoding="utf-8")
     styles = getSampleStyleSheet()
-    heading = ParagraphStyle("H", parent=styles["Heading2"], fontName="Helvetica-Bold", fontSize=14, leading=17, spaceBefore=10, spaceAfter=6)
-    subheading = ParagraphStyle("H3", parent=styles["Heading3"], fontName="Helvetica-Bold", fontSize=12, leading=15, spaceBefore=8, spaceAfter=4)
+    heading = ParagraphStyle("H", parent=styles["Heading2"], fontName="Helvetica-Bold", fontSize=14, leading=17,
+                             spaceBefore=10, spaceAfter=6)
+    subheading = ParagraphStyle("H3", parent=styles["Heading3"], fontName="Helvetica-Bold", fontSize=12, leading=15,
+                                spaceBefore=8, spaceAfter=4)
     body = ParagraphStyle("B", parent=styles["Normal"], fontSize=11, leading=14, spaceAfter=4)
     cell = ParagraphStyle("T", parent=body, fontSize=8, leading=10, spaceAfter=0)
     code = ParagraphStyle("C", parent=styles["Code"], fontSize=7.5, leading=9)
@@ -58,7 +62,14 @@ def main() -> None:
             table_lines = []
         if raw.strip().startswith("```"):
             if in_code:
-                story.append(Preformatted("\n".join(code_lines), code, maxLineLength=100))
+                block = "\n".join(code_lines)
+                if "✓" in block:
+                    pdfmetrics.registerFont(TTFont("SegoeSymbol", "C:/Windows/Fonts/seguisym.ttf"))
+                    block = block.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+                    block = block.replace("✓", "<font name='SegoeSymbol'>✓</font>")
+                    story.append(XPreformatted(block, code))
+                else:
+                    story.append(Preformatted(block, code, maxLineLength=100))
                 code_lines = []
                 in_code = False
             else:

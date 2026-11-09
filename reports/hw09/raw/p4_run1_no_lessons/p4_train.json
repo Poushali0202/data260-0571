@@ -1,0 +1,202 @@
+[
+  {
+    "id": "t01",
+    "question": "What is the total number of units across all lots of notice RN-004803?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The total number of units across all lots for notice RN-004803 is 7,105 units.",
+    "lessons_used": [],
+    "latency_s": 12.7,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The total number of units across all lots for notice RN-004803 is 7,105 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004803.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t02",
+    "question": "Which supplier issued notice RN-004840 and in which region is it?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The supplier for notice RN-004840 is Green Valley Farms, located in California.",
+    "lessons_used": [],
+    "latency_s": 16.2,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The supplier for notice RN-004840 is Green Valley Farms, located in California.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004840.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t03",
+    "question": "What can you tell me about recall notice RN-009120?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "There is no record found for recall notice RN-009120 in the s0571_rel system. Please verify the notice number or check if additional details are available.",
+    "lessons_used": [],
+    "latency_s": 18.8,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "There is no record found for recall notice RN-009120 in the s0571_rel system. Please verify the notice number or check if additional details are available.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-009120.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t04",
+    "question": "How many units are affected by notice RN-004826?",
+    "result": "PASS",
+    "attempts": 2,
+    "final_answer": "Notice RN-004826 has 0 affected units. The lot quantities (3155 and 1524 units) are not relevant to the recall count, as the \"affected units\" field explicitly states 0.",
+    "lessons_used": [],
+    "latency_s": 50.1,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "Notice RN-004826 affects 4679 units in total. The affected units are split between two lots: LOT-328780 with 3155 units and LOT-889782 with 1524 units.",
+        "result": "REVISE",
+        "explanation": "Checked against the reference for RN-004826: expected affected_units = 0.",
+        "feedback": "The affected units for RN-004826 are missing or wrong. Use the affected units field of the notice, not the lot units.",
+        "failed": [
+          "affected_units"
+        ]
+      },
+      {
+        "attempt": 2,
+        "answer": "Notice RN-004826 has 0 affected units. The lot quantities (3155 and 1524 units) are not relevant to the recall count, as the \"affected units\" field explicitly states 0.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004826.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t05",
+    "question": "Which lot of notice RN-004850 has the most units?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The lot with the most units in notice RN-004850 is LOT-611423 with 4677 units.",
+    "lessons_used": [],
+    "latency_s": 10.2,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The lot with the most units in notice RN-004850 is LOT-611423 with 4677 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004850.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t06",
+    "question": "Give me the product and supplier for notice RN-009377.",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "There is no record found for notice RN-009377 in the provided system. Please verify the notice number or check for any other available records.",
+    "lessons_used": [],
+    "latency_s": 11.8,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "There is no record found for notice RN-009377 in the provided system. Please verify the notice number or check for any other available records.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-009377.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t07",
+    "question": "How many units are affected by notice RN-004877?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "Notice RN-004877 affects 0 units. The affected lots, LOT-101316 (3024 units) and LOT-909503 (3007 units), are not considered affected as per the notice.",
+    "lessons_used": [],
+    "latency_s": 27.0,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "Notice RN-004877 affects 0 units. The affected lots, LOT-101316 (3024 units) and LOT-909503 (3007 units), are not considered affected as per the notice.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004877.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t08",
+    "question": "What is the combined unit count of the lots under RN-004822?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The combined unit count of the lots under RN-004822 is 11,668 units.",
+    "lessons_used": [],
+    "latency_s": 17.7,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The combined unit count of the lots under RN-004822 is 11,668 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004822.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t09",
+    "question": "How many units are affected by notice RN-004860?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "Notice RN-004860 affects 0 units. The listed lots, LOT-697582 (994 units) and LOT-819053 (1837 units), are not considered affected.",
+    "lessons_used": [],
+    "latency_s": 24.0,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "Notice RN-004860 affects 0 units. The listed lots, LOT-697582 (994 units) and LOT-819053 (1837 units), are not considered affected.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004860.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t10",
+    "question": "What is the total number of units across all lots of notice RN-004870?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The total number of units across all lots for notice RN-004870 is 15,902 units.",
+    "lessons_used": [],
+    "latency_s": 18.5,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The total number of units across all lots for notice RN-004870 is 15,902 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004870.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  }
+]

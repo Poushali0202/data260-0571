@@ -1,0 +1,87 @@
+{
+  "homework": 9,
+  "sid4": "0571",
+  "commit": "69ee498a98ad86af57ea0e111d8b2b7ba2fe6d60",
+  "tag_hw9": "69ee498a98ad86af57ea0e111d8b2b7ba2fe6d60",
+  "model": "qwen3:8b through Ollama, temperature 0; all-MiniLM-L6-v2 embeddings; Redis Stack 7.4.0",
+  "seed": 571,
+  "verify_seed": 260571,
+  "run_at": "2026-11-09T19:58:07+00:00",
+  "checks": [
+    {
+      "check": "counter_increments",
+      "passed": true,
+      "details": "returned 1..12"
+    },
+    {
+      "check": "counter_syncs_every_10",
+      "passed": true,
+      "details": "MySQL view_count after 12 views = 10"
+    },
+    {
+      "check": "redis_keys_use_prefix",
+      "passed": true,
+      "details": "11 keys, indexes ['s0571:answer_idx']"
+    },
+    {
+      "check": "exact_duplicate_is_cache_hit",
+      "passed": true,
+      "details": "is_cached=True similarity=1.0 latency=144.4 ms"
+    },
+    {
+      "check": "stored_data_version_matches_db",
+      "passed": true,
+      "details": "['RN-005000'] marker a847139cc137"
+    },
+    {
+      "check": "cache_cases_40_labeled",
+      "passed": true,
+      "details": {
+        "exact_duplicate": 10,
+        "paraphrase": 10,
+        "similar_different": 10,
+        "unrelated": 10
+      }
+    },
+    {
+      "check": "training_data.json_inputs_only",
+      "passed": true,
+      "details": "15 questions"
+    },
+    {
+      "check": "validation_data.json_inputs_only",
+      "passed": true,
+      "details": "11 questions"
+    },
+    {
+      "check": "test_data.json_inputs_only",
+      "passed": true,
+      "details": "8 questions"
+    },
+    {
+      "check": "every_question_in_reference",
+      "passed": true,
+      "details": "34 ids"
+    },
+    {
+      "check": "evaluator_pass_and_revise",
+      "passed": true,
+      "details": "correct -> PASS, wrong -> REVISE"
+    },
+    {
+      "check": "lessons_have_required_fields",
+      "passed": true,
+      "details": [
+        "lesson_001 kept",
+        "lesson_002 kept"
+      ]
+    },
+    {
+      "check": "report_files_present",
+      "passed": true,
+      "details": "all present"
+    }
+  ],
+  "passed": 13,
+  "total": 13
+}

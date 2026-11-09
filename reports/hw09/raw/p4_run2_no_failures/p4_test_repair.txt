@@ -1,0 +1,33 @@
+variant repair: attempts 2, lessons []
+
+[x01] What is the total number of units across all lots of notice RN-004805?
+  attempt 1: The total number of units across all lots for notice RN-004805 is 13,644 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004805.
+
+[x02] Add up the lot units for notice RN-004850.
+  attempt 1: The total lot units for notice RN-004850 are 1268 + 2777 + 4677 = 8722 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[x03] Which supplier issued notice RN-004881 and where is it located?
+  attempt 1: Supplier Green Valley Farms (California) issued notice RN-004881. The notice is located in the records under RN-004881.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[x04] How many units are affected by notice RN-004840?
+  attempt 1: Notice RN-004840 affects 3,087 units of Store brand whole milk 12 oz. The affected units are distributed across one lot, LOT-379528, with 386 units impacted.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[x05] Tell me about recall notice RN-009804.
+  attempt 1: There is no record found for recall notice RN-009804 in the s0571_rel system. Please verify the notice number or check if the record is available in another system.
+  evaluator: PASS - The answer matches the reference facts for RN-009804.
+
+[x06] How many units are affected by notice RN-004810?
+  attempt 1: Notice RN-004810 affects 0 units. The product, bagged chicken thighs family pack, has a lot LOT-405824 with 1323 units, but no units are recalled. Supplier: Northern Meats (Minnesota).
+  evaluator: PASS - The answer matches the reference facts for RN-004810.
+
+[x07] Which lot of notice RN-004877 has the most units?
+  attempt 1: The lot with the most units in notice RN-004877 is LOT-101316 with 3024 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004877.
+
+[x08] Who is the supplier for RN-009231 and how many units are affected?
+  attempt 1: The supplier for RN-009231 could not be determined as there is no record in s0571_rel. The number of affected units is also unknown.
+  evaluator: PASS - The answer matches the reference facts for RN-009231.

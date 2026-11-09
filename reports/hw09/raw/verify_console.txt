@@ -1,0 +1,16 @@
+✓ Synced views to database
+PASS counter_increments: returned 1..12
+PASS counter_syncs_every_10: MySQL view_count after 12 views = 10
+11:58:07.676 [CACHE] HIT similarity=1.0 cached_query='Which supplier is responsible for notice RN-005000?'
+PASS redis_keys_use_prefix: 11 keys, indexes ['s0571:answer_idx']
+PASS exact_duplicate_is_cache_hit: is_cached=True similarity=1.0 latency=144.4 ms
+PASS stored_data_version_matches_db: ['RN-005000'] marker a847139cc137
+PASS cache_cases_40_labeled: {'exact_duplicate': 10, 'paraphrase': 10, 'similar_different': 10, 'unrelated': 10}
+PASS training_data.json_inputs_only: 15 questions
+PASS validation_data.json_inputs_only: 11 questions
+PASS test_data.json_inputs_only: 8 questions
+PASS every_question_in_reference: 34 ids
+PASS evaluator_pass_and_revise: correct -> PASS, wrong -> REVISE
+PASS lessons_have_required_fields: ['lesson_001 kept', 'lesson_002 kept']
+PASS report_files_present: all present
+13/13 checks passed, written to reports/hw09/verification.json

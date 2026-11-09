@@ -1,0 +1,31 @@
+[
+  {
+    "id": "t01",
+    "question": "What is the total number of units across all lots of notice RN-004803?",
+    "result": "PASS",
+    "attempts": 2,
+    "final_answer": "The total number of units across all lots for notice RN-004803 is 4376 + 676 + 2053 = 7105 units.",
+    "lessons_used": [],
+    "latency_s": 39.6,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "There are no notice records provided for RN-004803, so the total number of units across all lots cannot be determined.",
+        "result": "REVISE",
+        "explanation": "Checked against the reference for RN-004803: expected lot_total = 7105.",
+        "feedback": "The total across all lots of RN-004803 is missing or wrong. Add the units of every lot in the record.",
+        "failed": [
+          "lot_total"
+        ]
+      },
+      {
+        "attempt": 2,
+        "answer": "The total number of units across all lots for notice RN-004803 is 4376 + 676 + 2053 = 7105 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004803.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  }
+]

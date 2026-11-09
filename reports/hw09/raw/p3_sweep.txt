@@ -1,0 +1,165 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2593.18it/s]
+05:05:15.814 [CACHE] MISS best similarity=0.0, running the HW8 agent pipeline
+05:05:15.901 [YOU] sent question to s0571_inbox offset=17 correlation_id=473438ed-67c2-4b95-bb12-40239b8779b9
+05:05:15.901 [YOU] waiting for the answer on s0571_final
+05:07:04.369 [YOU] received from s0571_final offset=20 correlation_id=473438ed-67c2-4b95-bb12-40239b8779b9
+05:07:04.403 [CACHE] MISS best similarity=0.5019, running the HW8 agent pipeline
+05:07:04.466 [YOU] sent question to s0571_inbox offset=18 correlation_id=ded2d66d-4718-4c13-8474-8976111c737f
+05:07:04.466 [YOU] waiting for the answer on s0571_final
+05:08:12.803 [YOU] received from s0571_final offset=21 correlation_id=ded2d66d-4718-4c13-8474-8976111c737f
+05:08:12.835 [CACHE] MISS best similarity=0.5646, running the HW8 agent pipeline
+05:08:12.916 [YOU] sent question to s0571_inbox offset=19 correlation_id=a6982289-7d92-4cfc-836c-d9f0093d082f
+05:08:12.917 [YOU] waiting for the answer on s0571_final
+05:09:29.312 [YOU] received from s0571_final offset=22 correlation_id=a6982289-7d92-4cfc-836c-d9f0093d082f
+05:09:29.342 [CACHE] MISS best similarity=0.6858, running the HW8 agent pipeline
+05:09:29.395 [YOU] sent question to s0571_inbox offset=20 correlation_id=ff22e506-450f-43b3-8b40-66410717d0a6
+05:09:29.395 [YOU] waiting for the answer on s0571_final
+05:10:57.841 [YOU] received from s0571_final offset=23 correlation_id=ff22e506-450f-43b3-8b40-66410717d0a6
+05:10:57.903 [CACHE] MISS best similarity=0.728, running the HW8 agent pipeline
+05:10:58.101 [YOU] sent question to s0571_inbox offset=21 correlation_id=2a0ec8a6-cf05-4b1c-bf04-0beae2312cdf
+05:10:58.102 [YOU] waiting for the answer on s0571_final
+05:12:20.885 [YOU] received from s0571_final offset=24 correlation_id=2a0ec8a6-cf05-4b1c-bf04-0beae2312cdf
+05:12:20.912 [CACHE] MISS best similarity=0.6255, running the HW8 agent pipeline
+05:12:20.956 [YOU] sent question to s0571_inbox offset=22 correlation_id=e3f01d91-0bad-4f41-b466-bc8a68c97509
+05:12:20.956 [YOU] waiting for the answer on s0571_final
+05:13:27.799 [YOU] received from s0571_final offset=25 correlation_id=e3f01d91-0bad-4f41-b466-bc8a68c97509
+05:13:27.897 [CACHE] MISS best similarity=0.6969, running the HW8 agent pipeline
+05:13:27.981 [YOU] sent question to s0571_inbox offset=23 correlation_id=24912e3e-1eab-43f2-be43-0a3d9dc86431
+05:13:27.981 [YOU] waiting for the answer on s0571_final
+05:14:28.379 [YOU] received from s0571_final offset=26 correlation_id=24912e3e-1eab-43f2-be43-0a3d9dc86431
+05:14:28.410 [CACHE] MISS best similarity=0.6955, running the HW8 agent pipeline
+05:14:28.462 [YOU] sent question to s0571_inbox offset=24 correlation_id=075aa5e2-78eb-4284-a348-0d0622427b73
+05:14:28.462 [YOU] waiting for the answer on s0571_final
+05:15:42.735 [YOU] received from s0571_final offset=27 correlation_id=075aa5e2-78eb-4284-a348-0d0622427b73
+05:15:42.768 [CACHE] MISS best similarity=0.8675, running the HW8 agent pipeline
+05:15:42.820 [YOU] sent question to s0571_inbox offset=25 correlation_id=5aa00eb0-abe8-4d7d-981e-1c1cd5f46692
+05:15:42.820 [YOU] waiting for the answer on s0571_final
+05:16:37.441 [YOU] received from s0571_final offset=28 correlation_id=5aa00eb0-abe8-4d7d-981e-1c1cd5f46692
+05:16:37.473 [CACHE] MISS best similarity=0.6003, running the HW8 agent pipeline
+05:16:37.519 [YOU] sent question to s0571_inbox offset=26 correlation_id=b9634e90-1c19-4716-93ed-9cb383961e79
+05:16:37.519 [YOU] waiting for the answer on s0571_final
+05:17:56.491 [YOU] received from s0571_final offset=29 correlation_id=b9634e90-1c19-4716-93ed-9cb383961e79
+05:17:56.698 [CACHE] MISS best similarity=0.8262, running the HW8 agent pipeline
+05:17:56.745 [YOU] sent question to s0571_inbox offset=27 correlation_id=2ffce882-8ad5-4d05-a224-84ddf94f7321
+05:17:56.745 [YOU] waiting for the answer on s0571_final
+05:18:36.792 [YOU] received from s0571_final offset=30 correlation_id=2ffce882-8ad5-4d05-a224-84ddf94f7321
+05:18:36.834 [CACHE] MISS best similarity=0.7776, running the HW8 agent pipeline
+05:18:36.880 [YOU] sent question to s0571_inbox offset=28 correlation_id=f6d01375-6db4-4d75-9c3e-6d1f061f2c2b
+05:18:36.880 [YOU] waiting for the answer on s0571_final
+05:19:29.243 [YOU] received from s0571_final offset=31 correlation_id=f6d01375-6db4-4d75-9c3e-6d1f061f2c2b
+05:19:29.284 [CACHE] MISS best similarity=0.6841, running the HW8 agent pipeline
+05:19:29.335 [YOU] sent question to s0571_inbox offset=29 correlation_id=f2bdeea9-0e08-4ffe-b805-6f61bd9f6b23
+05:19:29.335 [YOU] waiting for the answer on s0571_final
+05:20:58.291 [YOU] received from s0571_final offset=32 correlation_id=f2bdeea9-0e08-4ffe-b805-6f61bd9f6b23
+05:20:58.378 [CACHE] MISS best similarity=0.8017, running the HW8 agent pipeline
+05:20:58.460 [YOU] sent question to s0571_inbox offset=30 correlation_id=b29593a2-2557-4397-861d-01cec7c992a4
+05:20:58.460 [YOU] waiting for the answer on s0571_final
+05:22:04.454 [YOU] received from s0571_final offset=33 correlation_id=b29593a2-2557-4397-861d-01cec7c992a4
+05:22:04.495 [CACHE] MISS best similarity=0.6329, running the HW8 agent pipeline
+05:22:04.545 [YOU] sent question to s0571_inbox offset=31 correlation_id=d89326d3-e7a8-4814-be33-28fc077755de
+05:22:04.546 [YOU] waiting for the answer on s0571_final
+05:23:32.645 [YOU] received from s0571_final offset=34 correlation_id=d89326d3-e7a8-4814-be33-28fc077755de
+05:23:32.694 [CACHE] MISS best similarity=0.8486, running the HW8 agent pipeline
+05:23:32.744 [YOU] sent question to s0571_inbox offset=32 correlation_id=418b10bc-3936-4f5e-ab92-8d83eeca23cc
+05:23:32.744 [YOU] waiting for the answer on s0571_final
+05:24:42.941 [YOU] received from s0571_final offset=35 correlation_id=418b10bc-3936-4f5e-ab92-8d83eeca23cc
+05:24:42.996 [CACHE] MISS best similarity=0.8772, running the HW8 agent pipeline
+05:24:43.044 [YOU] sent question to s0571_inbox offset=33 correlation_id=4aa20b82-84bf-4b49-9a62-9e2eb5b553dc
+05:24:43.044 [YOU] waiting for the answer on s0571_final
+05:25:51.754 [YOU] received from s0571_final offset=36 correlation_id=4aa20b82-84bf-4b49-9a62-9e2eb5b553dc
+05:25:51.820 [CACHE] MISS best similarity=0.9358, running the HW8 agent pipeline
+05:25:51.876 [YOU] sent question to s0571_inbox offset=34 correlation_id=19d91195-437d-4c28-b3b3-02f6b6c704af
+05:25:51.876 [YOU] waiting for the answer on s0571_final
+05:27:27.888 [YOU] received from s0571_final offset=37 correlation_id=19d91195-437d-4c28-b3b3-02f6b6c704af
+05:27:27.938 [CACHE] MISS best similarity=0.9376, running the HW8 agent pipeline
+05:27:27.991 [YOU] sent question to s0571_inbox offset=35 correlation_id=b41f97be-98fb-444c-9fa3-d62dbcfc615f
+05:27:27.991 [YOU] waiting for the answer on s0571_final
+05:28:32.917 [YOU] received from s0571_final offset=38 correlation_id=b41f97be-98fb-444c-9fa3-d62dbcfc615f
+05:28:32.985 [CACHE] MISS best similarity=0.996, running the HW8 agent pipeline
+05:28:33.040 [YOU] sent question to s0571_inbox offset=36 correlation_id=8f2ea271-e4e2-4231-87b4-7acf8aa9e9d7
+05:28:33.040 [YOU] waiting for the answer on s0571_final
+05:30:11.258 [YOU] received from s0571_final offset=39 correlation_id=8f2ea271-e4e2-4231-87b4-7acf8aa9e9d7
+05:30:11.312 [CACHE] MISS best similarity=0.9563, running the HW8 agent pipeline
+05:30:11.365 [YOU] sent question to s0571_inbox offset=37 correlation_id=f2f26ba1-2ae4-4ab3-b545-f8c102f4c48c
+05:30:11.365 [YOU] waiting for the answer on s0571_final
+05:31:35.278 [YOU] received from s0571_final offset=40 correlation_id=f2f26ba1-2ae4-4ab3-b545-f8c102f4c48c
+05:31:35.321 [CACHE] MISS best similarity=0.9968, running the HW8 agent pipeline
+05:31:35.374 [YOU] sent question to s0571_inbox offset=38 correlation_id=fee1c6e7-6a81-43ad-b04a-bd00fe9b57db
+05:31:35.374 [YOU] waiting for the answer on s0571_final
+05:32:56.674 [YOU] received from s0571_final offset=41 correlation_id=fee1c6e7-6a81-43ad-b04a-bd00fe9b57db
+05:32:56.720 [CACHE] MISS best similarity=0.9636, running the HW8 agent pipeline
+05:32:56.769 [YOU] sent question to s0571_inbox offset=39 correlation_id=0bf5ee38-fb12-4bf1-8777-5d2af3481792
+05:32:56.769 [YOU] waiting for the answer on s0571_final
+05:34:23.432 [YOU] received from s0571_final offset=42 correlation_id=0bf5ee38-fb12-4bf1-8777-5d2af3481792
+05:34:23.489 [CACHE] MISS best similarity=0.9968, running the HW8 agent pipeline
+05:34:23.557 [YOU] sent question to s0571_inbox offset=40 correlation_id=35e20c1c-ec0d-4f7a-802a-03771dae33b2
+05:34:23.558 [YOU] waiting for the answer on s0571_final
+05:35:51.151 [YOU] received from s0571_final offset=43 correlation_id=35e20c1c-ec0d-4f7a-802a-03771dae33b2
+05:35:51.201 [CACHE] MISS best similarity=0.8866, running the HW8 agent pipeline
+05:35:51.261 [YOU] sent question to s0571_inbox offset=41 correlation_id=b2680005-b93c-4915-ba8a-84c877303e9b
+05:35:51.261 [YOU] waiting for the answer on s0571_final
+05:36:59.854 [YOU] received from s0571_final offset=44 correlation_id=b2680005-b93c-4915-ba8a-84c877303e9b
+05:36:59.915 [CACHE] MISS best similarity=0.7893, running the HW8 agent pipeline
+05:36:59.968 [YOU] sent question to s0571_inbox offset=42 correlation_id=272cd6cf-095e-4acc-ad02-6cc511b5b309
+05:36:59.968 [YOU] waiting for the answer on s0571_final
+05:38:09.838 [YOU] received from s0571_final offset=45 correlation_id=272cd6cf-095e-4acc-ad02-6cc511b5b309
+05:38:10.064 [CACHE] MISS best similarity=0.993, running the HW8 agent pipeline
+05:38:10.123 [YOU] sent question to s0571_inbox offset=43 correlation_id=0ebc5282-eb69-4686-a885-ca47c26282f7
+05:38:10.123 [YOU] waiting for the answer on s0571_final
+05:39:35.516 [YOU] received from s0571_final offset=46 correlation_id=0ebc5282-eb69-4686-a885-ca47c26282f7
+05:39:35.576 [CACHE] MISS best similarity=0.9728, running the HW8 agent pipeline
+05:39:35.635 [YOU] sent question to s0571_inbox offset=44 correlation_id=c3f3f16a-cfea-4dce-8967-0031914d436a
+05:39:35.635 [YOU] waiting for the answer on s0571_final
+05:40:40.576 [YOU] received from s0571_final offset=47 correlation_id=c3f3f16a-cfea-4dce-8967-0031914d436a
+05:40:40.627 [CACHE] MISS best similarity=0.7459, running the HW8 agent pipeline
+05:40:40.678 [YOU] sent question to s0571_inbox offset=45 correlation_id=d0bd997a-3d14-4ac9-916b-a9bf4e61e44b
+05:40:40.679 [YOU] waiting for the answer on s0571_final
+05:41:56.147 [YOU] received from s0571_final offset=48 correlation_id=d0bd997a-3d14-4ac9-916b-a9bf4e61e44b
+05:41:56.205 [CACHE] MISS best similarity=0.2685, running the HW8 agent pipeline
+05:41:56.262 [YOU] sent question to s0571_inbox offset=46 correlation_id=67c9986f-17eb-4373-b7d2-48a50ac7f20e
+05:41:56.263 [YOU] waiting for the answer on s0571_final
+05:43:06.216 [YOU] received from s0571_final offset=49 correlation_id=67c9986f-17eb-4373-b7d2-48a50ac7f20e
+05:43:06.264 [CACHE] MISS best similarity=0.1674, running the HW8 agent pipeline
+05:43:06.315 [YOU] sent question to s0571_inbox offset=47 correlation_id=58d29dc2-8ac2-4931-a022-99b0caceacd6
+05:43:06.316 [YOU] waiting for the answer on s0571_final
+05:43:56.773 [YOU] received from s0571_final offset=50 correlation_id=58d29dc2-8ac2-4931-a022-99b0caceacd6
+05:43:56.825 [CACHE] MISS best similarity=0.4555, running the HW8 agent pipeline
+05:43:56.878 [YOU] sent question to s0571_inbox offset=48 correlation_id=0987edd6-0a3d-4844-92b4-85d388e864e4
+05:43:56.878 [YOU] waiting for the answer on s0571_final
+05:44:53.840 [YOU] received from s0571_final offset=51 correlation_id=0987edd6-0a3d-4844-92b4-85d388e864e4
+05:44:53.904 [CACHE] MISS best similarity=0.2876, running the HW8 agent pipeline
+05:44:53.963 [YOU] sent question to s0571_inbox offset=49 correlation_id=ce604097-6210-48d0-9367-987d48c58ba4
+05:44:53.963 [YOU] waiting for the answer on s0571_final
+05:46:08.283 [YOU] received from s0571_final offset=52 correlation_id=ce604097-6210-48d0-9367-987d48c58ba4
+05:46:08.335 [CACHE] MISS best similarity=0.2083, running the HW8 agent pipeline
+05:46:08.386 [YOU] sent question to s0571_inbox offset=50 correlation_id=d7df89b2-0d7e-466e-9247-e01f785d778f
+05:46:08.386 [YOU] waiting for the answer on s0571_final
+05:47:33.119 [YOU] received from s0571_final offset=53 correlation_id=d7df89b2-0d7e-466e-9247-e01f785d778f
+05:47:33.175 [CACHE] MISS best similarity=0.1505, running the HW8 agent pipeline
+05:47:33.226 [YOU] sent question to s0571_inbox offset=51 correlation_id=52ebc3d3-671e-4dcc-be21-84dce0885454
+05:47:33.226 [YOU] waiting for the answer on s0571_final
+05:49:05.563 [YOU] received from s0571_final offset=54 correlation_id=52ebc3d3-671e-4dcc-be21-84dce0885454
+05:49:05.617 [CACHE] MISS best similarity=0.7093, running the HW8 agent pipeline
+05:49:05.672 [YOU] sent question to s0571_inbox offset=52 correlation_id=03885ed8-e7af-43c3-b724-397b5a8dc456
+05:49:05.672 [YOU] waiting for the answer on s0571_final
+05:50:19.208 [YOU] received from s0571_final offset=55 correlation_id=03885ed8-e7af-43c3-b724-397b5a8dc456
+05:50:19.313 [CACHE] MISS best similarity=0.1851, running the HW8 agent pipeline
+05:50:19.390 [YOU] sent question to s0571_inbox offset=53 correlation_id=0c01ea04-0c99-44bc-83c5-25ed09e27c88
+05:50:19.390 [YOU] waiting for the answer on s0571_final
+05:51:30.651 [YOU] received from s0571_final offset=56 correlation_id=0c01ea04-0c99-44bc-83c5-25ed09e27c88
+05:51:30.711 [CACHE] MISS best similarity=0.1695, running the HW8 agent pipeline
+05:51:30.766 [YOU] sent question to s0571_inbox offset=54 correlation_id=77a3a9d6-714e-46f8-b05f-5a563f919794
+05:51:30.766 [YOU] waiting for the answer on s0571_final
+05:52:29.766 [YOU] received from s0571_final offset=57 correlation_id=77a3a9d6-714e-46f8-b05f-5a563f919794
+05:52:29.899 [CACHE] MISS best similarity=0.3917, running the HW8 agent pipeline
+05:52:29.993 [YOU] sent question to s0571_inbox offset=55 correlation_id=a497d17d-bde1-4416-8bff-7a167de636a9
+05:52:29.993 [YOU] waiting for the answer on s0571_final
+05:53:35.709 [YOU] received from s0571_final offset=58 correlation_id=a497d17d-bde1-4416-8bff-7a167de636a9
+| Threshold | Hit rate | False-hit rate | Mean latency (ms) | Total cost |
+|---|---|---|---|---|
+| 0.75 | 27/40 = 67.5% | 12/40 = 30.0% | 23812.9 | 13 x 1 + 12 x 20 = 253 |
+| 0.80 | 25/40 = 62.5% | 10/40 = 25.0% | 26873.2 | 15 x 1 + 10 x 20 = 215 |
+| 0.85 | 22/40 = 55.0% | 8/40 = 20.0% | 31278.8 | 18 x 1 + 8 x 20 = 178 |
+| 0.90 | 20/40 = 50.0% | 7/40 = 17.5% | 34714.2 | 20 x 1 + 7 x 20 = 160 |
+| 0.95 | 18/40 = 45.0% | 7/40 = 17.5% | 38749.4 | 22 x 1 + 7 x 20 = 162 |

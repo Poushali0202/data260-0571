@@ -1,0 +1,154 @@
+[
+  {
+    "id": "x01",
+    "question": "What is the total number of units across all lots of notice RN-004805?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The total number of units across all lots for notice RN-004805 is 13,644 units.",
+    "lessons_used": [],
+    "latency_s": 8.5,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The total number of units across all lots for notice RN-004805 is 13,644 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004805.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "x02",
+    "question": "Add up the lot units for notice RN-004850.",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The total lot units for notice RN-004850 are 1268 + 2777 + 4677 = 8722 units.",
+    "lessons_used": [],
+    "latency_s": 12.4,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The total lot units for notice RN-004850 are 1268 + 2777 + 4677 = 8722 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004850.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "x03",
+    "question": "Which supplier issued notice RN-004881 and where is it located?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "Supplier Green Valley Farms (California) issued notice RN-004881. The notice is located in the records under RN-004881.",
+    "lessons_used": [],
+    "latency_s": 14.0,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "Supplier Green Valley Farms (California) issued notice RN-004881. The notice is located in the records under RN-004881.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004881.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "x04",
+    "question": "How many units are affected by notice RN-004840?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "Notice RN-004840 affects 3,087 units of Store brand whole milk 12 oz. The affected units are distributed across one lot, LOT-379528, with 386 units impacted.",
+    "lessons_used": [],
+    "latency_s": 14.6,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "Notice RN-004840 affects 3,087 units of Store brand whole milk 12 oz. The affected units are distributed across one lot, LOT-379528, with 386 units impacted.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004840.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "x05",
+    "question": "Tell me about recall notice RN-009804.",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "There is no record found for recall notice RN-009804 in the s0571_rel system. Please verify the notice number or check if the record is available in another system.",
+    "lessons_used": [],
+    "latency_s": 11.5,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "There is no record found for recall notice RN-009804 in the s0571_rel system. Please verify the notice number or check if the record is available in another system.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-009804.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "x06",
+    "question": "How many units are affected by notice RN-004810?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "Notice RN-004810 affects 0 units. The product, bagged chicken thighs family pack, has a lot LOT-405824 with 1323 units, but no units are recalled. Supplier: Northern Meats (Minnesota).",
+    "lessons_used": [],
+    "latency_s": 15.1,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "Notice RN-004810 affects 0 units. The product, bagged chicken thighs family pack, has a lot LOT-405824 with 1323 units, but no units are recalled. Supplier: Northern Meats (Minnesota).",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004810.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "x07",
+    "question": "Which lot of notice RN-004877 has the most units?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The lot with the most units in notice RN-004877 is LOT-101316 with 3024 units.",
+    "lessons_used": [],
+    "latency_s": 15.2,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The lot with the most units in notice RN-004877 is LOT-101316 with 3024 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004877.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "x08",
+    "question": "Who is the supplier for RN-009231 and how many units are affected?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The supplier for RN-009231 could not be determined as there is no record in s0571_rel. The number of affected units is also unknown.",
+    "lessons_used": [],
+    "latency_s": 10.4,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The supplier for RN-009231 could not be determined as there is no record in s0571_rel. The number of affected units is also unknown.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-009231.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  }
+]

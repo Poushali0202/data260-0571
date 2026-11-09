@@ -1,0 +1,112 @@
+{
+  "s01": {
+    "question": "How many units are affected by recall notice RN-004870?",
+    "answer": "The recall notice RN-004870 states that a total of 18,102 units of product Canned baby spinach 1 gallon are affected. The affected units are distributed across several lots: LOT-537814 (2,565 units), LOT-588621 (1,601 units), LOT-580942 (3,566 units), LOT-169643 (4,455 units), and LOT-983748 (3,715 units). The total number of affected units is 18,102.",
+    "is_cached": false,
+    "similarity": 0.0,
+    "cached_query": null,
+    "latency_ms": 108639.2,
+    "embed_ms": 82.3,
+    "search_ms": 1.3,
+    "agent_ms": 108553.2
+  },
+  "s02": {
+    "question": "Which supplier is responsible for notice RN-005000?",
+    "answer": "The supplier responsible for notice RN-005000 is Natural Selection Foods (California). The notice details indicate that the affected product, Bagged cantaloupe family pack, was sourced from this supplier. The lots involved are LOT-183536 and LOT-999983, with a total of 3293 affected units. This information was directly retrieved from the database.",
+    "is_cached": false,
+    "similarity": 0.5019,
+    "cached_query": null,
+    "latency_ms": 68430.0,
+    "embed_ms": 23.7,
+    "search_ms": 2.3,
+    "agent_ms": 68401.6
+  },
+  "s03": {
+    "question": "What lots are listed under notice RN-004822?",
+    "answer": "The lots listed under notice RN-004822 are:  \n- LOT-944961 (3959 units)  \n- LOT-594001 (3324 units)  \n- LOT-878741 (3269 units)  \n- LOT-409895 (1116 units)",
+    "is_cached": false,
+    "similarity": 0.5646,
+    "cached_query": null,
+    "latency_ms": 76503.9,
+    "embed_ms": 22.7,
+    "search_ms": 1.9,
+    "agent_ms": 76477.1
+  },
+  "s04": {
+    "question": "Where did the notice RN-000001 come from?",
+    "answer": "The notice RN-000001 originated from the Supplier press release issued by Sunrise Bakery (Oregon). It pertains to product Fresh chicken thighs 8 oz and affected units 431. The source is confirmed through the database records, indicating no lot information was provided.",
+    "is_cached": false,
+    "similarity": 0.6858,
+    "cached_query": null,
+    "latency_ms": 88525.5,
+    "embed_ms": 19.6,
+    "search_ms": 2.1,
+    "agent_ms": 88501.1
+  },
+  "s05": {
+    "question": "What product is covered by recall notice RN-004805?",
+    "answer": "The product covered by recall notice RN-004805 is canned baby spinach, 1 lb. It is supplied by Evergreen Market (Washington) and includes the following lots: LOT-359266 (4562 units), LOT-856660 (2930 units), LOT-816142 (3193 units), and LOT-214301 (2959 units).",
+    "is_cached": false,
+    "similarity": 0.728,
+    "cached_query": null,
+    "latency_ms": 83036.3,
+    "embed_ms": 47.4,
+    "search_ms": 3.6,
+    "agent_ms": 82983.4
+  },
+  "s06": {
+    "question": "What should a shopper do with a recalled product they already opened?",
+    "answer": "A shopper should first check the recall notice for specific instructions. They must stop using the product immediately to avoid health risks. Next, they should contact the company or recall hotline for guidance. Finally, they should follow the disposal or return instructions provided, such as returning the item to a store or disposing of it safely, as directed.",
+    "is_cached": false,
+    "similarity": 0.6255,
+    "cached_query": null,
+    "latency_ms": 66910.1,
+    "embed_ms": 17.3,
+    "search_ms": 1.7,
+    "agent_ms": 66888.7
+  },
+  "s07": {
+    "question": "How do I get a refund for a recalled grocery item?",
+    "answer": "To get a refund for a recalled grocery item, first check the recall notice for specific return or refund instructions. Next, contact the store where you bought the item to start the refund process. Bring the recalled product and your receipt to the store or follow online return guidelines. If you don\u2019t receive your refund within the expected time, follow up with the store or manufacturer for resolution.",
+    "is_cached": false,
+    "similarity": 0.6969,
+    "cached_query": null,
+    "latency_ms": 60574.8,
+    "embed_ms": 76.2,
+    "search_ms": 13.4,
+    "agent_ms": 60483.5
+  },
+  "s08": {
+    "question": "What is the total number of units across all lots of notice RN-004815?",
+    "answer": "The total number of units across all lots of notice RN-004815 is calculated by summing the units from each lot: 4814 + 1688 + 1464 = 8, 966 units.",
+    "is_cached": false,
+    "similarity": 0.6955,
+    "cached_query": null,
+    "latency_ms": 74353.3,
+    "embed_ms": 21.7,
+    "search_ms": 2.0,
+    "agent_ms": 74327.6
+  },
+  "s09": {
+    "question": "In which region is the supplier of notice RN-000003 located?",
+    "answer": "The supplier of notice RN-000003, Dairy Fresh Co-op, is located in Wisconsin. This information has been verified from the database record for accuracy. The region associated with the supplier is Wisconsin.",
+    "is_cached": false,
+    "similarity": 0.8675,
+    "cached_query": null,
+    "latency_ms": 54701.6,
+    "embed_ms": 22.1,
+    "search_ms": 1.7,
+    "agent_ms": 54674.7
+  },
+  "s10": {
+    "question": "Is it safe to cook a recalled food item to make it safe to eat?",
+    "answer": "Cooking a recalled food item is not always safe. Review the recall notice to understand the specific hazard, such as bacteria (e.g., E. coli, Salmonella) or toxins. Many contaminants, like toxins, are heat-stable and cannot be destroyed by cooking. If the recall involves a physical hazard (e.g., glass shards), cooking does not remove the risk. Always follow the recall instructions, which typically advise disposal. Cooking may reduce some risks but does not guarantee safety. Dispose of the item to avoid potential illness.",
+    "is_cached": false,
+    "similarity": 0.6003,
+    "cached_query": null,
+    "latency_ms": 79042.1,
+    "embed_ms": 20.5,
+    "search_ms": 1.9,
+    "agent_ms": 79018.1
+  }
+}

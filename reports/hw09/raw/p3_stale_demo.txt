@@ -1,0 +1,27 @@
+RN-005000 supplier in s0571_rel = Natural Selection Foods
+05:58:52.052 [CACHE] HIT similarity=1.0 cached_query='Which supplier is responsible for notice RN-005000?'
+
+1. Ask once so the answer is in the cache
+  is_cached=True similarity=1.0 latency=157.2 ms
+  answer: The supplier responsible for notice RN-005000 is Natural Selection Foods (California). The notice details indicate that the affected product, Bagged cantaloupe family pack, was sourced from this supplier. The lots involved are LOT-183536 and LOT-999983, with a total of 3293 affected units. This information was directly retrieved from the database.
+
+2. Updated RN-005000: supplier in s0571_rel is now Acme Foods
+05:58:52.136 [CACHE] HIT similarity=1.0 cached_query='Which supplier is responsible for notice RN-005000?'
+
+3. Same question with the version check turned off (stale hit)
+  is_cached=True similarity=1.0 latency=24.2 ms
+  answer: The supplier responsible for notice RN-005000 is Natural Selection Foods (California). The notice details indicate that the affected product, Bagged cantaloupe family pack, was sourced from this supplier. The lots involved are LOT-183536 and LOT-999983, with a total of 3293 affected units. This information was directly retrieved from the database.
+05:58:52.175 [CACHE] STALE similarity=1.0 data version changed, deleting s0571:answer:74775227bd1d
+05:58:52.177 [CACHE] MISS best similarity=1.0, running the HW8 agent pipeline
+05:58:52.243 [YOU] sent question to s0571_inbox offset=57 correlation_id=5773541f-4993-47e3-9e6f-cfbea406323d
+05:58:52.243 [YOU] waiting for the answer on s0571_final
+06:00:22.915 [YOU] received from s0571_final offset=60 correlation_id=5773541f-4993-47e3-9e6f-cfbea406323d
+
+4. Same question with the version check on (marker differs, entry deleted, agent rerun)
+  is_cached=False similarity=1.0 latency=90783.7 ms
+  answer: The supplier responsible for notice RN-005000 is Acme Foods (Ohio). The notice details indicate that the affected product, Bagged cantaloupe family pack, was sourced from Acme Foods, with two lots (LOT-183536 and LOT-999983) totaling 4777 units. This information is confirmed by the USDA FSIS recall records.
+06:00:22.959 [CACHE] HIT similarity=1.0 cached_query='Which supplier is responsible for notice RN-005000?'
+
+5. Same question again (fresh answer now served from the cache)
+  is_cached=True similarity=1.0 latency=36.6 ms
+  answer: The supplier responsible for notice RN-005000 is Acme Foods (Ohio). The notice details indicate that the affected product, Bagged cantaloupe family pack, was sourced from Acme Foods, with two lots (LOT-183536 and LOT-999983) totaling 4777 units. This information is confirmed by the USDA FSIS recall records.

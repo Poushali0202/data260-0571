@@ -1,0 +1,904 @@
+DATA-260 HW9 run log
+Student: Poushali Purkayastha (SID4 0571, PREFIX s0571, domain: grocery supply and recall notices)
+Machine: Intel Core i5-1135G7, 15.8 GB RAM, Windows 11 Home, CPU only. Docker Desktop 28.3.3, Redis Stack 7.4.0,
+MySQL 8.0 (s0571_rel), Kafka apache/kafka:3.9.2. Model: qwen3:8b through Ollama 0.40.14, temperature 0.
+Embeddings: sentence-transformers 6.0.1, all-MiniLM-L6-v2. Python 3.12, redis-py 8.1.0, aiokafka 0.15.0.
+All runs on 2026-11-09, timestamps are local time (PST, -08:00). The HW8 planner, writer and reviewer
+were running in three background processes for Parts 2 and 3 (their logs: raw/planner.log, raw/writer.log, raw/reviewer.log).
+
+=== Part 1: python test_counter.py (04:39) ===
+=== Testing Counter ===
+
+Access #1: Total = 1
+Access #2: Total = 2
+Access #3: Total = 3
+Access #4: Total = 4
+Access #5: Total = 5
+Access #6: Total = 6
+Access #7: Total = 7
+Access #8: Total = 8
+Access #9: Total = 9
+✓ Synced views to database
+Access #10: Total = 10
+Access #11: Total = 11
+Access #12: Total = 12
+Access #13: Total = 13
+Access #14: Total = 14
+Access #15: Total = 15
+Access #16: Total = 16
+Access #17: Total = 17
+Access #18: Total = 18
+Access #19: Total = 19
+✓ Synced views to database
+Access #20: Total = 20
+Access #21: Total = 21
+Access #22: Total = 22
+Access #23: Total = 23
+Access #24: Total = 24
+Access #25: Total = 25
+
+Redis 25, MySQL view_count 20
+
+=== Part 2: python run_cache_test.py (04:51 to 05:04) ===
+
+04:51:10.859 [CACHE] MISS best similarity=0.0, running the HW8 agent pipeline
+04:51:11.166 [YOU] sent question to s0571_inbox offset=8 correlation_id=3b3de8ec-d58c-4e5c-be80-56e887fd5813
+04:51:11.166 [YOU] waiting for the answer on s0571_final
+04:53:04.064 [YOU] received from s0571_final offset=11 correlation_id=3b3de8ec-d58c-4e5c-be80-56e887fd5813
+#1  new             is_cached=False similarity=0.0000 latency=113320.4 ms  How many units are affected by recall notice RN-004870?
+    answer: The recall notice RN-004870 affects a total of 16,102 units. The affected lots include LOT-537814 (2565 units), LOT-588621 (1601 units), LOT-580942 (3566 units)
+04:53:04.109 [CACHE] MISS best similarity=0.5019, running the HW8 agent pipeline
+04:53:04.173 [YOU] sent question to s0571_inbox offset=9 correlation_id=e2b522ac-4b2b-46e8-952a-27d31e8eb53f
+04:53:04.173 [YOU] waiting for the answer on s0571_final
+04:54:36.367 [YOU] received from s0571_final offset=12 correlation_id=e2b522ac-4b2b-46e8-952a-27d31e8eb53f
+#2  new             is_cached=False similarity=0.5019 latency=92282.6 ms  Which supplier is responsible for notice RN-005000?
+    answer: The supplier responsible for notice RN-005000 is Natural Selection Foods (California). The recall notice specifies that the affected product, Bagged cantaloupe 
+04:54:36.402 [CACHE] HIT similarity=1.0 cached_query='How many units are affected by recall notice RN-004870?'
+#3  exact duplicate is_cached=True  similarity=1.0000 latency=27.2 ms  How many units are affected by recall notice RN-004870?
+    answer: The recall notice RN-004870 affects a total of 16,102 units. The affected lots include LOT-537814 (2565 units), LOT-588621 (1601 units), LOT-580942 (3566 units)
+04:54:36.425 [CACHE] MISS best similarity=0.7874, running the HW8 agent pipeline
+04:54:36.481 [YOU] sent question to s0571_inbox offset=10 correlation_id=19716316-034c-4a37-83dc-0f06efec69a9
+04:54:36.481 [YOU] waiting for the answer on s0571_final
+04:55:58.482 [YOU] received from s0571_final offset=13 correlation_id=19716316-034c-4a37-83dc-0f06efec69a9
+#4  paraphrase      is_cached=False similarity=0.7874 latency=82081.8 ms  What is the number of affected units for notice RN-004870?
+    answer: The number of affected units for notice RN-004870 is 0. The notice lists several lots with specific quantities, but the total affected units are reported as 0, 
+04:55:58.508 [CACHE] MISS best similarity=0.5646, running the HW8 agent pipeline
+04:55:58.561 [YOU] sent question to s0571_inbox offset=11 correlation_id=51784dd3-8abd-4196-8622-275d56ef97f7
+04:55:58.561 [YOU] waiting for the answer on s0571_final
+04:57:33.928 [YOU] received from s0571_final offset=14 correlation_id=51784dd3-8abd-4196-8622-275d56ef97f7
+#5  new             is_cached=False similarity=0.5646 latency=95438.2 ms  What lots are listed under notice RN-004822?
+    answer: The lots listed under notice RN-004822 are: - LOT-944961 (3959 units) - LOT-594001 (3324 units) - LOT-878741 (3269 units) - LOT-409895 (1116 units)
+04:57:33.952 [CACHE] MISS best similarity=0.7567, running the HW8 agent pipeline
+04:57:34.006 [YOU] sent question to s0571_inbox offset=12 correlation_id=a5001904-0bf5-4d21-874a-53c5677a1bc2
+04:57:34.006 [YOU] waiting for the answer on s0571_final
+04:58:57.961 [YOU] received from s0571_final offset=15 correlation_id=a5001904-0bf5-4d21-874a-53c5677a1bc2
+#6  paraphrase      is_cached=False similarity=0.7567 latency=84029.2 ms  Who is the supplier behind recall RN-005000?
+    answer: The supplier behind recall RN-005000 is Natural Selection Foods, based in California. This recall involves bagged cantaloupe family packs, with affected units t
+04:58:57.996 [CACHE] HIT similarity=1.0 cached_query='What lots are listed under notice RN-004822?'
+#7  exact duplicate is_cached=True  similarity=1.0000 latency=29.1 ms  What lots are listed under notice RN-004822?
+    answer: The lots listed under notice RN-004822 are: - LOT-944961 (3959 units) - LOT-594001 (3324 units) - LOT-878741 (3269 units) - LOT-409895 (1116 units)
+04:58:58.019 [CACHE] MISS best similarity=0.5267, running the HW8 agent pipeline
+04:58:58.075 [YOU] sent question to s0571_inbox offset=13 correlation_id=89c51f93-f012-44b7-8685-39089707c735
+04:58:58.075 [YOU] waiting for the answer on s0571_final
+05:00:18.921 [YOU] received from s0571_final offset=16 correlation_id=89c51f93-f012-44b7-8685-39089707c735
+#8  new             is_cached=False similarity=0.5267 latency=80925.4 ms  What should a shopper do with a recalled product they already opened?
+    answer: A shopper should first check the recall notice for specific instructions. They must stop using the product immediately to avoid health risks. Next, they should 
+05:00:18.952 [CACHE] MISS best similarity=0.8486, running the HW8 agent pipeline
+05:00:19.004 [YOU] sent question to s0571_inbox offset=14 correlation_id=bd6ff150-76c7-487c-8851-974874529e32
+05:00:19.004 [YOU] waiting for the answer on s0571_final
+05:01:52.537 [YOU] received from s0571_final offset=17 correlation_id=bd6ff150-76c7-487c-8851-974874529e32
+#9  paraphrase      is_cached=False similarity=0.8486 latency=93610.6 ms  I already opened a recalled item, what should I do with it?
+    answer: If you've already opened a recalled item, first check the recall notice for specific instructions. Do not consume or use the item. Contact the company or regula
+05:01:52.577 [CACHE] HIT similarity=1.0 cached_query='Which supplier is responsible for notice RN-005000?'
+#10 exact duplicate is_cached=True  similarity=1.0000 latency=33.7 ms  Which supplier is responsible for notice RN-005000?
+    answer: The supplier responsible for notice RN-005000 is Natural Selection Foods (California). The recall notice specifies that the affected product, Bagged cantaloupe 
+05:01:52.595 [CACHE] MISS best similarity=0.6858, running the HW8 agent pipeline
+05:01:52.650 [YOU] sent question to s0571_inbox offset=15 correlation_id=b62284f2-50c2-42d2-829e-43fb3af08001
+05:01:52.650 [YOU] waiting for the answer on s0571_final
+05:03:16.368 [YOU] received from s0571_final offset=18 correlation_id=b62284f2-50c2-42d2-829e-43fb3af08001
+#11 new             is_cached=False similarity=0.6858 latency=83794.2 ms  Where did the notice RN-000001 come from?
+    answer: The recall notice RN-000001 originated from Sunrise Bakery in Oregon. The notice was issued via a supplier press release and pertains to fresh chicken thighs 8 
+05:03:16.398 [CACHE] MISS best similarity=0.759, running the HW8 agent pipeline
+05:03:16.449 [YOU] sent question to s0571_inbox offset=16 correlation_id=b8865fcc-70c8-4857-9c56-d07ee5946a7e
+05:03:16.449 [YOU] waiting for the answer on s0571_final
+05:04:29.717 [YOU] received from s0571_final offset=19 correlation_id=b8865fcc-70c8-4857-9c56-d07ee5946a7e
+#12 paraphrase      is_cached=False similarity=0.7590 latency=73341.9 ms  What is the source of recall notice RN-000001?
+    answer: The recall notice RN-000001 originates from a Supplier press release issued by Sunrise Bakery (Oregon). The notice pertains to Fresh chicken thighs 8 oz, with 4
+
+threshold 0.85: 3/12 served from cache, hit rate 25.0%
+average latency cached 30.0 ms, non-cached 88758.3 ms
+
+=== Part 3.2: python run_threshold_sweep.py (05:05 to 05:53, cache_cases.yaml committed at 014e5a1 before this run) ===
+
+05:05:15.814 [CACHE] MISS best similarity=0.0, running the HW8 agent pipeline
+05:05:15.901 [YOU] sent question to s0571_inbox offset=17 correlation_id=473438ed-67c2-4b95-bb12-40239b8779b9
+05:05:15.901 [YOU] waiting for the answer on s0571_final
+05:07:04.369 [YOU] received from s0571_final offset=20 correlation_id=473438ed-67c2-4b95-bb12-40239b8779b9
+05:07:04.403 [CACHE] MISS best similarity=0.5019, running the HW8 agent pipeline
+05:07:04.466 [YOU] sent question to s0571_inbox offset=18 correlation_id=ded2d66d-4718-4c13-8474-8976111c737f
+05:07:04.466 [YOU] waiting for the answer on s0571_final
+05:08:12.803 [YOU] received from s0571_final offset=21 correlation_id=ded2d66d-4718-4c13-8474-8976111c737f
+05:08:12.835 [CACHE] MISS best similarity=0.5646, running the HW8 agent pipeline
+05:08:12.916 [YOU] sent question to s0571_inbox offset=19 correlation_id=a6982289-7d92-4cfc-836c-d9f0093d082f
+05:08:12.917 [YOU] waiting for the answer on s0571_final
+05:09:29.312 [YOU] received from s0571_final offset=22 correlation_id=a6982289-7d92-4cfc-836c-d9f0093d082f
+05:09:29.342 [CACHE] MISS best similarity=0.6858, running the HW8 agent pipeline
+05:09:29.395 [YOU] sent question to s0571_inbox offset=20 correlation_id=ff22e506-450f-43b3-8b40-66410717d0a6
+05:09:29.395 [YOU] waiting for the answer on s0571_final
+05:10:57.841 [YOU] received from s0571_final offset=23 correlation_id=ff22e506-450f-43b3-8b40-66410717d0a6
+05:10:57.903 [CACHE] MISS best similarity=0.728, running the HW8 agent pipeline
+05:10:58.101 [YOU] sent question to s0571_inbox offset=21 correlation_id=2a0ec8a6-cf05-4b1c-bf04-0beae2312cdf
+05:10:58.102 [YOU] waiting for the answer on s0571_final
+05:12:20.885 [YOU] received from s0571_final offset=24 correlation_id=2a0ec8a6-cf05-4b1c-bf04-0beae2312cdf
+05:12:20.912 [CACHE] MISS best similarity=0.6255, running the HW8 agent pipeline
+05:12:20.956 [YOU] sent question to s0571_inbox offset=22 correlation_id=e3f01d91-0bad-4f41-b466-bc8a68c97509
+05:12:20.956 [YOU] waiting for the answer on s0571_final
+05:13:27.799 [YOU] received from s0571_final offset=25 correlation_id=e3f01d91-0bad-4f41-b466-bc8a68c97509
+05:13:27.897 [CACHE] MISS best similarity=0.6969, running the HW8 agent pipeline
+05:13:27.981 [YOU] sent question to s0571_inbox offset=23 correlation_id=24912e3e-1eab-43f2-be43-0a3d9dc86431
+05:13:27.981 [YOU] waiting for the answer on s0571_final
+05:14:28.379 [YOU] received from s0571_final offset=26 correlation_id=24912e3e-1eab-43f2-be43-0a3d9dc86431
+05:14:28.410 [CACHE] MISS best similarity=0.6955, running the HW8 agent pipeline
+05:14:28.462 [YOU] sent question to s0571_inbox offset=24 correlation_id=075aa5e2-78eb-4284-a348-0d0622427b73
+05:14:28.462 [YOU] waiting for the answer on s0571_final
+05:15:42.735 [YOU] received from s0571_final offset=27 correlation_id=075aa5e2-78eb-4284-a348-0d0622427b73
+05:15:42.768 [CACHE] MISS best similarity=0.8675, running the HW8 agent pipeline
+05:15:42.820 [YOU] sent question to s0571_inbox offset=25 correlation_id=5aa00eb0-abe8-4d7d-981e-1c1cd5f46692
+05:15:42.820 [YOU] waiting for the answer on s0571_final
+05:16:37.441 [YOU] received from s0571_final offset=28 correlation_id=5aa00eb0-abe8-4d7d-981e-1c1cd5f46692
+05:16:37.473 [CACHE] MISS best similarity=0.6003, running the HW8 agent pipeline
+05:16:37.519 [YOU] sent question to s0571_inbox offset=26 correlation_id=b9634e90-1c19-4716-93ed-9cb383961e79
+05:16:37.519 [YOU] waiting for the answer on s0571_final
+05:17:56.491 [YOU] received from s0571_final offset=29 correlation_id=b9634e90-1c19-4716-93ed-9cb383961e79
+05:17:56.698 [CACHE] MISS best similarity=0.8262, running the HW8 agent pipeline
+05:17:56.745 [YOU] sent question to s0571_inbox offset=27 correlation_id=2ffce882-8ad5-4d05-a224-84ddf94f7321
+05:17:56.745 [YOU] waiting for the answer on s0571_final
+05:18:36.792 [YOU] received from s0571_final offset=30 correlation_id=2ffce882-8ad5-4d05-a224-84ddf94f7321
+05:18:36.834 [CACHE] MISS best similarity=0.7776, running the HW8 agent pipeline
+05:18:36.880 [YOU] sent question to s0571_inbox offset=28 correlation_id=f6d01375-6db4-4d75-9c3e-6d1f061f2c2b
+05:18:36.880 [YOU] waiting for the answer on s0571_final
+05:19:29.243 [YOU] received from s0571_final offset=31 correlation_id=f6d01375-6db4-4d75-9c3e-6d1f061f2c2b
+05:19:29.284 [CACHE] MISS best similarity=0.6841, running the HW8 agent pipeline
+05:19:29.335 [YOU] sent question to s0571_inbox offset=29 correlation_id=f2bdeea9-0e08-4ffe-b805-6f61bd9f6b23
+05:19:29.335 [YOU] waiting for the answer on s0571_final
+05:20:58.291 [YOU] received from s0571_final offset=32 correlation_id=f2bdeea9-0e08-4ffe-b805-6f61bd9f6b23
+05:20:58.378 [CACHE] MISS best similarity=0.8017, running the HW8 agent pipeline
+05:20:58.460 [YOU] sent question to s0571_inbox offset=30 correlation_id=b29593a2-2557-4397-861d-01cec7c992a4
+05:20:58.460 [YOU] waiting for the answer on s0571_final
+05:22:04.454 [YOU] received from s0571_final offset=33 correlation_id=b29593a2-2557-4397-861d-01cec7c992a4
+05:22:04.495 [CACHE] MISS best similarity=0.6329, running the HW8 agent pipeline
+05:22:04.545 [YOU] sent question to s0571_inbox offset=31 correlation_id=d89326d3-e7a8-4814-be33-28fc077755de
+05:22:04.546 [YOU] waiting for the answer on s0571_final
+05:23:32.645 [YOU] received from s0571_final offset=34 correlation_id=d89326d3-e7a8-4814-be33-28fc077755de
+05:23:32.694 [CACHE] MISS best similarity=0.8486, running the HW8 agent pipeline
+05:23:32.744 [YOU] sent question to s0571_inbox offset=32 correlation_id=418b10bc-3936-4f5e-ab92-8d83eeca23cc
+05:23:32.744 [YOU] waiting for the answer on s0571_final
+05:24:42.941 [YOU] received from s0571_final offset=35 correlation_id=418b10bc-3936-4f5e-ab92-8d83eeca23cc
+05:24:42.996 [CACHE] MISS best similarity=0.8772, running the HW8 agent pipeline
+05:24:43.044 [YOU] sent question to s0571_inbox offset=33 correlation_id=4aa20b82-84bf-4b49-9a62-9e2eb5b553dc
+05:24:43.044 [YOU] waiting for the answer on s0571_final
+05:25:51.754 [YOU] received from s0571_final offset=36 correlation_id=4aa20b82-84bf-4b49-9a62-9e2eb5b553dc
+05:25:51.820 [CACHE] MISS best similarity=0.9358, running the HW8 agent pipeline
+05:25:51.876 [YOU] sent question to s0571_inbox offset=34 correlation_id=19d91195-437d-4c28-b3b3-02f6b6c704af
+05:25:51.876 [YOU] waiting for the answer on s0571_final
+05:27:27.888 [YOU] received from s0571_final offset=37 correlation_id=19d91195-437d-4c28-b3b3-02f6b6c704af
+05:27:27.938 [CACHE] MISS best similarity=0.9376, running the HW8 agent pipeline
+05:27:27.991 [YOU] sent question to s0571_inbox offset=35 correlation_id=b41f97be-98fb-444c-9fa3-d62dbcfc615f
+05:27:27.991 [YOU] waiting for the answer on s0571_final
+05:28:32.917 [YOU] received from s0571_final offset=38 correlation_id=b41f97be-98fb-444c-9fa3-d62dbcfc615f
+05:28:32.985 [CACHE] MISS best similarity=0.996, running the HW8 agent pipeline
+05:28:33.040 [YOU] sent question to s0571_inbox offset=36 correlation_id=8f2ea271-e4e2-4231-87b4-7acf8aa9e9d7
+05:28:33.040 [YOU] waiting for the answer on s0571_final
+05:30:11.258 [YOU] received from s0571_final offset=39 correlation_id=8f2ea271-e4e2-4231-87b4-7acf8aa9e9d7
+05:30:11.312 [CACHE] MISS best similarity=0.9563, running the HW8 agent pipeline
+05:30:11.365 [YOU] sent question to s0571_inbox offset=37 correlation_id=f2f26ba1-2ae4-4ab3-b545-f8c102f4c48c
+05:30:11.365 [YOU] waiting for the answer on s0571_final
+05:31:35.278 [YOU] received from s0571_final offset=40 correlation_id=f2f26ba1-2ae4-4ab3-b545-f8c102f4c48c
+05:31:35.321 [CACHE] MISS best similarity=0.9968, running the HW8 agent pipeline
+05:31:35.374 [YOU] sent question to s0571_inbox offset=38 correlation_id=fee1c6e7-6a81-43ad-b04a-bd00fe9b57db
+05:31:35.374 [YOU] waiting for the answer on s0571_final
+05:32:56.674 [YOU] received from s0571_final offset=41 correlation_id=fee1c6e7-6a81-43ad-b04a-bd00fe9b57db
+05:32:56.720 [CACHE] MISS best similarity=0.9636, running the HW8 agent pipeline
+05:32:56.769 [YOU] sent question to s0571_inbox offset=39 correlation_id=0bf5ee38-fb12-4bf1-8777-5d2af3481792
+05:32:56.769 [YOU] waiting for the answer on s0571_final
+05:34:23.432 [YOU] received from s0571_final offset=42 correlation_id=0bf5ee38-fb12-4bf1-8777-5d2af3481792
+05:34:23.489 [CACHE] MISS best similarity=0.9968, running the HW8 agent pipeline
+05:34:23.557 [YOU] sent question to s0571_inbox offset=40 correlation_id=35e20c1c-ec0d-4f7a-802a-03771dae33b2
+05:34:23.558 [YOU] waiting for the answer on s0571_final
+05:35:51.151 [YOU] received from s0571_final offset=43 correlation_id=35e20c1c-ec0d-4f7a-802a-03771dae33b2
+05:35:51.201 [CACHE] MISS best similarity=0.8866, running the HW8 agent pipeline
+05:35:51.261 [YOU] sent question to s0571_inbox offset=41 correlation_id=b2680005-b93c-4915-ba8a-84c877303e9b
+05:35:51.261 [YOU] waiting for the answer on s0571_final
+05:36:59.854 [YOU] received from s0571_final offset=44 correlation_id=b2680005-b93c-4915-ba8a-84c877303e9b
+05:36:59.915 [CACHE] MISS best similarity=0.7893, running the HW8 agent pipeline
+05:36:59.968 [YOU] sent question to s0571_inbox offset=42 correlation_id=272cd6cf-095e-4acc-ad02-6cc511b5b309
+05:36:59.968 [YOU] waiting for the answer on s0571_final
+05:38:09.838 [YOU] received from s0571_final offset=45 correlation_id=272cd6cf-095e-4acc-ad02-6cc511b5b309
+05:38:10.064 [CACHE] MISS best similarity=0.993, running the HW8 agent pipeline
+05:38:10.123 [YOU] sent question to s0571_inbox offset=43 correlation_id=0ebc5282-eb69-4686-a885-ca47c26282f7
+05:38:10.123 [YOU] waiting for the answer on s0571_final
+05:39:35.516 [YOU] received from s0571_final offset=46 correlation_id=0ebc5282-eb69-4686-a885-ca47c26282f7
+05:39:35.576 [CACHE] MISS best similarity=0.9728, running the HW8 agent pipeline
+05:39:35.635 [YOU] sent question to s0571_inbox offset=44 correlation_id=c3f3f16a-cfea-4dce-8967-0031914d436a
+05:39:35.635 [YOU] waiting for the answer on s0571_final
+05:40:40.576 [YOU] received from s0571_final offset=47 correlation_id=c3f3f16a-cfea-4dce-8967-0031914d436a
+05:40:40.627 [CACHE] MISS best similarity=0.7459, running the HW8 agent pipeline
+05:40:40.678 [YOU] sent question to s0571_inbox offset=45 correlation_id=d0bd997a-3d14-4ac9-916b-a9bf4e61e44b
+05:40:40.679 [YOU] waiting for the answer on s0571_final
+05:41:56.147 [YOU] received from s0571_final offset=48 correlation_id=d0bd997a-3d14-4ac9-916b-a9bf4e61e44b
+05:41:56.205 [CACHE] MISS best similarity=0.2685, running the HW8 agent pipeline
+05:41:56.262 [YOU] sent question to s0571_inbox offset=46 correlation_id=67c9986f-17eb-4373-b7d2-48a50ac7f20e
+05:41:56.263 [YOU] waiting for the answer on s0571_final
+05:43:06.216 [YOU] received from s0571_final offset=49 correlation_id=67c9986f-17eb-4373-b7d2-48a50ac7f20e
+05:43:06.264 [CACHE] MISS best similarity=0.1674, running the HW8 agent pipeline
+05:43:06.315 [YOU] sent question to s0571_inbox offset=47 correlation_id=58d29dc2-8ac2-4931-a022-99b0caceacd6
+05:43:06.316 [YOU] waiting for the answer on s0571_final
+05:43:56.773 [YOU] received from s0571_final offset=50 correlation_id=58d29dc2-8ac2-4931-a022-99b0caceacd6
+05:43:56.825 [CACHE] MISS best similarity=0.4555, running the HW8 agent pipeline
+05:43:56.878 [YOU] sent question to s0571_inbox offset=48 correlation_id=0987edd6-0a3d-4844-92b4-85d388e864e4
+05:43:56.878 [YOU] waiting for the answer on s0571_final
+05:44:53.840 [YOU] received from s0571_final offset=51 correlation_id=0987edd6-0a3d-4844-92b4-85d388e864e4
+05:44:53.904 [CACHE] MISS best similarity=0.2876, running the HW8 agent pipeline
+05:44:53.963 [YOU] sent question to s0571_inbox offset=49 correlation_id=ce604097-6210-48d0-9367-987d48c58ba4
+05:44:53.963 [YOU] waiting for the answer on s0571_final
+05:46:08.283 [YOU] received from s0571_final offset=52 correlation_id=ce604097-6210-48d0-9367-987d48c58ba4
+05:46:08.335 [CACHE] MISS best similarity=0.2083, running the HW8 agent pipeline
+05:46:08.386 [YOU] sent question to s0571_inbox offset=50 correlation_id=d7df89b2-0d7e-466e-9247-e01f785d778f
+05:46:08.386 [YOU] waiting for the answer on s0571_final
+05:47:33.119 [YOU] received from s0571_final offset=53 correlation_id=d7df89b2-0d7e-466e-9247-e01f785d778f
+05:47:33.175 [CACHE] MISS best similarity=0.1505, running the HW8 agent pipeline
+05:47:33.226 [YOU] sent question to s0571_inbox offset=51 correlation_id=52ebc3d3-671e-4dcc-be21-84dce0885454
+05:47:33.226 [YOU] waiting for the answer on s0571_final
+05:49:05.563 [YOU] received from s0571_final offset=54 correlation_id=52ebc3d3-671e-4dcc-be21-84dce0885454
+05:49:05.617 [CACHE] MISS best similarity=0.7093, running the HW8 agent pipeline
+05:49:05.672 [YOU] sent question to s0571_inbox offset=52 correlation_id=03885ed8-e7af-43c3-b724-397b5a8dc456
+05:49:05.672 [YOU] waiting for the answer on s0571_final
+05:50:19.208 [YOU] received from s0571_final offset=55 correlation_id=03885ed8-e7af-43c3-b724-397b5a8dc456
+05:50:19.313 [CACHE] MISS best similarity=0.1851, running the HW8 agent pipeline
+05:50:19.390 [YOU] sent question to s0571_inbox offset=53 correlation_id=0c01ea04-0c99-44bc-83c5-25ed09e27c88
+05:50:19.390 [YOU] waiting for the answer on s0571_final
+05:51:30.651 [YOU] received from s0571_final offset=56 correlation_id=0c01ea04-0c99-44bc-83c5-25ed09e27c88
+05:51:30.711 [CACHE] MISS best similarity=0.1695, running the HW8 agent pipeline
+05:51:30.766 [YOU] sent question to s0571_inbox offset=54 correlation_id=77a3a9d6-714e-46f8-b05f-5a563f919794
+05:51:30.766 [YOU] waiting for the answer on s0571_final
+05:52:29.766 [YOU] received from s0571_final offset=57 correlation_id=77a3a9d6-714e-46f8-b05f-5a563f919794
+05:52:29.899 [CACHE] MISS best similarity=0.3917, running the HW8 agent pipeline
+05:52:29.993 [YOU] sent question to s0571_inbox offset=55 correlation_id=a497d17d-bde1-4416-8bff-7a167de636a9
+05:52:29.993 [YOU] waiting for the answer on s0571_final
+05:53:35.709 [YOU] received from s0571_final offset=58 correlation_id=a497d17d-bde1-4416-8bff-7a167de636a9
+| Threshold | Hit rate | False-hit rate | Mean latency (ms) | Total cost |
+|---|---|---|---|---|
+| 0.75 | 27/40 = 67.5% | 12/40 = 30.0% | 23812.9 | 13 x 1 + 12 x 20 = 253 |
+| 0.80 | 25/40 = 62.5% | 10/40 = 25.0% | 26873.2 | 15 x 1 + 10 x 20 = 215 |
+| 0.85 | 22/40 = 55.0% | 8/40 = 20.0% | 31278.8 | 18 x 1 + 8 x 20 = 178 |
+| 0.90 | 20/40 = 50.0% | 7/40 = 17.5% | 34714.2 | 20 x 1 + 7 x 20 = 160 |
+| 0.95 | 18/40 = 45.0% | 7/40 = 17.5% | 38749.4 | 22 x 1 + 7 x 20 = 162 |
+
+=== Part 3.5 first try: stale demo on affected units of RN-004870 (05:55, value set back to 0 afterwards) ===
+RN-004870 affected_units in s0571_rel = 0
+05:55:26.237 [CACHE] HIT similarity=1.0 cached_query='How many units are affected by recall notice RN-004870?'
+
+1. Ask once so the answer is in the cache
+  is_cached=True similarity=1.0 latency=140.0 ms
+  answer: The recall notice RN-004870 states that a total of 18,102 units of product Canned baby spinach 1 gallon are affected. The affected units are distributed across several lots: LOT-537814 (2,565 units), LOT-588621 (1,601 units), LOT-580942 (3,566 units), LOT-169643 (4,455 units), and LOT-983748 (3,715 units). The total number of affected units is 18,102.
+
+2. Updated RN-004870: affected_units in s0571_rel is now 500
+05:55:26.351 [CACHE] HIT similarity=1.0 cached_query='How many units are affected by recall notice RN-004870?'
+
+3. Same question with the version check turned off (stale hit)
+  is_cached=True similarity=1.0 latency=14.8 ms
+  answer: The recall notice RN-004870 states that a total of 18,102 units of product Canned baby spinach 1 gallon are affected. The affected units are distributed across several lots: LOT-537814 (2,565 units), LOT-588621 (1,601 units), LOT-580942 (3,566 units), LOT-169643 (4,455 units), and LOT-983748 (3,715 units). The total number of affected units is 18,102.
+05:55:26.374 [CACHE] STALE similarity=1.0 data version changed, deleting s0571:answer:c53dbe2aed92
+05:55:26.384 [CACHE] MISS best similarity=1.0, running the HW8 agent pipeline
+05:55:26.424 [YOU] sent question to s0571_inbox offset=56 correlation_id=206a4559-b609-4333-bc9a-fb2f9f9238f4
+05:55:26.424 [YOU] waiting for the answer on s0571_final
+05:57:13.358 [YOU] received from s0571_final offset=59 correlation_id=206a4559-b609-4333-bc9a-fb2f9f9238f4
+
+4. Same question with the version check on (marker differs, entry deleted, agent rerun)
+  is_cached=False similarity=1.0 latency=107020.1 ms
+  answer: The recall notice RN-004870 affects a total of 16,902 units. The affected product is canned baby spinach 1 gallon, with the following lot quantities: LOT-537814 (2565 units), LOT-588621 (1601 units), LOT-580942 (3566 units), LOT-169643 (4455 units), and LOT-983748 (3715 units). The total units affected are 16,902.
+05:57:13.405 [CACHE] HIT similarity=1.0 cached_query='How many units are affected by recall notice RN-004870?'
+
+5. Same question again (fresh answer now served from the cache)
+  is_cached=True similarity=1.0 latency=30.4 ms
+  answer: The recall notice RN-004870 affects a total of 16,902 units. The affected product is canned baby spinach 1 gallon, with the following lot quantities: LOT-537814 (2565 units), LOT-588621 (1601 units), LOT-580942 (3566 units), LOT-169643 (4455 units), and LOT-983748 (3715 units). The total units affected are 16,902.
+
+=== Part 3.5: python stale_demo.py (05:58 to 06:00) ===
+RN-005000 supplier in s0571_rel = Natural Selection Foods
+05:58:52.052 [CACHE] HIT similarity=1.0 cached_query='Which supplier is responsible for notice RN-005000?'
+
+1. Ask once so the answer is in the cache
+  is_cached=True similarity=1.0 latency=157.2 ms
+  answer: The supplier responsible for notice RN-005000 is Natural Selection Foods (California). The notice details indicate that the affected product, Bagged cantaloupe family pack, was sourced from this supplier. The lots involved are LOT-183536 and LOT-999983, with a total of 3293 affected units. This information was directly retrieved from the database.
+
+2. Updated RN-005000: supplier in s0571_rel is now Acme Foods
+05:58:52.136 [CACHE] HIT similarity=1.0 cached_query='Which supplier is responsible for notice RN-005000?'
+
+3. Same question with the version check turned off (stale hit)
+  is_cached=True similarity=1.0 latency=24.2 ms
+  answer: The supplier responsible for notice RN-005000 is Natural Selection Foods (California). The notice details indicate that the affected product, Bagged cantaloupe family pack, was sourced from this supplier. The lots involved are LOT-183536 and LOT-999983, with a total of 3293 affected units. This information was directly retrieved from the database.
+05:58:52.175 [CACHE] STALE similarity=1.0 data version changed, deleting s0571:answer:74775227bd1d
+05:58:52.177 [CACHE] MISS best similarity=1.0, running the HW8 agent pipeline
+05:58:52.243 [YOU] sent question to s0571_inbox offset=57 correlation_id=5773541f-4993-47e3-9e6f-cfbea406323d
+05:58:52.243 [YOU] waiting for the answer on s0571_final
+06:00:22.915 [YOU] received from s0571_final offset=60 correlation_id=5773541f-4993-47e3-9e6f-cfbea406323d
+
+4. Same question with the version check on (marker differs, entry deleted, agent rerun)
+  is_cached=False similarity=1.0 latency=90783.7 ms
+  answer: The supplier responsible for notice RN-005000 is Acme Foods (Ohio). The notice details indicate that the affected product, Bagged cantaloupe family pack, was sourced from Acme Foods, with two lots (LOT-183536 and LOT-999983) totaling 4777 units. This information is confirmed by the USDA FSIS recall records.
+06:00:22.959 [CACHE] HIT similarity=1.0 cached_query='Which supplier is responsible for notice RN-005000?'
+
+5. Same question again (fresh answer now served from the cache)
+  is_cached=True similarity=1.0 latency=36.6 ms
+  answer: The supplier responsible for notice RN-005000 is Acme Foods (Ohio). The notice details indicate that the affected product, Bagged cantaloupe family pack, was sourced from Acme Foods, with two lots (LOT-183536 and LOT-999983) totaling 4777 units. This information is confirmed by the USDA FSIS recall records.
+
+=== Part 4.1: python -m self_improving.run_part4 demo (06:04) ===
+Controlled case: the first answer is written without the notice record, so it cannot be complete.
+
+[t01] What is the total number of units across all lots of notice RN-004803?
+  attempt 1: There are no notice records provided for RN-004803, so the total number of units across all lots cannot be determined.
+  evaluator: REVISE - Checked against the reference for RN-004803: expected lot_total = 7105.
+  feedback: The total across all lots of RN-004803 is missing or wrong. Add the units of every lot in the record.
+  attempt 2: The total number of units across all lots for notice RN-004803 is 4376 + 676 + 2053 = 7105 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+=== Part 4 earlier training pass, simple question set, no failures (06:01, kept for reference) ===
+
+[t01] What is the total number of units across all lots of notice RN-004803?
+  attempt 1: The total number of units across all lots for notice RN-004803 is 7,105 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[t02] Which supplier issued notice RN-004840 and in which region is it?
+  attempt 1: The supplier for notice RN-004840 is Green Valley Farms, located in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[t03] What can you tell me about recall notice RN-009120?
+  attempt 1: There is no record found for recall notice RN-009120 in the s0571_rel system. Please verify the notice number or check if additional details are available.
+  evaluator: PASS - The answer matches the reference facts for RN-009120.
+
+[t04] Add up the units in every lot of notice RN-004826. What is the total?
+  attempt 1: The total units for notice RN-004826 are 3155 + 1524 = 4679 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004826.
+
+[t05] Which lot of notice RN-004850 has the most units?
+  attempt 1: The lot with the most units in notice RN-004850 is LOT-611423 with 4677 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[t06] Give me the product and supplier for notice RN-009377.
+  attempt 1: There is no record found for notice RN-009377 in the provided system. Please verify the notice number or check for any other available records.
+  evaluator: PASS - The answer matches the reference facts for RN-009377.
+
+[t07] How many units are affected by notice RN-004855?
+  attempt 1: Notice RN-004855 affects 3641 units of Frozen mixed berries 5 oz. The affected units are split between two lots: LOT-107807 with 2785 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004855.
+
+[t08] What is the combined unit count of the lots under RN-004877?
+  attempt 1: The combined unit count of the lots under RN-004877 is 6031 units (3024 + 3007).
+  evaluator: PASS - The answer matches the reference facts for RN-004877.
+
+=== Part 4 run 1 training, failures needed twice, no lesson created (06:05) ===
+
+[t01] What is the total number of units across all lots of notice RN-004803?
+  attempt 1: The total number of units across all lots for notice RN-004803 is 7,105 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[t02] Which supplier issued notice RN-004840 and in which region is it?
+  attempt 1: The supplier for notice RN-004840 is Green Valley Farms, located in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[t03] What can you tell me about recall notice RN-009120?
+  attempt 1: There is no record found for recall notice RN-009120 in the s0571_rel system. Please verify the notice number or check if additional details are available.
+  evaluator: PASS - The answer matches the reference facts for RN-009120.
+
+[t04] How many units are affected by notice RN-004826?
+  attempt 1: Notice RN-004826 affects 4679 units in total. The affected units are split between two lots: LOT-328780 with 3155 units and LOT-889782 with 1524 units.
+  evaluator: REVISE - Checked against the reference for RN-004826: expected affected_units = 0.
+  feedback: The affected units for RN-004826 are missing or wrong. Use the affected units field of the notice, not the lot units.
+  attempt 2: Notice RN-004826 has 0 affected units. The lot quantities (3155 and 1524 units) are not relevant to the recall count, as the "affected units" field explicitly states 0.
+  evaluator: PASS - The answer matches the reference facts for RN-004826.
+
+[t05] Which lot of notice RN-004850 has the most units?
+  attempt 1: The lot with the most units in notice RN-004850 is LOT-611423 with 4677 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[t06] Give me the product and supplier for notice RN-009377.
+  attempt 1: There is no record found for notice RN-009377 in the provided system. Please verify the notice number or check for any other available records.
+  evaluator: PASS - The answer matches the reference facts for RN-009377.
+
+[t07] How many units are affected by notice RN-004877?
+  attempt 1: Notice RN-004877 affects 0 units. The affected lots, LOT-101316 (3024 units) and LOT-909503 (3007 units), are not considered affected as per the notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004877.
+
+[t08] What is the combined unit count of the lots under RN-004822?
+  attempt 1: The combined unit count of the lots under RN-004822 is 11,668 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[t09] How many units are affected by notice RN-004860?
+  attempt 1: Notice RN-004860 affects 0 units. The listed lots, LOT-697582 (994 units) and LOT-819053 (1837 units), are not considered affected.
+  evaluator: PASS - The answer matches the reference facts for RN-004860.
+
+[t10] What is the total number of units across all lots of notice RN-004870?
+  attempt 1: The total number of units across all lots for notice RN-004870 is 15,902 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004870.
+
+=== Part 4 run 1 results table (06:16) ===
+| Variant | Correct answers | Incorrect answers | Average attempts | Average latency (s) |
+|---|---|---|---|---|
+| baseline | 8/8 | 0/8 | 1.00 | 18.7 |
+| repair | 8/8 | 0/8 | 1.00 | 13.0 |
+| memory | 8/8 | 0/8 | 1.00 | 12.7 |
+| validated | 8/8 | 0/8 | 1.00 | 13.3 |
+
+=== Part 4 run 2 training, no failures (06:17) ===
+
+[t01] What is the total number of units across all lots of notice RN-004803?
+  attempt 1: The total number of units across all lots for notice RN-004803 is 7,105 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[t02] Which supplier issued notice RN-004840 and in which region is it?
+  attempt 1: The supplier for notice RN-004840 is Green Valley Farms, located in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[t03] What can you tell me about recall notice RN-009120?
+  attempt 1: There is no record found for recall notice RN-009120 in the s0571_rel system. Please verify the notice number or check if additional details are available.
+  evaluator: PASS - The answer matches the reference facts for RN-009120.
+
+[t04] How many units are affected by notice RN-004826?
+  attempt 1: Notice RN-004826 affects 0 units. The affected lots, LOT-328780 (3155 units) and LOT-889782 (1524 units), are not included in the recall.
+  evaluator: PASS - The answer matches the reference facts for RN-004826.
+
+[t05] Which lot of notice RN-004850 has the most units?
+  attempt 1: The lot with the most units in notice RN-004850 is LOT-611423 with 4677 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[t06] Give me the product and supplier for notice RN-009377.
+  attempt 1: There is no record found for notice RN-009377 in the provided system. Please verify the notice number or check for any other available records.
+  evaluator: PASS - The answer matches the reference facts for RN-009377.
+
+[t07] How many units are affected by notice RN-004877?
+  attempt 1: Notice RN-004877 affects 0 units. The affected lots, LOT-101316 (3024 units) and LOT-909503 (3007 units), are not considered affected as per the notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004877.
+
+[t08] What is the combined unit count of the lots under RN-004822?
+  attempt 1: The combined unit count of the lots under RN-004822 is 11,668 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[t09] How many units are affected by notice RN-004860?
+  attempt 1: Notice RN-004860 affects 0 units. The listed lots, LOT-697582 (994 units) and LOT-819053 (1837 units), are not considered affected.
+  evaluator: PASS - The answer matches the reference facts for RN-004860.
+
+[t10] What is the total number of units across all lots of notice RN-004870?
+  attempt 1: The total number of units across all lots for notice RN-004870 is 15,902 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004870.
+
+=== Part 4 run 2 results table (06:26) ===
+| Variant | Correct answers | Incorrect answers | Average attempts | Average latency (s) |
+|---|---|---|---|---|
+| baseline | 8/8 | 0/8 | 1.00 | 12.7 |
+| repair | 8/8 | 0/8 | 1.00 | 11.6 |
+| memory | 8/8 | 0/8 | 1.00 | 11.7 |
+| validated | 8/8 | 0/8 | 1.00 | 11.9 |
+
+=== Part 4.2: python -m self_improving.run_part4 train (06:27 to 06:33) ===
+
+[t01] What is the total number of units across all lots of notice RN-004803?
+  attempt 1: The total number of units across all lots for notice RN-004803 is 7,105 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[t02] Which supplier issued notice RN-004840 and in which region is it?
+  attempt 1: The supplier for notice RN-004840 is Green Valley Farms, located in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[t03] What can you tell me about recall notice RN-009120?
+  attempt 1: There is no record found for recall notice RN-009120 in the s0571_rel system. Please verify the notice number or check if the information is available from another source.
+  evaluator: PASS - The answer matches the reference facts for RN-009120.
+
+[t04] How many units are affected by notice RN-004826?
+  attempt 1: Notice RN-004826 affects 0 units. The affected lots, LOT-328780 (3155 units) and LOT-889782 (1524 units), are not included in the recall.
+  evaluator: PASS - The answer matches the reference facts for RN-004826.
+
+[t05] Which lot of notice RN-004850 has the most units?
+  attempt 1: The lot with the most units in notice RN-004850 is LOT-611423 with 4677 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[t06] Give me the product and supplier for notice RN-009377.
+  attempt 1: There is no record found for notice RN-009377 in the provided system. Please verify the notice number or check for any other available records.
+  evaluator: PASS - The answer matches the reference facts for RN-009377.
+
+[t07] How many units are affected by notice RN-004877?
+  attempt 1: Notice RN-004877 affects 0 units. The affected lots, LOT-101316 (3024 units) and LOT-909503 (3007 units), are not considered affected as per the notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004877.
+
+[t08] What is the combined unit count of the lots under RN-004822?
+  attempt 1: The combined unit count of the lots under RN-004822 is 11,668 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[t09] How many units are affected by notice RN-004860?
+  attempt 1: Notice RN-004860 affects 0 units. The listed lots, LOT-697582 (994 units) and LOT-819053 (1837 units), are not considered affected.
+  evaluator: PASS - The answer matches the reference facts for RN-004860.
+
+[t10] What is the total number of units across all lots of notice RN-004870?
+  attempt 1: The total number of units across all lots for notice RN-004870 is 15,902 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004870.
+
+[t11] What is the difference between the lot total and the affected units of notice RN-004850?
+  attempt 1: The lot total is the sum of all units across all affected lots, while the affected units are the total number of units recalled. For RN-004850, the lot total is 10,722 (1268 + 2777 + 4677), and the af
+  evaluator: REVISE - Checked against the reference for RN-004850: expected lot_gap = 3753.
+  feedback: The difference between the lot total and the affected units of RN-004850 is missing or wrong. Add all lot units first, then subtract.
+  attempt 2: The lot total is the sum of all units across affected lots, and the affected units are the number of units recalled. For RN-004850, the lot total is 10,722 (1268 + 2777 + 4677). The difference is 10,7
+  evaluator: REVISE - Checked against the reference for RN-004850: expected lot_gap = 3753.
+  feedback: The difference between the lot total and the affected units of RN-004850 is missing or wrong. Add all lot units first, then subtract.
+  NEW LESSON lesson_001 (lot_gap seen 2 times): For a difference, first add all lot units and write the total, then subtract the smaller number from the larger one and show the subtraction.
+
+[t12] What is the average number of units per lot for notice RN-004870?
+  attempt 1: The average number of units per lot for notice RN-004870 is 3818.8 units.
+  evaluator: REVISE - Checked against the reference for RN-004870: expected lot_average = 3180.
+  feedback: The average units per lot of RN-004870 is missing or wrong. Add all lot units, then divide by the number of lots.
+  attempt 2: The total units for RN-004870 are 2565 + 1601 + 3566 + 4455 + 3715 = 15902. Divided by 5 lots, the average is 3180.4 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004870.
+  NEW LESSON lesson_002 (lot_average seen 1 times): For an average per lot, write each lot's units, add them, count the lots, then divide the total by the count and show each step.
+
+[t13] What is the difference between the lot total and the affected units of notice RN-004855?
+  loaded lessons: lesson_001
+  attempt 1: The lot total is 2785 units, and the affected units are 3641. Adding lot units gives 2785. Subtracting 2785 from 3641 shows the difference is 856 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004855.
+
+[t14] What is the average number of units per lot for notice RN-004815?
+  loaded lessons: lesson_002
+  attempt 1: For notice RN-004815, the total units are 4814 + 1688 + 1464 = 8,0006. There are 3 lots. The average units per lot is 8,0006 ÷ 3 ≈ 2,666.87 units.
+  evaluator: REVISE - Checked against the reference for RN-004815: expected lot_average = 2655.
+  feedback: The average units per lot of RN-004815 is missing or wrong. Add all lot units, then divide by the number of lots.
+  attempt 2: For notice RN-004815, the total units are 4814 + 1688 + 1464 = 8,0006. There are 3 lots. The average units per lot is 8,0006 ÷ 3 ≈ 2,666.87 units.
+  evaluator: REVISE - Checked against the reference for RN-004815: expected lot_average = 2655.
+  feedback: The average units per lot of RN-004815 is missing or wrong. Add all lot units, then divide by the number of lots.
+
+[t15] On average, how many units are in each lot of notice RN-004805?
+  loaded lessons: lesson_002
+  attempt 1: For notice RN-004805, the total units are 4562 + 2930 + 3193 + 2959 = 13,644 units across 4 lots. The average per lot is 13,644 ÷ 4 = 3,411 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004805.
+
+=== Part 4.3: python -m self_improving.run_part4 validate (06:33 to 06:45) ===
+
+=== validating lesson_001 (lot_gap) ===
+--- before
+
+[v01] What is the total number of units across all lots of notice RN-004830?
+  attempt 1: The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+
+[v02] How many units are affected by notice RN-004835?
+  attempt 1: Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.
+  evaluator: REVISE - Checked against the reference for RN-004835: expected affected_units = 0.
+  feedback: The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.
+
+[v03] Which supplier is behind notice RN-004845?
+  attempt 1: The supplier behind notice RN-004845 is Green Valley Farms in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004845.
+
+[v04] How many units are affected by notice RN-004890?
+  attempt 1: Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.
+  evaluator: PASS - The answer matches the reference facts for RN-004890.
+
+[v05] What does notice RN-009555 cover?
+  attempt 1: Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.
+  evaluator: PASS - The answer matches the reference facts for RN-009555.
+
+[v06] Which lot of notice RN-004803 has the most units?
+  attempt 1: The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[v07] What is the source of notice RN-004866?
+  attempt 1: The source of notice RN-004866 is the CDC outbreak notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004866.
+
+[v08] How many units are affected by notice RN-004881?
+  attempt 1: Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[v09] What is the difference between the lot total and the affected units of notice RN-004840?
+  attempt 1: The lot total for notice RN-004840 is 386 units, while the affected units are 3,087. This indicates that multiple lots may be involved, but only 386 units are specifically listed as affected in this n
+  evaluator: REVISE - Checked against the reference for RN-004840: expected lot_gap = 2701.
+  feedback: The difference between the lot total and the affected units of RN-004840 is missing or wrong. Add all lot units first, then subtract.
+
+[v10] What is the average number of units per lot for notice RN-004822?
+  attempt 1: The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[v11] On average, how many units are in each lot of notice RN-004830?
+  attempt 1: The notice RN-004830 lists two lots: LOT-983504 with 1953 units and LOT-401944 with 591 units. The average number of units per lot is (1953 + 591) / 2 = 1272 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+--- after
+
+[v01] What is the total number of units across all lots of notice RN-004830?
+  attempt 1: The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+
+[v02] How many units are affected by notice RN-004835?
+  attempt 1: Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.
+  evaluator: REVISE - Checked against the reference for RN-004835: expected affected_units = 0.
+  feedback: The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.
+
+[v03] Which supplier is behind notice RN-004845?
+  attempt 1: The supplier behind notice RN-004845 is Green Valley Farms in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004845.
+
+[v04] How many units are affected by notice RN-004890?
+  attempt 1: Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.
+  evaluator: PASS - The answer matches the reference facts for RN-004890.
+
+[v05] What does notice RN-009555 cover?
+  attempt 1: Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.
+  evaluator: PASS - The answer matches the reference facts for RN-009555.
+
+[v06] Which lot of notice RN-004803 has the most units?
+  attempt 1: The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[v07] What is the source of notice RN-004866?
+  attempt 1: The source of notice RN-004866 is the CDC outbreak notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004866.
+
+[v08] How many units are affected by notice RN-004881?
+  attempt 1: Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[v09] What is the difference between the lot total and the affected units of notice RN-004840?
+  loaded lessons: lesson_001
+  attempt 1: The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[v10] What is the average number of units per lot for notice RN-004822?
+  attempt 1: The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[v11] On average, how many units are in each lot of notice RN-004830?
+  attempt 1: The notice RN-004830 lists two lots: LOT-983504 with 1,953 units and LOT-401944 with 591 units. The average number of units per lot is (1,953 + 591) / 2 = 1,272 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+lesson_001: failures before ['v02', 'v09'], after ['v02'], regressions [] -> kept
+
+=== validating lesson_002 (lot_average) ===
+--- before
+
+[v01] What is the total number of units across all lots of notice RN-004830?
+  attempt 1: The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+
+[v02] How many units are affected by notice RN-004835?
+  attempt 1: Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.
+  evaluator: REVISE - Checked against the reference for RN-004835: expected affected_units = 0.
+  feedback: The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.
+
+[v03] Which supplier is behind notice RN-004845?
+  attempt 1: The supplier behind notice RN-004845 is Green Valley Farms in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004845.
+
+[v04] How many units are affected by notice RN-004890?
+  attempt 1: Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.
+  evaluator: PASS - The answer matches the reference facts for RN-004890.
+
+[v05] What does notice RN-009555 cover?
+  attempt 1: Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.
+  evaluator: PASS - The answer matches the reference facts for RN-009555.
+
+[v06] Which lot of notice RN-004803 has the most units?
+  attempt 1: The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[v07] What is the source of notice RN-004866?
+  attempt 1: The source of notice RN-004866 is the CDC outbreak notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004866.
+
+[v08] How many units are affected by notice RN-004881?
+  attempt 1: Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[v09] What is the difference between the lot total and the affected units of notice RN-004840?
+  loaded lessons: lesson_001
+  attempt 1: The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[v10] What is the average number of units per lot for notice RN-004822?
+  attempt 1: The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[v11] On average, how many units are in each lot of notice RN-004830?
+  attempt 1: The notice RN-004830 lists two lots: LOT-983504 with 1,953 units and LOT-401944 with 591 units. The average number of units per lot is (1,953 + 591) / 2 = 1,272 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+--- after
+
+[v01] What is the total number of units across all lots of notice RN-004830?
+  attempt 1: The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+
+[v02] How many units are affected by notice RN-004835?
+  attempt 1: Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.
+  evaluator: REVISE - Checked against the reference for RN-004835: expected affected_units = 0.
+  feedback: The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.
+
+[v03] Which supplier is behind notice RN-004845?
+  attempt 1: The supplier behind notice RN-004845 is Green Valley Farms in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004845.
+
+[v04] How many units are affected by notice RN-004890?
+  attempt 1: Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.
+  evaluator: PASS - The answer matches the reference facts for RN-004890.
+
+[v05] What does notice RN-009555 cover?
+  attempt 1: Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.
+  evaluator: PASS - The answer matches the reference facts for RN-009555.
+
+[v06] Which lot of notice RN-004803 has the most units?
+  attempt 1: The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[v07] What is the source of notice RN-004866?
+  attempt 1: The source of notice RN-004866 is the CDC outbreak notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004866.
+
+[v08] How many units are affected by notice RN-004881?
+  attempt 1: Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[v09] What is the difference between the lot total and the affected units of notice RN-004840?
+  loaded lessons: lesson_001
+  attempt 1: The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[v10] What is the average number of units per lot for notice RN-004822?
+  loaded lessons: lesson_002
+  attempt 1: For notice RN-004822, the total units are 3959 + 3324 + 3269 + 1116 = 11668 units across 4 lots. The average per lot is 11668 ÷ 4 = 2917 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[v11] On average, how many units are in each lot of notice RN-004830?
+  loaded lessons: lesson_002
+  attempt 1: For notice RN-004830, the total units are 1953 + 591 = 2544. There are 2 lots. The average per lot is 2544 ÷ 2 = 1272 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+lesson_002: failures before ['v02'], after ['v02'], regressions [] -> kept
+
+=== Part 4.4: python -m self_improving.run_part4 test baseline (11:34, after a laptop restart) ===
+variant baseline: attempts 1, lessons []
+
+[x01] What is the total number of units across all lots of notice RN-004805?
+  attempt 1: The total number of units across all lots for notice RN-004805 is 13,644 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004805.
+
+[x02] Add up the lot units for notice RN-004850.
+  attempt 1: The total lot units for notice RN-004850 are 1268 + 2777 + 4677 = 8722 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[x03] Which supplier issued notice RN-004881 and where is it located?
+  attempt 1: Supplier Green Valley Farms (California) issued notice RN-004881. The notice is located in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[x04] How many units are affected by notice RN-004840?
+  attempt 1: Notice RN-004840 affects 3,087 units of Store brand whole milk 12 oz. The affected units are distributed across one lot, LOT-379528, with 386 units impacted.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[x05] Tell me about recall notice RN-009804.
+  attempt 1: There is no record found for recall notice RN-009804 in the s0571_rel system. Please verify the notice number or check if the record is available in another system.
+  evaluator: PASS - The answer matches the reference facts for RN-009804.
+
+[x06] How many units are affected by notice RN-004810?
+  attempt 1: Notice RN-004810 affects 0 units. The product, bagged chicken thighs family pack, has a lot (LOT-405824) with 1323 units, but no units are recalled. Supplier: Northern Meats (Minnesota).
+  evaluator: PASS - The answer matches the reference facts for RN-004810.
+
+[x07] Which lot of notice RN-004877 has the most units?
+  attempt 1: The lot with the most units in notice RN-004877 is LOT-101316 with 3024 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004877.
+
+[x08] Who is the supplier for RN-009231 and how many units are affected?
+  attempt 1: The supplier for RN-009231 could not be determined as there is no record in s0571_rel. The number of affected units is also unknown.
+  evaluator: PASS - The answer matches the reference facts for RN-009231.
+
+=== Part 4.4: python -m self_improving.run_part4 test repair (11:38) ===
+variant repair: attempts 2, lessons []
+
+[x01] What is the total number of units across all lots of notice RN-004805?
+  attempt 1: The total number of units across all lots for notice RN-004805 is 13,644 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004805.
+
+[x02] Add up the lot units for notice RN-004850.
+  attempt 1: The total lot units for notice RN-004850 are 1268 + 2777 + 4677 = 8722 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[x03] Which supplier issued notice RN-004881 and where is it located?
+  attempt 1: Supplier Green Valley Farms (California) issued notice RN-004881. The notice is located in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[x04] How many units are affected by notice RN-004840?
+  attempt 1: Notice RN-004840 affects 3,087 units of Store brand whole milk 12 oz. The affected units are distributed across one lot, LOT-379528, with 386 units impacted.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[x05] Tell me about recall notice RN-009804.
+  attempt 1: There is no record found for recall notice RN-009804 in the s0571_rel system. Please verify the notice number or check if the record is available in another system.
+  evaluator: PASS - The answer matches the reference facts for RN-009804.
+
+[x06] How many units are affected by notice RN-004810?
+  attempt 1: Notice RN-004810 affects 0 units. The product, bagged chicken thighs family pack, has a lot LOT-405824 with 1323 units, but no units are recalled. Supplier: Northern Meats (Minnesota).
+  evaluator: PASS - The answer matches the reference facts for RN-004810.
+
+[x07] Which lot of notice RN-004877 has the most units?
+  attempt 1: The lot with the most units in notice RN-004877 is LOT-101316 with 3024 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004877.
+
+[x08] Who is the supplier for RN-009231 and how many units are affected?
+  attempt 1: The supplier for RN-009231 could not be determined as there is no record in s0571_rel. The number of affected units is also unknown.
+  evaluator: PASS - The answer matches the reference facts for RN-009231.
+
+=== Part 4.4: python -m self_improving.run_part4 test memory (11:40) ===
+variant memory: attempts 2, lessons ['lesson_001', 'lesson_002']
+
+[x01] What is the total number of units across all lots of notice RN-004805?
+  attempt 1: The total number of units across all lots for notice RN-004805 is 13,644 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004805.
+
+[x02] Add up the lot units for notice RN-004850.
+  attempt 1: The total lot units for notice RN-004850 are 1268 + 2777 + 4677 = 8722 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[x03] Which supplier issued notice RN-004881 and where is it located?
+  attempt 1: Supplier Green Valley Farms (California) issued notice RN-004881. The notice is located in the records under RN-004881.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[x04] How many units are affected by notice RN-004840?
+  attempt 1: Notice RN-004840 affects 3,087 units of Store brand whole milk 12 oz. The affected units are distributed across one lot, LOT-379528, with 386 units impacted.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[x05] Tell me about recall notice RN-009804.
+  attempt 1: There is no record found for recall notice RN-009804 in the s0571_rel system. Please verify the notice number or check if the record is available in another system.
+  evaluator: PASS - The answer matches the reference facts for RN-009804.
+
+[x06] How many units are affected by notice RN-004810?
+  attempt 1: Notice RN-004810 affects 0 units. The product, bagged chicken thighs family pack, has a lot LOT-405824 with 1323 units, but no units are recalled. Supplier: Northern Meats (Minnesota).
+  evaluator: PASS - The answer matches the reference facts for RN-004810.
+
+[x07] Which lot of notice RN-004877 has the most units?
+  attempt 1: The lot with the most units in notice RN-004877 is LOT-101316 with 3024 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004877.
+
+[x08] Who is the supplier for RN-009231 and how many units are affected?
+  attempt 1: The supplier for RN-009231 could not be determined as there is no record in s0571_rel. The number of affected units is also unknown.
+  evaluator: PASS - The answer matches the reference facts for RN-009231.
+
+=== Part 4.4: python -m self_improving.run_part4 test validated (11:42) ===
+variant validated: attempts 2, lessons ['lesson_001', 'lesson_002']
+
+[x01] What is the total number of units across all lots of notice RN-004805?
+  attempt 1: The total number of units across all lots for notice RN-004805 is 13,644 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004805.
+
+[x02] Add up the lot units for notice RN-004850.
+  attempt 1: The total lot units for notice RN-004850 are 1268 + 2777 + 4677 = 8722 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[x03] Which supplier issued notice RN-004881 and where is it located?
+  attempt 1: Supplier Green Valley Farms (California) issued notice RN-004881. The notice is located in the records under RN-004881.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[x04] How many units are affected by notice RN-004840?
+  attempt 1: Notice RN-004840 affects 3,087 units of Store brand whole milk 12 oz. The affected units are distributed across one lot, LOT-379528, with 386 units impacted.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[x05] Tell me about recall notice RN-009804.
+  attempt 1: There is no record found for recall notice RN-009804 in the s0571_rel system. Please verify the notice number or check if the record is available in another system.
+  evaluator: PASS - The answer matches the reference facts for RN-009804.
+
+[x06] How many units are affected by notice RN-004810?
+  attempt 1: Notice RN-004810 affects 0 units. The product, bagged chicken thighs family pack, has a lot LOT-405824 with 1323 units, but no units are recalled. Supplier: Northern Meats (Minnesota).
+  evaluator: PASS - The answer matches the reference facts for RN-004810.
+
+[x07] Which lot of notice RN-004877 has the most units?
+  attempt 1: The lot with the most units in notice RN-004877 is LOT-101316 with 3024 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004877.
+
+[x08] Who is the supplier for RN-009231 and how many units are affected?
+  attempt 1: The supplier for RN-009231 could not be determined as there is no record in s0571_rel. The number of affected units is also unknown.
+  evaluator: PASS - The answer matches the reference facts for RN-009231.
+
+=== Part 4.4: python -m self_improving.run_part4 table (11:44) ===
+| Variant | Correct answers | Incorrect answers | Average attempts | Average latency (s) |
+|---|---|---|---|---|
+| baseline | 8/8 | 0/8 | 1.00 | 24.3 |
+| repair | 8/8 | 0/8 | 1.00 | 16.5 |
+| memory | 8/8 | 0/8 | 1.00 | 15.8 |
+| validated | 8/8 | 0/8 | 1.00 | 12.6 |

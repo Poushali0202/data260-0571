@@ -1,0 +1,6 @@
+| Variant | Correct answers | Incorrect answers | Average attempts | Average latency (s) |
+|---|---|---|---|---|
+| baseline | 8/8 | 0/8 | 1.00 | 24.3 |
+| repair | 8/8 | 0/8 | 1.00 | 16.5 |
+| memory | 8/8 | 0/8 | 1.00 | 15.8 |
+| validated | 8/8 | 0/8 | 1.00 | 12.6 |

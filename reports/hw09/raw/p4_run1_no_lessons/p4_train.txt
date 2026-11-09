@@ -1,0 +1,43 @@
+
+[t01] What is the total number of units across all lots of notice RN-004803?
+  attempt 1: The total number of units across all lots for notice RN-004803 is 7,105 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[t02] Which supplier issued notice RN-004840 and in which region is it?
+  attempt 1: The supplier for notice RN-004840 is Green Valley Farms, located in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[t03] What can you tell me about recall notice RN-009120?
+  attempt 1: There is no record found for recall notice RN-009120 in the s0571_rel system. Please verify the notice number or check if additional details are available.
+  evaluator: PASS - The answer matches the reference facts for RN-009120.
+
+[t04] How many units are affected by notice RN-004826?
+  attempt 1: Notice RN-004826 affects 4679 units in total. The affected units are split between two lots: LOT-328780 with 3155 units and LOT-889782 with 1524 units.
+  evaluator: REVISE - Checked against the reference for RN-004826: expected affected_units = 0.
+  feedback: The affected units for RN-004826 are missing or wrong. Use the affected units field of the notice, not the lot units.
+  attempt 2: Notice RN-004826 has 0 affected units. The lot quantities (3155 and 1524 units) are not relevant to the recall count, as the "affected units" field explicitly states 0.
+  evaluator: PASS - The answer matches the reference facts for RN-004826.
+
+[t05] Which lot of notice RN-004850 has the most units?
+  attempt 1: The lot with the most units in notice RN-004850 is LOT-611423 with 4677 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[t06] Give me the product and supplier for notice RN-009377.
+  attempt 1: There is no record found for notice RN-009377 in the provided system. Please verify the notice number or check for any other available records.
+  evaluator: PASS - The answer matches the reference facts for RN-009377.
+
+[t07] How many units are affected by notice RN-004877?
+  attempt 1: Notice RN-004877 affects 0 units. The affected lots, LOT-101316 (3024 units) and LOT-909503 (3007 units), are not considered affected as per the notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004877.
+
+[t08] What is the combined unit count of the lots under RN-004822?
+  attempt 1: The combined unit count of the lots under RN-004822 is 11,668 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[t09] How many units are affected by notice RN-004860?
+  attempt 1: Notice RN-004860 affects 0 units. The listed lots, LOT-697582 (994 units) and LOT-819053 (1837 units), are not considered affected.
+  evaluator: PASS - The answer matches the reference facts for RN-004860.
+
+[t10] What is the total number of units across all lots of notice RN-004870?
+  attempt 1: The total number of units across all lots for notice RN-004870 is 15,902 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004870.

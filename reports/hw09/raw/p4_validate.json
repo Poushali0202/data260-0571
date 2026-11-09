@@ -1,0 +1,889 @@
+[
+  {
+    "lesson_id": "lesson_001",
+    "fails_before": [
+      "v02",
+      "v09"
+    ],
+    "fails_after": [
+      "v02"
+    ],
+    "regressions": [],
+    "decision": "kept",
+    "before": {
+      "v01": {
+        "id": "v01",
+        "question": "What is the total number of units across all lots of notice RN-004830?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).",
+        "lessons_used": [],
+        "latency_s": 18.1,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004830.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v02": {
+        "id": "v02",
+        "question": "How many units are affected by notice RN-004835?",
+        "result": "REVISE",
+        "attempts": 1,
+        "final_answer": "Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.",
+        "lessons_used": [],
+        "latency_s": 23.3,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.",
+            "result": "REVISE",
+            "explanation": "Checked against the reference for RN-004835: expected affected_units = 0.",
+            "feedback": "The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.",
+            "failed": [
+              "affected_units"
+            ]
+          }
+        ]
+      },
+      "v03": {
+        "id": "v03",
+        "question": "Which supplier is behind notice RN-004845?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The supplier behind notice RN-004845 is Green Valley Farms in California.",
+        "lessons_used": [],
+        "latency_s": 11.1,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The supplier behind notice RN-004845 is Green Valley Farms in California.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004845.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v04": {
+        "id": "v04",
+        "question": "How many units are affected by notice RN-004890?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.",
+        "lessons_used": [],
+        "latency_s": 14.1,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004890.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v05": {
+        "id": "v05",
+        "question": "What does notice RN-009555 cover?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.",
+        "lessons_used": [],
+        "latency_s": 14.5,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-009555.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v06": {
+        "id": "v06",
+        "question": "Which lot of notice RN-004803 has the most units?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.",
+        "lessons_used": [],
+        "latency_s": 18.4,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004803.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v07": {
+        "id": "v07",
+        "question": "What is the source of notice RN-004866?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The source of notice RN-004866 is the CDC outbreak notice.",
+        "lessons_used": [],
+        "latency_s": 11.9,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The source of notice RN-004866 is the CDC outbreak notice.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004866.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v08": {
+        "id": "v08",
+        "question": "How many units are affected by notice RN-004881?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.",
+        "lessons_used": [],
+        "latency_s": 19.6,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004881.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v09": {
+        "id": "v09",
+        "question": "What is the difference between the lot total and the affected units of notice RN-004840?",
+        "result": "REVISE",
+        "attempts": 1,
+        "final_answer": "The lot total for notice RN-004840 is 386 units, while the affected units are 3,087. This indicates that multiple lots may be involved, but only 386 units are specifically listed as affected in this notice.",
+        "lessons_used": [],
+        "latency_s": 22.0,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The lot total for notice RN-004840 is 386 units, while the affected units are 3,087. This indicates that multiple lots may be involved, but only 386 units are specifically listed as affected in this notice.",
+            "result": "REVISE",
+            "explanation": "Checked against the reference for RN-004840: expected lot_gap = 2701.",
+            "feedback": "The difference between the lot total and the affected units of RN-004840 is missing or wrong. Add all lot units first, then subtract.",
+            "failed": [
+              "lot_gap"
+            ]
+          }
+        ]
+      },
+      "v10": {
+        "id": "v10",
+        "question": "What is the average number of units per lot for notice RN-004822?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.",
+        "lessons_used": [],
+        "latency_s": 26.2,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004822.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v11": {
+        "id": "v11",
+        "question": "On average, how many units are in each lot of notice RN-004830?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The notice RN-004830 lists two lots: LOT-983504 with 1953 units and LOT-401944 with 591 units. The average number of units per lot is (1953 + 591) / 2 = 1272 units.",
+        "lessons_used": [],
+        "latency_s": 28.5,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The notice RN-004830 lists two lots: LOT-983504 with 1953 units and LOT-401944 with 591 units. The average number of units per lot is (1953 + 591) / 2 = 1272 units.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004830.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      }
+    },
+    "after": {
+      "v01": {
+        "id": "v01",
+        "question": "What is the total number of units across all lots of notice RN-004830?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).",
+        "lessons_used": [],
+        "latency_s": 11.6,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004830.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v02": {
+        "id": "v02",
+        "question": "How many units are affected by notice RN-004835?",
+        "result": "REVISE",
+        "attempts": 1,
+        "final_answer": "Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.",
+        "lessons_used": [],
+        "latency_s": 17.2,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.",
+            "result": "REVISE",
+            "explanation": "Checked against the reference for RN-004835: expected affected_units = 0.",
+            "feedback": "The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.",
+            "failed": [
+              "affected_units"
+            ]
+          }
+        ]
+      },
+      "v03": {
+        "id": "v03",
+        "question": "Which supplier is behind notice RN-004845?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The supplier behind notice RN-004845 is Green Valley Farms in California.",
+        "lessons_used": [],
+        "latency_s": 7.4,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The supplier behind notice RN-004845 is Green Valley Farms in California.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004845.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v04": {
+        "id": "v04",
+        "question": "How many units are affected by notice RN-004890?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.",
+        "lessons_used": [],
+        "latency_s": 8.4,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004890.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v05": {
+        "id": "v05",
+        "question": "What does notice RN-009555 cover?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.",
+        "lessons_used": [],
+        "latency_s": 14.4,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-009555.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v06": {
+        "id": "v06",
+        "question": "Which lot of notice RN-004803 has the most units?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.",
+        "lessons_used": [],
+        "latency_s": 10.8,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004803.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v07": {
+        "id": "v07",
+        "question": "What is the source of notice RN-004866?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The source of notice RN-004866 is the CDC outbreak notice.",
+        "lessons_used": [],
+        "latency_s": 11.9,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The source of notice RN-004866 is the CDC outbreak notice.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004866.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v08": {
+        "id": "v08",
+        "question": "How many units are affected by notice RN-004881?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.",
+        "lessons_used": [],
+        "latency_s": 16.0,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004881.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v09": {
+        "id": "v09",
+        "question": "What is the difference between the lot total and the affected units of notice RN-004840?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.",
+        "lessons_used": [
+          "lesson_001"
+        ],
+        "latency_s": 23.7,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004840.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v10": {
+        "id": "v10",
+        "question": "What is the average number of units per lot for notice RN-004822?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.",
+        "lessons_used": [],
+        "latency_s": 17.0,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004822.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v11": {
+        "id": "v11",
+        "question": "On average, how many units are in each lot of notice RN-004830?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The notice RN-004830 lists two lots: LOT-983504 with 1,953 units and LOT-401944 with 591 units. The average number of units per lot is (1,953 + 591) / 2 = 1,272 units per lot.",
+        "lessons_used": [],
+        "latency_s": 24.0,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The notice RN-004830 lists two lots: LOT-983504 with 1,953 units and LOT-401944 with 591 units. The average number of units per lot is (1,953 + 591) / 2 = 1,272 units per lot.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004830.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      }
+    }
+  },
+  {
+    "lesson_id": "lesson_002",
+    "fails_before": [
+      "v02"
+    ],
+    "fails_after": [
+      "v02"
+    ],
+    "regressions": [],
+    "decision": "kept",
+    "before": {
+      "v01": {
+        "id": "v01",
+        "question": "What is the total number of units across all lots of notice RN-004830?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).",
+        "lessons_used": [],
+        "latency_s": 11.2,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004830.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v02": {
+        "id": "v02",
+        "question": "How many units are affected by notice RN-004835?",
+        "result": "REVISE",
+        "attempts": 1,
+        "final_answer": "Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.",
+        "lessons_used": [],
+        "latency_s": 16.4,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.",
+            "result": "REVISE",
+            "explanation": "Checked against the reference for RN-004835: expected affected_units = 0.",
+            "feedback": "The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.",
+            "failed": [
+              "affected_units"
+            ]
+          }
+        ]
+      },
+      "v03": {
+        "id": "v03",
+        "question": "Which supplier is behind notice RN-004845?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The supplier behind notice RN-004845 is Green Valley Farms in California.",
+        "lessons_used": [],
+        "latency_s": 6.9,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The supplier behind notice RN-004845 is Green Valley Farms in California.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004845.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v04": {
+        "id": "v04",
+        "question": "How many units are affected by notice RN-004890?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.",
+        "lessons_used": [],
+        "latency_s": 8.7,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004890.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v05": {
+        "id": "v05",
+        "question": "What does notice RN-009555 cover?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.",
+        "lessons_used": [],
+        "latency_s": 16.5,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-009555.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v06": {
+        "id": "v06",
+        "question": "Which lot of notice RN-004803 has the most units?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.",
+        "lessons_used": [],
+        "latency_s": 11.2,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004803.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v07": {
+        "id": "v07",
+        "question": "What is the source of notice RN-004866?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The source of notice RN-004866 is the CDC outbreak notice.",
+        "lessons_used": [],
+        "latency_s": 13.8,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The source of notice RN-004866 is the CDC outbreak notice.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004866.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v08": {
+        "id": "v08",
+        "question": "How many units are affected by notice RN-004881?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.",
+        "lessons_used": [],
+        "latency_s": 15.0,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004881.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v09": {
+        "id": "v09",
+        "question": "What is the difference between the lot total and the affected units of notice RN-004840?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.",
+        "lessons_used": [
+          "lesson_001"
+        ],
+        "latency_s": 22.6,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004840.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v10": {
+        "id": "v10",
+        "question": "What is the average number of units per lot for notice RN-004822?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.",
+        "lessons_used": [],
+        "latency_s": 17.0,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004822.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v11": {
+        "id": "v11",
+        "question": "On average, how many units are in each lot of notice RN-004830?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The notice RN-004830 lists two lots: LOT-983504 with 1,953 units and LOT-401944 with 591 units. The average number of units per lot is (1,953 + 591) / 2 = 1,272 units per lot.",
+        "lessons_used": [],
+        "latency_s": 23.0,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The notice RN-004830 lists two lots: LOT-983504 with 1,953 units and LOT-401944 with 591 units. The average number of units per lot is (1,953 + 591) / 2 = 1,272 units per lot.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004830.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      }
+    },
+    "after": {
+      "v01": {
+        "id": "v01",
+        "question": "What is the total number of units across all lots of notice RN-004830?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).",
+        "lessons_used": [],
+        "latency_s": 12.3,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004830.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v02": {
+        "id": "v02",
+        "question": "How many units are affected by notice RN-004835?",
+        "result": "REVISE",
+        "attempts": 1,
+        "final_answer": "Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.",
+        "lessons_used": [],
+        "latency_s": 16.7,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.",
+            "result": "REVISE",
+            "explanation": "Checked against the reference for RN-004835: expected affected_units = 0.",
+            "feedback": "The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.",
+            "failed": [
+              "affected_units"
+            ]
+          }
+        ]
+      },
+      "v03": {
+        "id": "v03",
+        "question": "Which supplier is behind notice RN-004845?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The supplier behind notice RN-004845 is Green Valley Farms in California.",
+        "lessons_used": [],
+        "latency_s": 7.3,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The supplier behind notice RN-004845 is Green Valley Farms in California.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004845.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v04": {
+        "id": "v04",
+        "question": "How many units are affected by notice RN-004890?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.",
+        "lessons_used": [],
+        "latency_s": 9.3,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004890.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v05": {
+        "id": "v05",
+        "question": "What does notice RN-009555 cover?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.",
+        "lessons_used": [],
+        "latency_s": 14.8,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-009555.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v06": {
+        "id": "v06",
+        "question": "Which lot of notice RN-004803 has the most units?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.",
+        "lessons_used": [],
+        "latency_s": 10.9,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004803.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v07": {
+        "id": "v07",
+        "question": "What is the source of notice RN-004866?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The source of notice RN-004866 is the CDC outbreak notice.",
+        "lessons_used": [],
+        "latency_s": 12.1,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The source of notice RN-004866 is the CDC outbreak notice.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004866.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v08": {
+        "id": "v08",
+        "question": "How many units are affected by notice RN-004881?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.",
+        "lessons_used": [],
+        "latency_s": 15.1,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004881.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v09": {
+        "id": "v09",
+        "question": "What is the difference between the lot total and the affected units of notice RN-004840?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.",
+        "lessons_used": [
+          "lesson_001"
+        ],
+        "latency_s": 19.0,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004840.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v10": {
+        "id": "v10",
+        "question": "What is the average number of units per lot for notice RN-004822?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "For notice RN-004822, the total units are 3959 + 3324 + 3269 + 1116 = 11668 units across 4 lots. The average per lot is 11668 \u00f7 4 = 2917 units per lot.",
+        "lessons_used": [
+          "lesson_002"
+        ],
+        "latency_s": 23.6,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "For notice RN-004822, the total units are 3959 + 3324 + 3269 + 1116 = 11668 units across 4 lots. The average per lot is 11668 \u00f7 4 = 2917 units per lot.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004822.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      },
+      "v11": {
+        "id": "v11",
+        "question": "On average, how many units are in each lot of notice RN-004830?",
+        "result": "PASS",
+        "attempts": 1,
+        "final_answer": "For notice RN-004830, the total units are 1953 + 591 = 2544. There are 2 lots. The average per lot is 2544 \u00f7 2 = 1272 units per lot.",
+        "lessons_used": [
+          "lesson_002"
+        ],
+        "latency_s": 20.0,
+        "history": [
+          {
+            "attempt": 1,
+            "answer": "For notice RN-004830, the total units are 1953 + 591 = 2544. There are 2 lots. The average per lot is 2544 \u00f7 2 = 1272 units per lot.",
+            "result": "PASS",
+            "explanation": "The answer matches the reference facts for RN-004830.",
+            "feedback": null,
+            "failed": []
+          }
+        ]
+      }
+    }
+  }
+]

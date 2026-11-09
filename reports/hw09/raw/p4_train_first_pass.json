@@ -1,0 +1,154 @@
+[
+  {
+    "id": "t01",
+    "question": "What is the total number of units across all lots of notice RN-004803?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The total number of units across all lots for notice RN-004803 is 7,105 units.",
+    "lessons_used": [],
+    "latency_s": 10.2,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The total number of units across all lots for notice RN-004803 is 7,105 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004803.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t02",
+    "question": "Which supplier issued notice RN-004840 and in which region is it?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The supplier for notice RN-004840 is Green Valley Farms, located in California.",
+    "lessons_used": [],
+    "latency_s": 13.6,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The supplier for notice RN-004840 is Green Valley Farms, located in California.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004840.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t03",
+    "question": "What can you tell me about recall notice RN-009120?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "There is no record found for recall notice RN-009120 in the s0571_rel system. Please verify the notice number or check if additional details are available.",
+    "lessons_used": [],
+    "latency_s": 16.1,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "There is no record found for recall notice RN-009120 in the s0571_rel system. Please verify the notice number or check if additional details are available.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-009120.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t04",
+    "question": "Add up the units in every lot of notice RN-004826. What is the total?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The total units for notice RN-004826 are 3155 + 1524 = 4679 units.",
+    "lessons_used": [],
+    "latency_s": 18.7,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The total units for notice RN-004826 are 3155 + 1524 = 4679 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004826.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t05",
+    "question": "Which lot of notice RN-004850 has the most units?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The lot with the most units in notice RN-004850 is LOT-611423 with 4677 units.",
+    "lessons_used": [],
+    "latency_s": 18.6,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The lot with the most units in notice RN-004850 is LOT-611423 with 4677 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004850.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t06",
+    "question": "Give me the product and supplier for notice RN-009377.",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "There is no record found for notice RN-009377 in the provided system. Please verify the notice number or check for any other available records.",
+    "lessons_used": [],
+    "latency_s": 14.4,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "There is no record found for notice RN-009377 in the provided system. Please verify the notice number or check for any other available records.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-009377.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t07",
+    "question": "How many units are affected by notice RN-004855?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "Notice RN-004855 affects 3641 units of Frozen mixed berries 5 oz. The affected units are split between two lots: LOT-107807 with 2785 units.",
+    "lessons_used": [],
+    "latency_s": 21.8,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "Notice RN-004855 affects 3641 units of Frozen mixed berries 5 oz. The affected units are split between two lots: LOT-107807 with 2785 units.",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004855.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  },
+  {
+    "id": "t08",
+    "question": "What is the combined unit count of the lots under RN-004877?",
+    "result": "PASS",
+    "attempts": 1,
+    "final_answer": "The combined unit count of the lots under RN-004877 is 6031 units (3024 + 3007).",
+    "lessons_used": [],
+    "latency_s": 18.5,
+    "history": [
+      {
+        "attempt": 1,
+        "answer": "The combined unit count of the lots under RN-004877 is 6031 units (3024 + 3007).",
+        "result": "PASS",
+        "explanation": "The answer matches the reference facts for RN-004877.",
+        "feedback": null,
+        "failed": []
+      }
+    ]
+  }
+]

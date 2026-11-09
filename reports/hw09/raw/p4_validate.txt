@@ -1,0 +1,196 @@
+
+=== validating lesson_001 (lot_gap) ===
+--- before
+
+[v01] What is the total number of units across all lots of notice RN-004830?
+  attempt 1: The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+
+[v02] How many units are affected by notice RN-004835?
+  attempt 1: Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.
+  evaluator: REVISE - Checked against the reference for RN-004835: expected affected_units = 0.
+  feedback: The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.
+
+[v03] Which supplier is behind notice RN-004845?
+  attempt 1: The supplier behind notice RN-004845 is Green Valley Farms in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004845.
+
+[v04] How many units are affected by notice RN-004890?
+  attempt 1: Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.
+  evaluator: PASS - The answer matches the reference facts for RN-004890.
+
+[v05] What does notice RN-009555 cover?
+  attempt 1: Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.
+  evaluator: PASS - The answer matches the reference facts for RN-009555.
+
+[v06] Which lot of notice RN-004803 has the most units?
+  attempt 1: The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[v07] What is the source of notice RN-004866?
+  attempt 1: The source of notice RN-004866 is the CDC outbreak notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004866.
+
+[v08] How many units are affected by notice RN-004881?
+  attempt 1: Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[v09] What is the difference between the lot total and the affected units of notice RN-004840?
+  attempt 1: The lot total for notice RN-004840 is 386 units, while the affected units are 3,087. This indicates that multiple lots may be involved, but only 386 units are specifically listed as affected in this n
+  evaluator: REVISE - Checked against the reference for RN-004840: expected lot_gap = 2701.
+  feedback: The difference between the lot total and the affected units of RN-004840 is missing or wrong. Add all lot units first, then subtract.
+
+[v10] What is the average number of units per lot for notice RN-004822?
+  attempt 1: The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[v11] On average, how many units are in each lot of notice RN-004830?
+  attempt 1: The notice RN-004830 lists two lots: LOT-983504 with 1953 units and LOT-401944 with 591 units. The average number of units per lot is (1953 + 591) / 2 = 1272 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+--- after
+
+[v01] What is the total number of units across all lots of notice RN-004830?
+  attempt 1: The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+
+[v02] How many units are affected by notice RN-004835?
+  attempt 1: Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.
+  evaluator: REVISE - Checked against the reference for RN-004835: expected affected_units = 0.
+  feedback: The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.
+
+[v03] Which supplier is behind notice RN-004845?
+  attempt 1: The supplier behind notice RN-004845 is Green Valley Farms in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004845.
+
+[v04] How many units are affected by notice RN-004890?
+  attempt 1: Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.
+  evaluator: PASS - The answer matches the reference facts for RN-004890.
+
+[v05] What does notice RN-009555 cover?
+  attempt 1: Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.
+  evaluator: PASS - The answer matches the reference facts for RN-009555.
+
+[v06] Which lot of notice RN-004803 has the most units?
+  attempt 1: The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[v07] What is the source of notice RN-004866?
+  attempt 1: The source of notice RN-004866 is the CDC outbreak notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004866.
+
+[v08] How many units are affected by notice RN-004881?
+  attempt 1: Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[v09] What is the difference between the lot total and the affected units of notice RN-004840?
+  loaded lessons: lesson_001
+  attempt 1: The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[v10] What is the average number of units per lot for notice RN-004822?
+  attempt 1: The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[v11] On average, how many units are in each lot of notice RN-004830?
+  attempt 1: The notice RN-004830 lists two lots: LOT-983504 with 1,953 units and LOT-401944 with 591 units. The average number of units per lot is (1,953 + 591) / 2 = 1,272 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+lesson_001: failures before ['v02', 'v09'], after ['v02'], regressions [] -> kept
+
+=== validating lesson_002 (lot_average) ===
+--- before
+
+[v01] What is the total number of units across all lots of notice RN-004830?
+  attempt 1: The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+
+[v02] How many units are affected by notice RN-004835?
+  attempt 1: Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.
+  evaluator: REVISE - Checked against the reference for RN-004835: expected affected_units = 0.
+  feedback: The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.
+
+[v03] Which supplier is behind notice RN-004845?
+  attempt 1: The supplier behind notice RN-004845 is Green Valley Farms in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004845.
+
+[v04] How many units are affected by notice RN-004890?
+  attempt 1: Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.
+  evaluator: PASS - The answer matches the reference facts for RN-004890.
+
+[v05] What does notice RN-009555 cover?
+  attempt 1: Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.
+  evaluator: PASS - The answer matches the reference facts for RN-009555.
+
+[v06] Which lot of notice RN-004803 has the most units?
+  attempt 1: The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[v07] What is the source of notice RN-004866?
+  attempt 1: The source of notice RN-004866 is the CDC outbreak notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004866.
+
+[v08] How many units are affected by notice RN-004881?
+  attempt 1: Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[v09] What is the difference between the lot total and the affected units of notice RN-004840?
+  loaded lessons: lesson_001
+  attempt 1: The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[v10] What is the average number of units per lot for notice RN-004822?
+  attempt 1: The average number of units per lot for notice RN-004822 is (3959 + 3324 + 3269 + 1116) / 4 = 2917 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[v11] On average, how many units are in each lot of notice RN-004830?
+  attempt 1: The notice RN-004830 lists two lots: LOT-983504 with 1,953 units and LOT-401944 with 591 units. The average number of units per lot is (1,953 + 591) / 2 = 1,272 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+--- after
+
+[v01] What is the total number of units across all lots of notice RN-004830?
+  attempt 1: The total number of units across all lots for notice RN-004830 is 2544 units (1953 + 591).
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+
+[v02] How many units are affected by notice RN-004835?
+  attempt 1: Notice RN-004835 affects 5616 units in total. The affected lots are LOT-954514 with 4791 units and LOT-203377 with 825 units.
+  evaluator: REVISE - Checked against the reference for RN-004835: expected affected_units = 0.
+  feedback: The affected units for RN-004835 are missing or wrong. Use the affected units field of the notice, not the lot units.
+
+[v03] Which supplier is behind notice RN-004845?
+  attempt 1: The supplier behind notice RN-004845 is Green Valley Farms in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004845.
+
+[v04] How many units are affected by notice RN-004890?
+  attempt 1: Notice RN-004890 affects 1,128 units of Fresh tahini 12 oz.
+  evaluator: PASS - The answer matches the reference facts for RN-004890.
+
+[v05] What does notice RN-009555 cover?
+  attempt 1: Notice RN-009555 does not have a record in the s0571_rel system. No details are available regarding the content or scope of this notice.
+  evaluator: PASS - The answer matches the reference facts for RN-009555.
+
+[v06] Which lot of notice RN-004803 has the most units?
+  attempt 1: The lot with the most units in notice RN-004803 is LOT-765212 with 4376 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[v07] What is the source of notice RN-004866?
+  attempt 1: The source of notice RN-004866 is the CDC outbreak notice.
+  evaluator: PASS - The answer matches the reference facts for RN-004866.
+
+[v08] How many units are affected by notice RN-004881?
+  attempt 1: Notice RN-004881 affects 0 units. The record indicates that while there is a lot (LOT-563323) with 2774 units, no units are affected by this recall.
+  evaluator: PASS - The answer matches the reference facts for RN-004881.
+
+[v09] What is the difference between the lot total and the affected units of notice RN-004840?
+  loaded lessons: lesson_001
+  attempt 1: The lot total is 386 units. The affected units are 3,087. To find the difference, add lot units (386) and subtract the smaller from the larger: 3,087 - 386 = 2,701. The difference is 2,701 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[v10] What is the average number of units per lot for notice RN-004822?
+  loaded lessons: lesson_002
+  attempt 1: For notice RN-004822, the total units are 3959 + 3324 + 3269 + 1116 = 11668 units across 4 lots. The average per lot is 11668 ÷ 4 = 2917 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004822.
+
+[v11] On average, how many units are in each lot of notice RN-004830?
+  loaded lessons: lesson_002
+  attempt 1: For notice RN-004830, the total units are 1953 + 591 = 2544. There are 2 lots. The average per lot is 2544 ÷ 2 = 1272 units per lot.
+  evaluator: PASS - The answer matches the reference facts for RN-004830.
+lesson_002: failures before ['v02'], after ['v02'], regressions [] -> kept

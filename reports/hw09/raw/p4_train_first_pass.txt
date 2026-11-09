@@ -1,0 +1,32 @@
+
+[t01] What is the total number of units across all lots of notice RN-004803?
+  attempt 1: The total number of units across all lots for notice RN-004803 is 7,105 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004803.
+
+[t02] Which supplier issued notice RN-004840 and in which region is it?
+  attempt 1: The supplier for notice RN-004840 is Green Valley Farms, located in California.
+  evaluator: PASS - The answer matches the reference facts for RN-004840.
+
+[t03] What can you tell me about recall notice RN-009120?
+  attempt 1: There is no record found for recall notice RN-009120 in the s0571_rel system. Please verify the notice number or check if additional details are available.
+  evaluator: PASS - The answer matches the reference facts for RN-009120.
+
+[t04] Add up the units in every lot of notice RN-004826. What is the total?
+  attempt 1: The total units for notice RN-004826 are 3155 + 1524 = 4679 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004826.
+
+[t05] Which lot of notice RN-004850 has the most units?
+  attempt 1: The lot with the most units in notice RN-004850 is LOT-611423 with 4677 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004850.
+
+[t06] Give me the product and supplier for notice RN-009377.
+  attempt 1: There is no record found for notice RN-009377 in the provided system. Please verify the notice number or check for any other available records.
+  evaluator: PASS - The answer matches the reference facts for RN-009377.
+
+[t07] How many units are affected by notice RN-004855?
+  attempt 1: Notice RN-004855 affects 3641 units of Frozen mixed berries 5 oz. The affected units are split between two lots: LOT-107807 with 2785 units.
+  evaluator: PASS - The answer matches the reference facts for RN-004855.
+
+[t08] What is the combined unit count of the lots under RN-004877?
+  attempt 1: The combined unit count of the lots under RN-004877 is 6031 units (3024 + 3007).
+  evaluator: PASS - The answer matches the reference facts for RN-004877.

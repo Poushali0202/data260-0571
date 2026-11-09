@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+RN-004870 affected_units in s0571_rel = 0
+05:55:26.237 [CACHE] HIT similarity=1.0 cached_query='How many units are affected by recall notice RN-004870?'
+
+1. Ask once so the answer is in the cache
+  is_cached=True similarity=1.0 latency=140.0 ms
+  answer: The recall notice RN-004870 states that a total of 18,102 units of product Canned baby spinach 1 gallon are affected. The affected units are distributed across several lots: LOT-537814 (2,565 units), LOT-588621 (1,601 units), LOT-580942 (3,566 units), LOT-169643 (4,455 units), and LOT-983748 (3,715 units). The total number of affected units is 18,102.
+
+2. Updated RN-004870: affected_units in s0571_rel is now 500
+05:55:26.351 [CACHE] HIT similarity=1.0 cached_query='How many units are affected by recall notice RN-004870?'
+
+3. Same question with the version check turned off (stale hit)
+  is_cached=True similarity=1.0 latency=14.8 ms
+  answer: The recall notice RN-004870 states that a total of 18,102 units of product Canned baby spinach 1 gallon are affected. The affected units are distributed across several lots: LOT-537814 (2,565 units), LOT-588621 (1,601 units), LOT-580942 (3,566 units), LOT-169643 (4,455 units), and LOT-983748 (3,715 units). The total number of affected units is 18,102.
+05:55:26.374 [CACHE] STALE similarity=1.0 data version changed, deleting s0571:answer:c53dbe2aed92
+05:55:26.384 [CACHE] MISS best similarity=1.0, running the HW8 agent pipeline
+05:55:26.424 [YOU] sent question to s0571_inbox offset=56 correlation_id=206a4559-b609-4333-bc9a-fb2f9f9238f4
+05:55:26.424 [YOU] waiting for the answer on s0571_final
+05:57:13.358 [YOU] received from s0571_final offset=59 correlation_id=206a4559-b609-4333-bc9a-fb2f9f9238f4
+
+4. Same question with the version check on (marker differs, entry deleted, agent rerun)
+  is_cached=False similarity=1.0 latency=107020.1 ms
+  answer: The recall notice RN-004870 affects a total of 16,902 units. The affected product is canned baby spinach 1 gallon, with the following lot quantities: LOT-537814 (2565 units), LOT-588621 (1601 units), LOT-580942 (3566 units), LOT-169643 (4455 units), and LOT-983748 (3715 units). The total units affected are 16,902.
+05:57:13.405 [CACHE] HIT similarity=1.0 cached_query='How many units are affected by recall notice RN-004870?'
+
+5. Same question again (fresh answer now served from the cache)
+  is_cached=True similarity=1.0 latency=30.4 ms
+  answer: The recall notice RN-004870 affects a total of 16,902 units. The affected product is canned baby spinach 1 gallon, with the following lot quantities: LOT-537814 (2565 units), LOT-588621 (1601 units), LOT-580942 (3566 units), LOT-169643 (4455 units), and LOT-983748 (3715 units). The total units affected are 16,902.
