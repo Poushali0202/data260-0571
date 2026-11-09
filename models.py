@@ -27,6 +27,7 @@ class GroceryNotice(Base):
     noticeCode = Column("notice_code", String(20), nullable=False, unique=True)
     noticeSource = Column("notice_source", String(200), nullable=False)
     affectedUnits = Column("affected_units", Integer, nullable=False, default=0, server_default="0")
+    viewCount = Column("view_count", Integer, nullable=False, default=0, server_default="0")
     supplierId = Column("supplier_id", Integer, ForeignKey("suppliers.id", ondelete="RESTRICT"), nullable=False)
     createdAt = Column("created_at", DateTime, nullable=False, default=datetime.now)
     updatedAt = Column("updated_at", DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)

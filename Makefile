@@ -35,3 +35,6 @@ kafka-topics:
 
 verify-hw08:
 	python verify_hw08.py
+
+verify-hw09:
+	python verify_hw09.py

@@ -37,7 +37,7 @@ async def main():
                 f"question={short(question['question'])}",
             )
             plan = await asyncio.to_thread(make_plan, question["question"])
-            task = {"correlation_id": correlation_id, "question": question["question"], "plan": plan}
+            task = {**question, "plan": plan}
             sent = await producer.send_and_wait(TASKS, encode(task))
             log(
                 "PLANNER",

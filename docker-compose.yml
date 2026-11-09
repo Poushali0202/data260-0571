@@ -28,6 +28,12 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
 
+  redis:
+    image: redis/redis-stack:7.4.0-v0
+    container_name: s0571-redis
+    ports:
+      - "6379:6379"
+
   notice-worker:
     build: ./notice_service
     container_name: s0571-notice-worker

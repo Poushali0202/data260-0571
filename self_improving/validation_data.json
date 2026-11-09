@@ -1,0 +1,13 @@
+[
+  {"id": "v01", "question": "What is the total number of units across all lots of notice RN-004830?"},
+  {"id": "v02", "question": "How many units are affected by notice RN-004835?"},
+  {"id": "v03", "question": "Which supplier is behind notice RN-004845?"},
+  {"id": "v04", "question": "How many units are affected by notice RN-004890?"},
+  {"id": "v05", "question": "What does notice RN-009555 cover?"},
+  {"id": "v06", "question": "Which lot of notice RN-004803 has the most units?"},
+  {"id": "v07", "question": "What is the source of notice RN-004866?"},
+  {"id": "v08", "question": "How many units are affected by notice RN-004881?"},
+  {"id": "v09", "question": "What is the difference between the lot total and the affected units of notice RN-004840?"},
+  {"id": "v10", "question": "What is the average number of units per lot for notice RN-004822?"},
+  {"id": "v11", "question": "On average, how many units are in each lot of notice RN-004830?"}
+]

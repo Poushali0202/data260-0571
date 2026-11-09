@@ -1,0 +1,17 @@
+[
+  {"id": "t01", "question": "What is the total number of units across all lots of notice RN-004803?"},
+  {"id": "t02", "question": "Which supplier issued notice RN-004840 and in which region is it?"},
+  {"id": "t03", "question": "What can you tell me about recall notice RN-009120?"},
+  {"id": "t04", "question": "How many units are affected by notice RN-004826?"},
+  {"id": "t05", "question": "Which lot of notice RN-004850 has the most units?"},
+  {"id": "t06", "question": "Give me the product and supplier for notice RN-009377."},
+  {"id": "t07", "question": "How many units are affected by notice RN-004877?"},
+  {"id": "t08", "question": "What is the combined unit count of the lots under RN-004822?"},
+  {"id": "t09", "question": "How many units are affected by notice RN-004860?"},
+  {"id": "t10", "question": "What is the total number of units across all lots of notice RN-004870?"},
+  {"id": "t11", "question": "What is the difference between the lot total and the affected units of notice RN-004850?"},
+  {"id": "t12", "question": "What is the average number of units per lot for notice RN-004870?"},
+  {"id": "t13", "question": "What is the difference between the lot total and the affected units of notice RN-004855?"},
+  {"id": "t14", "question": "What is the average number of units per lot for notice RN-004815?"},
+  {"id": "t15", "question": "On average, how many units are in each lot of notice RN-004805?"}
+]

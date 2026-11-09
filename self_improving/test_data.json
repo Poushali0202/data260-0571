@@ -1,0 +1,10 @@
+[
+  {"id": "x01", "question": "What is the total number of units across all lots of notice RN-004805?"},
+  {"id": "x02", "question": "Add up the lot units for notice RN-004850."},
+  {"id": "x03", "question": "Which supplier issued notice RN-004881 and where is it located?"},
+  {"id": "x04", "question": "How many units are affected by notice RN-004840?"},
+  {"id": "x05", "question": "Tell me about recall notice RN-009804."},
+  {"id": "x06", "question": "How many units are affected by notice RN-004810?"},
+  {"id": "x07", "question": "Which lot of notice RN-004877 has the most units?"},
+  {"id": "x08", "question": "Who is the supplier for RN-009231 and how many units are affected?"}
+]

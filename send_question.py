@@ -12,8 +12,7 @@ DEFAULT_QUESTION = (
 )
 
 
-async def main():
-    question = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_QUESTION
+async def ask_pipeline(question, facts=""):
     correlation_id = str(uuid.uuid4())
 
     consumer = AIOKafkaConsumer(bootstrap_servers=BOOTSTRAP)
@@ -25,7 +24,7 @@ async def main():
     await consumer.seek_to_end(final_partition)
 
     try:
-        message = {"correlation_id": correlation_id, "question": question}
+        message = {"correlation_id": correlation_id, "question": question, "facts": facts}
         sent = await producer.send_and_wait(INBOX, encode(message))
         log("YOU", f"sent question to {INBOX} offset={sent.offset} correlation_id={correlation_id}")
         log("YOU", f"waiting for the answer on {FINAL}")
@@ -33,12 +32,12 @@ async def main():
             final = json.loads(msg.value)
             if final.get("correlation_id") == correlation_id:
                 log("YOU", f"received from {FINAL} offset={msg.offset} correlation_id={correlation_id}")
-                print(json.dumps(final, indent=2))
-                break
+                return final
     finally:
         await consumer.stop()
         await producer.stop()
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    question = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_QUESTION
+    print(json.dumps(asyncio.run(ask_pipeline(question)), indent=2))

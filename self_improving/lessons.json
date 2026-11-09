@@ -1,0 +1,26 @@
+[
+  {
+    "lesson_id": "lesson_001",
+    "failure_pattern": "The answer gets the difference between the lot total and the affected units wrong.",
+    "correction": "For a difference, first add all lot units and write the total, then subtract the smaller number from the larger one and show the subtraction.",
+    "created_at": "2026-11-09",
+    "use_count": 1,
+    "failure_type": "lot_gap",
+    "keywords": [
+      "difference"
+    ],
+    "status": "kept"
+  },
+  {
+    "lesson_id": "lesson_002",
+    "failure_pattern": "The answer gets the average units per lot wrong.",
+    "correction": "For an average per lot, write each lot's units, add them, count the lots, then divide the total by the count and show each step.",
+    "created_at": "2026-11-09",
+    "use_count": 2,
+    "failure_type": "lot_average",
+    "keywords": [
+      "average"
+    ],
+    "status": "kept"
+  }
+]

@@ -39,10 +39,10 @@ def write_draft(raw):
     task = json.loads(raw)
     if not task.get("question") or not task.get("plan"):
         raise ValueError("task is missing question or plan")
-    messages = [
-        {"role": "system", "content": SYSTEM},
-        {"role": "user", "content": f"Question: {task['question']}\n\nPlan:\n{task['plan']}"},
-    ]
+    content = f"Question: {task['question']}\n\nPlan:\n{task['plan']}"
+    if task.get("facts"):
+        content += f"\n\nNotice records from the database (use these exact values):\n{task['facts']}"
+    messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": content}]
     return task, llm.complete(messages).text
 
 

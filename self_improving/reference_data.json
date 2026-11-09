@@ -1,0 +1,481 @@
+{
+  "notices": {
+    "RN-004803": {
+      "product": "Store brand tahini 5 oz",
+      "source": "USDA FSIS notice",
+      "affected_units": 0,
+      "supplier": "Summit Frozen Foods",
+      "region": "Colorado",
+      "lots": {
+        "LOT-765212": 4376,
+        "LOT-845421": 676,
+        "LOT-535098": 2053
+      },
+      "lot_total": 7105,
+      "lot_gap": 7105,
+      "lot_average": 2368,
+      "largest_lot": "LOT-765212"
+    },
+    "RN-004840": {
+      "product": "Store brand whole milk 12 oz",
+      "source": "State health department",
+      "affected_units": 3087,
+      "supplier": "Green Valley Farms",
+      "region": "California",
+      "lots": {
+        "LOT-379528": 386
+      },
+      "lot_total": 386,
+      "lot_gap": 2701,
+      "lot_average": 386,
+      "largest_lot": "LOT-379528"
+    },
+    "RN-004826": {
+      "product": "Family size romaine lettuce 8 oz",
+      "source": "State health department",
+      "affected_units": 0,
+      "supplier": "Maple Leaf Foods",
+      "region": "Ontario",
+      "lots": {
+        "LOT-328780": 3155,
+        "LOT-889782": 1524
+      },
+      "lot_total": 4679,
+      "lot_gap": 4679,
+      "lot_average": 2339,
+      "largest_lot": "LOT-328780"
+    },
+    "RN-004850": {
+      "product": "Organic cheddar cheese 12 oz",
+      "source": "Consumer complaint",
+      "affected_units": 4969,
+      "supplier": "Northern Meats",
+      "region": "Minnesota",
+      "lots": {
+        "LOT-862084": 1268,
+        "LOT-324653": 2777,
+        "LOT-611423": 4677
+      },
+      "lot_total": 8722,
+      "lot_gap": 3753,
+      "lot_average": 2907,
+      "largest_lot": "LOT-611423"
+    },
+    "RN-004877": {
+      "product": "Family size smoked salmon 2 lb",
+      "source": "USDA FSIS notice",
+      "affected_units": 0,
+      "supplier": "Dairy Fresh Co-op",
+      "region": "Wisconsin",
+      "lots": {
+        "LOT-101316": 3024,
+        "LOT-909503": 3007
+      },
+      "lot_total": 6031,
+      "lot_gap": 6031,
+      "lot_average": 3015,
+      "largest_lot": "LOT-101316"
+    },
+    "RN-004822": {
+      "product": "Store brand tahini 2 lb",
+      "source": "Consumer complaint",
+      "affected_units": 0,
+      "supplier": "Natural Selection Foods",
+      "region": "California",
+      "lots": {
+        "LOT-944961": 3959,
+        "LOT-594001": 3324,
+        "LOT-878741": 3269,
+        "LOT-409895": 1116
+      },
+      "lot_total": 11668,
+      "lot_gap": 11668,
+      "lot_average": 2917,
+      "largest_lot": "LOT-944961"
+    },
+    "RN-004860": {
+      "product": "Bagged shredded coconut family pack",
+      "source": "USDA FSIS notice",
+      "affected_units": 0,
+      "supplier": "Mission Organics",
+      "region": "Texas",
+      "lots": {
+        "LOT-697582": 994,
+        "LOT-819053": 1837
+      },
+      "lot_total": 2831,
+      "lot_gap": 2831,
+      "lot_average": 1415,
+      "largest_lot": "LOT-819053"
+    },
+    "RN-004870": {
+      "product": "Canned baby spinach 1 gallon",
+      "source": "Supplier press release",
+      "affected_units": 0,
+      "supplier": "Natural Selection Foods",
+      "region": "California",
+      "lots": {
+        "LOT-537814": 2565,
+        "LOT-588621": 1601,
+        "LOT-580942": 3566,
+        "LOT-169643": 4455,
+        "LOT-983748": 3715
+      },
+      "lot_total": 15902,
+      "lot_gap": 15902,
+      "lot_average": 3180,
+      "largest_lot": "LOT-169643"
+    },
+    "RN-004855": {
+      "product": "Frozen mixed berries 5 oz",
+      "source": "FDA recall bulletin",
+      "affected_units": 3641,
+      "supplier": "Mission Organics",
+      "region": "Texas",
+      "lots": {
+        "LOT-107807": 2785
+      },
+      "lot_total": 2785,
+      "lot_gap": 856,
+      "lot_average": 2785,
+      "largest_lot": "LOT-107807"
+    },
+    "RN-004815": {
+      "product": "Family size tahini 8 oz",
+      "source": "Supplier press release",
+      "affected_units": 0,
+      "supplier": "Evergreen Market",
+      "region": "Washington",
+      "lots": {
+        "LOT-681942": 4814,
+        "LOT-289546": 1688,
+        "LOT-436350": 1464
+      },
+      "lot_total": 7966,
+      "lot_gap": 7966,
+      "lot_average": 2655,
+      "largest_lot": "LOT-681942"
+    },
+    "RN-004805": {
+      "product": "Canned baby spinach 1 lb",
+      "source": "Retailer recall page",
+      "affected_units": 0,
+      "supplier": "Evergreen Market",
+      "region": "Washington",
+      "lots": {
+        "LOT-359266": 4562,
+        "LOT-856660": 2930,
+        "LOT-816142": 3193,
+        "LOT-214301": 2959
+      },
+      "lot_total": 13644,
+      "lot_gap": 13644,
+      "lot_average": 3411,
+      "largest_lot": "LOT-359266"
+    },
+    "RN-004830": {
+      "product": "Canned chicken thighs 8 oz",
+      "source": "USDA FSIS notice",
+      "affected_units": 0,
+      "supplier": "Prairie Grain Mills",
+      "region": "Kansas",
+      "lots": {
+        "LOT-983504": 1953,
+        "LOT-401944": 591
+      },
+      "lot_total": 2544,
+      "lot_gap": 2544,
+      "lot_average": 1272,
+      "largest_lot": "LOT-983504"
+    },
+    "RN-004835": {
+      "product": "Store brand mixed berries 8 oz",
+      "source": "State health department",
+      "affected_units": 0,
+      "supplier": "Coastal Distributors",
+      "region": "Florida",
+      "lots": {
+        "LOT-954514": 4791,
+        "LOT-203377": 825
+      },
+      "lot_total": 5616,
+      "lot_gap": 5616,
+      "lot_average": 2808,
+      "largest_lot": "LOT-954514"
+    },
+    "RN-004845": {
+      "product": "Frozen peanut butter 8 oz",
+      "source": "State health department",
+      "affected_units": 171,
+      "supplier": "Green Valley Farms",
+      "region": "California",
+      "lots": {},
+      "lot_total": 0,
+      "lot_gap": 171,
+      "lot_average": null,
+      "largest_lot": null
+    },
+    "RN-004890": {
+      "product": "Fresh tahini 12 oz",
+      "source": "USDA FSIS notice",
+      "affected_units": 1128,
+      "supplier": "Summit Frozen Foods",
+      "region": "Colorado",
+      "lots": {},
+      "lot_total": 0,
+      "lot_gap": 1128,
+      "lot_average": null,
+      "largest_lot": null
+    },
+    "RN-004866": {
+      "product": "Organic chicken thighs 1 lb",
+      "source": "CDC outbreak notice",
+      "affected_units": 0,
+      "supplier": "Blue Ridge Creamery",
+      "region": "Virginia",
+      "lots": {
+        "LOT-828301": 1348
+      },
+      "lot_total": 1348,
+      "lot_gap": 1348,
+      "lot_average": 1348,
+      "largest_lot": "LOT-828301"
+    },
+    "RN-004881": {
+      "product": "Family size mixed berries 12 oz",
+      "source": "CFIA advisory",
+      "affected_units": 0,
+      "supplier": "Green Valley Farms",
+      "region": "California",
+      "lots": {
+        "LOT-563323": 2774
+      },
+      "lot_total": 2774,
+      "lot_gap": 2774,
+      "lot_average": 2774,
+      "largest_lot": "LOT-563323"
+    },
+    "RN-004810": {
+      "product": "Bagged chicken thighs family pack",
+      "source": "CFIA advisory",
+      "affected_units": 0,
+      "supplier": "Northern Meats",
+      "region": "Minnesota",
+      "lots": {
+        "LOT-405824": 1323
+      },
+      "lot_total": 1323,
+      "lot_gap": 1323,
+      "lot_average": 1323,
+      "largest_lot": "LOT-405824"
+    }
+  },
+  "questions": {
+    "t01": {
+      "notice": "RN-004803",
+      "check": [
+        "lot_total"
+      ]
+    },
+    "t02": {
+      "notice": "RN-004840",
+      "check": [
+        "supplier",
+        "region"
+      ]
+    },
+    "t03": {
+      "notice": "RN-009120",
+      "check": [
+        "no_record"
+      ]
+    },
+    "t04": {
+      "notice": "RN-004826",
+      "check": [
+        "affected_units"
+      ]
+    },
+    "t05": {
+      "notice": "RN-004850",
+      "check": [
+        "largest_lot"
+      ]
+    },
+    "t06": {
+      "notice": "RN-009377",
+      "check": [
+        "no_record"
+      ]
+    },
+    "t07": {
+      "notice": "RN-004877",
+      "check": [
+        "affected_units"
+      ]
+    },
+    "t08": {
+      "notice": "RN-004822",
+      "check": [
+        "lot_total"
+      ]
+    },
+    "t09": {
+      "notice": "RN-004860",
+      "check": [
+        "affected_units"
+      ]
+    },
+    "t10": {
+      "notice": "RN-004870",
+      "check": [
+        "lot_total"
+      ]
+    },
+    "t11": {
+      "notice": "RN-004850",
+      "check": [
+        "lot_gap"
+      ]
+    },
+    "t12": {
+      "notice": "RN-004870",
+      "check": [
+        "lot_average"
+      ]
+    },
+    "t13": {
+      "notice": "RN-004855",
+      "check": [
+        "lot_gap"
+      ]
+    },
+    "t14": {
+      "notice": "RN-004815",
+      "check": [
+        "lot_average"
+      ]
+    },
+    "t15": {
+      "notice": "RN-004805",
+      "check": [
+        "lot_average"
+      ]
+    },
+    "v01": {
+      "notice": "RN-004830",
+      "check": [
+        "lot_total"
+      ]
+    },
+    "v02": {
+      "notice": "RN-004835",
+      "check": [
+        "affected_units"
+      ]
+    },
+    "v03": {
+      "notice": "RN-004845",
+      "check": [
+        "supplier"
+      ]
+    },
+    "v04": {
+      "notice": "RN-004890",
+      "check": [
+        "affected_units"
+      ]
+    },
+    "v05": {
+      "notice": "RN-009555",
+      "check": [
+        "no_record"
+      ]
+    },
+    "v06": {
+      "notice": "RN-004803",
+      "check": [
+        "largest_lot"
+      ]
+    },
+    "v07": {
+      "notice": "RN-004866",
+      "check": [
+        "source"
+      ]
+    },
+    "v08": {
+      "notice": "RN-004881",
+      "check": [
+        "affected_units"
+      ]
+    },
+    "v09": {
+      "notice": "RN-004840",
+      "check": [
+        "lot_gap"
+      ]
+    },
+    "v10": {
+      "notice": "RN-004822",
+      "check": [
+        "lot_average"
+      ]
+    },
+    "v11": {
+      "notice": "RN-004830",
+      "check": [
+        "lot_average"
+      ]
+    },
+    "x01": {
+      "notice": "RN-004805",
+      "check": [
+        "lot_total"
+      ]
+    },
+    "x02": {
+      "notice": "RN-004850",
+      "check": [
+        "lot_total"
+      ]
+    },
+    "x03": {
+      "notice": "RN-004881",
+      "check": [
+        "supplier",
+        "region"
+      ]
+    },
+    "x04": {
+      "notice": "RN-004840",
+      "check": [
+        "affected_units"
+      ]
+    },
+    "x05": {
+      "notice": "RN-009804",
+      "check": [
+        "no_record"
+      ]
+    },
+    "x06": {
+      "notice": "RN-004810",
+      "check": [
+        "affected_units"
+      ]
+    },
+    "x07": {
+      "notice": "RN-004877",
+      "check": [
+        "largest_lot"
+      ]
+    },
+    "x08": {
+      "notice": "RN-009231",
+      "check": [
+        "no_record"
+      ]
+    }
+  }
+}

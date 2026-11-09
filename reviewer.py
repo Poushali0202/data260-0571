@@ -21,6 +21,8 @@ llm = ModelClient(num_predict=120)
 
 def review(draft):
     content = f"Question: {draft['question']}\n\nPlan:\n{draft['plan']}\n\nDraft:\n{draft['draft']}"
+    if draft.get("facts"):
+        content += f"\n\nNotice records from the database:\n{draft['facts']}"
     messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": content}]
     return json.loads(llm.complete(messages, response_format=REVIEW_FORMAT).text)
 
